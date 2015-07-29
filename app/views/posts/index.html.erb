@@ -1,0 +1,20 @@
+<h2>Welcome to Scribbler</h2>
+
+<% @posts.each do |post| %>
+<ul>
+  <li>
+    <p><%= post.title %></p>
+  </li>
+  <li>
+    <a href='/posts/<%= post.id %>'>
+      <%= post.author %>
+    </a>
+  </li>
+  <li>
+    <p><%= post.article %></p>
+  </li>
+  <li>
+    <p>Date Created <%= post.created_at %></p>
+  </li>
+</ul>
+  <% end %>
