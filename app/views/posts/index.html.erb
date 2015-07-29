@@ -1,0 +1,8 @@
+<h1>Welcome to the Blog</h1>
+  <% @posts.each do |post| %>
+    <h3> <%= link_to post.title, post %></h3>
+    <h4><%= post.author %></h4>
+    <div class="posts">
+      <%= post.text %>
+    </div>
+    <% end %>
