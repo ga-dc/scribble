@@ -16,16 +16,16 @@ class CommentsController < ApplicationController
   #save comment
   def create
     @post = Post.find(params[:post_id])
-    @comment = Post.comments.create(comment_params)
+    @comment = Comment.create!(comment_params.merge(post: @post))
 
-    redirect_to post_comments_path(@post, @comment)
+    redirect_to post_path(@post)
   end
 
   #mostly just a way to the edit function--
   #maybe you can incorporate a modal here?
   def show
     @post = Post.find(params[:post_id])
-    @comment = Post.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   #edit existing comment. Can editing be done in a modal
@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
 
-    redirect_to post_comments_patj( @post )
+    redirect_to post_path( @post )
   end
 
   private

@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create #save blog post
     @post = Post.create!(post_params)
+
     redirect_to post_path(@post)
   end
 
