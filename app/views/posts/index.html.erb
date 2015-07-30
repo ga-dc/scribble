@@ -1,8 +1,10 @@
-<h1>Welcome to the Blog</h1>
+<h1>Welcome to the Blog <%= link_to "(+)", new_post_path, id: 'add' %></h1>
+
   <% @posts.each do |post| %>
-    <h3> <%= link_to post.title, post %></h3>
-    <h4><%= post.author %></h4>
+
     <div class="posts">
+      <h3> <%= link_to post.title, post %></h3>
+      <h4>By <%= post.author %> on <%= post.created_at.strftime("%m/%d/%Y") %></h4>
       <%= post.text %>
     </div>
-    <% end %>
+  <% end %>
