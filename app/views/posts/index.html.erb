@@ -6,9 +6,7 @@
     <p><%= post.title %></p>
   </li>
   <li>
-    <a href='/posts/<%= post.id %>'>
-      <%= post.author %>
-    </a>
+    <%= link_to post.author , post_path(post) %>
   </li>
   <li>
     <p><%= post.article %></p>
@@ -18,3 +16,5 @@
   </li>
 </ul>
   <% end %>
+
+  <%= link_to "Create New Post" , new_post_path(@post) %>

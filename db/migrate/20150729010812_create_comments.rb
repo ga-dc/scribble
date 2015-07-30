@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :author
       t.text :comment
       t.references :post, index: true, foreign_key: true
-      t.datetime :created_at
+      t.timestamp :created_at
     end
   end
 end

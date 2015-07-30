@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-
     def index
       @posts = Post.all
     end
@@ -11,12 +10,8 @@ class PostsController < ApplicationController
       @post = Post.new
     end
     def create
-      @post = Post.new(post_params)
-      if @post.save
-        redirect_to "/posts/#{@post.id}"
-      else
-        redirect_to "/posts/new"
-      end
+      @post = Post.create!(post_params) # do I need the ! if am using strong params?
+      redirect_to post_path(@post)
     end
     def edit
       @post = Post.find(params[:id])
@@ -24,19 +19,15 @@ class PostsController < ApplicationController
     def update
       @post = Post.find(params[:id])
       @post.update(post_params)
-      redirect_to "/posts/#{@post.id}"
+      redirect_to post_path(@post)
     end
     def destroy
       @post = Post.find(params[:id])
       @post.destroy
-      redirect_to "/"
+      redirect_to "/" # may need to change this up
     end
     private
     def post_params
           params.require(:post).permit(:author, :title, :article)
     end
-
-
-
-
 end
