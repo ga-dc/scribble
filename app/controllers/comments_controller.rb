@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
   def show
-      @comment = Comment.find(params[:id])
+      @post = Post.find(params[:id])
+      @comment = @post.comments.all
   end
   def new
     @comment = Comment.new
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
     end
   end
   def edit
-      @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
   def update
     @comment = Comment.find(params[:id])

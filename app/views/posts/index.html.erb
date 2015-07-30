@@ -6,15 +6,19 @@
     <p><%= post.title %></p>
   </li>
   <li>
-    <%= link_to post.author , post_path(post) %>
+    <%= link_to "Written by #{post.author}" , post_path(post) %>
   </li>
   <li>
     <p><%= post.article %></p>
   </li>
   <li>
-    <p>Date Created <%= post.created_at %></p>
+    <p>Created at <%= time_ago_in_words post.created_at %></p>
   </li>
 </ul>
   <% end %>
 
+
   <%= link_to "Create New Post" , new_post_path(@post) %>
+
+
+<!-- time_ago_in_words(DTime) -->
