@@ -1,4 +1,4 @@
-<%= form_for @post do |f| %>
+<%= form_for @post, html: {class: "new-post"} do |f| %>
   <%= f.label :author %>
   <%= f.text_field :author %>
   <%= f.label :title %>

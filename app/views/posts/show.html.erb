@@ -1,6 +1,6 @@
 <h1><%= @post.title %> </h1>
-<div class="posts">
 
+<div class="posts">
   <h3><%= @post.author %></h3>
   <%= @post.text %>
   <%= link_to "Edit", edit_post_path %>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="comment-container">
-<h4>Comments</h4>
-  <%= render partial: "/comments/index" %>
-  <%= render partial: "/comments/form" %>
+  <h4>Comments</h4>
+    <%= render partial: "/comments/index" %>
+    <%= render partial: "/comments/form" %>
 </div>

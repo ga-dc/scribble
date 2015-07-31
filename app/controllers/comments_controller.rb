@@ -4,9 +4,6 @@ class CommentsController < ApplicationController
   def index
   end
 
-  def new
-  end
-
   def create
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)

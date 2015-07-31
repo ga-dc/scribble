@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :get_post, only: [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
   end
   def show
+    @comment = Comment.new
     @comments = @post.comments
   end
 
@@ -12,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
+    @user = User.find(session[:user]["id"])
+    @post = @user.posts.create!(post_params)
     redirect_to post_path(@post)
   end
 

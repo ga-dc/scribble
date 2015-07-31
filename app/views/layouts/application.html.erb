@@ -7,10 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h2><%= flash[:notice] %></h2>
 <%= yield %>
 <nav>
-  <%= link_to "Home", posts_path %>
+  <% if session[:user] %>
+    <%= link_to "Home", posts_path %>
+    <%= link_to 'Sign Out', "/sign_out" %>
+  <% else %>
+    <%= link_to "Home", posts_path %>
+    <%= link_to 'Sign In', "/sign_in" %>
+    <%= link_to 'Sign Up', "/sign_up" %>
+  <% end %>
 </nav>
 </body>
 </html>
