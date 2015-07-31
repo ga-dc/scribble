@@ -5,12 +5,14 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
     @post = Post.new( post_params )
-    @post.update( date_posted: Time.now.strftime("%B %d, %Y") )
-    redirect_to("/posts/#{@post.id}")
+    @post.update( date_posted: Time.now.strftime("%b %e %Y, %l:%M%P") )
+
+    redirect_to @post
   end
 
   def edit
@@ -20,7 +22,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find( params[:id] )
     @post.update( post_params )
-    redirect_to("/posts/#{@post.id}")
+
+    redirect_to @post
   end
 
   def show
@@ -30,7 +33,8 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find( params[:id] )
     @post.destroy
-    redirect_to("/")
+
+    redirect_to posts_path
   end
 
 # workaround to be able to post new post

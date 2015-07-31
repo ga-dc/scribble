@@ -8,12 +8,12 @@
 </head>
 <body>
 <header>
-  <h1>Little Ditties by Sinatra</h1>
-  <h2>a rolling anthology</h2>
+  <h1>Frank Sinatra's Ditties</h1>
+  <h2>timeless hits from the Chairman of the Board</h2>
 </header>
 <nav>
-  <a href="/">Home</a>
-  <a href="/posts/new">New Ditty</a>
+  <%= link_to "Home", posts_path %>
+  <%= link_to "New Ditty", new_post_path %>
 </nav>
 
 <%= yield %>

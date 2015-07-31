@@ -9,18 +9,19 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new( comment_params )
-    @comment.update( timestamp: Time.now.strftime("%B %d, %Y") )
-    redirect_to("/comments/#{@post.id}")
+    @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
+    redirect_to @comment
   end
 
   def edit
-    @post = Comment.find( params[:id] )
+    @comment = Comment.find( params[:id] )
   end
 
   def update
     @comment = Comment.find( params[:id] )
     @comment.update( post_params )
-    redirect_to("/comments/#{@comment.id}")
+    @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
+    redirect_to @comment
   end
 
   def show
@@ -28,9 +29,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @post = @comment.post
     @comment = Comment.find( params[:id] )
     @comment.destroy
-    redirect_to("/")
+    redirect_to @post
   end
 
   private

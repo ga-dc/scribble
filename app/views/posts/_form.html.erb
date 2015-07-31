@@ -1,0 +1,22 @@
+<%= form_for(@post) do |f| %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :summary %>
+  <%= f.text_field :summary %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.label :video_url, "Video URL" %>
+  <%= f.text_field :video_url %>
+
+  <%= f.label :topic %>
+  <%= f.text_field :topic %>
+
+  <%= f.submit "Take The Stage!" %>
+<% end %>

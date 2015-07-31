@@ -1,0 +1,13 @@
+<%= form_for(@comment) do |f| %>
+
+  <%= f.label :user %>
+  <%= f.text_field :user %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_area (:body, format: html %>
+
+  <%= f.submit "Chime In!" %>
+<% end %>
