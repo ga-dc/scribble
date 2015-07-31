@@ -9,9 +9,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new( post_params )
+    @user = User.find(session[:user]["id"])
+    @post = @user.posts.create!( post_params )
     @post.update( date_posted: Time.now.strftime("%b %e %Y, %l:%M%P") )
-    redirect_to @post
+    redirect_to (post_path(@post))
   end
 
   def show

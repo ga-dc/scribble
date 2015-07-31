@@ -14,8 +14,14 @@
 <nav>
   <%= link_to "Home", posts_path %>
   <%= link_to "New Ditty", new_post_path %>
+  <% if session[:user] %>
+    <a href="/sign_out"><%= session[:user]["username"] %>: sign out</a></h2>
+  <% else %>
+    <a href="/sign_up">Sign up</a>
+    <a href="/sign_in">Sign in</a>
+  <% end %>
 </nav>
-
+<h2><%= flash[:notice] %></h2>
 <%= yield %>
 
 </body>

@@ -1,6 +1,6 @@
 <%= image_tag "http://static.deathandtaxesmag.com/uploads/2014/02/Screen-Shot-2014-02-19-at-8.33.46-PM-585x377.png", alt: "sinatra_pic", size: "600 x 500" %>
 
-<h2>Posts</h2>
+<h2>Ditties</h2>
 
 <% @posts.each do |post| %>
 
@@ -14,7 +14,7 @@
 
     <div class="content">
       <span class="summary"><%= post.summary %></span>
-      <%= link_to "Read Full Post...", post %>
+      <%= link_to "Go To Full Post...", post %>
     </div>
 
     <div class="tag">Filed under: <%= post.topic %></div>
