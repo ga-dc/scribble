@@ -17,12 +17,14 @@
   <%= link_to "Edit", edit_post_path %>
 </div>
 
-  <h3>Comments</h3>
+  <h3>Comments
+  <%= link_to "(Add New Comment)", new_post_comment_path(@post) %></h3>
+
   <ul>
     <% @post.comments.each do |comment| %>
       <!-- build the list element for each song -->
       <li>
-        <div><%= link_to "#{comment.title}", comment %></div>
+        <div><%= link_to "#{comment.title}", post_comment_path(@post, comment) %></div>
         <div><%= comment.body %></div>
       </li>
     <% end %>

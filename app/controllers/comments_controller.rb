@@ -2,35 +2,42 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all.order(:id).reverse
+    @post = @comment.post
   end
 
   def new
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new( comment_params )
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create( comment_params )
     @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
-    redirect_to @comment
-  end
-
-  def edit
-    @comment = Comment.find( params[:id] )
-  end
-
-  def update
-    @comment = Comment.find( params[:id] )
-    @comment.update( post_params )
-    @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
-    redirect_to @comment
+    redirect_to post_comment_path(@post, @comment)
   end
 
   def show
-    @comment = Comment.find( params[:id] )
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find( params[:id] )
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find( params[:id] )
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find( params[:id] )
+    @comment.update( comment_params )
+    @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
+    redirect_to post_comment_path(@post, @comment)
   end
 
   def destroy
-    @post = @comment.post
-    @comment = Comment.find( params[:id] )
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find( params[:id] )
     @comment.destroy
     redirect_to @post
   end

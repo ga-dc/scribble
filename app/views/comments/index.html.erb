@@ -1,12 +1,11 @@
 <h2>Comments
-<%= link_to "(+)", new_comment_path %>
+<%= link_to "(+)", new_post_comment_path(@post, @comment) %>
 </h2>
 <ul>
   <% @comments.each do |comment| %>
     <li>
-      <a href="/comments/<%= @comment.id %>"<%= @comment.title %> on <%= @post.title %></a>
-      <%= link_to "#{@comment.title} on #{@post.title}" %>
-      <div class="timestamp">Commented on <% @comment.timestamp %></div>
+      <%= link_to "#{comment.title} on #{@post.title}", post_comment_path(@post, comment) %>
+      <div class="timestamp">Commented on <% comment.timestamp %></div>
     </li>
   <% end %>
 </ul>

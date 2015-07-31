@@ -1,4 +1,4 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for([@post, @comment]) do |f| %>
 
   <%= f.label :user %>
   <%= f.text_field :user %>
@@ -7,7 +7,7 @@
   <%= f.text_field :title %>
 
   <%= f.label :body %>
-  <%= f.text_area (:body, format: html %>
+  <%= f.text_area :body %>
 
   <%= f.submit "Chime In!" %>
 <% end %>

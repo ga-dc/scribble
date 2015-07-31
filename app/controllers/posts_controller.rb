@@ -11,8 +11,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new( post_params )
     @post.update( date_posted: Time.now.strftime("%b %e %Y, %l:%M%P") )
-
     redirect_to @post
+  end
+
+  def show
+    @post = Post.find( params[:id] )
   end
 
   def edit
@@ -24,10 +27,6 @@ class PostsController < ApplicationController
     @post.update( post_params )
 
     redirect_to @post
-  end
-
-  def show
-    @post = Post.find( params[:id] )
   end
 
   def destroy
