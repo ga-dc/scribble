@@ -1,0 +1,7 @@
+<h2>edit post</h2>
+
+<%= render 'form' %>
+
+<%= link_to 'delete!', post_path(@post), method: :delete, class: 'delete' %>
+
+<h4><%= link_to "back", posts_path %></h4>
