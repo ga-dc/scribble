@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :summary
       t.string :body
+      t.string :video_url
       t.string :date_posted
       t.string :topic
     end

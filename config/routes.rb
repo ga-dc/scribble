@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 # post routes
 get "/" => "posts#index"
+
+get "/posts" => "posts#index"
 get "posts/new" => "posts#new"
 post "posts" => "posts#create"
 get "posts/:id/edit" => "posts#edit"

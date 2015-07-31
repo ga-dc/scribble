@@ -1,0 +1,17 @@
+<h2>Add a Comment</h2>
+<form action="/comments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>
+    <label for="user">User:</label>
+    <input id="user" name="comment[user]" type="text">
+  </p>
+  <p>
+    <label for="title">Title:</label>
+    <input id="title" name="post[title]" type="text">
+  </p>
+  <p>
+    <label for="body">Body:</label>
+    <input id="body" name="post[body]" type="text">
+  </p>
+  <button type="submit">Chime In!</button>
+</form>

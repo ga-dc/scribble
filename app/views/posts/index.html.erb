@@ -1,0 +1,26 @@
+<h2>Posts</h2>
+
+<% @posts.each do |post| %>
+
+  <div class="post">
+    <div class="post-header">
+      <span class="post-user">Posted by&nbsp;</span><%= post.author %></span>
+      <span><%= post.date_posted %></span>
+    </div>
+
+    <a href="/posts/<%= post.id %>">
+      <%= post.title %>
+    </a>
+
+    <div class="content">
+      <span class="summary"><%= post.summary %></span>
+      <a href="/posts/<%= post.id %>">Read Full Post...</a>
+    </div>
+
+    <div class="tag">Filed under: <%= post.topic %></div>
+
+    <div class="post-edit-delete">
+      <a href="/posts/<%= post.id %>/edit">Edit</a>
+    </div>
+  </div>
+<% end %>
