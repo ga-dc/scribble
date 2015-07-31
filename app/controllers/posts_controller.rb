@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-      @posts = Post.all.reverse
+      @posts = User.find(session[:user]["id"]).posts
     end
     def show
       @post = Post.find(params[:id])
@@ -13,7 +13,8 @@ class PostsController < ApplicationController
       @post = Post.new
     end
     def create
-      @post = Post.create!(post_params) # do I need the ! if am using strong params?
+      @user = User.find(session[:user]["id"])
+      @post = @user.posts.create!(post_params)
       redirect_to post_path(@post)
     end
     def edit
