@@ -1,0 +1,21 @@
+body {
+  background: #FDF3E7;
+  text-align: center;
+}
+h2 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 1.5em;
+}
+img {
+  width: 5em;
+  height: 5em;
+}
+ul {
+  margin: 0;
+}
+li {
+  list-style-type: none;
+  margin: 0;
+}

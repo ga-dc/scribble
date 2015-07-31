@@ -1,4 +1,15 @@
-<h2>All Comments</h2>
+<h2>Scribbler</h2><%= image_tag 'scribbler.jpg' %>
+<h3>All Comments</h3>
+
+<h3>Post Title: <%= @post.title %></h3>
+<p>Post Author: <%= @post.author %></p>
+
+<p>Article: <%= @post.article %></p>
+
+<p>Date Created <%= time_ago_in_words @post.created_at %></p>
+
+
+<p> Comments: </p>
 
 <% @comments.each do |comment| %>
 <ul>
@@ -6,13 +17,14 @@
     <p>Authored by <%= comment.author %></p>
   </li>
   <li>
-    <%= link_to comment.author, post_comments_path %>
-  </li>
-  <li>
     <p><%= comment.comment %></p>
   </li>
   <li>
-    <p>Date Created <%= time_ago_in_words comment.created_at %></p>
+    <p>Created <%= time_ago_in_words comment.created_at %> ago</p>
   </li>
 </ul>
   <% end %>
+
+
+<%= link_to "Home" , posts_path %>
+<%= link_to "Add a Comment" , new_post_comment_path(@post) %>
