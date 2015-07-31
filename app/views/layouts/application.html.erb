@@ -8,21 +8,22 @@
 </head>
 <body>
 <header>
-  <h1>Frank Sinatra's Ditties</h1>
+  <h1>FRANK SINATRA'S DITTIES</h1>
   <h2>timeless hits from the Chairman of the Board</h2>
+  <nav>
+    <%= link_to "Home", posts_path %>
+    <%= link_to "New Ditty", new_post_path %>
+    <% if session[:user] %>
+      <a href="/sign_out"><%= session[:user]["username"] %>: sign out</a></h2>
+    <% else %>
+      <a href="/sign_up">Sign up</a>
+      <a href="/sign_in">Sign in</a>
+    <% end %>
+  </nav>
 </header>
-<nav>
-  <%= link_to "Home", posts_path %>
-  <%= link_to "New Ditty", new_post_path %>
-  <% if session[:user] %>
-    <a href="/sign_out"><%= session[:user]["username"] %>: sign out</a></h2>
-  <% else %>
-    <a href="/sign_up">Sign up</a>
-    <a href="/sign_in">Sign in</a>
-  <% end %>
-</nav>
+<main>
 <h2><%= flash[:notice] %></h2>
 <%= yield %>
-
+</main>
 </body>
 </html>

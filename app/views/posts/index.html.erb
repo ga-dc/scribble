@@ -1,25 +1,21 @@
-<%= image_tag "http://static.deathandtaxesmag.com/uploads/2014/02/Screen-Shot-2014-02-19-at-8.33.46-PM-585x377.png", alt: "sinatra_pic", size: "600 x 500" %>
+<div class="pic"><%= image_tag "http://static.deathandtaxesmag.com/uploads/2014/02/Screen-Shot-2014-02-19-at-8.33.46-PM-585x377.png", alt: "sinatra_pic", size: "600 x 500" %></div>
 
 <h2>Ditties</h2>
 
+<div class="post">
 <% @posts.each do |post| %>
-
-  <div class="post">
-    <div class="post-header">
+    <div class="post-each">
+    <h4><%= link_to "#{post.title}", post %></h4>
       <span class="post-user">Posted by&nbsp;</span><%= post.author %></span>
       <span><%= post.date_posted %></span>
-    </div>
 
-    <h4><%= link_to "#{post.title}", post %></h4>
-
-    <div class="content">
       <span class="summary"><%= post.summary %></span>
       <%= link_to "Go To Full Post...", post %>
-    </div>
 
     <div class="tag">Filed under: <%= post.topic %></div>
 
     <div class="post-edit-delete">
       <%= link_to "Edit", edit_post_path(post) %></div>
-  </div>
+    </div>
 <% end %>
+</div>

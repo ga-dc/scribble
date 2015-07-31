@@ -1,22 +1,22 @@
 <%= form_for(@post) do |f| %>
 
   <%= f.label :author %>
-  <%= f.text_field :author %>
+  <%= f.text_field :author, placeholder: "Author" %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: "Title"  %>
 
   <%= f.label :summary %>
-  <%= f.text_field :summary %>
+  <%= f.text_field :summary, placeholder: "Summary"  %>
 
   <%= f.label :body %>
-  <%= f.text_area :body %>
-
+  <%= f.text_area :body , placeholder: "Write the Body of Your Post Here", class: "formbody" %>
+  </span>
   <%= f.label :video_url, "Video URL" %>
-  <%= f.text_field :video_url %>
+  <%= f.text_field :video_url, placeholder: "YouTube/other embed code" %>
 
   <%= f.label :topic %>
-  <%= f.text_field :topic %>
+  <%= f.text_field :topic, placeholder: "Post Topic"  %>
 
   <%= f.submit "Take The Stage!" %>
 <% end %>
