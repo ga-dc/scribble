@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-root to: "users#sign_in"
-
+root to: "posts#index"
+# breaks when there are no users
 resources :posts do
   resources :comments
 end

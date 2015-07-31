@@ -1,26 +1,26 @@
 <h2>Scribbler</h2><%= image_tag 'scribbler.jpg' %>
-<h3>All Comments</h3>
+<h3>View Comments for Posts</h3>
 
-<h3>Post Title: <%= @post.title %></h3>
-<p>Post Author: <%= @post.author %></p>
-
-<p>Article: <%= @post.article %></p>
-
-<p>Date Created <%= time_ago_in_words @post.created_at %></p>
-
-
-<p> Comments: </p>
-
-<% @comments.each do |comment| %>
 <ul>
   <li>
-    <p>Authored by <%= comment.author %></p>
+    <p class="title"><%= @post.title %></p>
+  </li>
+  <li class="smaller_text">
+    <%= @post.article %>
   </li>
   <li>
-    <p><%= comment.comment %></p>
+      <p>Written <%= @post.author %> <%= time_ago_in_words @post.created_at %> ago</p>
+  </li>
+</ul>
+
+
+<% @comments.each do |comment| %>
+<ul class="comments">
+  <li>
+    <p>Comment: <%= comment.comment %></p>
   </li>
   <li>
-    <p>Created <%= time_ago_in_words comment.created_at %> ago</p>
+      <p>Written by <%= comment.author %> <%= time_ago_in_words comment.created_at %> ago</p>
   </li>
 </ul>
   <% end %>
