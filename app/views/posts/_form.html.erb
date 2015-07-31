@@ -1,0 +1,15 @@
+
+<%= form_for @post do |f| %>
+<!-- not sure if I have to switch these in post view??? -->
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :article %>
+  <%= f.text_area :article %>
+
+  <%= f.submit %>
+
+  <% end %>

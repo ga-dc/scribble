@@ -1,0 +1,25 @@
+<h2>Scribbler</h2><%= image_tag 'scribbler.jpg' %>
+
+
+
+<ul>
+  <li>
+    <p class="title"><%= @post.title %></p>
+  </li>
+  <li class="smaller_text">
+    <%= @post.article %>
+  </li>
+  <li>
+      <p>Written <%= @post.author %> <%= time_ago_in_words @post.created_at %> ago</p>
+  </li>
+</ul>
+
+<%= link_to "Home" , posts_path %>
+<%= link_to "Comments" ,  post_comments_path(@post)  %>
+<%= link_to "Edit Post" , edit_post_path(@post) %>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete!">
+</form>

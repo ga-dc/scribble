@@ -1,0 +1,22 @@
+<h2>Welcome to Scribbler</h2><%= image_tag 'scribbler.jpg' %>
+
+
+<% @posts.each do |post| %>
+<ul>
+  <li>
+    <p class="title"><%= post.title %></p>
+  </li>
+  <li class="smaller_text">
+    <%= post.article %>
+  </li>
+  <li>
+      <p><%= link_to "Written by #{post.author}" , post_path(post) %> <%= time_ago_in_words post.created_at %> ago</p>
+  </li>
+</ul>
+<% end %>
+
+
+  <%= link_to "Create New Post" , new_post_path(@post) %>
+
+
+<!-- time_ago_in_words(DTime) -->

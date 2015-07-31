@@ -1,0 +1,30 @@
+<h2>Scribbler</h2><%= image_tag 'scribbler.jpg' %>
+<h3>View Comments for Posts</h3>
+
+<ul>
+  <li>
+    <p class="title"><%= @post.title %></p>
+  </li>
+  <li class="smaller_text">
+    <%= @post.article %>
+  </li>
+  <li>
+      <p>Written <%= @post.author %> <%= time_ago_in_words @post.created_at %> ago</p>
+  </li>
+</ul>
+
+
+<% @comments.each do |comment| %>
+<ul class="comments">
+  <li>
+    <p>Comment: <%= comment.comment %></p>
+  </li>
+  <li>
+      <p>Written by <%= comment.author %> <%= time_ago_in_words comment.created_at %> ago</p>
+  </li>
+</ul>
+  <% end %>
+
+
+<%= link_to "Home" , posts_path %>
+<%= link_to "Add a Comment" , new_post_comment_path(@post) %>

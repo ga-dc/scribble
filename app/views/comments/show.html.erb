@@ -1,0 +1,18 @@
+<h2>Scribbler</h2><%= image_tag 'scribbler.jpg' %>
+
+<h3><%= @post.title %></h3>
+<p><%= @post.author %></p>
+
+<p><%= @post.article %></p>
+
+<p>Date Created <%= time_ago_in_words @post.created_at %></p>
+
+
+<h2><%= @comment.author %></h2>
+
+
+<p><%= @comment.comment %></p>
+
+<p>Date Created <%= @comment.created_at %></p>
+
+<%= link_to "Home" , posts_path %>
