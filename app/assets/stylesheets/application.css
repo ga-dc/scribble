@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ .comment-by {
+   font-weight: bold;
+ }
+
  h1, h2 {
    text-align: center;
  }
@@ -50,9 +54,18 @@ label {
   margin: 0 auto;
 }
 
-.posts a {
-  display: inline-block;
+.edit-post {
+  display: block;
+  margin: 5px 0 20px 0;
+  padding: 9px;
+  border: solid 1px black;
+  width: 28%;
+  background: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  color: black;
 }
+
  input {
    display: block;
    margin: 5px 0 20px 0;

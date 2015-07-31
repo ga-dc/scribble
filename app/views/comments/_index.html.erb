@@ -1,7 +1,0 @@
-<% @comments.each do |comment| %>
-  <div class="comments">
-    <p> <%= comment.comment %> </p>
-    <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
-    <p> Comment by <%= comment.user %> on <%= comment.created_at.strftime("%m/%d/%Y")  %> </p>
-  </div>
-<% end %>

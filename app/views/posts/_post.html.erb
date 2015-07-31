@@ -1,0 +1,5 @@
+<div class="posts">
+  <h3> <%= link_to post.title, post %></h3>
+  <h4>By <%= post.author %> on <%= post.created_at.strftime("%B %d, %Y") %></h4>
+  <%= post.text %>
+</div>

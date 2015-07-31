@@ -3,8 +3,7 @@
 <div class="posts">
   <h3><%= @post.author %></h3>
   <%= @post.text %>
-  <%= link_to "Edit", edit_post_path %>
-  <%=  %>
+  <%= link_to "Edit", edit_post_path, html_options = {class: "edit-post"} %>
   <%= form_for(@post, method: :delete) do |f| %>
     <%= f.submit "Delete Post", class: "delete" %>
     <% end %>
@@ -12,6 +11,6 @@
 
 <div class="comment-container">
   <h4>Comments</h4>
-    <%= render partial: "/comments/index" %>
-    <%= render partial: "/comments/form" %>
+    <%= render @post.comments %>
+    <%= render "/comments/form" %>
 </div>
