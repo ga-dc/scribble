@@ -16,41 +16,62 @@
  @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
 
  body {
-
    font-family: 'Yanone Kaffeesatz', sans-serif;
+   background: #FFFF9D;
  }
  .comment-by {
    font-weight: bold;
+   margin-left: 15.05%;
  }
 
  h1, h2 {
+   color: #FF6138;
    text-align: center;
  }
 
 label {
   display: block;
 }
-.sign-in, .sign-up {
-  margin-left: 37%;
+
+.sign-in, .sign-up{
+  margin-left: 37.25%;
 }
+
+.sign-in input, .sign-up input, .comments-form input {
+  display: block;
+  margin: 5px 0 20px;
+  padding: 9px;
+  border: solid 1px black;
+  width: 300px;
+  background: whitesmoke;
+}
+
 
 #new_post {
   margin-left: 38%;
 }
 .comments-form {
   margin-left: 33%;
+  margin-top: 20px;
 }
+
 .comment-container {
   margin-left: -20%;
 }
+
+.comment-body {
+  margin-left: 15%;
+}
 .comment-container h4 {
-  margin-left:25%;
+    margin-left: 32.6%;
 }
  .posts {
    width: 80%;
    margin: 0 auto;
  }
-
+#comment_comment {
+  background: #ecffdf;
+}
 .posts h2, h3 {
   text-align: center;
 }
@@ -62,7 +83,7 @@ label {
 
 .edit-post {
   display: block;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 20px 9.8%;
   padding: 9px;
   border: solid 1px black;
   width: 28%;
@@ -71,18 +92,26 @@ label {
   text-align: center;
   color: black;
 }
+.new-post input{
+  display: block;
+  margin: 5px 0 20px;
+  padding: 9px;
+  border: solid 1px black;
+  width: 300px;
+  background: whitesmoke;
+}
 
- input {
-   display: block;
-   margin: 5px 0 20px 0;
-   padding: 9px;
-   border: solid 1px black;
-   width: 300px;
-   background: whitesmoke;
- }
+.delete {
+  display: block;
+  margin: 5px 0 20px 9.8%;
+  padding: 9px;
+  border: solid 1px black;
+  width: 300px;
+  background: whitesmoke;
+}
 nav {
   margin-top: 30px;
-  margin-left: 39%;
+  margin-left: 41%;
 }
 
 nav a {

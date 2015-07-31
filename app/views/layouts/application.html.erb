@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
+  <h1>Welcome to the Hipster Blog <%= link_to "(+)", new_post_path, id: 'add' %></h1>
 <nav>
   <% if session[:user] %>
     <%= link_to "Home", posts_path %>
@@ -18,5 +18,6 @@
     <%= link_to 'Sign Up', "/sign_up" %>
   <% end %>
 </nav>
+<%= yield %>
 </body>
 </html>
