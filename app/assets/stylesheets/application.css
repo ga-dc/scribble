@@ -23,11 +23,14 @@
    font-weight: bold;
    margin-left: 15.05%;
  }
-
+h1 {
+  font-size: 3em;
+}
  h1, h2 {
    color: #FF6138;
    text-align: center;
  }
+
 
 label {
   display: block;
@@ -45,8 +48,13 @@ label {
   width: 300px;
   background: whitesmoke;
 }
-
-
+.posts {
+  font-size: 1.2em;
+}
+.posts a{
+  color: #79BD8F;
+  font-size: 1.5em;
+}
 #new_post {
   margin-left: 38%;
 }
