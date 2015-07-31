@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-root to: "users#sign_up"
+root to: "users#sign_in"
 
 resources :posts do
   resources :comments
