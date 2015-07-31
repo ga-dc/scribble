@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
+
+ body {
+
+   font-family: 'Yanone Kaffeesatz', sans-serif;
+ }
  .comment-by {
    font-weight: bold;
  }

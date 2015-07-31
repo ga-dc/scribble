@@ -1,6 +1,8 @@
 <h1>Welcome to the Blog- Sign In</h1>
+<h2><%= flash[:notice] %></h2>
+
 <%= form_tag("/sign_in", method: "post", class: "sign-in") do %>
-  <input type="text" name="username" placeholder="username" value="<%= cookies[:username] %>" />
+  <input type="text" name="username" placeholder="username" value="<%= session[:user] %>" />
   <input type="password" name="password" placeholder="password" />
   <input type="submit" value="Sign in" />
 <% end %>

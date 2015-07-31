@@ -1,8 +1,5 @@
-<h1><%= @post.title %> </h1>
-
 <div class="posts">
-<h3><%= @post.author %></h3>
-  <%= @post.text %>
+<%= render @post %>
   <%= link_to "Edit", edit_post_path, html_options = {class: "edit-post"} %>
   <%= form_for(@post, method: :delete) do |f| %>
     <%= f.submit "Delete Post", class: "delete" %>

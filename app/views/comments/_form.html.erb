@@ -1,6 +1,6 @@
 <%= form_for [@post, @comment], html: {class: "comments-form"} do |f| %>
   <%= f.label :user %>
-  <%= f.text_field :user %>
+  <%= f.text_field :user, placeholder: "Commenter", value: "#{cookies[:username]}" %>
 
   <%= f.label :comment %>
   <%= f.text_area :comment, size: "30x8" %>

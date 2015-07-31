@@ -1,6 +1,6 @@
 <%= form_for @post, html: {class: "new-post"} do |f| %>
   <%= f.label :author %>
-  <%= f.text_field :author %>
+  <%= f.text_field :author, value: " #{cookies[:username]}"%>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :text %>
