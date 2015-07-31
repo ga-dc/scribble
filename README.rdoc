@@ -1,6 +1,5 @@
 == README
 
-HEROKU Link: https://jeff-scribble-wdi.herokuapp.com (should reroute to sign in page if not signed in)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
