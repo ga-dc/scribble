@@ -1,0 +1,37 @@
+<h2 class="title-header"><%= @post.title %> </h2>
+
+<div class="post">
+  <div class="post-header">
+    <span class="post-user">Posted by&nbsp;</span><%= @post.author %></span>
+    <span>on <%= @post.date_posted %></span>
+  </div>
+  <div class="edit">
+    <%= link_to "Edit", edit_post_path %></div>
+
+  <div class="content">
+    <span class="body"><%= @post.body %></span>
+    <iframe width="630" height="473" src="<%= @post.video_url %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="tag">Filed under: <%= @post.topic %></div>
+  <%= link_to "Edit", edit_post_path %>
+</div>
+
+  <h3>Comments
+  <%= link_to "(Add New Comment)", new_post_comment_path(@post) %></h3>
+
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <!-- build the list element for each song -->
+      <li>
+        <div><%= link_to "#{comment.title}", post_comment_path(@post, comment) %></div>
+        <div><%= comment.body %></div>
+      </li>
+    <% end %>
+
+    <!-- delete -->
+  <div class="delete">
+    <%= form_for(@post, method: :delete) do |f| %>
+      <%= f.submit "Delete Post", class: "delete" %>
+    <% end %>
+  </div>
