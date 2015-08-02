@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>Welcome to the Hipster Blog <%= link_to "(+)", new_post_path, id: 'add' %></h1>
+<nav>
+  <% if session[:user] %>
+    <%= link_to "Home", posts_path %>
+    <%= link_to 'Sign Out', "/sign_out" %>
+  <% else %>
+    <%= link_to "Home", posts_path %>
+    <%= link_to 'Sign In', "/sign_in" %>
+    <%= link_to 'Sign Up', "/sign_up" %>
+  <% end %>
+</nav>
+<%= yield %>
+</body>
+</html>

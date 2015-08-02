@@ -1,0 +1,9 @@
+  <div class="comments">
+    <p class = "comment-body"> <%= comment.comment %> </p>
+    <p class = "comment-by"> Comment by <%= comment.user %> on <%= comment.created_at.strftime("%m/%d/%Y")  %>
+      <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+      <%= link_to 'Delete', post_comment_path(@post, comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+    </p>
+  </div>
