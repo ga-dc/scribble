@@ -1,28 +1,37 @@
 class PostsController < ApplicationController
-# index
+  # index
+  def index
+    @posts = Post.all
+  end
+  # new
 
+  def new
 
+  end
 
-# new
+  # create
+  def create
 
+  end
+  # show
 
+  def show
+    @post = Post.find(params[:id])
+  end
 
-# create
+  # edit
+  def edit
 
+  end
+  # update
 
+  def update
 
-# show
+  end
 
+  # destroy
+  def destroy
 
-
-# edit
-
-
-
-# update
-
-
-
-# destroy
+  end
 
 end
