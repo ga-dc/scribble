@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scribble</title>
+  <title>The Trouble with Scribbles</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <h1><%= link_to "The Trouble with Scribbles", root_path %></h1>
+  <%= link_to "New Post", new_post_path() %>
 <%= yield %>
 
 </body>
