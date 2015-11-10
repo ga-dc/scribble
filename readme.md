@@ -6,7 +6,7 @@ is a Ruby on Rails application where users can read, write, and interact
 with the best content all around the world. It is designed to be built, refined, and deployed over the course of four nights.
 
 We will start off with two models: `Post` and `Comment`, and eventually
-add in `User` with secure password authentication.
+add in `User` with secure password authentication. 
 
 ## Models + Migrations (due Wednesday)
 
@@ -20,7 +20,7 @@ add in `User` with secure password authentication.
 - Remember to add authenticity tokens to forms.
 - Use strong params.
 
-## Helpers (due Friday) 
+## Helpers (due Friday)
 
 - Convert links, forms, etc. to helpers.
 
