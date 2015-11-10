@@ -1,0 +1,7 @@
+<p>
+  <%= @comment.comment %>
+</p>
+<span><%= @comment.username %></span>
+<span><%= @comment.created_at %></span>
+<span><%= @comment.updated_at %></span>
+<%= link_to("edit comment",edit_comment_path) %>
