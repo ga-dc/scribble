@@ -1,0 +1,141 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("crumpled.jpg");
+  font-family: "Cabin Sketch";
+}
+img{
+  opacity: 0.8;
+  margin-top: -120px;
+  border-radius: 100%;
+  width: 28%;
+}
+img:hover{
+  text-shadow: 2px 2px #ff0000;
+}
+h1{
+  font-family: "Cabin Sketch";
+}
+h2 {
+  font-family: "Kranky"
+}
+ul{
+  list-style-type: none;
+  font-family: "Kranky";
+}
+li{
+  display: inline;
+}
+p{
+  font-family: "Chelsea Market";
+}
+a{
+  color: black;
+  margin: 0px 20px;
+  text-decoration: none;
+}
+a:hover {
+  text-shadow: 2px 2px gray;
+}
+.buttons a{
+  background-color: green;
+  color: white;
+  padding: 10px;
+  font-size: 23px;
+}
+nav.mainnav {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+nav.mainnav ul{
+  list-style-type: none;
+  text-align: left;
+}
+nav.mainnav ul li{
+  display: inline;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.post{
+  display: inline-block;
+  margin-top: 80px;
+  width: 1000px;
+  line-height: 300%;
+}
+.post:nth-child(odd){
+  background-color: rgba(196, 197, 199, 0.3);
+}
+
+main{
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.form {
+  margin: auto;
+  position: relative;
+  width: 1200px;
+  font-size: 25px;
+}
+.form text_area {
+  display: inline;
+  border: 1px solid black;
+  position: relative;
+  height: 30px;
+  width: 100px;
+}
+
+.form label{
+  display: block;
+  margin-top: 20px;
+}
+
+.form input {
+  font-size: 20px;
+  text-align: center;
+  font-family: "Cabin Sketch";
+}
+
+.edit {
+  background-color: green;
+  color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 25px;
+  text-align: left;
+}
+
+.delete{
+  margin-top: 50px;
+  background-color: red;
+  color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 24px;
+  font-family: "Cabin Sketch";
+}
+.nav {
+  color: white;
+  padding: 10px;
+  border: 1px dashed white;
+  font-size: 22px;
+}
+.nav:hover{
+  text-shadow: 2px 2px green;
+  font-size: 28px;
+}
