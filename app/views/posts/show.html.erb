@@ -1,0 +1,24 @@
+<h1><%=@post.title%></h1>
+<section>
+  <section>
+    <h2>By <%=@post.author%></h2>
+    <p>Posted at <%=@post.created_at%></p>
+    <p><%=@post.text%></p>
+    <%if @post.updated_at != @post.created_at%><p>Updated at <%=@post.updated_at%></p><%end%>
+  </section>
+  <%=link_to "(Edit)", edit_post_path(@post)%>
+  <%=form_for @post, method: "delete" do |f| %>
+    <%=f.submit "Delete Post", class: "delete"%>
+  <%end%>
+
+</section>
+<hr>
+<%=link_to "Comments", post_comments_path(@post)%>
+<hr>
+<%@post.comments.each do |comment| %>
+<section>
+  <p>By: <%=comment.author%> - Posted at: <%=comment.created_at%></p>
+  <p><%=comment.text%></p>
+</section>
+<hr>
+<%end%>
