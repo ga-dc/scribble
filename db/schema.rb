@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109235339) do
+ActiveRecord::Schema.define(version: 20151110001322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151109235339) do
     t.string   "comment_text"
     t.datetime "created_at"
     t.datetime "edited_at"
+    t.integer  "post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -31,4 +32,5 @@ ActiveRecord::Schema.define(version: 20151109235339) do
     t.string   "title"
   end
 
+  add_foreign_key "comments", "posts"
 end
