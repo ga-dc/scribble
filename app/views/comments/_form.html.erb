@@ -1,0 +1,9 @@
+<%= form_for @comment do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :content, "Write comment here:" %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
