@@ -1,6 +1,19 @@
-<h1>Individual Post</h1>
 <h2><%= @post.title %></h2>
 
 <p><%= @post.post %></p>
+<p>Date Created: <%= @post.created_at %></p>
 
-<a href="/posts/<%= @post.id %>/edit">edit</a>
+<%= link_to "(edit)", edit_post_path(@post) %>
+
+<!-- <%= link_to "Add New Comment", new_comment_path %>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= "#{comment.post}"%>
+      <%= "#{comment.date}"%>
+    </li>
+    <%= link_to "(edit)", edit_comment_path(@post) %>
+  <% end %>
+</ul> -->
+
+<!-- <a href="/posts/<%= @post.id %>/edit">edit</a> -->

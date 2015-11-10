@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    @post = Post.new
   end
 
   def create
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     redirect_to "/posts/#{@post.id}"
   end
 
-  def delete
+  def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to "/posts"
