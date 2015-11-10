@@ -23,6 +23,8 @@ class PostsController < ApplicationController
   # posts#update
   def update
     @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to "/posts/#{@post.id}"
   end
   # posts#destroy
   def destroy

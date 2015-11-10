@@ -1,0 +1,15 @@
+<form method="post" action="/posts/<%= @post.id %>">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>title</label>
+  <input type="text" name="post[title]" value="<%= @post.title %>">
+
+  <label>author</label>
+  <input type="text" name="post[author]" value="<%= @post.author %>">
+
+  <label>body</label>
+  <input type="text" name="post[post_body]" value="<%= @post.post_body %>">
+
+  <input type="submit" value="Update Post">
+</form>
