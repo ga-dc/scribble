@@ -10,10 +10,11 @@ class PostsController < ApplicationController
   # posts#create
   def create
     @post = Post.create!(post_params)
+    redirect_to "/posts/#{@post.id}"
   end
   # posts#new
   def new
-    @post = Post.new()
+    @post = Post.new
   end
   # posts#edit
   def edit
