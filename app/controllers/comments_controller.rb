@@ -2,18 +2,20 @@ class CommentsController < ApplicationController
 
   #index
   def index
-    @comments = Comment.all
+    redirect_to posts_path
   end
 
   #new
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
   #create
   def create
-    @comment = Comment.create!(comment_params)
-    redirect_to comment_path(@comment)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create!(comment_params)
+    redirect_to post_path(@post)
   end
 
   #show
@@ -23,21 +25,24 @@ class CommentsController < ApplicationController
 
   #edit
   def edit
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
   end
 
   #update
   def update
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-    redirect_to comment_path(@comment)
+    redirect_to post_path(@post)
   end
 
   #delete
   def destroy
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comments_path()
+    redirect_to post_path(@post)
   end
 
   private
