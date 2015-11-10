@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <%= image_tag "scribble.png", alt: "Scribble" %>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
+    &copy; Rachel Porter 2015
+  </footer>
 </body>
 </html>
