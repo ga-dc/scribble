@@ -14,11 +14,6 @@ class PostsController < ApplicationController
     redirect_to "/posts/#{@post.id}"
   end
 
-  def destroy
-    Post.find(params[:id]).destroy
-    redirect_to "/posts"
-  end
-  
   def show
     @post = Post.find(params[:id])
   end
@@ -32,11 +27,14 @@ class PostsController < ApplicationController
     redirect_to "/posts/#{@post.id}"
   end
 
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to "/posts"
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :body)
   end
-
-
 
 end
