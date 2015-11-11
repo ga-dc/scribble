@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20151110014903) do
     t.string   "headline"
     t.string   "post_content"
     t.string   "image"
-    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

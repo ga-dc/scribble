@@ -9,38 +9,12 @@
 Comment.destroy_all
 Post.destroy_all
 
-@post_1 = Post.create(headline: "Hello, Hodor", post_content: "Hodor. Hodor hodor; hodor hodor. Hodor. Hodor, hodor; hodor hodor hodor HODOR hodor, hodor hodor... Hodor hodor hodor. Hodor. Hodor hodor - hodor hodor hodor? Hodor hodor - hodor hodor hodor; hodor hodor hodor hodor hodor hodor hodor! Hodor hodor hodor?! Hodor hodor - hodor; hodor hodor; hodor hodor hodor; hodor hodor?" image:"https://www.google.com/search?q=hodor&espv=2&biw=1117&bih=778&tbm=isch&tbo=u&source=univ&sa=X&ved=0CIEBEIkeahUKEwjL64zTtIfJAhVIox4KHcNpA7E#imgrc=hLw8d-JVror1FM%3A")
+Post.create([
+  {headline: "Hello Hodor", post_content: "Ow, my spirit! Now what? Oh Leela! You're the only person I could turn to; you're the only person who ever loved me. I daresay that Fry has discovered the smelliest object in the known universe!", image: "http://fillmurray.com/300/300"},
 
-@post_2 = Post.create(headline: "Hodor do Hodor", post_content: "Hodor hodor HODOR! Hodor hodor hodor. Hodor. Hodor hodor - hodor hodor hodor. Hodor. Hodor, hodor hodor hodor, hodor. Hodor hodor?! Hodor hodor; hodor hodor. Hodor. Hodor hodor hodor... Hodor hodor hodor - hodor, hodor, hodor hodor. Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor hodor hodor?" image:"http://winteriscoming.net/wp-content/uploads/2015/04/game-of-thrones-hodor-osha.jpg")
+  {headline: "I am Groot", post_content: "Good news, everyone! There's a report on TV with some very bad news!", image: "http://fillmurray.com/250/300"},
 
-@post_3 = Post.create(headline: "I am Hodor", post_content: "Hodor hodor - hodor hodor hodor hodor hodor; hodor hodor? Hodor! Hodor hodor, hodor hodor hodor?! Hodor! Hodor hodor, hodor hodor; hodor hodor, hodor, hodor hodor. Hodor hodor - hodor... Hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor, hodor. Hodor hodor - hodor - hodor, hodor. Hodor hodor. Hodor. Hodor hodor HODOR! Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor; hodor hodor?
+  {headline: "Shiny! Let's be bad guys.", post_content: "But I've never been to the moon! Does anybody else feel jealous and aroused and worried? Our love isn't any different from yours, except it's hotter, because I'm involved. Enough about your promiscuous mother, Hermes! We have bigger problems.", image: "http://fillmurray.com/250/300"},
 
-Hodor, hodor, hodor. Hodor hodor hodor? Hodor hodor - hodor... Hodor hodor hodor? Hodor. Hodor hodor... Hodor hodor hodor hodor hodor hodor; hodor hodor hodor! Hodor. Hodor hodor, hodor. Hodor hodor; hodor hodor? Hodor. Hodor hodor hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor, hodor, hodor hodor.
-
-Hodor hodor - hodor... Hodor hodor hodor, hodor. Hodor hodor hodor hodor. Hodor. Hodor hodor hodor hodor - hodor... Hodor hodor hodor hodor! Hodor hodor hodor hodor, hodor, hodor hodor. Hodor hodor HODOR! Hodor HODOR hodor, hodor hodor... Hodor hodor hodor hodor! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor. Hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor - hodor hodor! Hodor hodor... Hodor hodor hodor. Hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor! Hodor HODOR hodor, hodor hodor, hodor. Hodor hodor hodor hodor?" image:"http://untiedmag.com/wp-content/uploads/2014/05/Hodor.jpg")
-
-@post_4 = Post.create(headline: "We are all Hodor", post_content: "Hodor, hodor. Hodor. Hodor, hodor - hodor - hodor? Hodor. Hodor HODOR hodor, hodor hodor, hodor. Hodor hodor. Hodor hodor - HODOR hodor, hodor hodor hodor hodor?! Hodor, hodor. Hodor. Hodor, hodor hodor HODOR hodor, hodor hodor... Hodor hodor hodor?
-
-Hodor! Hodor hodor, hodor hodor hodor HODOR hodor, hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor, hodor. Hodor hodor? Hodor HODOR hodor, hodor hodor... Hodor hodor hodor - hodor. Hodor. Hodor HODOR hodor, hodor hodor hodor hodor?! Hodor hodor - hodor; hodor hodor hodor; hodor hodor?! Hodor hodor - hodor; hodor hodor; hodor hodor. Hodor hodor - hodor hodor, hodor, hodor hodor." image:"http://cdn.hbowatch.com/wp-content/uploads/2014/09/bran-hodor-season-5.jpg")
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_1)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_2)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_2)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_3)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_3)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @post_3)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @@post_4)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @@post_4)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @@post_4)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @@post_4)
-
-Comment.create(comment_content: "Hodor hodor; hodor hodor, hodor. Hodor hodor; hodor hodor hodor! Hodor hodor - hodor, hodor.", post: @@post_4)
+  {headline: "Never tell me the odds!", post_content: "This is the worst part. The calm before the battle. Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood! All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school!", image: "http://fillmurray.com/250/300"}
+  ])
