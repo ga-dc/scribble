@@ -1,3 +1,11 @@
+<h3><%= @blog.subject %></h3>
 <p><%= @blog.content %></p>
 
-<p><%= link_to "Edit contents", edit_blog_path %> * <%= link_to "Leave comment", new_blog_comment_path(@blog.id) %>
+<p><%= link_to "Edit contents", edit_blog_path %> * <%= link_to "Leave comment", new_blog_comment_path(@blog) %> *
+</p>
+
+<h4>Comments</h4>
+
+<% @comments.each do |comment| %>
+      <p><%= comment.commenter_name %> says: "<%= comment.content %>"</p>
+  <% end %>

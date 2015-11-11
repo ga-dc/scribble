@@ -13,9 +13,8 @@
   <%= f.text_field :content %>
   </p>
 
-   <p> <%= f.label :blog_id %><br />
-  <%= f.text_field :blog_id %>
-  </p>
+
+  <% @comment[:blog_id] = @blog %>
 
   <%= f.submit %>
 <% end %>

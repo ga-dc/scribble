@@ -1,1 +1,5 @@
 <p>I exist!</p>
+
+  <% @comments.each do |comment| %>
+      <%= comment.subject %>
+  <% end %>

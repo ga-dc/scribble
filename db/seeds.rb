@@ -6,13 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require_relative './comment_data.rb'
+require_relative './blog_data.rb'
+
 comments = Comment.create!({
 	commenter_name: comment[:commenter_name]
 	content: comment[:content]
 	})
 
 blogs = Blog.create!({
-	author_name: blog[:author_name]
-	title: blog[:title],
-	content: blog[:content]
+	author_name: 	blog[:author_name]
+	title: 			blog[:title],
+	content: 		blog[:content]
 	})
