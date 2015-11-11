@@ -1,0 +1,22 @@
+<h1>Add a New Post</h1>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :post %>
+  <%= f.text_field :post %>
+
+  <%= f.submit "Create a New Post"%>
+<% end %>
+
+<!-- <form action="/posts" method="post" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="title">Title:</label>
+  <input name="post[title]">
+
+  <label for="post">Post:</label>
+  <input name="post[post]">
+
+  <input type="submit" value="Create">
+</form> -->

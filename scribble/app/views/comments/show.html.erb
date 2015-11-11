@@ -1,0 +1,6 @@
+<p><%= @comment.comment %></p>
+
+<p>Updated at: <%= @comment.updated_at.strftime('%r %a %h %d') %></p>
+
+<%= link_to "(edit)", edit_post_comment_path(@post,@comment) %>
+<%= link_to "Go back to post", post_path(@post) %>
