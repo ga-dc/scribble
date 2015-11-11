@@ -3,3 +3,5 @@
 <span>Created At: <%= @post.created_at %></span>
 <span>Updated At: <%= @post.updated_at %></span>
 <p><%= @post.text %></p>
+
+<%= link_to "Edit this post", edit_post_path(@post) %>
