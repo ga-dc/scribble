@@ -1,9 +1,29 @@
 Rails.application.routes.draw do
 
+  # get 'comments/destroy'
+  #
+  # get 'comments/update'
+  #
+  # get 'comments/edit'
+  #
+  # get 'comments/create'
+  #
+  # get 'comments/new'
+  #
+  # get 'posts/destroy'
+  #
+  # get 'posts/update'
+  #
+  # get 'posts/edit'
+  #
+  # get 'posts/create'
+  #
+  # get 'posts/new'
+
   resources :posts do
     resources :comments
   end
-  
+
   # get 'comments/show'
   #
   # get 'posts/show'
