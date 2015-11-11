@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151110234234) do
     t.string   "title"
     t.string   "photo_url"
     t.text     "text"
-    t.datetime "created_at", null: true
+    t.datetime "created_at"
     t.datetime "updated_at", null: false
   end
 
