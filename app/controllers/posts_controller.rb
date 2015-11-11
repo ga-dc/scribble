@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
+  def sort
+    session[:sorting_val] = params[:sort_by]
+    redirect_to posts_path
+  end
   def index
-    @posts = Post.all
+    @posts = Post.all.order(session[:sorting_val])
   end
   def show
     @post = Post.find(params[:id])

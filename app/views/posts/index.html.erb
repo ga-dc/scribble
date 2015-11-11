@@ -1,4 +1,11 @@
 <h1>All Posts</h1>
+<form action="/posts/sort" method="get">
+  <label>Sort By</label>
+  <input type="text" name="sort_by">
+  <input type="submit" value="sort">
+</form>
+Sorting by: <%= session[:sorting_val] %>
+<hr>
 <%=link_to "New Post", new_post_path%>
 <hr>
 <section>
