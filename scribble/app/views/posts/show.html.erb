@@ -1,0 +1,20 @@
+<h2>
+  <%= @posts.title %>
+  <%= link_to "Edit", edit_post_path %>
+</h2>
+<h4><%= @posts.date %></h4>
+<article><%= @posts.article %></article>
+
+
+<h3>Comments:
+   <%= link_to '(+)', new_comment_path %>
+ </h3>
+
+ <ul>
+  <% @posts.comments.each do |comment| %>
+    <li>
+      <%= comment.user %>
+      <%= comment.article %>
+    </li>
+  <% end %>
+</ul>

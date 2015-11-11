@@ -18,16 +18,15 @@ ActiveRecord::Schema.define(version: 20151110232905) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "user"
+    t.text    "article"
     t.integer "date"
-    t.integer "comment_id"
+    t.integer "post_id"
   end
-
-  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string  "title"
+    t.text    "article"
     t.integer "date"
   end
 
-  add_foreign_key "comments", "comments"
 end

@@ -9,10 +9,24 @@
 Comment.destroy_all
 Post.destroy_all
 
-Post.create(title: "China and the USA", date: 20151110)
-Post.create(title: "Killer Bees, the Hidden Danger", date: 20151110)
-Post.create(title: "Sasquatch in YOUR Backyard?  It may be truer than you think.", date: 20151110)
+@post1 = Post.create(title: "China and the USA", article: "The South China Sea....", date: 20151110)
+@post2 = Post.create(title: "Killer Bees, the Hidden Danger", article: "Your life is is danger!", date: 20151110)
+@post3 = Post.create(title: "Sasquatch in YOUR Backyard?  It may be truer than you think.", article: "The danger...", date: 20151110)
 
-Comment.create(user: "James Peabody", date: 20151110)
-Comment.create(user: "Michael Chriff", date: 20151110)
-Comment.create(user: "Youknow Who", date: 20151110)
+Comment.create(user: "James Peabody", article: "This sucks!", date: 20151110, post: @post1)
+@post2.comments.create(user: "Michael Chriff", article: "I agree mate!", date: 20151110)
+@post3.comments.create(user: "Youknow Who", article: "PSHHHHHHH!", date: 20151110)
+
+
+# create_table "comments", force: :cascade do |t|
+#   t.string  "user"
+#   t.text    "article"
+#   t.integer "date"
+#   t.integer "post_id"
+# end
+#
+# create_table "posts", force: :cascade do |t|
+#   t.string  "title"
+#   t.text    "article"
+#   t.integer "date"
+# end

@@ -3,12 +3,12 @@ class CommentsController < ApplicationController
   def index
     @comments = Comment.all
   end
-  #
-  # # new
-  # def new
-  #   @artist = Artist.new
-  # end
-  #
+
+  # new
+  def new
+    @comments = Comment.new
+  end
+
   # # create
   # def create
   #   @artist = Artist.create!(artist_params)

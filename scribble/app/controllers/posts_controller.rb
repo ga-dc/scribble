@@ -1,49 +1,50 @@
 class PostsController < ApplicationController
-  # index
+
+# index / show the post index page
   def index
     @posts = Post.all
   end
-  #
-  # # new
-  # def new
-  #   @song = Song.new
-  # end
-  #
-  # # create
-  # def create
-  #   @song = Song.create(song_params)
-  #
-  #   redirect_to song_path(@song)
-  # end
-  #
-  # #show
-  # def show
-  #   @song = Song.find(params[:id])
-  # end
-  #
-  # # edit
-  # def edit
-  #   @song = Song.find(params[:id])
-  # end
-  #
-  # # update
-  # def update
-  #   @song = Song.find(params[:id])
-  #   @song.update(song_params)
-  #
-  #   redirect_to song_path(@song)
-  # end
-  #
-  # # destroy
-  # def destroy
-  #   @song = Song.find(params[:id])
-  #   @song.destroy
-  #
-  #   redirect_to songs_path
-  # end
-  #
-  # private
-  # def song_params
-  #   params.require(:song).permit(:title, :album, :preview_url, :artist_id)
-  # end
+
+# new / for making new post part 1
+  def new
+    @posts = Post.new
+  end
+
+# create / for making new post part 2
+  def create
+    @posts = Post.create!(post_params)
+
+    redirect_to post_path(@posts)
+  end
+
+#show / for showing the post page
+  def show
+    @posts = Post.find(params[:id])
+  end
+
+# edit / edit a post part 1
+  def edit
+    @posts = Post.find(params[:id])
+  end
+
+# update / edit a post part 2
+  def update
+    @posts = Post.find(params[:id])
+    @posts.update(post_params)
+
+    redirect_to post_path(@posts)
+  end
+
+# destroy/ delete a post
+  def destroy
+    @posts = Post.find(params[:id])
+    @posts.destroy
+
+    redirect_to posts_path
+  end
+  # strong params for the create new post form
+  private
+  def post_params
+    params.require(:post).permit(:title, :article, :date)
+  end
 end
