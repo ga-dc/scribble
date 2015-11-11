@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   end
   def show
     @post = Post.find(params[:post_id])
+    @user = User.find(@post.user_id)
     @comment = Comment.find(params[:id])
   end
   def new
