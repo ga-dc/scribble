@@ -1,5 +1,5 @@
 <h2>Comment by <%=@comment.author%> attached to "<%=@post.title%>" by <%=@post.author%></h2>
-<h3>Created at <%=@comment.created_at%></h3>
+<h3>Created at <%=@comment.created_at%><%if comment.created_at != comment.updated_at%>--Updated At: <%=comment.updated_at%><%end%></h3>
 <hr>
 <p><%=@comment.text%>
 <hr>

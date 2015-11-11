@@ -17,12 +17,12 @@
 <hr>
 <%@comments.reverse_each do |comment| %>
 <section>
-  <p>By: <%=comment.author%>--<%=link_to "Details", post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>Updated At: <%comment.updated_at%><%end%></p>
+  <p>By: <%=comment.author%>--<%=link_to "Details", post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>--Updated At: <%=comment.updated_at%><%end%></p>
   <p><%=comment.text%></p>
   <%=form_for [@post,comment], method: "delete" do |f| %>
     <%=f.submit "Delete Comment", class: "delete"%>
   <%end%>
-  
+
 </section>
 <hr>
 <%end%>
