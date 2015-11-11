@@ -1,13 +1,11 @@
-
 <h3>Read a blog:</h3>
 <ul>
   <% @blogs.each do |blog| %>
-    <li>
+    <li> 
       <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
      <%= "by #{blog.author_name}" %>
     </li>
   <% end %>
 </ul>
-
 
 <h3><%= link_to "Post your own blog!", new_blog_path %></h3>

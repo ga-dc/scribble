@@ -1,4 +1,4 @@
-class BlogController < ApplicationController
+class BlogsController < ApplicationController
 	def index
 		@blogs = Blog.all
 	end
@@ -19,5 +19,5 @@ class BlogController < ApplicationController
 	private
  	def blog_params
     	params.require(:blog).permit(:author_name, :subject, :content)
-  end
+ 	end
 end
