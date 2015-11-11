@@ -1,1 +1,3 @@
-This page will display one blog post and any comments.
+<h2><%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<%= image_tag @post.image_url, class: "post-photo", alt: "" %>
+<p><%= @post.message %></p>

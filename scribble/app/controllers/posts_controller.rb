@@ -14,7 +14,7 @@ def create
 end
 #show
 def show
-  @artist = Artist.find(params[:id])
+  @post = Post.find(params[:id])
 end
 
 def edit
@@ -35,7 +35,7 @@ end
 
 private
   def post_params
-    params.require(:post).permit(:title, :message, :image_url, :author)
+    params.require(:post).permit(:title, :message, :image_url, :author_id)
   end
 
 end

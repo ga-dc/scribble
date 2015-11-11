@@ -14,4 +14,86 @@
  *= require_self
  */
 
- 
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  background-image: url("http://orig13.deviantart.net/bbd0/f/2008/264/0/a/rainbow_stripes_by_rockitstudios.png");
+  background-size: contain;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  background: white;
+}
+
+nav {
+  background: rgb(249, 98, 159);
+  background: rgba(249, 98, 159, 0.23);
+  padding: 10px 0;
+}
+
+nav li {
+  display: inline-block;
+  background: black;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+div {
+  min-height: 400px;
+  padding: 20px 30px;
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.scribble {
+  max-width: 250px;
+}
+
+.post-photo {
+  max-width: 750px;
+  margin: auto;
+}
+
+input, textarea {
+  display: block;
+  margin: 5px 0 20px 0;
+  padding: 10px;
+  /*border: solid 1px black;*/
+  width: 300px;
+  /*margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  background: #F7F7F7;
+  padding: 25px 15px 25px 10px;
+  text-shadow: 1px 1px 1px #fff;
+  border: 1px solid #E8E8E8;*/
+}
+
+input[type=submit],
+a.delete {
+  width: 100px;
+  padding: 10px 0;
+  background-color: gray;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+input.delete, a.delete {
+  background-color: #F92079;
+}
