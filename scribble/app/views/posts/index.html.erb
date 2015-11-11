@@ -1,0 +1,10 @@
+<h2>Posts <%= link_to "New Post (+)", new_post_path %></h2>
+
+<ul>
+  <li>
+    <% @posts.each do |post| %>
+      <%= link_to post.title, post %>
+    <% end %>
+    </li>
+
+</ul>

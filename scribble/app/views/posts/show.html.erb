@@ -1,0 +1,16 @@
+<h2><%= @post.name %></h2>
+<%= link_to "(edit post)", edit_post_path(@post) %>
+
+<%= @post.content %>
+
+<%= @post.created_at %>
+
+<h3>Comments <%= link_to "Add comment (+)", new_post_comment_path(@post) %></h3>
+
+<ul>
+  <li>
+    <% @post.comments.each do |comment| %>
+      <%= comment.content + "-" + comment.username "@" comment.created_at %>
+    <% end %>
+  </li>
+</ul>

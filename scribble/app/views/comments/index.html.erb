@@ -1,0 +1,9 @@
+<h2>All Comments</h2>
+
+<ul>
+  <li>
+    <% @comments.each do |comment| %>
+      <%= comment.content + "on" + link_to "#{@post.title}", post_path %>
+    <% end %>
+  </li>
+</ul>
