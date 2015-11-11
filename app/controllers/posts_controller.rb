@@ -12,9 +12,21 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.create(post_params)
     render :show
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    # redirect_to "/posts"
+    redirect_to posts_path
   end
 
   private

@@ -1,2 +1,21 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h2>Edit Post?</h2>
+  <%= render "form" %>
+
+  <!-- <%= form_for @post do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+    <%= f.submit %>
+  <% end %> -->
+
+<!-- <form action="<%= edit_post_path @post %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" class="delete" name="submit" value="Delete Post">
+</form> -->
+
+<%#= form_for(@post, :html => { :method => :delete, :remote => true}) do |f| %>
+<%= form_for( @post, :html => { :method => :delete } ) do |f| %>
+  <%= f.submit "Delete Post?" %>
+<% end %>
