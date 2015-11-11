@@ -5,24 +5,24 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def create
-    @post = Post.create!(post_params)
-    redirect_to @post
-  end
-
   def new
     @post = Post.new
   end
 
-  def edit
+  def create
+    @post = Post.create!(post_params)
+    redirect_to post_path(@post)
   end
 
   def show
   end
 
+  def edit
+  end
+
   def update
     @post.update!(post_params)
-    redirect_to (@post)
+    redirect_to post_path(@post)
   end
 
   def destroy
