@@ -1,26 +1,13 @@
-<h2>Listing posts</h2>
+<section class="posts">
+  <h1>Posts</h1>
 
-<!-- <ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post_path(post) %>
-    </li>
-  <% end %>
-</ul> -->
+  <div class="center">
+    <% @posts.each do |post| %>
+      <h2><%= post.title %></h2>
+      <%= post.comments.length %> comments |
+      <%= link_to 'Show Post', post_path(post) %> |
+      <%= link_to 'Edit', edit_post_path(post) %>
+    <% end %>
+  </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Comments</th>
-    <th colspan="2"></th>
-  </tr>
-
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.comments.length %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    </tr>
-  <% end %>
-</table>
+</section>
