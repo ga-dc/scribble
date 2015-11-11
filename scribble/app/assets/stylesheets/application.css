@@ -46,7 +46,7 @@ nav a {
   text-decoration: none;
 }
 
-div {
+.yield {
   min-height: 400px;
   padding: 20px 30px;
 }
@@ -85,7 +85,7 @@ input, textarea {
 
 input[type=submit],
 a.delete {
-  width: 100px;
+  width: 320px;
   padding: 10px 0;
   background-color: gray;
   border: 0;
@@ -96,4 +96,14 @@ a.delete {
 
 input.delete, a.delete {
   background-color: #F92079;
+}
+
+.comments {
+  background: rgb(42, 192, 255);
+  background: rgba(42, 192, 255, 0.25);
+  /*background: rgb(251, 156, 1);*/
+  /*background: rgba(251, 156, 1, 0.25);*/
+  padding: 20px;
+  color: #461F06;
+  /*text-shadow: 1px 1px 1px #000;*/
 }
