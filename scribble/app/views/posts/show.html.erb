@@ -7,6 +7,7 @@
 <%= link_to "Edit this post", edit_post_path(@post) %>
 
 <h3>COMMENTS</h3>
+<%= link_to "(+)", new_post_comment_path(@post) %>
 <ul>
   <% @comments.each do |comment| %>
   <li>
