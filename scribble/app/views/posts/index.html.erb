@@ -4,7 +4,7 @@
   <div class="center">
     <% @posts.each do |post| %>
       <h2><%= post.title %></h2>
-      <%= post.comments.length %> comments |
+      <p class="inline"><%= post.comments.length %> comments</p> |
       <%= link_to 'Show Post', post_path(post) %> |
       <%= link_to 'Edit', edit_post_path(post) %>
     <% end %>

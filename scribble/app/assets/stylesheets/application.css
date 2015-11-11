@@ -53,6 +53,12 @@ a:hover {
   text-align: center;
 }
 
+.inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
 .main > section:nth-child(even) {
 	background: #87cef8;
 	color: #fff;
@@ -81,10 +87,21 @@ a:hover {
 
 @media screen and (max-width: 55em) {
 
-	.main section p {
+	.posts p,
+  .posts a {
 		padding: 2em 5%;
 		font-size: 0.8em;
 	}
+
+  .posts h1 {
+  	font-size: 1.2em;
+  	text-align: center;
+  }
+
+  .posts h2 {
+  	font-size: 1em;
+  	text-align: center;
+  }
 }
 
 .cbp-af-header {
@@ -99,6 +116,7 @@ a:hover {
 	-webkit-transition: height 0.3s;
 	-moz-transition: height 0.3s;
 	transition: height 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
 }
 
 .cbp-af-header .cbp-af-inner {
