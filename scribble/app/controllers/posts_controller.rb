@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   # create
   def create
     @post = Post.create!(post_params)
-    redirect_to "/posts/#{@post.id}"
+    redirect_to post_path(@post)
   end
 
   # edit
@@ -39,4 +39,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
+
 end
