@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Scribble</h1>
+  <header>
+    <h1>Scribble (<%= link_to "see all posts?", posts_path %>)</h1>
+  </header>
 
 <%= yield %>
 
