@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<a href='/posts/<%= @post.id %>/edit' alt='edit post'>Edit</a>
+<form action='/posts/<%= @post.id %>' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type='submit' value='Delete'>
+</form>

@@ -14,11 +14,33 @@
  *= require_self
  */
 
- nav {
-   background-color: black;
-   color: white;
+ body {
+   margin: 0;
  }
+  nav {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    overflow: auto;
+  }
 
- a:hover {
-   color: red;
- }
+  nav a {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    float: right;
+  }
+  nav h1 {
+    float: left;
+    margin: 5px;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+
+  form {
+    margin-top: 15px;
+    margin-left: 30px;
+  }

@@ -1,8 +1,8 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.string :body
-      add_foreign_key :comments, :posts
+      t.string  :body
+      t.integer :post_id
     end
   end
 end
