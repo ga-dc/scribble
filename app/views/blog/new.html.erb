@@ -1,0 +1,17 @@
+<h2>New Post</h2>
+
+<%= form_for @blog, url: blog_index_path do |f| %>
+ <p> <%= f.label :author_name %>
+  <%= f.text_field :author_name %>
+  </p>
+
+   <p><%= f.label :subject %>
+  <%= f.text_field :subject %>
+  </p>
+
+ <p> <%= f.label :content %><br />
+  <%= f.text_field :content %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

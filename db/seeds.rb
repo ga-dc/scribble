@@ -6,8 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+comments = Comment.create!({
+	commenter_name: comment[:commenter_name]
+	content: comment[:content]
+	})
+
 blogs = Blog.create!({
-	author: blog[:author],
+	author_name: blog[:author_name]
 	title: blog[:title],
 	content: blog[:content]
 	})
