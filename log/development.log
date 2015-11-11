@@ -1,0 +1,1940 @@
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mPost Load (2.6ms)[0m  SELECT "posts".* FROM "posts"
+PG::UndefinedTable: ERROR:  relation "posts" does not exist
+LINE 1: SELECT "posts".* FROM "posts"
+                              ^
+: SELECT "posts".* FROM "posts"
+  [1m[36mPost Load (3.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+PG::UndefinedTable: ERROR:  relation "posts" does not exist
+LINE 1: SELECT "posts".* FROM "posts"
+                              ^
+: SELECT "posts".* FROM "posts"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20151110210333)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (13.1ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "body" character varying, "title" character varying, "category" character varying, "img_url" character varying, "created_at" timestamp, "user_id" integer) [0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151110210333"]]
+  [1m[36m (96.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20151110210400)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "body" character varying, "user_id" integer, "post_id" integer, "timestamp" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_comments_on_post_id" ON "comments"  ("post_id")
+  [1m[36m (5.8ms)[0m  [1mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151110210400"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'posts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mPost Load (1.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "The Medieval Fourier Transform"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", "2015-11-11 00:51:03.565816"]]
+  [1m[35m (100.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Type classes and generic derivation"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", "2015-11-11 00:51:03.674514"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Big Data’s Radical Potential"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", "2015-11-11 00:51:03.676720"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"  [["body", "The first comment on the first post"], ["post_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"[0m  [["body", "The first comment on the second post"], ["post_id", 2]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"  [["body", "The first comment on the third post"], ["post_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mPost Load (2.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for ::1 at 2015-11-10 20:33:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 24ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-11-10 20:34:31 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-11-10 20:34:33 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-10 20:34:41 -0500
+
+SyntaxError (/Users/neka/WDI/exercises/scribble/app/controllers/posts_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/posts_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (58.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (133.2ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-10 20:35:07 -0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1903ms (Views: 1898.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 20:35:09 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 20:35:09 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 20:35:09 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 20:35:09 -0500
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-10 20:35:09 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:20:28 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 65ms (Views: 57.5ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-10 22:20:28 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:20:28 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:20:28 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:20:28 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:20:28 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:29:58 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-11-10 22:29:58 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:29:58 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:29:58 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:29:58 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:29:58 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:34:53 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-565d18846744716c13391d3575a68513096cfc96a40e91b425924a80d49de452.css?body=1" for ::1 at 2015-11-10 22:34:53 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:34:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:34:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:34:53 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:34:53 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:45:45 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-565d18846744716c13391d3575a68513096cfc96a40e91b425924a80d49de452.css?body=1" for ::1 at 2015-11-10 22:45:45 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:45:45 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:45:45 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:45:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:45:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mComment Load (0.7ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 1]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1]]
+  [1m[36m (104.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = $1  [["id", 2]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Bluth Ipsum"], ["body", "Everyone's laughing, and riding, and cornholing except Buster. Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. I'll sacrifice anything for my children. You must teach me the ways of the secular flesh. You stay on top of her, Buddy. Don't be afraid to ride her. Hard. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking \"albino\" on the form. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere on the OC? Yeah, well, have you seen the new Mustang? You could hump that hood. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! Sure, let the little fruit do it. HUZZAH! For there's a man inside me, and only when he's finally out, can I walk free of pain. It's one banana Michael, what could it cost, ten dollars? It's a jetpack, Michael. What could go wrong? Everyone's laughing, and riding, and cornholing except Buster. If you don't start pulling your weight around here its going to be shape up, or…ship up. [climbing under trampoline] This shall keep me safe from the hot Mexican sun. He's going to be all right. Turn this skiff around!"], ["created_at", "2015-11-11 03:46:09.801674"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Corporate Ipsum"], ["body", "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service. Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables."], ["created_at", "2015-11-11 03:46:09.804615"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Hipster Ipsum"], ["body", "Tofu tacos post-ironic locavore disrupt blue bottle. Street art you probably haven't heard of them fixie, 3 wolf moon forage tofu PBR&B squid tumblr fap listicle church-key. Paleo mumblecore bushwick, pickled twee lomo narwhal iPhone post-ironic tote bag trust fund fixie chillwave swag small batch. Kitsch VHS kogi celiac raw denim viral helvetica whatever. Gastropub raw denim photo booth literally small batch. YOLO actually cliche celiac photo booth DIY, meditation vinyl everyday carry. You probably haven't heard of them thundercats viral williamsburg fingerstache bespoke.Post-ironic messenger bag ramps, taxidermy pabst bicycle rights godard normcore. Pug whatever fanny pack, dreamcatcher austin letterpress small batch pour-over fashion axe crucifix. Deep v kombucha put a bird on it, migas church-key fap post-ironic fashion axe wolf. Waistcoat single-origin coffee ethical umami, dreamcatcher blog shoreditch. Chartreuse direct trade chillwave ugh actually fanny pack DIY, viral flexitarian polaroid four loko bespoke retro forage. Venmo four dollar toast pickled, bitters offal asymmetrical beard banjo polaroid. XOXO YOLO messenger bag direct trade chicharrones freegan."], ["created_at", "2015-11-11 03:46:09.806642"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"[0m  [["body", "The first comment on the first post"], ["post_id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"  [["body", "The first comment on the second post"], ["post_id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("body", "post_id") VALUES ($1, $2) RETURNING "id"[0m  [["body", "The first comment on the third post"], ["post_id", 6]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:46:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 231ms (Views: 208.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/application.self-565d18846744716c13391d3575a68513096cfc96a40e91b425924a80d49de452.css?body=1" for ::1 at 2015-11-10 22:46:19 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:46:19 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:46:20 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:46:20 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:46:20 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:49:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 226ms (Views: 203.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:49:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:49:03 -0500
+
+
+Started GET "/assets/application.self-565d18846744716c13391d3575a68513096cfc96a40e91b425924a80d49de452.css?body=1" for ::1 at 2015-11-10 22:49:03 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:49:03 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:49:03 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:49:32 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:49:32 -0500
+
+
+Started GET "/assets/application.self-87b08ae7a5b1d8e76b5a1558104a08b04f2d9f26b8cfa44a3e19201b4ed00acb.css?body=1" for ::1 at 2015-11-10 22:49:32 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:49:32 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:49:32 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:49:32 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:50:27 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 81ms (Views: 80.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:50:27 -0500
+
+
+Started GET "/assets/application.self-303ee0e58b63e7b0772d3fd86c374f5a3668cbbefafc4dbeca851a242c071b66.css?body=1" for ::1 at 2015-11-10 22:50:27 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:50:27 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:50:27 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:50:27 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:51:03 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-303ee0e58b63e7b0772d3fd86c374f5a3668cbbefafc4dbeca851a242c071b66.css?body=1" for ::1 at 2015-11-10 22:51:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:51:03 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:51:03 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:51:03 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:51:03 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:51:10 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-303ee0e58b63e7b0772d3fd86c374f5a3668cbbefafc4dbeca851a242c071b66.css?body=1" for ::1 at 2015-11-10 22:51:10 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:51:10 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:51:10 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:51:10 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:51:10 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:52:32 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-83ce2f57b1f5aa841e4b383d2041e9eac1906fb90a1124ba1d17e39396f25c27.css?body=1" for ::1 at 2015-11-10 22:52:32 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:52:32 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:52:32 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:52:32 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:52:32 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:52:42 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 45ms (Views: 44.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-10 22:52:42 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:52:42 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:52:42 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:52:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:52:42 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-10 22:55:03 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 43ms (Views: 35.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-10 22:55:03 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:55:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:55:03 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:55:03 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:55:03 -0500
+
+
+Started GET "/posts/5" for ::1 at 2015-11-10 22:55:04 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.9ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 64ms (Views: 47.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/5" for ::1 at 2015-11-10 22:56:18 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-10 22:56:18 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 22:56:18 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 22:56:18 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 22:56:18 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 22:56:18 -0500
+
+
+Started GET "/posts/5" for ::1 at 2015-11-10 23:40:21 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 48ms (Views: 36.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-10 23:40:21 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-10 23:40:21 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-10 23:40:21 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-10 23:40:21 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-10 23:40:21 -0500
+
+
+Started GET "/" for ::1 at 2015-11-10 23:40:26 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (0.8ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-10 23:40:41 -0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2:     <% @posts.each do |post| %>
+    3:         <div>
+    4:           <h2><%= link_to post.title, post_path(post) %></h2>
+    5:           <p><%= post.body %></p>
+  app/views/posts/index.html.erb:2:in `_app_views_posts_index_html_erb__1514231814371733249_70109784569160'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (55.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (125.0ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-10 23:41:52 -0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2:     <% @posts.each do |post| %>
+    3:         <div>
+    4:           <h2><%= link_to post.title, post_path(post) %></h2>
+    5:           <p><%= post.body %></p>
+  app/views/posts/index.html.erb:2:in `_app_views_posts_index_html_erb__1514231814371733249_70109784569160'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (53.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (127.5ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:36:48 -0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2:     <% @posts.each do |post| %>
+    3:         <div>
+    4:           <h2><%= link_to post.title, post_path(post) %></h2>
+    5:           <p><%= post.body %></p>
+  app/views/posts/index.html.erb:2:in `_app_views_posts_index_html_erb__1514231814371733249_70109784569160'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (70.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (144.8ms)
+
+
+Started GET "/post" for ::1 at 2015-11-11 06:38:07 -0500
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (64.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (140.7ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:38:20 -0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2:     <% @posts.each do |post| %>
+    3:         <div>
+    4:           <h2><%= link_to post.title, post_path(post) %></h2>
+    5:           <p><%= post.body %></p>
+  app/views/posts/index.html.erb:2:in `_app_views_posts_index_html_erb__1514231814371733249_70109784569160'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (89.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (62.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (137.3ms)
+  [1m[36mPost Load (1.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:40:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 244ms (Views: 224.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:41:00 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:41:00 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:41:00 -0500
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-11 06:41:00 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:41:00 -0500
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 06:41:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 51ms (Views: 34.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:41:10 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-11-11 06:41:13 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (7.7ms)
+  Rendered posts/new.html.erb within layouts/application (19.5ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @post do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb__2337648800787433363_70167459447800'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___3625976573133055353_70167489645180'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (63.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (141.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-11-11 06:41:13 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (3.9ms)
+  Rendered posts/new.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @post do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb__2337648800787433363_70167495669120'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___3625976573133055353_70167495683980'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (79.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (55.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (136.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-11-11 06:42:48 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (23.9ms)
+  Rendered posts/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 72ms (Views: 56.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-11 06:42:48 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:42:48 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:42:48 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:42:48 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:42:48 -0500
+
+
+Started POST "/posts" for ::1 at 2015-11-11 06:44:19 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yczq2ytuKX1P/xCOzqgmLpAEc7/uF4Gx3T0Q/HpcDvjloiUYEL67SfvxijiBglmyayGOZV5+72iW0BUqI0Xhsw==", "post"=>{"title"=>"Coffee Ipsum", "body"=>"Id, a robusta sit, qui, crema coffee, cream, redeye milk frappuccino pumpkin spice qui bar grounds. Redeye viennese, ut, trifecta variety, caffeine extra spoon that macchiato, siphon pumpkin spice organic shop rich, cinnamon, affogato aroma medium et seasonal. Sweet blue mountain aged mug black, coffee shop froth spoon rich aroma wings cultivar plunger pot con panna aftertaste irish, french press skinny espresso decaffeinated medium coffee siphon. Macchiato that froth cup black, froth instant, that decaffeinated black seasonal turkish shop. So, dripper chicory, espresso single shot body plunger pot saucer, robusta plunger pot, fair trade wings cortado, foam cream at latte strong con panna. Brewed a, viennese cortado arabica dark brewed, strong dripper chicory a aromatic shop skinny. Est filter pumpkin spice, et caramelization that to go, breve grinder wings coffee irish single origin, rich, milk acerbic carajillo extraction froth whipped kopi-luwak extraction.\r\n\r\nAroma sit that galão frappuccino, froth, single origin grinder sugar, steamed, white macchiato, java half and half french press percolator grounds. Crema, steamed extra espresso redeye doppio frappuccino robusta instant, qui kopi-luwak qui decaffeinated fair trade, wings percolator, sugar seasonal milk java that. To go shop, arabica french press viennese, café au lait viennese whipped aromatic café au lait cream cortado seasonal ristretto. A ut extraction aftertaste crema variety filter at percolator galão macchiato aroma, lungo half and half macchiato strong beans irish cream. Redeye turkish con panna, a in java, est qui java cinnamon, dripper, spoon single shot, galão, organic siphon, body, dripper body filter est kopi-luwak organic. So coffee, cultivar mug cream cup grinder, extraction cream cappuccino aged, saucer irish half and half black qui medium black single origin. Extraction aftertaste a chicory single shot pumpkin spice instant, trifecta as cappuccino frappuccino café au lait single shot."}, "commit"=>"Create Post"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Coffee Ipsum"], ["body", "Id, a robusta sit, qui, crema coffee, cream, redeye milk frappuccino pumpkin spice qui bar grounds. Redeye viennese, ut, trifecta variety, caffeine extra spoon that macchiato, siphon pumpkin spice organic shop rich, cinnamon, affogato aroma medium et seasonal. Sweet blue mountain aged mug black, coffee shop froth spoon rich aroma wings cultivar plunger pot con panna aftertaste irish, french press skinny espresso decaffeinated medium coffee siphon. Macchiato that froth cup black, froth instant, that decaffeinated black seasonal turkish shop. So, dripper chicory, espresso single shot body plunger pot saucer, robusta plunger pot, fair trade wings cortado, foam cream at latte strong con panna. Brewed a, viennese cortado arabica dark brewed, strong dripper chicory a aromatic shop skinny. Est filter pumpkin spice, et caramelization that to go, breve grinder wings coffee irish single origin, rich, milk acerbic carajillo extraction froth whipped kopi-luwak extraction.\r\n\r\nAroma sit that galão frappuccino, froth, single origin grinder sugar, steamed, white macchiato, java half and half french press percolator grounds. Crema, steamed extra espresso redeye doppio frappuccino robusta instant, qui kopi-luwak qui decaffeinated fair trade, wings percolator, sugar seasonal milk java that. To go shop, arabica french press viennese, café au lait viennese whipped aromatic café au lait cream cortado seasonal ristretto. A ut extraction aftertaste crema variety filter at percolator galão macchiato aroma, lungo half and half macchiato strong beans irish cream. Redeye turkish con panna, a in java, est qui java cinnamon, dripper, spoon single shot, galão, organic siphon, body, dripper body filter est kopi-luwak organic. So coffee, cultivar mug cream cup grinder, extraction cream cappuccino aged, saucer irish half and half black qui medium black single origin. Extraction aftertaste a chicory single shot pumpkin spice instant, trifecta as cappuccino frappuccino café au lait single shot."], ["created_at", "2015-11-11 11:44:19.993101"]]
+  [1m[36m (94.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 100ms (ActiveRecord: 95.4ms)
+
+
+Started GET "/posts/7" for ::1 at 2015-11-11 06:44:20 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:44:23 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:45:22 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-ebb51352d23533446b51b8d76b7fcd60d5f66c1c931c2f8b42f6163a3656773f.css?body=1" for ::1 at 2015-11-11 06:45:22 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:45:22 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:45:22 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:45:22 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:45:22 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:46:39 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-01f85cfc93e4576d014192af0012ff327bddbf18194ef17cc74c77d9838979e2.css?body=1" for ::1 at 2015-11-11 06:46:39 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:46:39 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:46:39 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:46:39 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:46:39 -0500
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:48:02 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/application.self-01f85cfc93e4576d014192af0012ff327bddbf18194ef17cc74c77d9838979e2.css?body=1" for ::1 at 2015-11-11 06:48:02 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:48:02 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:48:02 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:48:02 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:48:02 -0500
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 06:48:03 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:48:05 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered posts/_form.html.erb (4.4ms)
+  Rendered posts/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:50:15 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 61ms (Views: 58.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self-763860673061a991f0303d32da870ccf3d9687ad4c774a675b546497775c5bf2.css?body=1" for ::1 at 2015-11-11 06:50:15 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:50:15 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:50:15 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:50:15 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:50:15 -0500
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:52:15 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  Rendered posts/_form.html.erb (2.4ms)
+  Rendered posts/edit.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @post do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb__2337648800787433363_70167495669120'
+  app/views/posts/edit.html.erb:3:in `_app_views_posts_edit_html_erb___4366121076440944828_70167494583680'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (52.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (130.2ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:52:45 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  Rendered posts/_form.html.erb (3.4ms)
+  Rendered posts/edit.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @post do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb__2337648800787433363_70167495669120'
+  app/views/posts/edit.html.erb:3:in `_app_views_posts_edit_html_erb___4366121076440944828_70167494583680'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (56.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (131.5ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:54:50 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 48ms (Views: 36.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/application.self-763860673061a991f0303d32da870ccf3d9687ad4c774a675b546497775c5bf2.css?body=1" for ::1 at 2015-11-11 06:54:50 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 06:54:50 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 06:54:50 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 06:54:50 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 06:54:50 -0500
+
+
+Started PATCH "/posts/4" for ::1 at 2015-11-11 06:55:01 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ustO3sEMNrSihvbQshodzF3m1/fm0i9NNBUjlpc39YyWpYEd+tykgBaIbGb9MGJQpsMqLVa7QZR/+CZAzi4axw==", "post"=>{"title"=>"Bluth Ipsum", "body"=>"Everyone's laughing, and riding, and cornholing except Buster. Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. I'll sacrifice anything for my children. You must teach me the ways of the secular flesh. You stay on top of her, Buddy. Don't be afraid to ride her. Hard. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking \"albino\" on the form. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere on the OC? Yeah, well, have you seen the new Mustang? You could hump that hood. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! Sure, let the little fruit do it. HUZZAH! For there's a man inside me, and only when he's finally out, can I walk free of pain. It's one banana Michael, what could it cost, ten dollars? It's a jetpack, Michael. What could go wrong? Everyone's laughing, and riding, and cornholing except Buster. If you don't start pulling your weight around here its going to be shape up, or…ship up. [climbing under trampoline] This shall keep me safe from the hot Mexican sun. He's going to be all right. Turn this skiff around! Yeah!"}, "commit"=>"Update Post", "id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "posts" SET "body" = $1 WHERE "posts"."id" = $2[0m  [["body", "Everyone's laughing, and riding, and cornholing except Buster. Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. I'll sacrifice anything for my children. You must teach me the ways of the secular flesh. You stay on top of her, Buddy. Don't be afraid to ride her. Hard. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking \"albino\" on the form. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere on the OC? Yeah, well, have you seen the new Mustang? You could hump that hood. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! Sure, let the little fruit do it. HUZZAH! For there's a man inside me, and only when he's finally out, can I walk free of pain. It's one banana Michael, what could it cost, ten dollars? It's a jetpack, Michael. What could go wrong? Everyone's laughing, and riding, and cornholing except Buster. If you don't start pulling your weight around here its going to be shape up, or…ship up. [climbing under trampoline] This shall keep me safe from the hot Mexican sun. He's going to be all right. Turn this skiff around! Yeah!"], ["id", 4]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 06:55:01 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2015-11-11 06:55:03 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered posts/_form.html.erb (1.7ms)
+  Rendered posts/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/4" for ::1 at 2015-11-11 06:55:07 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"whbjeBaXaXG4zzmKxVOpVOg5oy7WCHO8wsZ6WXMQnmHueCy7LUf7RQzBozyKedbIExxe9GZhHWWJK3+PKglxKg==", "post"=>{"title"=>"Bluth Ipsum", "body"=>"Everyone's laughing, and riding, and cornholing except Buster. Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. I'll sacrifice anything for my children. You must teach me the ways of the secular flesh. You stay on top of her, Buddy. Don't be afraid to ride her. Hard. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking \"albino\" on the form. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere on the OC? Yeah, well, have you seen the new Mustang? You could hump that hood. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! Sure, let the little fruit do it. HUZZAH! For there's a man inside me, and only when he's finally out, can I walk free of pain. It's one banana Michael, what could it cost, ten dollars? It's a jetpack, Michael. What could go wrong? Everyone's laughing, and riding, and cornholing except Buster. If you don't start pulling your weight around here its going to be shape up, or…ship up. [climbing under trampoline] This shall keep me safe from the hot Mexican sun. He's going to be all right. Turn this skiff around! "}, "commit"=>"Update Post", "id"=>"4"}
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "posts" SET "body" = $1 WHERE "posts"."id" = $2[0m  [["body", "Everyone's laughing, and riding, and cornholing except Buster. Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. I'll sacrifice anything for my children. You must teach me the ways of the secular flesh. You stay on top of her, Buddy. Don't be afraid to ride her. Hard. I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking \"albino\" on the form. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere on the OC? Yeah, well, have you seen the new Mustang? You could hump that hood. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! Sure, let the little fruit do it. HUZZAH! For there's a man inside me, and only when he's finally out, can I walk free of pain. It's one banana Michael, what could it cost, ten dollars? It's a jetpack, Michael. What could go wrong? Everyone's laughing, and riding, and cornholing except Buster. If you don't start pulling your weight around here its going to be shape up, or…ship up. [climbing under trampoline] This shall keep me safe from the hot Mexican sun. He's going to be all right. Turn this skiff around! "], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 06:55:07 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 06:55:21 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-11-11 07:02:15 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/posts" for ::1 at 2015-11-11 07:02:24 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cd8ZwhXIv2BtcaBqOrYpywy1dXFznATGTvbgV4HLrDhdsdYBLhgtVNl/Otx1nFZX95CIq8P1ah8FG+WB2NJDcw==", "post"=>{"title"=>"lorem", "body"=>"ipsum"}, "commit"=>"Create Post"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "body", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "lorem"], ["body", "ipsum"], ["created_at", "2015-11-11 12:02:24.246070"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/8" for ::1 at 2015-11-11 07:02:24 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 8]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/8" for ::1 at 2015-11-11 07:02:26 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tfRtCfXdbOTgYBPvaq/8y5gsf8bDQOVRsUxYP3SERLyZmqLKzg3+0FRuiVklhYNXYwmCHHMpi4j6oV3pLZ2r9w==", "id"=>"8"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 8]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 33ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 07:02:26 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 07:16:59 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 48ms (Views: 42.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:17:00 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:17:00 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:17:00 -0500
+
+
+Started GET "/assets/application.self-763860673061a991f0303d32da870ccf3d9687ad4c774a675b546497775c5bf2.css?body=1" for ::1 at 2015-11-11 07:17:00 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:17:00 -0500
+
+
+Started GET "/posts/5" for ::1 at 2015-11-11 07:17:01 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 61ms (Views: 55.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 07:17:08 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:17:09 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:18:43 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-bc592cc8f9c0529572abca948cb493e5d5f523f2c24c5f639f20384e37175daf.css?body=1" for ::1 at 2015-11-11 07:18:43 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:18:43 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:18:43 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:18:43 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:18:43 -0500
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:19:00 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-0f3dd85ab3dc864ad5252776b513cf5f5e321ba02b4b4ccd7465bec4c72a8f6d.css?body=1" for ::1 at 2015-11-11 07:19:00 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:19:00 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:19:00 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:19:00 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:19:00 -0500
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:19:22 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-c0aadeb767db57f1116cc5f0a46e29aac8484512836ff1bd2fe070d1e3e10dea.css?body=1" for ::1 at 2015-11-11 07:19:22 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:19:22 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:19:22 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:19:22 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:19:22 -0500
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:22:09 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"comments", :id=>nil, :post_id=>#<Post id: 4, body: "Everyone's laughing, and riding, and cornholing ex...", title: "Bluth Ipsum", category: nil, img_url: nil, created_at: "2015-11-11 03:46:09", user_id: nil>} missing required keys: [:id]):
+    12:     <p><%= link_to 'Add Comment', new_post_comment_path(@post) %></p>
+    13:   <% @post.comments.each do |comment| %>
+    14:     <p><%= comment.body %></p>
+    15:     <%= link_to 'Edit', edit_post_comment_path(@post) %> |
+    16:     <%= link_to 'Delete', post_comment_path(@post), method: :delete %>
+    17:   <% end %>
+    18: </div>
+  app/views/posts/show.html.erb:15:in `block in _app_views_posts_show_html_erb___617587962284797690_70167459240740'
+  app/views/posts/show.html.erb:13:in `_app_views_posts_show_html_erb___617587962284797690_70167459240740'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (79.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (59.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (133.3ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 5]]
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:30:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.7ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.7ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (34.2ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 9.1ms)
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"comments", :id=>nil, :post_id=>#<Post id: 4, body: "Everyone's laughing, and riding, and cornholing ex...", title: "Bluth Ipsum", category: nil, img_url: nil, created_at: "2015-11-11 03:46:09", user_id: nil>} missing required keys: [:id]):
+    12:     <p><%= link_to 'Add Comment', new_post_comment_path(@post) %></p>
+    13:   <% @post.comments.each do |comment| %>
+    14:     <p><%= comment.body %></p>
+    15:     <%= link_to 'Edit', edit_post_comment_path(@post) %> |
+    16:     <%= link_to 'Delete', post_comment_path(@post), method: :delete %>
+    17:   <% end %>
+    18: </div>
+  app/views/posts/show.html.erb:15:in `block in _app_views_posts_show_html_erb__4086665675197196300_70294379905660'
+  app/views/posts/show.html.erb:13:in `_app_views_posts_show_html_erb__4086665675197196300_70294379905660'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (61.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (138.3ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:32:33 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"comments", :id=>nil, :post_id=>#<Post id: 4, body: "Everyone's laughing, and riding, and cornholing ex...", title: "Bluth Ipsum", category: nil, img_url: nil, created_at: "2015-11-11 03:46:09", user_id: nil>} missing required keys: [:id]):
+    13:   <% @post.comments.each do |comment| %>
+    14:     <p><%= comment.body %></p>
+    15:     <%= link_to 'Edit', edit_post_comment_path(@post, comment) %> |
+    16:     <%= link_to 'Delete', post_comment_path(@post), method: :delete %>
+    17:   <% end %>
+    18: </div>
+  app/views/posts/show.html.erb:16:in `block in _app_views_posts_show_html_erb__4086665675197196300_70294347561120'
+  app/views/posts/show.html.erb:13:in `_app_views_posts_show_html_erb__4086665675197196300_70294347561120'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.1ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (54.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (129.3ms)
+
+
+Started GET "/posts/4" for ::1 at 2015-11-11 07:32:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 252ms (Views: 249.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:32:45 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:32:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:32:45 -0500
+
+
+Started GET "/assets/application.self-c0aadeb767db57f1116cc5f0a46e29aac8484512836ff1bd2fe070d1e3e10dea.css?body=1" for ::1 at 2015-11-11 07:32:45 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:32:45 -0500
+
+
+Started GET "/posts/4/comments/4/edit" for ::1 at 2015-11-11 07:32:49 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"4", "id"=>"4"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 4]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+ActionView::MissingTemplate (Missing template comments/edit, application/edit with {:locale=>[:en], :formats=>[:html, :xml], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/neka/WDI/exercises/scribble/app/views"
+):
+  actionview (4.2.4) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.4) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.4) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.4) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.4) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.4) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.4) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.4) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.4) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.4) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.4) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.4) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.4) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (72.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (69.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (146.4ms)
+
+
+Started GET "/posts/4/comments/4/edit" for ::1 at 2015-11-11 07:32:49 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"4", "id"=>"4"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+ActionView::MissingTemplate (Missing template comments/edit, application/edit with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/neka/WDI/exercises/scribble/app/views"
+):
+  actionview (4.2.4) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.4) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.4) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.4) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.4) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.4) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.4) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.4) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.4) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.4) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.4) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.4) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.4) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.4) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.4) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.4) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (70.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (57.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (126.8ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 07:33:06 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/5" for ::1 at 2015-11-11 07:33:08 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for ::1 at 2015-11-11 07:33:35 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/5" for ::1 at 2015-11-11 07:33:38 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/5" for ::1 at 2015-11-11 07:38:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-c0aadeb767db57f1116cc5f0a46e29aac8484512836ff1bd2fe070d1e3e10dea.css?body=1" for ::1 at 2015-11-11 07:38:02 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 07:38:02 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 07:38:02 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 07:38:02 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 07:38:02 -0500
+
+
+Started GET "/posts/5/comments/5/edit" for ::1 at 2015-11-11 07:38:05 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"5", "id"=>"5"}
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered comments/_form.html.erb (22.6ms)
+  Rendered comments/edit.html.erb within layouts/application (25.5ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `comment_path' for #<#<Class:0x007fdd5fda6940>:0x007fdd5f0d8808>):
+    1: <%= form_for [@post, @comment] do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__2527619251982988717_70294383941240'
+  app/views/comments/edit.html.erb:3:in `_app_views_comments_edit_html_erb___2494600385891484201_70294379578080'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (55.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (127.8ms)
+
+
+Started GET "/posts/5/comments/5/edit" for ::1 at 2015-11-11 07:38:05 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"5", "id"=>"5"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered comments/_form.html.erb (13.3ms)
+  Rendered comments/edit.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `comment_path' for #<#<Class:0x007fdd5fda6940>:0x007fdd6146b180>):
+    1: <%= form_for [@post, @comment] do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+  app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__2527619251982988717_70294398273180'
+  app/views/comments/edit.html.erb:3:in `_app_views_comments_edit_html_erb___2494600385891484201_70294398259100'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (58.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (126.3ms)
+
+
+Started GET "/posts/5/comments/" for ::1 at 2015-11-11 09:00:14 -0500
+
+AbstractController::ActionNotFound (The action 'index' could not be found for CommentsController):
+  actionpack (4.2.4) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.4) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.4) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.4) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/neka/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (59.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (131.1ms)
+
+
+Started GET "/posts/5/" for ::1 at 2015-11-11 09:00:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 51ms (Views: 38.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/posts/5/comments/new" for ::1 at 2015-11-11 09:00:21 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"5"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant CommentsController::Artist):
+  app/controllers/comments_controller.rb:5:in `new'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (60.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (126.5ms)
+
+
+Started GET "/posts/5/comments/new" for ::1 at 2015-11-11 09:00:21 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"5"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant CommentsController::Artist):
+  app/controllers/comments_controller.rb:5:in `new'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (63.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (127.4ms)
+
+
+Started GET "/posts/5/comments/new" for ::1 at 2015-11-11 09:01:33 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"5"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered comments/_form.html.erb (22.6ms)
+  Rendered comments/new.html.erb within layouts/application (24.3ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 4.4ms)
+
+ActionView::Template::Error (undefined method `title' for #<Comment:0x007fdd6108a458>):
+    1: <%= form_for [@post, @comment] do |f| %>
+    2:   <%= f.label :title %>
+    3:   <%= f.text_field :title %>
+    4:   <%= f.label :body %>
+    5:   <%= f.text_area :body %>
+    6:   <%= f.submit %>
+  app/views/comments/_form.html.erb:3:in `block in _app_views_comments__form_html_erb__2527619251982988717_70294398273180'
+  app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__2527619251982988717_70294398273180'
+  app/views/comments/new.html.erb:3:in `_app_views_comments_new_html_erb__949077102130663227_70294355120040'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (76.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (54.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (127.0ms)
+
+
+Started GET "/posts/5/comments/new" for ::1 at 2015-11-11 09:01:53 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered comments/_form.html.erb (3.4ms)
+  Rendered comments/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-c0aadeb767db57f1116cc5f0a46e29aac8484512836ff1bd2fe070d1e3e10dea.css?body=1" for ::1 at 2015-11-11 09:01:53 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 09:01:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 09:01:53 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 09:01:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 09:01:53 -0500
+
+
+Started POST "/posts/5/comments" for ::1 at 2015-11-11 09:02:00 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z37PIudufH0EfYk8WAi8XxchM7ZazrVVepS1rsEmKiZLEADh3L7uSbBzE4oXIsPD7ATObOqn24wxebB4mD/FbQ==", "comment"=>{"body"=>"new comment"}, "commit"=>"Create Comment", "post_id"=>"5"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 5]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `comment' for #<Post:0x007fdd615c2c40>):
+  app/controllers/comments_controller.rb:12:in `create'
+
+
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.2ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (52.7ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/neka/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (123.1ms)

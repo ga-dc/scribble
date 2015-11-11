@@ -1,0 +1,40 @@
+
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+
+*{
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+body{
+  font-family: 'Dosis', sans-serif;
+  color: #46464C;
+  background-color: #FDFBFA;
+}
+
+a{
+  text-decoration: underline;
+  color: inherit;
+}
+
+h1 > a{
+  text-decoration: none;
+}
+.wrapper{
+  width: 80%;
+  margin: 0 auto;
+}
+
+header{
+  height: 50px;
+  border-bottom: 2px dotted #46464C;
+}
+textarea{
+  display: block;
+  height: 200px;
+  width: 500px;
+}
+.comment{
+  border-top: 2px dotted #46464C;
+  margin-top: 20px;
+}
