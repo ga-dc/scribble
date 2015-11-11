@@ -7,5 +7,7 @@
 <h4>Comments</h4>
 
 <% @comments.each do |comment| %>
-      <p><%= comment.commenter_name %> says: "<%= comment.content %>"</p>
+      <p><%= comment.commenter_name %> says: "<%= comment.content %>" 
+<%= link_to "Edit this comment", edit_blog_comment_path(@blog, comment.id) %>
+      </p>
   <% end %>

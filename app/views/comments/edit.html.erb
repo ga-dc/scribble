@@ -1,0 +1,19 @@
+
+ <% @comment[:blog_id] = @blog %>
+
+<%= form_for [@blog, @comment] do |f| %>
+ <p> <%= f.label :commenter_name %>
+  <%= f.text_field :commenter_name %>
+  </p>
+
+ <p> <%= f.label :content %><br />
+  <%= f.text_field :content %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_for [@blog, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
+
