@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :title
       t.text :text
 
-      t.timestamps null: false
+      # t.timestamps null: false
     end
   end
 end
