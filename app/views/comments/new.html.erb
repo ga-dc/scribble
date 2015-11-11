@@ -1,4 +1,4 @@
-<form method="post" action="/comments">
+<form method="post" action="<%= post_comments_path(@post) %>">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label>comment</label>
