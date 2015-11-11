@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
@@ -8,11 +14,13 @@ class CommentsController < ApplicationController
 
   def edit
     @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:post_id])
-    @post.comment.update(post_params)
+    @comment = @post.comments.find(params[:id])
+    @comment.update(comment_params)
 
     redirect_to post_path(@post)
   end
