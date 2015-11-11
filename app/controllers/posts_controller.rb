@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   # create
   def create
     @post = Post.create!(post_params)
-    redirect_to post_path(@post) 
+    redirect_to post_path(@post)
   end
   # show
 
@@ -22,12 +22,14 @@ class PostsController < ApplicationController
 
   # edit
   def edit
-
+    @post = Post.find(params[:id])
   end
   # update
 
   def update
-
+    @post = Post.find(params[:id])
+    @post.update!(post_params)
+    redirect_to @post
   end
 
   # destroy
