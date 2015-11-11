@@ -38,4 +38,8 @@ class CommentsController < ApplicationController
     redirect_to post_comments_path
   end
 
+  def comment_params
+    params.require(:comment).permit(:username, :content)
+  end
+
 end
