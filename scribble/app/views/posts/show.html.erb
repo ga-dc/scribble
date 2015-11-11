@@ -7,14 +7,14 @@
 
 
 <h3>Comments:
-   <%= link_to '(+)', new_comment_path %>
+   <%= link_to '(+)', new_post_comment_path(@posts) %>
  </h3>
 
  <ul>
   <% @posts.comments.each do |comment| %>
     <li>
-      <%= comment.user %>
-      <%= comment.article %>
+      <p><%= comment.user %>: <%= comment.article %></p>
+
     </li>
   <% end %>
 </ul>

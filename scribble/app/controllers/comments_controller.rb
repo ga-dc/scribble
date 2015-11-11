@@ -4,22 +4,23 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  # new
+  # new / create new comment part 1
   def new
-    @comments = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build
   end
 
-  # # create
-  # def create
-  #   @artist = Artist.create!(artist_params)
-  #
-  #   redirect_to artist_path(@artist)
-  # end
-  #
-  # #show
-  # def show
-  #   @artist = Artist.find(params[:id])
-  # end
+  # create / create new comment part 2
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create!(comment_params)
+    redirect_to post_path(@comment.post)
+  end
+
+  #show
+  def show
+    @comments = Comment.find(params[:id])
+  end
   #
   # # edit
   # def edit
@@ -43,8 +44,8 @@ class CommentsController < ApplicationController
   #   redirect_to artists_path
   # end
   #
-  # private
-  # def artist_params
-  #   params.require(:artist).permit(:name, :photo_url, :nationality)
-  # end
+  private
+  def comment_params
+    params.require(:comment).permit(:user, :article, :date)
+  end
 end
