@@ -36,3 +36,11 @@ img {
   margin-left: 100px;
   color: brown;
 }
+
+.notice {
+  color: purple;
+}
+
+.alert {
+  color: red;
+}

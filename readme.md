@@ -20,7 +20,7 @@ add in `User` with secure password authentication.
 - Remember to add authenticity tokens to forms.
 - Use strong params.
 
-## Helpers (due Friday) Almost done - should move forms to _form where possible
+## Helpers (due Friday) DONE
 
 - Convert links, forms, etc. to helpers.
 
