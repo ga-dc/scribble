@@ -10,7 +10,7 @@
     <p><%=post.text[0...200]%><%if post.text.length>200%>...<%end%></p>
     <%if post.updated_at != post.created_at%><p>Updated at <%=post.updated_at%></p><%end%>
   </section>
-  <%=link_to "Read More/Add Comment(#{post.comments.length})", post_path(post)%>
+  <p><%=link_to "More (#{post.comments.length} comments)", post_path(post)%></p>
   <hr>
 <%end%>
 </section>

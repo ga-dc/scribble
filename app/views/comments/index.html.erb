@@ -1,7 +1,7 @@
 <h2>All Comments for "<%=@post.title%>" by <%=@post.author%></h2>
 <%@comments.each do |comment| %>
 <section>
-  <p>By: <%=comment.author%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>Updated At: <%comment.updated_at%><%end%></p>
+  <p>By: <%=link_to comment.author, post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>Updated At: <%comment.updated_at%><%end%></p>
   <p><%=comment.text%></p>
 </section>
 <hr>
