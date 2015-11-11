@@ -1,7 +1,4 @@
 <div class = "show_post">
-  <% flash.each do |type, message| %>
-  <p class ="><%= type %>"<%=message%></p>
-  <%end%>
   <h1><%=@post.title%></h1>
   <%=link_to "EDIT", edit_post_path(@post), class: "edit" %>
   <p><%=@post.text%></p>
