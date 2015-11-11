@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
-  def sort
-    session[:sorting_val] = params[:sort_by]
-    redirect_to posts_path
-  end
+  before_action :authenticate_user!, except: [:show, :index]
   def index
     @posts = Post.all
   end
@@ -14,7 +11,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   def create
-    @post = Post.create!(post_params)
+    puts "*"*25
+    puts current_user.inspect
+    @post = current_user.posts.create(post_params)
     redirect_to post_path(@post)
   end
   def destroy

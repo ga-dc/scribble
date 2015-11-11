@@ -1,6 +1,6 @@
 <h1><%=@post.title%></h1>
 <section>
-  <h2>By <%=@post.author%></h2>
+  <h2>By <%=User.find(@post.user_id).email%></h2>
   <p>Posted at <%=@post.created_at%></p>
   <hr>
   <p class="textarea"><%=@post.text%></p>

@@ -9,7 +9,7 @@ Comment.destroy_all
 Post.destroy_all
 
 posts = Post.create([
-  {author: "Teddy", text: "13. Many leftists have an intense identification with the problems of
+  {text: "13. Many leftists have an intense identification with the problems of
    groups that have an image of being weak (women), defeated (American
    Indians), repellent (homosexuals), or otherwise inferior. The leftists
    themselves feel that these groups are inferior. They would never admit
@@ -34,8 +34,8 @@ posts = Post.create([
    out (and often greatly exaggerates) these faults where they appear in
    Western civilization. Thus it is clear that these faults are not the
    leftist's real motive for hating America and the West. He hates
-   America and the West because they are strong and successful.", title: "FEELINGS OF INFERIORITY"},
-  {author: "Ted", text: "6. Almost everyone will agree that we live in a deeply troubled
+   America and the West because they are strong and successful.", title: "FEELINGS OF INFERIORITY", user_id: User.first.id},
+  {text: "6. Almost everyone will agree that we live in a deeply troubled
    society. One of the most widespread manifestations of the craziness of
    our world is leftism, so a discussion of the psychology of leftism can
    serve as an introduction to the discussion of the problems of modern
@@ -61,46 +61,13 @@ posts = Post.create([
    driving force of modern leftism. We by no means claim to be telling
    the WHOLE truth about leftist psychology. Also, our discussion is
    meant to apply to modern leftism only. We leave open the question of
-   the extent to which our discussion could be applied to the leftists of", title: "THE PSYCHOLOGY OF MODERN LEFTISM"},
-  {author: "Teddy K", text: "1. The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries.", title: "INDUSTRIAL SOCIETY AND ITS FUTURE"},
-  {author: "Ted K", text: "2. The industrial-technological system may survive or it may break down. If it survives, it MAY eventually achieve a low level of physical and psychological suffering, but only after passing through a long and very painful period of adjustment and only at the cost of permanently reducing human beings and many other living organisms to engineered products and mere cogs in the social machine. Furthermore, if the system survives, the consequences will be inevitable: There is no way of reforming or modifying the system so as to prevent it from depriving people of dignity and autonomy. 3. If the system breaks down the consequences will still be very painful. But the bigger the system grows the more disastrous the results of its breakdown will be, so if it is to break down it had best break down sooner rather than later.", title: "INDUSTRIAL SOCIETY AND ITS FUTURE"},
+   the extent to which our discussion could be applied to the leftists of", title: "THE PSYCHOLOGY OF MODERN LEFTISM", user_id: User.first.id},
+  {text: "1. The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live i “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries.", title: "INDUSTRIAL SOCIETY AND ITS FUTURE", user_id: User.first.id},
+  {text: "2. The industrial-technological system may survive or it may break down. If it survives, it MAY eventually achieve a low level of physical and psychological suffering, but only after passing through a long and very painful period of adjustment and only at the cost of permanently reducing human beings and many other living organiss to engineered products and mere cogs in the social machine. Furthermore, if the system survives, the consequences will be inevitable: There is no way of reforming or modifying the system so as to prevent it from depriving people of dignity and autonomy. 3. If the system breaks down the consequences will still be very painful. But the bigger the system grows the more disastrous the results of its breakdown will be, so if it is to break down it had best break down sooner rather than later.", title: "INDUSTRIAL SOCIETY AND ITS FUTURE", user_id: User.first.id},
   ])
-
 comments  = Comment.create([
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted").id},
-  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy").id},
-  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Ted K").id},
-  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.find_by(author: "Teddy K").id}
+  {author: "Bill", text: "Terrible blog. What's wrong with you?", post_id: Post.first.id},
+  {author: "Bill2", text: "Terrible blog. What's wrong with you?", post_id: Post.first.id},
+  {author: "Bill3", text: "Terrible blog. What's wrong with you?", post_id: Post.first.id}
+
 ])
