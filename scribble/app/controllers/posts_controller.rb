@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
-# before adding the new action, when I clicked on the the + button on
-# the index page, it took me to a blank page, no error thrown.
-# I was expecting a undefined method error
   def new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 end
