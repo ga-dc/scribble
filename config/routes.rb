@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'comments/index'
+  # get 'comments/index'
 
   get 'posts/index'
 
