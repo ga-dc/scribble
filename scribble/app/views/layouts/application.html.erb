@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Get your Scribble on!</h1>
-<%= link_to "Posts", posts_path() %>
-<%= yield %>
-
+  <div id="left"></div>
+  <div id="right"></div>
+  <div id="top"></div>
+  <div id="bottom"></div>
+  <div class="main">
+    <h1>Get your Scribble on!</h1>
+    <h2><%= link_to "All Posts", posts_path() %></h2>
+    <%= yield %>
+  </div>
 </body>
 </html>
