@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
   # ensure that every new post has a title and text
   private
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :photo_url)
   end
 
 end
