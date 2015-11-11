@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
 	def create
 		@blog = Blog.find(params[:blog_id])
 		@comment = Comment.create!(comment_params.merge(blog: @blog))
-		redirect_to blog_comment_path(@blog, @comment)
-	end
+   		redirect_to blog_path(@blog)
+    end
 
 	def show
 		@blog = Blog.find(params[:blog_id])
@@ -28,8 +28,7 @@ class CommentsController < ApplicationController
 	    @comment = Comment.find(params[:id])
 	    @blog = Blog.find(params[:blog_id])
 	    @comment.update(comment_params.merge(blog: @blog))
-		redirect_to blog_path(@blog)
-		# need to make this direct to blog
+	    redirect_to blog_path(@blog)
  	end
 
  	def destroy

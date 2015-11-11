@@ -3,9 +3,12 @@
   <% @blogs.each do |blog| %>
     <li> 
       <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
-     <%= "by #{blog.author_name}" %>
+    <%= "by #{blog.author_name}" %>
     </li>
   <% end %>
 </ul>
 
 <h3><%= link_to "Post your own blog!", new_blog_path %></h3>
+
+
+<!-- , posted at #{blog.created_at} -->

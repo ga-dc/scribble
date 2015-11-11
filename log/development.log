@@ -13690,3 +13690,1442 @@ Processing by BlogsController#show as HTML
   [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
   Rendered blogs/show.html.erb within layouts/application (1.5ms)
 Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:52:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.9ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 271ms (Views: 245.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/blogs/2" for ::1 at 2015-11-11 16:52:20 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBlog Load (0.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 2]]
+  Rendered blogs/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 78ms (Views: 30.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:52:23 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:52:53 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 90ms (Views: 87.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/blogs/4/comments" for ::1 at 2015-11-11 16:53:01 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMPwu10FUkbJBHLbUkrFh2rd7Cq4byV8lds4w5SlOSaTKMOyA36QUjl6QLBS+NUVPoW8+Y4qkYMyPHzOICUNVw==", "comment"=>{"commenter_name"=>"#2", "content"=>"I'm comment #2"}, "commit"=>"Create Comment", "blog_id"=>"4"}
+  [1m[35mBlog Load (0.6ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("commenter_name", "content", "blog_id") VALUES ($1, $2, $3) RETURNING "id"  [["commenter_name", "#2"], ["content", "I'm comment #2"], ["blog_id", 4]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4/comments/21
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/blogs/4/comments/21" for ::1 at 2015-11-11 16:53:01 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"21"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" LIMIT 1[0m
+  Rendered comments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 41ms (Views: 38.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:53:04 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.4ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:53:10 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 47ms (Views: 44.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/blogs/4/comments/20/edit" for ::1 at 2015-11-11 16:53:17 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"20"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered comments/edit.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs/4/comments/21/edit" for ::1 at 2015-11-11 16:55:10 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"21"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 21]]
+  Rendered comments/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/blogs/4/comments/21" for ::1 at 2015-11-11 16:55:19 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1V7iiT73h5js8ungUnwcUazEs8QX1njhhbDeyLYGBEDytdGAYIxFjByM24tSzgzD+JzjFyGTzB4iV5rFAoYwMQ==", "comment"=>{"commenter_name"=>"#2!", "content"=>"I'm comment #2"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"21"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "comments" SET "commenter_name" = $1 WHERE "comments"."id" = $2  [["commenter_name", "#2!"], ["id", 21]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:55:19 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs/4/comments/20/edit" for ::1 at 2015-11-11 16:56:30 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"20"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered comments/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 51ms (Views: 32.8ms | ActiveRecord: 5.0ms)
+
+
+Started PATCH "/blogs/4/comments/20" for ::1 at 2015-11-11 16:56:31 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DrXfZgNb4pclzX11Lx+1ZaxFEHI8lGsgVvpW2mqDjPopXuxvXSAgg9WzTx4vraX3+B1AoQrR39/xHRLX3gO4iw==", "comment"=>{"commenter_name"=>"Whoever", "content"=>"This post still rules"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"20"}
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:56:31 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs/4/comments/20/edit" for ::1 at 2015-11-11 16:56:33 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"20"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered comments/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/blogs/4/comments/20" for ::1 at 2015-11-11 16:56:36 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWi308D3caFkN++Ao7DRD9R38Rajqgl3dItEmiPl0csig4TanoyztZRJ3eujAsGdgC+hxZXvvYjTbACXl2Xlug==", "comment"=>{"commenter_name"=>"Whoever", "content"=>"This post still ruljk"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"20"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "comments" SET "content" = $1 WHERE "comments"."id" = $2[0m  [["content", "This post still ruljk"], ["id", 20]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:56:36 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 31.5ms | ActiveRecord: 0.7ms)
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:20 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 16:58:20 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 16:58:20 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 16:58:20 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 16:58:20 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 16:58:20 -0500
+
+
+Started GET "/blogs/4/comments/21/edit" for ::1 at 2015-11-11 16:58:23 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"21"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 21]]
+  Rendered comments/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/blogs/4/comments/21" for ::1 at 2015-11-11 16:58:25 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OzMpwc+IWvQQ4gPN1IgiZsOZ2UYnjEb1kQArJWdBXbsc2BrIkfOY4OCcMabUOjL0l8GJlRHJ8go2528o08Fpyg==", "comment"=>{"commenter_name"=>"#2!", "content"=>"I'm comment #2ff"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"21"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "comments" SET "content" = $1 WHERE "comments"."id" = $2  [["content", "I'm comment #2ff"], ["id", 21]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:25 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/20/edit" for ::1 at 2015-11-11 16:58:27 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"20"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered comments/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/blogs/4/comments/20" for ::1 at 2015-11-11 16:58:29 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UXfDZIyqdQUYa9kL7qlkLWaXZjuQS1koQt3wcyCIY4x2nPBt0tG3EegV62DuG3S/Ms826KYO7dflOrR+lAhX/Q==", "comment"=>{"commenter_name"=>"Whoever", "content"=>"This post still ruljk"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"20"}
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:29 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:58:31 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4/comments/20/edit" for ::1 at 2015-11-11 16:58:35 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"20"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered comments/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/blogs/4/comments/20" for ::1 at 2015-11-11 16:58:36 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J02nhguTqxz1ZRgjleUdg4+FYPktOGxtpT9zcttDYLcAppSPVehpCAUbKkiVVw0R290wKht92JIC2Dd/b8NUxg==", "commit"=>"Delete!", "blog_id"=>"4", "id"=>"20"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = $1  [["id", 20]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:36 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs/4/comments/21/edit" for ::1 at 2015-11-11 16:58:37 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"21"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  Rendered comments/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/blogs/4/comments/21" for ::1 at 2015-11-11 16:58:38 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X/KUJTVSh9LdwBBfSH+UTq6TkinoXcWEF/rvFKvi07Z4GacsaylFxi2+IjRIzYTc+svC+t4YcXuwHasZH2Lnxw==", "commit"=>"Delete!", "blog_id"=>"4", "id"=>"21"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 21]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:38 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:58:39 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/blogs/4/comments" for ::1 at 2015-11-11 16:58:43 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q4xtQqPnXCrAt1D1G/4E6/ehaExaRxv5e90N5aNL9nyMZ15L/ZyePjDJYp4bTBR5o/k4n2wCrwbcOknoF8vCDQ==", "comment"=>{"commenter_name"=>"11", "content"=>"1"}, "commit"=>"Create Comment", "blog_id"=>"4"}
+  [1m[35mBlog Load (0.5ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("commenter_name", "content", "blog_id") VALUES ($1, $2, $3) RETURNING "id"  [["commenter_name", "11"], ["content", "1"], ["blog_id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4/comments/22
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/blogs/4/comments/22" for ::1 at 2015-11-11 16:58:43 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"22"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" LIMIT 1[0m
+  Rendered comments/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:58:44 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.4ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:45 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:58:47 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/blogs/4/comments" for ::1 at 2015-11-11 16:58:50 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RKiuifvb9j7XvPM9xzyRCJan4eNJiXc2/3PfM7H2R79jQ52ApaA0KifCwVbHjoGawv+xMH/Mw8lYlJs+BXZzzg==", "comment"=>{"commenter_name"=>"22", "content"=>"2"}, "commit"=>"Create Comment", "blog_id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("commenter_name", "content", "blog_id") VALUES ($1, $2, $3) RETURNING "id"  [["commenter_name", "22"], ["content", "2"], ["blog_id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4/comments/23
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/blogs/4/comments/23" for ::1 at 2015-11-11 16:58:50 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" LIMIT 1[0m
+  Rendered comments/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:58:52 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.4ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:58:54 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:58:57 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/blogs/4/comments" for ::1 at 2015-11-11 16:59:00 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WObJxCJIepKIqm+TddFJulaNYyqNYZcGA9CKiSfVcnV/DfrNfDO4hnjUXfh1Y1koAtUz+bskI/mkN86Ek1VGBA==", "comment"=>{"commenter_name"=>"333", "content"=>"3"}, "commit"=>"Create Comment", "blog_id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commenter_name", "content", "blog_id") VALUES ($1, $2, $3) RETURNING "id"  [["commenter_name", "333"], ["content", "3"], ["blog_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4/comments/24
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/blogs/4/comments/24" for ::1 at 2015-11-11 16:59:00 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"24"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" LIMIT 1[0m
+  Rendered comments/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:59:01 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.4ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:59:03 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs/4/comments/new" for ::1 at 2015-11-11 16:59:04 -0500
+Processing by CommentsController#new as HTML
+  Parameters: {"blog_id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/blogs/4/comments" for ::1 at 2015-11-11 16:59:07 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oio9zb5H6HRCJLWk2goliiY+j9NmF/Vsls9jLIRoCyyFwQ7E4DwqYLJah8/auDUYcmbfAFBSQZMxKCchMOg/XQ==", "comment"=>{"commenter_name"=>"4", "content"=>"4"}, "commit"=>"Create Comment", "blog_id"=>"4"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("commenter_name", "content", "blog_id") VALUES ($1, $2, $3) RETURNING "id"  [["commenter_name", "4"], ["content", "4"], ["blog_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4/comments/25
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/blogs/4/comments/25" for ::1 at 2015-11-11 16:59:07 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"25"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" LIMIT 1[0m
+  Rendered comments/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 16:59:08 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.6ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:59:16 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/24/edit" for ::1 at 2015-11-11 16:59:24 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"24"}
+  [1m[36mBlog Load (0.5ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered comments/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/blogs/4/comments/24" for ::1 at 2015-11-11 16:59:28 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ep6ByO7HuR+rTzKg8pSDGBGVeTznVkz3qyXk9lSc91A1dbLBsLx7C1sxAMvyJpOKRc0p79ET+AgMwqD74BzDIQ==", "comment"=>{"commenter_name"=>"333", "content"=>"3 edited"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"24"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "comments" SET "content" = $1 WHERE "comments"."id" = $2  [["content", "3 edited"], ["id", 24]]
+  [1m[36m (19.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 28ms (ActiveRecord: 20.8ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:59:28 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4/comments/22/edit" for ::1 at 2015-11-11 16:59:32 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"22"}
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 22]]
+  Rendered comments/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/blogs/4/comments/22" for ::1 at 2015-11-11 16:59:35 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A3RCGrpm5JvyGtHObZYY3AhH7bNicGVANHyk+nNQo/4kn3ET5B0mjwJk46VtJAhOXB+9YFQ10b+Tm+D3x9CXjw==", "comment"=>{"commenter_name"=>"11", "content"=>"1 ed"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"22"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36mBlog Load (0.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "comments" SET "content" = $1 WHERE "comments"."id" = $2[0m  [["content", "1 ed"], ["id", 22]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 16:59:35 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.7ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:00:37 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 47ms (Views: 31.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:00:37 -0500
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:00:37 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:00:37 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:00:37 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:00:37 -0500
+
+
+Started GET "/" for ::1 at 2015-11-11 17:00:53 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.5ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/1" for ::1 at 2015-11-11 17:00:59 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 1]]
+  Rendered blogs/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/1/edit" for ::1 at 2015-11-11 17:01:01 -0500
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered blogs/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/blogs/1" for ::1 at 2015-11-11 17:01:03 -0500
+Processing by BlogsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VfYP0U2MNUStg1zqO/fr41+5C/SYpPlIP/IdrjeW0KlyHTzYE/f3UF39boE7RftxC+FbJ67hTbeYFVmjgxbk2A==", "commit"=>"Delete!", "id"=>"1"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "blogs" WHERE "blogs"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:01:03 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/2" for ::1 at 2015-11-11 17:01:05 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 2]]
+  Rendered blogs/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/2/edit" for ::1 at 2015-11-11 17:01:08 -0500
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered blogs/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/blogs/2" for ::1 at 2015-11-11 17:01:09 -0500
+Processing by BlogsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1y9muCUpU0MYzoSp1E5ERY9tCEyMEWv4Y5CCmVruM2/wxFWxe1KRV+iwtsLU/FTX2zVYn7pU3wfEd8aU7m4HHg==", "commit"=>"Delete!", "id"=>"2"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "blogs" WHERE "blogs"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:01:09 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:01:10 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs/4/edit" for ::1 at 2015-11-11 17:01:12 -0500
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.5ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered blogs/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/blogs/4" for ::1 at 2015-11-11 17:01:19 -0500
+Processing by BlogsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gdOouhqN70lo1E9rUuVNghaNOpP31Th+d6v4V8rEd6qmOJuzRPYtXZiqfQBSV10QQtVqQMGQjIHQTLxafkRD2w==", "blog"=>{"author_name"=>"Rebecca", "subject"=>"I am a blogger", "content"=>"Are you a blogger too?"}, "commit"=>"Update Blog", "id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "blogs" SET "content" = $1 WHERE "blogs"."id" = $2[0m  [["content", "Are you a blogger too?"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:01:19 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:05:09 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.5ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:05:09 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:05:09 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:05:09 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:05:09 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:05:09 -0500
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:05:10 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (4.6ms)
+  Rendered comments/edit.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= render partial: "form" %>
+    4: 
+    5: <%= form_for @song, method: "delete" do |f| %>
+    6:   <%= f.submit "Delete song", class: "delete" %>
+    7: <% end %>
+  app/views/comments/edit.html.erb:5:in `_app_views_comments_edit_html_erb__1518187696845764926_70156632454260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (74.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (50.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (123.8ms)
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:05:10 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (5.2ms)
+  Rendered comments/edit.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <%= render partial: "form" %>
+    4: 
+    5: <%= form_for @song, method: "delete" do |f| %>
+    6:   <%= f.submit "Delete song", class: "delete" %>
+    7: <% end %>
+  app/views/comments/edit.html.erb:5:in `_app_views_comments_edit_html_erb__1518187696845764926_70156621613740'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (45.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (108.2ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:06:02 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:06:03 -0500
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:06:03 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:06:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:06:03 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:06:03 -0500
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:06:03 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (3.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (6.3ms)
+  Rendered comments/edit.html.erb within layouts/application (46.1ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 3.6ms)
+
+ActionView::Template::Error (undefined method `comment_path' for #<#<Class:0x007f9d393e4648>:0x007f9d3911ac78>):
+    2: 
+    3: <%= render partial: "form" %>
+    4: 
+    5: <%= form_for @comment, method: "delete" do |f| %>
+    6:   <%= f.submit "Delete comment", class: "delete" %>
+    7: <% end %>
+  app/views/comments/edit.html.erb:5:in `_app_views_comments_edit_html_erb__1518187696845764926_70156622011140'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (45.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (124.1ms)
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:06:04 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (3.3ms)
+  Rendered comments/edit.html.erb within layouts/application (22.1ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined method `comment_path' for #<#<Class:0x007f9d393e4648>:0x007f9d393b4f60>):
+    2: 
+    3: <%= render partial: "form" %>
+    4: 
+    5: <%= form_for @comment, method: "delete" do |f| %>
+    6:   <%= f.submit "Delete comment", class: "delete" %>
+    7: <% end %>
+  app/views/comments/edit.html.erb:5:in `_app_views_comments_edit_html_erb__1518187696845764926_70156623478480'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (60.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (123.7ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:06:31 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 32ms (Views: 29.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:06:31 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:06:31 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:06:31 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:06:31 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:06:31 -0500
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:06:32 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.5ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (3.7ms)
+  Rendered comments/edit.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs/4/" for ::1 at 2015-11-11 17:07:54 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/23/edit" for ::1 at 2015-11-11 17:07:56 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  Rendered comments/_form.html.erb (4.3ms)
+  Rendered comments/edit.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/blogs/4/comments/23" for ::1 at 2015-11-11 17:07:58 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dusNFTKILHnEXLaSCAHZva/UdlyIh8iSzsJAw1XxbYlRAD4cbPPubTQihPkIs8kv+4wmj77CfG1pJQTO4XFZ+A==", "commit"=>"Delete!", "blog_id"=>"4", "id"=>"23"}
+  [1m[36mBlog Load (0.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = $1  [["id", 23]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:07:58 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs/4/comments/25/edit" for ::1 at 2015-11-11 17:07:59 -0500
+Processing by CommentsController#edit as HTML
+  Parameters: {"blog_id"=>"4", "id"=>"25"}
+  [1m[35mBlog Load (0.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  Rendered comments/_form.html.erb (3.2ms)
+  Rendered comments/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/blogs/4/comments/25" for ::1 at 2015-11-11 17:08:01 -0500
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oDLgDy+QiqVViI1e4Jipqx0iGXbh7PxLwQIU7aALlIiH2dMGcetIsaX2vzXgKrk5SXpJpdepSLRm5VDgFIug+Q==", "comment"=>{"commenter_name"=>"4", "content"=>"44"}, "commit"=>"Update Comment", "blog_id"=>"4", "id"=>"25"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "comments" SET "content" = $1 WHERE "comments"."id" = $2[0m  [["content", "44"], ["id", 25]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/4
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:08:01 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:09:00 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/new" for ::1 at 2015-11-11 17:09:02 -0500
+Processing by BlogsController#new as HTML
+  Rendered blogs/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/blogs" for ::1 at 2015-11-11 17:09:12 -0500
+Processing by BlogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gQXhMuYhkyEjMxOFzzpIX0AnxzRSpkE3D5XiFFMVVuem7tI7uFpRNdNNIe7PiFjNFH+X52Tj9ciocqYZ55Vilg==", "blog"=>{"author_name"=>"Rebecca", "subject"=>"Blogging is fun!", "content"=>"This is spectacular content."}, "commit"=>"Create Blog"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "blogs" ("author_name", "subject", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["author_name", "Rebecca"], ["subject", "Blogging is fun!"], ["content", "This is spectacular content."]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/5
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/blogs/5" for ::1 at 2015-11-11 17:09:12 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 5]]
+  Rendered blogs/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:09:16 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTimestampsToBlogs (20151111221016)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20151111221016"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Migrating to AddTimestampsToComments (20151111221024)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151111221024"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blogs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2015-11-11 17:12:47 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:12:48 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:12:48 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:12:48 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:12:48 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:12:48 -0500
+
+
+Started GET "/" for ::1 at 2015-11-11 17:13:22 -0500
+Processing by BlogsController#index as HTML
+  Rendered blogs/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+...end=( "by #{blog.author_name}", posted "#{blog.created_at}"
+...                               ^
+/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:7: syntax error, unexpected '<', expecting ')'
+    </li>
+     ^
+/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:9: unknown regexp option - l
+unmatched close parenthesis: /li>
+  <% end );@output_buffer.safe_append='
+</
+/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:11: syntax error, unexpected '<'
+<h3>'.freeze;@output_buffer.ap...
+ ^
+/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:11: unterminated regexp meets end of file
+/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:11: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/blogs/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+  app/views/blogs/index.html.erb:7: syntax error, unexpected '<', expecting ')'
+  app/views/blogs/index.html.erb:9: unknown regexp option - l
+  app/views/blogs/index.html.erb:11: syntax error, unexpected '<'
+  app/views/blogs/index.html.erb:11: unterminated regexp meets end of file
+  app/views/blogs/index.html.erb:11: syntax error, unexpected end-of-input, expecting ')'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (51.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (113.0ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:13:41 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by BlogsController#index as HTML
+  Rendered blogs/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/rebeccaestes/wdi/exercises/scribble/app/views/blogs/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+...end=( "by #{blog.author_name}", posted "#{blog.created_at}" ...
+...                               ^):
+  app/views/blogs/index.html.erb:6: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (61.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (116.9ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:14:10 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.5ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Blog:0x007f9d39515080>):
+    3:   <% @blogs.each do |blog| %>
+    4:     <li> 
+    5:       <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
+    6:      <%= "by #{blog.author_name}, posted at #{blog.created_at}" %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  app/views/blogs/index.html.erb:6:in `block in _app_views_blogs_index_html_erb___2865299593494719174_70156632140400'
+  app/views/blogs/index.html.erb:3:in `_app_views_blogs_index_html_erb___2865299593494719174_70156632140400'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (46.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (106.8ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:16:06 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:16:07 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:16:07 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:16:07 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:16:07 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:16:07 -0500
+
+
+Started GET "/blogs/new" for ::1 at 2015-11-11 17:16:11 -0500
+Processing by BlogsController#new as HTML
+  Rendered blogs/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/blogs" for ::1 at 2015-11-11 17:16:23 -0500
+Processing by BlogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EdynltG1SgDuYAY5YhAUFfRhef2BCBfI2zmJZ3mgPHQ2N5Sfj86IFB4eNFJiogSHoDkpLrdNozd83s1qzSAIBQ==", "blog"=>{"author_name"=>"Rebecca", "subject"=>"This blog is timestamped", "content"=>"Yay!"}, "commit"=>"Create Blog"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "blogs" ("author_name", "subject", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["author_name", "Rebecca"], ["subject", "This blog is timestamped"], ["content", "Yay!"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs/6
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/blogs/6" for ::1 at 2015-11-11 17:16:23 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1  [["blog_id", 6]]
+  Rendered blogs/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 46ms (Views: 38.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2015-11-11 17:16:25 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/4" for ::1 at 2015-11-11 17:16:26 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 4]]
+  Rendered blogs/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 35ms (Views: 31.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/blogs/4/edit" for ::1 at 2015-11-11 17:16:28 -0500
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mBlog Load (0.2ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered blogs/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/blogs/4" for ::1 at 2015-11-11 17:16:29 -0500
+Processing by BlogsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6At1Xj4rWgtW4o+wctZtLaoIif1qDnCd/BmuX/CtkUbP4EZXYFCYH6acvdtyZH2//lDZLlxLxGJb/upSRC2lNw==", "commit"=>"Delete!", "id"=>"4"}
+  [1m[36mBlog Load (1.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "blogs" WHERE "blogs"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs
+Completed 302 Found in 21ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:16:29 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/5" for ::1 at 2015-11-11 17:16:31 -0500
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 5]]
+  Rendered blogs/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs/5/edit" for ::1 at 2015-11-11 17:16:32 -0500
+Processing by BlogsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mBlog Load (0.3ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered blogs/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/blogs/5" for ::1 at 2015-11-11 17:16:33 -0500
+Processing by BlogsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qZ3dvGZWEQTGDfNB0nHEYSwr+TLaMd9zs9WwBBdfCK2Odu61OC3TEDZzwSrSw9TzeHOp4ex0a4wUMvQJo9883A==", "commit"=>"Delete!", "id"=>"5"}
+  [1m[36mBlog Load (0.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "blogs" WHERE "blogs"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/blogs
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:16:33 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.7ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:16:40 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.4ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Blog:0x007f9d39314cb8>):
+    3:   <% @blogs.each do |blog| %>
+    4:     <li> 
+    5:       <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
+    6:     <%= "by #{blog.author_name}, posted at #{blog.created_at}" %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  app/views/blogs/index.html.erb:6:in `block in _app_views_blogs_index_html_erb___2865299593494719174_70156623092200'
+  app/views/blogs/index.html.erb:3:in `_app_views_blogs_index_html_erb___2865299593494719174_70156623092200'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (46.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (104.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blogs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blogs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:20:24 -0500
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.6ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 4.6ms)
+
+ActionView::Template::Error (undefined method `created_at' for #<Blog:0x007f9d395c0c50>):
+    3:   <% @blogs.each do |blog| %>
+    4:     <li> 
+    5:       <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
+    6:     <%= "by #{blog.author_name}, posted at #{blog.created_at}" %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  app/views/blogs/index.html.erb:6:in `block in _app_views_blogs_index_html_erb___2865299593494719174_70156632273300'
+  app/views/blogs/index.html.erb:3:in `_app_views_blogs_index_html_erb___2865299593494719174_70156632273300'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (119.7ms)
+
+
+Started GET "/blogs" for ::1 at 2015-11-11 17:20:40 -0500
+Processing by BlogsController#index as HTML
+  [1m[35mBlog Load (0.6ms)[0m  SELECT "blogs".* FROM "blogs"
+  Rendered blogs/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-d0d011aa287dbec3c715fe0b5a105a5d095773870f866763c84ee96dcf7de7a4.css?body=1" for ::1 at 2015-11-11 17:20:41 -0500
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-11-11 17:20:41 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-11-11 17:20:41 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-11-11 17:20:41 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-11-11 17:20:41 -0500
