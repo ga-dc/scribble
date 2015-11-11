@@ -104,7 +104,7 @@ main{
 
 .comments {
   background-color: rgba(228, 221, 155, 0.3);
-  border: 1px solid black;
+  border: 2px solid white;
   margin: 0 auto;
   margin-top: 40px;
   width: 500px;
@@ -121,7 +121,7 @@ main{
 }
 
 .delete_comment{
-    background-color: red;
+    background-color: white;
     color: black;
     padding-left: 2px;
     padding-right: 2px;
@@ -186,4 +186,7 @@ main{
 .nav:hover{
   text-shadow: 2px 2px green;
   font-size: 28px;
+}
+.notice {
+  color: green;
 }

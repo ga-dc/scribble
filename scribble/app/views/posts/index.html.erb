@@ -1,13 +1,10 @@
 <h1>ALL POSTS</h1>
 <div class = "buttons">
 <a href="/">HOME</a>
-  <%= link_to "Add New", new_post_path %>
 </div>
 <% @posts.each do |post| %>
 <div class = "post">
-  <ul>
-      <li><h2><%=link_to "#{post.title}", post%></h2></li>
-      <li><p><%=post.text%><p></li>
-  </ul>
+      <h2><%=link_to "#{post.title}", post%></h2>
+      <p><%=post.text%><p>
 </div>
 <%end%>

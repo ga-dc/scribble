@@ -5,8 +5,6 @@
 </div>
 <% @posts[0..2].each do |post| %>
 <div class = "post">
-  <ul>
-      <li><h2><%=link_to "#{post.title}", post%></h2></li>
-  </ul>
+      <h2><%=link_to "#{post.title}", post%></h2>
 </div>
 <%end%>

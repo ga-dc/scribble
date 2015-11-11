@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @posts = Post.create!(posts_params)
+    flash[:notice] = "a new post was sucessfully created!"
     redirect_to @posts
   end
 
