@@ -14,21 +14,57 @@
  *= require_self
  */
 
+#new-post {
+  margin-top: 10px;
+  background-color: #7d7d7d;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#new-post:hover {
+  background-color: #4d4d4d;
+}
+
 body {
     margin: 0 auto;
     margin-top: 30px;
-    width: 600px;
+    padding: 0 100px 0 30px;
+    max-width: 500px;
 }
 
 #logo {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 #post-title {
   margin-top: 50px;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-size: 20px;
+}
+
+#post-body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+#edit-post {
+  font-family: 'Open Sans', sans-serif;
+  color: #7d7d7d;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#edit-post:hover {
+  color: #4d4d4d;
+
 }
