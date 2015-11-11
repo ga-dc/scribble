@@ -1,4 +1,15 @@
+<div class = "show_post">
   <h1><%=@post.title%></h1>
   <%=link_to "EDIT", edit_post_path(@post), class: "edit" %>
-  <%=link_to "ADD COMMENT", new_post_comment_path(@post), class: "new_comment" %>
   <p><%=@post.text%></p>
+</div>
+<h1>Please comment on my blog post!</h1>
+<%=link_to "ADD COMMENT", new_post_comment_path(@post), class: "new_comment" %>
+<div class = "comments">
+    <% @post.comments.each do |comment| %>
+        <h2><%= comment.author %></h2
+        <p><%= comment.text %></p>
+  <%=link_to "EDIT", edit_post_comment_path(@post, comment), class: "edit_comment" %>
+  <%= link_to 'DELETE', post_comment_path(@post, comment),:confirm => 'Are you sure?', :method => :delete, class: "delete_comment" %>
+  <% end %>
+</div>

@@ -22,6 +22,6 @@ post6 = Post.create(title: "Ruby on Rails", text:"Ruby on Rails is an open-sourc
 
 Hundreds of thousands of programmers around the world have built amazing applications using Rails. Some of the more famous include Twitter, Shopify, 500px, and Github.")
 
-comment1= Comment.create(author: "Emilie Boeri")
-comment2 = Comment.create(author: "Emeri Lewoskiwz")
-comment3 = Comment.create(author: "Cherie Grimm")
+comment1= Comment.create(author: "Emilie Boeri", text: "I love this blog so much!")
+comment2 = Comment.create(author: "Emeri Lewoskiwz", text: "I love this blog so much!")
+comment3 = Comment.create(author: "Cherie Grimm", text: "I love this blog so much!")

@@ -1,0 +1,9 @@
+<h2>New Comment</h2>
+<%= form_for [@post, @comment], :html =>{ :class =>'form' } do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author%>
+  <%= f.label :text %>
+  <%= f.text_area :text, size: "100x20" %>
+  <%= f.label :submit %>
+  <%= f.submit%>
+<% end %>
