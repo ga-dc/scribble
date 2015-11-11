@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a href="/posts"><h2>Post Index</h2></a>
+  <h1><%=link_to "Post Index", posts_path%></h1>
+  <hr>
+  <% if current_user %>
+    <h3><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h3>
+  <% else %>
+    <h3><%= link_to 'Signup', new_user_registration_path %></h3>
+    <h3><%= link_to 'Login', new_user_session_path %></h3>
+  <% end %>
+  <hr>
 
 <%= yield %>
 
