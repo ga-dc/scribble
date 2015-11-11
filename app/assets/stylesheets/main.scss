@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron:400,900);
+
+$primary-color: #2646ea;
+$secondary-color: #FF8300;
+$third-color: #E08283;
+$decorative-font: 'Orbitron', sans-serif;
+$text-font: 'Helvetica', sans-serif;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+  background-color: black;
+  color: $primary-color;
+  font-family: $text-font;
+}
+
+img, a, .main {
+  @include border-radius(8px);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: $decorative-font;
+  background-color: $secondary-color;
+  color: black;
+  padding: 2%;
+  margin: 1%;
+  box-shadow:0 5px 10px white;
+
+}
+
+#logo {
+  display:block;
+  font-family: $decorative-font;
+  font-weight: 900;
+  font-size: 3.5rem;
+  margin: 2%;
+  text-shadow:0 3px 10px black;
+}
+
+.sidebar {
+  width: 20%;
+  float: left;
+  a {
+    display: block;
+    margin: 10%;
+    padding: 8%;
+    font-size: 1.5rem;
+    background-color: $third-color;
+  }
+}
+
+.main {
+  width: 70%;
+  float: left;
+  background-color: $primary-color;
+  color: black;
+  margin: 3%;
+  padding: 1%;
+  text-align: center;
+
+  input, label {
+    margin: 1%;
+  }
+
+  li {
+    list-style: none;
+  }
+}
