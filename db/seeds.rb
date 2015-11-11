@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-post1 = Post.create(author:"Chase Gruber",title:"Making a Blog",post_body:"This is a blog post. Woo hoo.")
-post2 = Post.create(author:"Chewbaca",title:"Rrrrrrrrrrrrr",post_body:"Gwwwwwrrrrrrrr rrrrrr rrrrrr rrr.")
-
-c1 = Comment.create(username:"l33t",comment:"Nice post, loser",post:post1)
-c2 = Comment.create(username:"c3po",comment:"Well said",post:post2)
+# post1 = Post.create(title:"Making a Blog",body:"This is a blog post. Woo hoo.")
+# post2 = Post.create(title:"Rrrrrrrrrrrrr",body:"Gwwwwwrrrrrrrr rrrrrr rrrrrr rrr.")
+#
+# c1 = Comment.create(comment:"Nice post, loser",post:post1)
+# c2 = Comment.create(comment:"Well said",post:post2)
