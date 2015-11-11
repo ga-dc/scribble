@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+
+# FOR FRIDAY HW:
+    root to: 'posts#index'
+
+    resources :posts
+    resources :comments
+
+    # posts routes
+  #   get     '/posts',          to: 'posts#index'
+  #   get     '/posts/new',      to: 'posts#new'
+  #   post    '/posts',          to: 'posts#create'
+  #
+  #   get     '/posts/:id',      to: 'posts#show'
+  #   get     '/posts/:id/edit', to: 'posts#edit'
+  #   put     '/posts/:id',      to: 'posts#update'
+  #   delete  '/posts/:id',      to: 'posts#destroy'
+  #
+  #   # songs routes
+  #   get     '/comments',          to: 'comments#index'
+  #   get     '/comments/new',      to: 'comments#new'
+  #   post    '/comments',          to: 'comments#create'
+  #
+  #   get     '/comments/:id',      to: 'comments#show'
+  #   get     '/comments/:id/edit', to: 'comments#edit'
+  #   put     '/comments/:id',      to: 'comments#update'
+  #   delete  '/comments/:id',      to: 'comments#destroy'
+  # end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -52,5 +80,5 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
+
 end
