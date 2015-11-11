@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @post=Post.find(params[:post_id])
     @comments=@post.comments.all
 
-    redirect_to post_path(@post)
+    # redirect_to post_comments_path(@post)
   end
 
   def create
@@ -22,7 +22,8 @@ class CommentsController < ApplicationController
   end
 
   def show
-    # @comment=Comment.find(params[:id])
+     @post=Post.find(params[:post_id])
+     @comment=@post.comments.find(params[:id])
   end
 
   def update

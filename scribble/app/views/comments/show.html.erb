@@ -1,3 +1,12 @@
-<!-- post_comment_path
-<% @comment
-<% link_to "comment" -->
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :user_name %>
+  <%= f.text_field :userName %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <!-- How can I change it to show update_at if it was updated? -->
+  <%= f.label :created_at %>
+  <%= f.text_field :created_at %>
+  <%= f.submit  %>
+<%end%>

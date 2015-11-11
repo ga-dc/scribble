@@ -16,4 +16,4 @@
 
 <%=link_to "comment", new_post_comment_path(@post, @comment) %>
 
-<h4>The following are comments related to this post</h4>
+<h4><%=link_to "The following are comments related to this post", post_comments_path(@post) %></h4>
