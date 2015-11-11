@@ -19,5 +19,7 @@
 <div class="comment">
 <% @post.comments.each do |comment| %>
 <p>Comment: <%= "#{comment.text}" %></p>
+<%= link_to "Delete", post_comment_path(@post,comment), method: :delete %>
+<%= link_to "Edit", edit_post_comment_path(@post, comment)%>
 <%end %>
 </div>

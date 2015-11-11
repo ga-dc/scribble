@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    if current_user
+    @posts = current_user.posts
+    else
     @posts = Post.all
+    end
   end
 
   def new
@@ -9,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
+    @post = current_user.posts.create!(post_params)
     redirect_to post_path(@post)
   end
 
@@ -35,6 +40,11 @@ class PostsController < ApplicationController
   end
 
   private
+# Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:post).permit(:title, :text)
   end

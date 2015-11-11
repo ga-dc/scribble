@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  
   def index
     @comments = Comment.all
   end
@@ -21,19 +23,21 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-
-    redirect_to comment_path(@comment)
+    @post = Post.find(params[:post_id])
+    redirect_to post_path(@post)
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comment_path()
+    @post = Post.find(params[:post_id])
+    redirect_to post_path(@post)
   end
 
   private
