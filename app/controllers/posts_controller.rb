@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # @artist = Artist.find_by(id: params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   def new
