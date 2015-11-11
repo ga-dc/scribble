@@ -1,0 +1,13 @@
+<header class="posts-list">
+  <h1 class="home-header">Headline News</h1>
+</header>
+<div class="posts-list">
+  <% @posts.each do |post| %>
+    <div class="single-post">
+      <h3 class="single-post-title"><%= link_to post.title, post_path(post) %></h3>
+      <p class="single-post-links"><%= link_to 'Edit', edit_post_path(post) %>
+        | <%= post.comments.length %> <%= post.comments.length == 1 ? 'comment' : 'comments' %></p>
+      <p class="single-post-text"><%= post.text %></p>
+    </div>
+  <% end %>
+</div>

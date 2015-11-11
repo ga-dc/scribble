@@ -1,0 +1,19 @@
+
+body {
+  background-color: #F6F6F6;
+}
+
+div.posts-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em 0;
+  background-color: #FFF;
+}
+
+header.posts-list {
+  text-align: center;
+}
+
+.single-post {
+  margin: 4em;
+}
