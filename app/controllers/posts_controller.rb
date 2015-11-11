@@ -6,12 +6,13 @@ class PostsController < ApplicationController
   # new
 
   def new
-
+    @post = Post.new
   end
 
   # create
   def create
-
+    @post = Post.create!(post_params)
+    redirect_to post_path(@post) 
   end
   # show
 
@@ -34,4 +35,8 @@ class PostsController < ApplicationController
 
   end
 
+  private
+    def post_params
+      params.require(:post).permit(:title, :post)
+    end
 end
