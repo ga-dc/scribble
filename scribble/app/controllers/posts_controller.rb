@@ -7,11 +7,17 @@ class PostsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:id])
+    redirect_to "/"
   end
 
   # new
   def new
     @post = Post.new
+  end
+
+  # edit
+  def edit
+    @post = Post.find(params[:id])
   end
 
   # create
@@ -20,14 +26,11 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  # edit
-  def edit
-
-  end
-
   # update
   def update
-
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to "/"
   end
 
   # destroy

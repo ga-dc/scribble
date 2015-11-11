@@ -8,5 +8,6 @@
 
   <h3><%= post.title %></h3>
   <p><%= post.content %></p>
-
+  <p><%= link_to "Edit", edit_post_path(post) %></p>
+  <p><%= link_to "Remove", post, method: :delete %><</p>
   <% end %>
