@@ -1,0 +1,9 @@
+
+
+<h2><%= link_to "post a new thread", new_post_path(@post) %></h2>
+<h2>display something</h2>
+<% @posts.each do |post| %>
+
+  <li><%=link_to post.title, post_path(post) %></li>
+
+<%end%>
