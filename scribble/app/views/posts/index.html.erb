@@ -1,0 +1,10 @@
+<h1>ALL POSTS</h1>
+<div class = "buttons">
+<a href="/">HOME</a>
+</div>
+<% @posts.each do |post| %>
+<div class = "post">
+      <h2><%=link_to "#{post.title}", post%></h2>
+      <p><%=post.text%><p>
+</div>
+<%end%>
