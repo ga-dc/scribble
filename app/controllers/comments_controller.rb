@@ -12,9 +12,8 @@ class CommentsController < ApplicationController
   # create
   def create
     @comment = Comment.create(comment_params)
-
-    # redirect_to "/comments/#{@comment.id}"
-    redirect_to comment_path(@comment)
+    redirect_to posts_path()
+    binding.pry
   end
 
   #show

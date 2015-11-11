@@ -5,15 +5,16 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @comment = Comment.new
   end
 
   def create
-    @artist = Artist.create!(post_params)
-    redirect_to artist_path(@post)
+    @artist = Post.create!(post_params)
+    redirect_to posts_path(@post)
   end
 
   def show
-    @post = Artist.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -23,17 +24,18 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to artist_path(@artist)
+    redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Artist.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path()
+  end
 
-    private
-    def post_params
-      params.require(:post).permit(:title, :author, :post)
-    end
+  private
+  def post_params
+    params.require(:post).permit(:title, :author, :post)
+  end
 
 end
