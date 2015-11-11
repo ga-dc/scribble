@@ -13,3 +13,7 @@
  <%= f.text_field :created_at %>
  <%= f.submit  %>
 <%end%>
+
+<%=link_to "comment", new_post_comment_path(@post, @comment) %>
+
+<h4>The following are comments related to this post</h4>
