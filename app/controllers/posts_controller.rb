@@ -13,12 +13,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(title: params[:title])
+    @post = Post.create(post_params)
     render :show
   end
 
   private
   def post_params
+    params.require(:post).permit(:title, :text)
     # params.require(:artist).permit(:name, :photo_url, :nationality)
   end
 
