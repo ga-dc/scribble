@@ -6,3 +6,15 @@
 <% if current_user.email == @post.user.email %>
 <%= link_to "Edit Post",edit_post_path(@post) %>
 <% end %>
+<%= link_to "Add Comment",new_post_comment_path(@post) %>
+<% if @post.comments %>
+<ul>
+<% @post.comments.each do |comment| %>
+  <li>
+    <p>
+      <%= comment.body %>
+    </p>
+  </li>
+<% end %>
+</ul>
+<% end %>
