@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @user = current_user
     current_user.posts.create(post_params)
     redirect_to posts_path
   end
@@ -21,6 +20,9 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if current_user != @post.user
+      redirect_to @post
+    end
   end
 
   def update
@@ -31,7 +33,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    if current_user != @post.user
+      redirect_to @post
+    else
+      @post.destroy
+    end
     redirect_to posts_path
   end
 
