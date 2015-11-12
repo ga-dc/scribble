@@ -2,8 +2,16 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show,:index]
 
-  def index
+  def allpost
     @posts = Post.all
+  end
+
+  def index
+    if current_user
+    @posts = current_user.posts
+  else
+    @posts = Post.all
+  end
   end
 
   def show
@@ -19,6 +27,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if @post.user == current_user
+
+  else
+    redirect_to post_path(@post)
+  end
   end
 
   def update
