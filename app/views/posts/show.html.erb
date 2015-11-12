@@ -14,7 +14,15 @@
     <p>
       <%= comment.body %>
     </p>
+    <p>
+      <%= comment.user.email %>
+    </p>
+    <% if current_user.email == comment.user.email %>
+    <%= link_to "Edit Comment",edit_post_comment_path(@post,comment) %>
+    <%= link_to "Delete Comment", post_comment_path(@post,comment), method: 'delete' %>
+    <% end %>
   </li>
 <% end %>
 </ul>
 <% end %>
+<%= link_to "All Posts", posts_path %>

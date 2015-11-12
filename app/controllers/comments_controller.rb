@@ -1,12 +1,5 @@
 class CommentsController < ApplicationController
-#   post_comments GET    /posts/:post_id/comments(.:format)          comments#index
-#               POST   /posts/:post_id/comments(.:format)          comments#create
-# new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
-# edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format) comments#edit
-#  post_comment GET    /posts/:post_id/comments/:id(.:format)      comments#show
-#               PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
-#               PUT    /posts/:post_id/comments/:id(.:format)      comments#update
-#               DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+  before_action :authenticate_user!, only: [:edit, :delete]
 
   def index
     redirect_to post_path(params[:post_id])
@@ -19,7 +12,27 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @post.comments.create(comment_params)
+    cp = comment_params
+    cp[:user] = current_user
+    @post.comments.create(cp)
+    redirect_to post_path(params[:post_id])
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    redirect_to post_path(@post)
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
     redirect_to post_path(params[:post_id])
   end
 

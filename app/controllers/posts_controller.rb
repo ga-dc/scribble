@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!#, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -8,8 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @user.posts.create(post_params)
+    # @user = current_user
+    current_user.posts.create(post_params)
     redirect_to posts_path
   end
 
