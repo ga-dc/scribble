@@ -2,14 +2,18 @@
 
 <p><%=@post.post_text%></p>
 
-<p>
-  <%=@comments.each do |comment|%>
+<div class="comment">
+  <% @comments.each do |comment|%>
   <p>
-    <%=comment.username%> -
-    <%=comment.comment_text%>
-  <% end %>
+    #<%=link_to comment.id, post_comment_path(@post, comment)%>
+    - <%=comment.username %>
+    - <%=comment.created_at %>
   </p>
-</p>
+  <p>
+    <%=comment.comment_text%>
+  </p>
+  <% end %>
+</div>
 
 <%= link_to "Add Comment", new_post_comment_path(@post) %>
 <%= link_to "Edit Post", edit_post_path(@post) %>
