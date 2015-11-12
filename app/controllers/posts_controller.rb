@@ -8,9 +8,14 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  # edit
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   # create
   def create
-    @post = Post.new(params.require(:post).permit(:title,:text))
+    @post = Post.new post_params
     if @post.save
       redirect_to @post
     else
@@ -20,24 +25,19 @@ class PostsController < ApplicationController
 
   #show
   def show
-    @post= Post.find(params[:id])
-  end
-
-  # edit
-  def edit
     @post = Post.find(params[:id])
+    @comment = @post.comments.build
   end
-
 
   # update
   def update
     @post = Post.find(params[:id])
-  if @post.update(post_params)
-    redirect_to @post
-  else
-    render 'edit'
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
-end
 
   # destroy
   def destroy
@@ -49,5 +49,9 @@ end
   private
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:commenter, :text)
   end
 end
