@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# forcing the application to not access the DB
+# or load models when precompiling assets.
+# config.assets.initialize_on_precompile = false
+
 module Scribble
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
