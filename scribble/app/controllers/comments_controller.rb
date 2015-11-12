@@ -2,13 +2,15 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
+    @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new
   end
 
   def create
+    @user = current_user
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
+    @comment = @post.comments.create(comment_params.merge(user: current_user))
 
     redirect_to post_path(@post)
   end

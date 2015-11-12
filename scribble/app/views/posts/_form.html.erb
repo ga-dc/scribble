@@ -1,5 +1,9 @@
 <%= form_for @post do |f| %>
   <p>
+    by <%= @user.email %>
+  </p>
+
+  <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
