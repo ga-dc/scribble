@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
+    flash[:notice] = "The comment was successfully published."
     redirect_to post_path(@post)
   end
 
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
+    flash[:notice] = "The comment was deleted."
     redirect_to post_path(@post)
   end
 

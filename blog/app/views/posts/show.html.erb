@@ -6,7 +6,7 @@
 </header>
 <div class="posts-list">
 <div class="single-post">
-  <p class="single-post-text"><%= @post.text %></p>
+  <p class="single-post-text respect-breaks"><%= @post.text %></p>
 
   <h2>Comments</h2>
   <% @post.comments.each do |comment| %>
@@ -15,7 +15,7 @@
       <%= comment.commenter %>
     </p>
 
-    <p>
+    <p class="respect-breaks">
       <strong>Comment:</strong>
       <%= comment.body %>
     </p>
