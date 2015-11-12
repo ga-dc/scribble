@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all
   end
@@ -13,8 +15,9 @@ class PostsController < ApplicationController
 
   def create
     @posts = Post.create!(posts_params)
-    flash[:notice] = "a new post was sucessfully created!"
-    redirect_to @posts
+    @user = User.find(params[:id])
+    redirect_to @posts, notice:
+    "a new post was sucessfully created!"
   end
 
   def edit
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
 
   private
   def posts_params
-    params.require(:post).permit(:title, :author, :text)
+    params.require(:post).permit(:title, :text)
   end
 
 end

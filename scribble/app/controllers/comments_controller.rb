@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def index
   end
   def new
@@ -8,8 +9,8 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @post.comments.create!(comment_params)
-    redirect_to post_path(@post)
+    @post.comments.create!(comment_params.merge(user: current_user))
+    redirect_to post_path(@post, @user)
   end
 
   def edit
@@ -19,7 +20,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
+    @comment.update(comment_params.merge(user: current_user))
     @post = Post.find(params[:post_id])
     redirect_to @post
   end
@@ -33,7 +34,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:author, :text, :post_id)
+    params.require(:comment).permit(:text, :post_id)
   end
 
 end

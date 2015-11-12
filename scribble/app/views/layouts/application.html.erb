@@ -15,7 +15,11 @@
     <ul>
       <li><%=link_to "HOME", '/', class: 'nav'%></li>
       <li><%=link_to "POSTS", '/posts', class: 'nav'%></li>
-      <li><%=link_to "LOGIN", '/', class: 'nav'%></li>
+      <% if user_signed_in? %>
+        <li><%=link_to "LOG OUT", destroy_user_session_path, method: :delete, class: 'nav'%></li>
+      <% else %>
+        <li><%=link_to "LOG IN", user_session_path, method: :show, class: 'nav'%></li>
+      <%end%>
     </ul>
   </nav>
 <%= image_tag("logo.jpg")%>
