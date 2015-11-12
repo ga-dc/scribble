@@ -1,0 +1,12 @@
+<h1>Submit a Post</h1>
+<form action='/posts' method='post'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="title">Title:</label>
+  <input name="post[title]">
+
+  <label for='body'>Body:</label>
+  <input name='post[body]'>
+
+  <input type='submit' value="Create post">
+
+</form>
