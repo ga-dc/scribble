@@ -28,7 +28,12 @@ class CommentsController < ApplicationController
 	def edit
 		@blog = Blog.find(params[:blog_id])
 		@comment = Comment.find(params[:id])
-		@user = current_user
+		@user = @comment.user
+		if @user != current_user
+			flash[:alert] = "Access denied! You can't edit someone else's comment."
+			redirect_to blog_path(@blog)
+		else
+		end
 	end
 
  	def update

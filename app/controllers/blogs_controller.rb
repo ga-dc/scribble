@@ -27,7 +27,12 @@ class BlogsController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
+		@user = @blog.user
+		if @user != current_user
+			flash[:alert] = "Access denied! You can't edit someone else's post."
+			redirect_to root_path
+		end
+		# @user = current_user
 	end
 
 	def update

@@ -2,7 +2,7 @@
 <ul>
   <% @blogs.each do |blog| %>
     <li> 
-      <%= link_to "#{blog.subject}", blog_path(blog.id) %>, last edited by <%= User.find(blog.user_id).email  %>
+      <%= link_to "#{blog.subject}", blog_path(blog.id) %>, by <%= User.find(blog.user_id).email  %>
     </li>
   <% end %>
 </ul>
