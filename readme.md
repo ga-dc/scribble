@@ -36,7 +36,8 @@
 
 TODO:
 
--Make so comments, like posts, are related to Users.
 -Add tags and categories as per bonus.
+
 -Make it look better.
--Take care of error handling.
+
+-Take care of error handling for out of range requests.
