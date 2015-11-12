@@ -15,7 +15,7 @@
  */
 
  body {
-   background-image: asset-data-url('paper.jpg');
+   background-image: url(image-path('paper.jpg'));
    background-repeat: no-repeat;
    background-size: cover;
  }
@@ -34,7 +34,7 @@
  }
 
  .post_text {
-   background-image: asset-data-url('post.jpg');
+   background-image: url(image-path('post.jpg'));
    width: 50%;
    padding-left: 1%;
  }
