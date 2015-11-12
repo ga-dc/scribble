@@ -1,5 +1,5 @@
 
-<h1>Posts</h1>
+<h2>Posts <%= link_to "(+)", new_post_path(), class: "btn btn-primary" %></h2>
 
 <table>
   <thead>
@@ -13,8 +13,8 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.headline %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Show', post %> | </td>
+        <td><%= link_to 'Edit', edit_post_path(post) %> | </td>
         <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

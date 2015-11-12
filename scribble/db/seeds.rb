@@ -10,11 +10,11 @@ Comment.destroy_all
 Post.destroy_all
 
 Post.create([
-  {headline: "Hello Hodor", post_content: "Ow, my spirit! Now what? Oh Leela! You're the only person I could turn to; you're the only person who ever loved me. I daresay that Fry has discovered the smelliest object in the known universe!", image: "http://fillmurray.com/300/300"},
+  {headline: "Hello Hodor", body: "Ow, my spirit! Now what? Oh Leela! You're the only person I could turn to; you're the only person who ever loved me. I daresay that Fry has discovered the smelliest object in the known universe!", image: "http://fillmurray.com/300/300"},
 
-  {headline: "I am Groot", post_content: "Good news, everyone! There's a report on TV with some very bad news!", image: "http://fillmurray.com/250/300"},
+  {headline: "I am Groot", body: "Good news, everyone! There's a report on TV with some very bad news!", image: "http://fillmurray.com/250/300"},
 
-  {headline: "Shiny! Let's be bad guys.", post_content: "But I've never been to the moon! Does anybody else feel jealous and aroused and worried? Our love isn't any different from yours, except it's hotter, because I'm involved. Enough about your promiscuous mother, Hermes! We have bigger problems.", image: "http://fillmurray.com/400/400"},
+  {headline: "Shiny! Let's be bad guys.", body: "But I've never been to the moon! Does anybody else feel jealous and aroused and worried? Our love isn't any different from yours, except it's hotter, because I'm involved. Enough about your promiscuous mother, Hermes! We have bigger problems.", image: "http://fillmurray.com/400/400"},
 
-  {headline: "Never tell me the odds!", post_content: "This is the worst part. The calm before the battle. Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood! All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school!", image: "http://fillmurray.com/250/350"}
+  {headline: "Never tell me the odds!", body: "This is the worst part. The calm before the battle. Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood! All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school!", image: "http://fillmurray.com/250/350"}
   ])
