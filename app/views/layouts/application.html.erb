@@ -8,15 +8,15 @@
 </head>
 <body>
   <nav>
-    <h2><%= link_to "Posts", posts_path %></h2>
+<%= image_tag "scribble.png", class: "image" %>
+      <h2><%= link_to "Posts", posts_path %></h2>
     <% if current_user %>
-  <h2><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h2>
-<% else %>
-  <h2><%= link_to 'Signup', new_user_registration_path %></h2>
-  <h2><%= link_to 'Login', new_user_session_path %></h2>
-<% end %>
+      <h2><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h2>
+    <% else %>
+      <h2><%= link_to 'Signup', new_user_registration_path %></h2>
+      <h2><%= link_to 'Login', new_user_session_path %></h2>
+    <% end %>
   </nav>
 <%= yield %>
-
 </body>
 </html>

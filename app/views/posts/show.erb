@@ -1,10 +1,14 @@
-<h2><%= @post.title %></h2> <%= link_to "(edit)", edit_post_path(@post) %>
-<h4><%= @post.content %></h4>
-<h3>Comments <%= link_to "+", new_post_comment_path(@post) %></h3>
+<div class="show">
+<h2>Post Title: <%= @post.title %></h2>
+<div class = "comment"><h4><%= @post.content %></h4></div>
+<%= link_to "Edit", edit_post_path(@post), class: "view" %>
+<h3>Comments</h3>
 <ul>
   <% @post.comments.each do |comment| %>
     <li>
       <%= link_to "#{comment.title}", post_comment_path(@post, comment) %>
     </li>
   <% end %>
+  <%= link_to "Comment", new_post_comment_path(@post), class: "view" %>
 </ul>
+</div>

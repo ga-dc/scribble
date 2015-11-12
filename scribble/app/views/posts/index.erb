@@ -1,4 +1,4 @@
-<h1>Scribble Posts </h1>
+<h1>Scribble Posts <%= link_to "+", new_post_path(@post) %></h1>
 
 <ul>
   <% @posts.each do |post| %>
@@ -7,4 +7,3 @@
     </li>
   <% end %>
 </ul>
-<%= link_to "Post", new_post_path(@post), class: "submit" %>

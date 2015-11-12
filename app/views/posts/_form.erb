@@ -1,9 +1,10 @@
 <%= form_for @post do |f| %>
-  <%= f.label :title %>
+  <%= f.label :title %> <br>
   <%= f.text_field :title %>
+  <br>
 
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.label :content %> <br>
+  <%= f.text_field :content, class: "box" %>
 
-  <%= f.submit %>
+  <%= f.submit class: "submit" %>
 <% end %>
