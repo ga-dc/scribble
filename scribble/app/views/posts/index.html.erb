@@ -1,4 +1,14 @@
-<% @posts.each do |post| %>
-<%post.title%>
-<%post.body%>
-<%end%>
+<h2>Posts <a href="/posts/new">(+)</a></h2>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href="/artists/<%= artist.id %>">
+
+        <%= post.title %>
+        <%= post.body %>
+
+      </a>
+    </li>
+  <% end %>
+</ul>

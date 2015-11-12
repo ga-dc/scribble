@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-resources :posts
-resources :comments 
-end
+  devise_for :users
+  root to: 'posts#index'
+  get '/comments', to: 'comments#index'
+  resources :post do
+    resources :comments
+  end
+
+  

@@ -1,0 +1,9 @@
+<h2>Comments</h2>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= link_to "#{comment.post_id} - #{comment.post.title}",post_comment_path(comment.post,comment) %>
+    </li>
+  <% end %>
+</ul>
