@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post.comments.create(comment_params.merge(user: current_user))
+    @comment = @post.comments.create(comment_params.merge(user: current_user))
     redirect_to post_path(@post)
   end
 

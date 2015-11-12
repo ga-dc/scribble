@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<!-- <%# if current_user %>
-  <%#= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete, class: "credentials" %>
-<%# else %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<% if current_user %>
+  <%= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete, class: "credentials" %>
+<% else %>
   <%#= link_to "Sign Up", new_user_path %>
   <%#= link_to "Sign In", new_user_path %>
-<%# end %> -->
-
-
-
+<% end %>
 
 <%= yield %>
 
