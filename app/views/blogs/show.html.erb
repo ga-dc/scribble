@@ -1,0 +1,22 @@
+<h2><%= @blog.subject %></h2>
+<p id="byline">by <strong><%= User.find(@blog.user_id).email %></strong></p>
+<p><%= @blog.content %></p>
+
+<% if current_user == @blog.user %>
+	<p><%= link_to "Edit contents", edit_blog_path %> * <%= link_to "Leave comment", new_blog_comment_path(@blog) %>
+	</p>
+<% else %>
+	<%= link_to "Leave comment", new_blog_comment_path(@blog) %>
+<% end %>
+
+
+<h2>Comments</h2>
+
+<% @comments.order! %>
+
+<% @comments.each do |comment| %>
+      <p><strong><%= User.find(comment.user_id).email %></strong> says: <%= comment.content %> 
+<% if current_user == comment.user %><%= link_to "[Edit this comment]", edit_blog_comment_path(@blog, comment.id) %>
+	</p>
+<% end %>
+  <% end %>

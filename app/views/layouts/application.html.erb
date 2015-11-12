@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+
+<link href='https://fonts.googleapis.com/css?family=Rock+Salt|Satisfy|PT+Sans' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>Scribble Test</h1>
+
+<div id="signin"><% if current_user %>
+  <h5><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h5>
+<% else %>
+  <h4><%= link_to 'Sign Up', new_user_registration_path %> * <%= link_to 'Log In', new_user_session_path %></h4>
+<% end %></div>
+
+<div class="notice"><%= notice %></div>
+<div class="alert"><%= alert %></div>
+
+<%= yield %>
+<p><%= link_to "Home", root_path %></p>
+
+</body>
+</html>

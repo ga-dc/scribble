@@ -1,0 +1,14 @@
+<h2>Read a blog:</h2>
+<ul>
+  <% @blogs.each do |blog| %>
+    <li> 
+      <%= link_to "#{blog.subject}", blog_path(blog.id) %>, by <%= User.find(blog.user_id).email  %>
+    </li>
+  <% end %>
+</ul>
+
+<h2><%= link_to "Post your own blog!", new_blog_path %></h2>
+
+
+
+<!-- , posted at #{blog.created_at} -->

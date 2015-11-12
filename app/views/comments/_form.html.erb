@@ -1,0 +1,12 @@
+<% @comment[:blog_id] = @blog %>
+<% @comment[:user_id] = @user %>
+
+
+<%= form_for [@blog, @comment] do |f| %>
+
+ <p> <%= f.label :content %><br />
+  <%= f.text_area :content, size: "100x5" %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
