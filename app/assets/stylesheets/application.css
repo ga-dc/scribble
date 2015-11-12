@@ -8,3 +8,28 @@ html, body {
 img {
   width: 30%;
 }
+
+header {
+  background-image: url("sleepycat.jpg");
+}
+
+.nav_link {
+  font-size: 50px;
+}
+
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #6700CF;
+}
+
+a:hover {
+  color: #FCD400;
+}
+
+a:active {
+  color: #5EFFCB;
+}
