@@ -9,7 +9,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/posts">
         <span class="glyphicon glyphicon-registration-mark  " aria-hidden="true"></span>
       </a>
       <% if current_user %><span class="btn btn-danger navbar-right" id="signout"><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></span>
