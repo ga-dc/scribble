@@ -2,10 +2,10 @@
 
 <%= form_for @post do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class:'title_input' %>
 
   <%= f.label :post %>
-  <%= f.text_field :post %>
+  <%= f.text_field :post, class:'post_input' %>
 
   <%= f.submit "Create a New Post"%>
 <% end %>
