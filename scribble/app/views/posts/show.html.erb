@@ -13,8 +13,8 @@
  <ul>
   <% @posts.comments.each do |comment| %>
     <li>
-      <p><%= comment.user %>: <%= comment.article %></p>
-
+      <!-- <p><%= comment.user %>: <%= comment.article %></p> -->
+      <%= link_to "#{comment.user} : #{comment.article}", post_comment_path(@posts, comment)%>
     </li>
   <% end %>
 </ul>

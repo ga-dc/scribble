@@ -24,8 +24,11 @@
  .top{
   max-width:100%;
   min-height:20em;
-  /*background: url(https://images.unsplash.com/photo-1443453489887-98f56bc5bb38?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300);*/
-  background: url(https://images.unsplash.com/photo-1432057322224-8916b9ed202a?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300);
+  /* city background: url(https://images.unsplash.com/photo-1443453489887-98f56bc5bb38?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300);*/
+
+/*mountain background https://images.unsplash.com/photo-1432057322224-8916b9ed202a?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300*/
+
+  background: url(https://images.unsplash.com/43/WrZ1xIWJQY6UB8MEbWTd_IMG_9088_edt.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=e6151bc25ceb1da60d3118a220d677fd);
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -63,6 +66,7 @@
  }
 
  h1 {
+   text-align: right;
    font-inherit;
    color:inherit;
    letter-spacing:-.05em;

@@ -19,30 +19,36 @@ class CommentsController < ApplicationController
 
   #show
   def show
+    @post = Post.find(params[:post_id])
     @comments = Comment.find(params[:id])
   end
+
+  # edit
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+  end
   #
-  # # edit
-  # def edit
-  #   @artist = Artist.find(params[:id])
-  # end
   #
-  #
-  # # update
-  # def update
-  #   @artist = Artist.find(params[:id])
-  #   @artist.update(artist_params)
-  #
-  #   redirect_to artist_path(@artist)
-  # end
-  #
+  # # # update
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+
+    redirect_to post_path(@post)
+  end
+
   # # destroy
-  # def destroy
-  #   @artist = Artist.find(params[:id])
-  #   @artist.destroy
-  #
-  #   redirect_to artists_path
-  # end
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comments = Comment.find(params[:id])
+    @comments.destroy
+
+    redirect_to post_path(@post)
+
+
+  end
   #
   private
   def comment_params
