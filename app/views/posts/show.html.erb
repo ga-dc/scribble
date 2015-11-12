@@ -1,0 +1,19 @@
+<h2><%= @post.name %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<h4><%= @post.title %></h4>
+
+<img class='post-photo' src="<%= @post.photo_url %>">
+
+<h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+<ul>
+  <% @post.comment.each do |comment| %>
+    <li>
+      <% if comment.favorites.length > 0 %>
+        <%= link_to "&hearts;".html_safe, remove_favorite_comment_path(comment), method: :delete, class: "fav" %>
+      <% else %>
+        <%= link_to "&hearts;".html_safe, add_favorite_comment_path(comment), method: :post, class: "no-fav" %>
+      <% end %>
+      <%= link_to "#{comment.title} (#{comment.album})", comment_path(comment) %>
+    </li>
+
+  <% end %>
+</ul>
