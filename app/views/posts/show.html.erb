@@ -15,12 +15,17 @@
       <%= comment.body %>
     </p>
     <p>
-      <%= comment.user.email %>
+      <% if comment.user %>
+        <%= comment.user.email %>
+
+        <% if current_user.email == comment.user.email %>
+        <%= link_to "Edit Comment",edit_post_comment_path(@post,comment) %>
+        <%= link_to "Delete Comment", post_comment_path(@post,comment), method: 'delete' %>
+        <% end %>
+
+      <% end %>
     </p>
-    <% if current_user.email == comment.user.email %>
-    <%= link_to "Edit Comment",edit_post_comment_path(@post,comment) %>
-    <%= link_to "Delete Comment", post_comment_path(@post,comment), method: 'delete' %>
-    <% end %>
+
   </li>
 <% end %>
 </ul>
