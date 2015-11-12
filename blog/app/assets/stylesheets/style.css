@@ -1,0 +1,36 @@
+
+body {
+  background-color: #F6F6F6;
+}
+
+.respect-breaks {
+  white-space: pre-wrap;
+}
+
+div.posts-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em 0;
+  background-color: #FFF;
+}
+
+header.posts-list {
+  text-align: center;
+}
+
+.single-post {
+  margin: 4em;
+}
+
+.alert {
+  background-color: rgba(255, 0, 0, 0.4);
+  border: 5px solid rgba(255, 0, 0, 1);
+  padding: 10px;
+  color: #FFF;
+}
+.notice {
+  background-color: rgba(0, 0, 255, 0.4);
+  border: 5px solid rgba(0, 0, 255, 1);
+  padding: 10px;
+  color: #FFF;
+}
