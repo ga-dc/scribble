@@ -1,0 +1,13 @@
+<h2>Ly's Posts</h2>
+
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= link_to post.title, post %>
+  </li>
+<% end %>
+</ul>
+
+Create a new post:
+
+<%= link_to "Create new post", new_post_path %>
