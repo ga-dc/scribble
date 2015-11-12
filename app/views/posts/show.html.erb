@@ -3,11 +3,13 @@
 <p>
   <%= @post.body %>
 </p>
+<p>
 <% if current_user.email == @post.user.email %>
 <%= link_to "Edit Post",edit_post_path(@post) %>
 <% end %>
 <%= link_to "Add Comment",new_post_comment_path(@post) %>
 <% if @post.comments %>
+</p>
 <ul>
 <% @post.comments.each do |comment| %>
   <li>
@@ -16,6 +18,7 @@
     </p>
     <p>
       <% if comment.user %>
+      
         <%= comment.user.email %>
 
         <% if current_user.email == comment.user.email %>
@@ -30,4 +33,4 @@
 <% end %>
 </ul>
 <% end %>
-<%= link_to "All Posts", posts_path %>
+<p><%= link_to "All Posts", posts_path %></p>
