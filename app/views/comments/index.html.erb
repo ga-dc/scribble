@@ -2,7 +2,7 @@
 <%@comments.each do |comment| %>
 <section>
   <p>By: <%=link_to comment.author, post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>Updated At: <%comment.updated_at%><%end%></p>
-  <p><%=comment.text%></p>
+  <p class="textarea"><%=comment.text%></p>
 </section>
 <hr>
 <%end%>
