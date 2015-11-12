@@ -2,8 +2,8 @@
 <% @articles.each do |article| %>
 <div class='blog-post'>
   <!-- <p class='date'><%= article.title %></p> -->
-  <td><%= article.title %></td>
-  <td class='post_photo'><%= image_tag article.photo_url %></td>
+  <h3><%= article.title %></h3>
+  <img class='post_photo'><%= image_tag article.photo_url %></img>
   <td><%= article.text %></td>
   <td><%= link_to 'Read More', article_path(article) %></td>
   <td><%= link_to 'Edit', edit_article_path(article) %></td>
