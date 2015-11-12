@@ -7,19 +7,3 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# comments = Comment.create!({
-# 	content: comment[:content],
-# 	user_id: comment[:user_id],
-# 	blog_id: comment[:blog_id]
-# 	})
-
-# blogs = Blog.create!({
-# 	title: 			blog[:title],
-# 	content: 		blog[:content],
-# 	user_id: blog[:user_id]
-# 	})
-
-# users = User.create!({
-# 	email: user[:email],
-# 	password: user[:password]
-# 	})
