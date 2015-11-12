@@ -17,15 +17,19 @@ ActiveRecord::Schema.define(version: 20151112030747) do
   enable_extension "plpgsql"
 
   create_table "blogs", force: :cascade do |t|
-    t.string  "subject"
-    t.text    "content"
-    t.integer "user_id"
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text    "content"
-    t.integer "blog_id"
-    t.integer "user_id"
+    t.text     "content"
+    t.integer  "blog_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

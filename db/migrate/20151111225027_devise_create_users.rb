@@ -1,5 +1,5 @@
-# class DeviseCreateUsers < ActiveRecord::Migration
-class Users < ActiveRecord::Migration
+class DeviseCreateUsers < ActiveRecord::Migration
+# class Users < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
@@ -35,6 +35,7 @@ class Users < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
@@ -42,5 +43,5 @@ class Users < ActiveRecord::Migration
 
     validates :username, presence: true, uniqueness: true
     validates :password_digest, presence: true
-  end
+     end
 end

@@ -8,7 +8,7 @@ with the best content all around the world. It is designed to be built, refined,
 We will start off with two models: `Post` and `Comment`, and eventually
 add in `User` with secure password authentication.
 
-## Models + Migrations (due Wednesday) Almost done - just need edited comments to redirect correctly
+## Models + Migrations (due Wednesday) DONE
 
 - Create ERD for Post and Comment
 - Create models for Post and Comment
@@ -28,7 +28,7 @@ add in `User` with secure password authentication.
 
 - Implement nested routes.
 
-## Sessions (due Friday) Do Weds!
+## Sessions (due Friday) DONE
 
 - Add User model with authentication.
 - Associate posts with users.
