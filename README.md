@@ -8,6 +8,9 @@ with the best content all around the world. It is designed to be built, refined,
 We will start off with two models: `Post` and `Comment`, and eventually
 add in `User` with secure password authentication.
 
+## Kain-Scribble Deployed on Heroku
+https://kain-scribble.herokuapp.com/
+
 ## Models + Migrations (due Wednesday)
 
 - Create ERD for Post and Comment
