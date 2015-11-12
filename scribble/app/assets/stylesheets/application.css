@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+#top, #bottom, #left, #right {
+	background: #89bdd3;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+
+	#top {
+		left: 0; right: 0;
+		height: 15px;
+		}
+		#top { top: 0; }
+
+header{
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+header li {
+  display: inline;
+  list-style-type: none;
+  margin-left: 10px;
+  background: #9ad3de;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+  border: solid 3px #89bdd3;
+}
+
+.main {
+  text-align: center;
+  padding: 15px;
+}
+
+.posts {
+  margin: auto;
+  list-style-type: none;
+}
+
+.edit_delete li{
+  display: inline;
+  list-style-type: none;
+  margin-left: 10px;
+  background: #9ad3de;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+  border: solid 3px #89bdd3;
+}
+
+.edit_delete ul {
+  padding: 0;
+}
+
+.post {
+  border: 3px solid #c9c9c9;
+  border-radius: 8px;
+  background: #e3e3e3;
+  margin: 40px auto;
+  padding: 20px 20px 30px 20px;
+  width: 50%;
+}
+
+.create_comment {
+  margin-top: 60px;
+}
+
+
+.comment {
+  background: #e3e3e3;
+  border: 3px solid #c9c9c9;
+  border-radius: 8px;
+  margin: 0px auto;
+  width: 50%;
+  text-align: left;
+  padding: 10px;
+}

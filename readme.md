@@ -11,6 +11,9 @@ add in `User` with secure password authentication.
 ## Models + Migrations (due Wednesday)
 
 - Create ERD for Post and Comment
+Post: author, text. One-to-many relationship with comments
+Comment: author, text
+
 - Create models for Post and Comment
 - Create migrations for Post and Comment
 
