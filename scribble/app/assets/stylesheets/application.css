@@ -14,6 +14,15 @@
  *= require_self
  */
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
  .alert {
    color: red;
  }
@@ -21,3 +30,27 @@
  .notice {
    color: blue;
  }
+
+ nav {
+   position: relative;
+   border-bottom: 2px dashed black;
+ }
+
+ .login {
+   position: absolute;
+   right: 75px;
+ }
+
+ a {
+   padding-left: 25px;
+ }
+
+ header {
+   margin: 0;
+   padding: 0;
+   background-color: #7CA8E0
+ }
+
+h1 {
+  margin: 0;
+}
