@@ -1,13 +1,14 @@
-html, body {
+html, body, h1, header, a {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
 }
 
-img {
-  width: 30%;
-}
+h1#scribble-title {
+  text-align: center;
+  color: #FCD400;
+} 
 
 header {
   background-image: url("sleepycat.jpg");
