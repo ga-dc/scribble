@@ -14,6 +14,15 @@
  *= require_self
  */
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#new-post-container {
+  margin-top: 20px;
+}
+
 #new-post {
   margin-top: 10px;
   background-color: #7d7d7d;
@@ -39,13 +48,14 @@ body {
 
 #logo {
   font-family: 'Oswald', sans-serif;
+  font-size: 30px;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
 }
 
 #post-title {
-  margin-top: 50px;
+  margin-top: 40px;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-size: 20px;
@@ -66,5 +76,25 @@ body {
 
 #edit-post:hover {
   color: #4d4d4d;
+}
 
+#comment-title {
+  margin-top: 50px;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#comments {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+#new-comment {
+  font-family: 'Open Sans', sans-serif;
+  color: #7d7d7d;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
