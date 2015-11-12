@@ -1,4 +1,5 @@
-<h2>Posts <%= link_to image_tag("http://findicons.com/files/icons/986/aeon/256/add.png", size: "40x40"), new_post_path() %></h2>
+<h2>Posts</h2>
+<p><%= link_to "Add a Post", new_post_path() %></p>
 
 <ul>
   <% @posts.each do |post| %>
