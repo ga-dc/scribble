@@ -1,5 +1,5 @@
 body {
-  font-family: 'Oxygen', sans-serif;
+font-family: 'PT Sans', sans-serif;
   background: #B7DDE2;
   margin-left: 200px;
   margin-right: 200px;
@@ -7,21 +7,20 @@ body {
   /*F1FFC9*/
 }
 h1 {
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Rock Salt', cursive;
+  font-size: 50px;
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 30px;
   padding: 20px;
 }
+
 h2 {
-  font-family: 'Exo 2', sans-serif;
-  font-size: 24px;
-  margin-left: 5px;
-}
-h3 {
+  font-size: 25px;
   padding: 2px 5px 2px 5px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Satisfy', cursive;
+  color: navy;
 }
+
 p, li {
   padding: 2px 5px 2px 5px;
   font-size: 15px;
@@ -43,4 +42,12 @@ img {
 
 .alert {
   color: red;
+}
+
+#signin {
+  text-align: right;
+}
+
+strong {
+  color: black;
 }

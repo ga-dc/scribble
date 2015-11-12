@@ -1,15 +1,16 @@
-<h3><%= @blog.subject %></h3>
+<h2><%= @blog.subject %></h2>
+<p id="byline">by <strong><%= User.find(@blog.user_id).email %></strong></p>
 <p><%= @blog.content %></p>
 
 <p><%= link_to "Edit contents", edit_blog_path %> * <%= link_to "Leave comment", new_blog_comment_path(@blog) %>
 </p>
 
-<h4>Comments</h4>
+<h2>Comments</h2>
 
 <% @comments.order! %>
 
 <% @comments.each do |comment| %>
-      <p><%= comment.user_id %> says: "<%= comment.content %>" 
+      <p><strong><%= User.find(comment.user_id).email %></strong> says: "<%= comment.content %>" 
 <%= link_to "Edit this comment", edit_blog_comment_path(@blog, comment.id) %>
       </p>
   <% end %>

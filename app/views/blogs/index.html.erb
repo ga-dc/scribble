@@ -1,15 +1,13 @@
-<h3>Read a blog:</h3>
+<h2>Read a blog:</h2>
 <ul>
   <% @blogs.each do |blog| %>
     <li> 
-      <%= link_to "#{blog.subject}", blog_path(blog.id) %> 
-    , last edited by 
-    <%= blog.user %>
+      <%= link_to "#{blog.subject}", blog_path(blog.id) %>, last edited by <%= User.find(blog.user_id).email  %>
     </li>
   <% end %>
 </ul>
 
-<h3><%= link_to "Post your own blog!", new_blog_path %></h3>
+<h2><%= link_to "Post your own blog!", new_blog_path %></h2>
 
 
 
