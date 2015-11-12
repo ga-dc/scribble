@@ -1,7 +1,7 @@
 <%=form_for @post do |f| %>
-  <%=f.label :title%>
-  <%=f.text_field :title%>
-  <%=f.label :text%>
-  <%=f.text_area :text, rows: 4, cols: 50%>
-  <%=f.submit%>
+  <p class='editcomment'><%=f.label :title%></p>
+  <p class='editcomment'><%=f.text_field :title%></p>
+  <p class='editcomment'><%=f.label :text%></p>
+  <p class='editcomment'><%=f.text_area :text, rows: 4, cols: 50%></p>
+  <p class='editcomment'><%=f.submit%></p>
 <%end%>
