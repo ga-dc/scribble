@@ -1,0 +1,11 @@
+<h2>Posts#index</h2>
+<p><%= link_to "Create a new post?", new_post_path %></p>
+<% if @posts.length == 0 %>
+  <p>There are no posts.</p>
+<% else %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li><%= link_to post.title, post %> (<%= post.created_at %>)</li>
+    <% end %>
+  </ul>
+<% end %>

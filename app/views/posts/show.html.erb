@@ -1,0 +1,16 @@
+<h2>Posts#show</h2>
+<h3><%= @post.title %> (<%= link_to "edit?", edit_post_path(@post) %>)</h3>
+<p><%= @post.text %></p>
+<ul>
+  <li>created_at: <%= @post.created_at %></li>
+  <li>updated_at: <%= @post.updated_at %></li>
+</ul>
+<div id="comments">
+  <h4>Comments</h4>
+    <%= render "comment_form" %>
+    <% if @post.comments.length > 0 %>
+      <% @post.comments.each do |comment| %>
+        <li><strong><%= comment.title %></strong> <%= comment.text %> (<%= comment.created_at %>)</li>
+      <% end %>
+    <% end %>
+</div>
