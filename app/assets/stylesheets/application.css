@@ -37,7 +37,7 @@
  }
 
 nav{
-  text-align: center;
+  text-align: right;
 }
 
  nav a {
@@ -51,7 +51,7 @@ nav{
    background-color: #9CAA8C;
    color: blue;
  }
- 
+
  a, a:visited {
    text-decoration: none;
    color: blue;
@@ -80,7 +80,7 @@ nav{
  }
 
  h2 {
-   text-align: center;
+   text-align: left;
  }
 
  h2 > a {
