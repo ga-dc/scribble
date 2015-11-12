@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-#GET
+  #Login requirements
+  # before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  #GET
   def index
     @posts = Post.all
   end
