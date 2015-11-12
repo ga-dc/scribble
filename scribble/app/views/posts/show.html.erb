@@ -1,4 +1,4 @@
-<h2><%= @post.name %></h2>
+<h2><%= @post.title %></h2>
 <%= link_to "(edit post)", edit_post_path(@post) %>
 
 <%= @post.content %>
@@ -10,7 +10,7 @@
 <ul>
   <li>
     <% @post.comments.each do |comment| %>
-      <%= comment.content + "-" + comment.username "@" comment.created_at %>
+      <%= "#{comment.content} - #{comment.username} @ #{comment.created_at}" %>
     <% end %>
   </li>
 </ul>
