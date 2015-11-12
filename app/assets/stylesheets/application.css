@@ -15,7 +15,7 @@
  */
 
  body {
-   background-image: url(image-path('paper.jpg'));
+   background-image: url('paper.jpg');
    background-repeat: no-repeat;
    background-size: cover;
  }
@@ -34,7 +34,7 @@
  }
 
  .post_text {
-   background-image: url(image-path('post.jpg'));
+   background-image: url('post.jpg');
    width: 50%;
    padding-left: 1%;
  }
