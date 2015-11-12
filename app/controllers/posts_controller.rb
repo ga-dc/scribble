@@ -11,8 +11,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   def create
-    puts "*"*25
-    puts current_user.inspect
     @post = current_user.posts.create(post_params)
     redirect_to post_path(@post)
   end

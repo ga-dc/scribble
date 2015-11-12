@@ -8,7 +8,7 @@
     <h2><%=post.title%></h2>
     <h3>By <%=User.find(post.user_id).email%></h3>
     <p>Posted at <%=post.created_at%></p>
-    <p><%=post.text[0...200]%><%if post.text.length>200%>...<%end%></p>
+    <p class="textarea"><%=post.text[0...200]%><%if post.text.length>200%>...<%end%></p>
     <%if post.updated_at != post.created_at%><p>Updated at <%=post.updated_at%></p><%end%>
   </section>
   <p><%=link_to "More (#{post.comments.length} comments)", post_path(post)%></p>

@@ -1,4 +1,4 @@
-<h2>All Comments for "<%=@post.title%>" by <%=@post.author%></h2>
+<h2>All Comments for "<%=@post.title%>" by <%=@user.email%></h2>
 <%@comments.each do |comment| %>
 <section>
   <p>By: <%=link_to comment.author, post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>Updated At: <%comment.updated_at%><%end%></p>
