@@ -9,6 +9,15 @@
 <body>
 <h1>Scribble</h1>
 
+<% if current_user %>
+  <h5><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h5>
+<% else %>
+  <h4><%= link_to 'Sign Up', new_user_registration_path %> * <%= link_to 'Log In', new_user_session_path %></h4>
+<% end %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 <h4><a href="/">Home</a></h4>
 

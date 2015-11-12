@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+
 	def index
 		@blog = Blog.find(params[:blog_id])
 	end
@@ -6,11 +10,13 @@ class CommentsController < ApplicationController
 	def new
 		@blog = Blog.find(params[:blog_id])
 		@comment = Comment.new
+		@user = current_user
 	end
 
 	def create
 		@blog = Blog.find(params[:blog_id])
-		@comment = Comment.create!(comment_params.merge(blog: @blog))
+		@user = current_user
+		@comment = Comment.create!(comment_params.merge(blog: @blog, user: @user))
    		redirect_to blog_path(@blog)
     end
 
@@ -22,12 +28,14 @@ class CommentsController < ApplicationController
 	def edit
 		@blog = Blog.find(params[:blog_id])
 		@comment = Comment.find(params[:id])
+		@user = current_user
 	end
 
  	def update
 	    @comment = Comment.find(params[:id])
 	    @blog = Blog.find(params[:blog_id])
-	    @comment.update(comment_params.merge(blog: @blog))
+		@user = current_user
+	    @comment.update(comment_params.merge(blog: @blog, user: @user))
 	    redirect_to blog_path(@blog)
  	end
 
@@ -40,7 +48,7 @@ class CommentsController < ApplicationController
 
 	private
 	def comment_params
-		params.require(:comment).permit(:commenter_name, :content, :blog_id)
+		params.require(:comment).permit(:user_id, :content, :blog_id)
 	end
 
 end

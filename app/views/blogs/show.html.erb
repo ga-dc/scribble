@@ -9,7 +9,7 @@
 <% @comments.order! %>
 
 <% @comments.each do |comment| %>
-      <p><%= comment.commenter_name %> says: "<%= comment.content %>" 
+      <p><%= comment.user_id %> says: "<%= comment.content %>" 
 <%= link_to "Edit this comment", edit_blog_comment_path(@blog, comment.id) %>
       </p>
   <% end %>

@@ -1,6 +1,6 @@
 <h2>New Comment</h2>
 
-<p>What do you think about <%= @blog.author_name %>'s post '<%= @blog.subject %>'? It's included below (in case you forgot).</p>
+<p>What do you think about <%= @blog.user_id %>'s post '<%= @blog.subject %>'? It's included below (in case you forgot).</p>
 
 <p class="remind"><%= @blog.content %></p>
 <%= render partial: "form" %>

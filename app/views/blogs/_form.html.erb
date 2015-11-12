@@ -1,7 +1,6 @@
+<% @blog[:user_id] = @user %>
+
 <%= form_for @blog do |f| %>
- <p> <%= f.label :author_name %>
-  <%= f.text_field :author_name %>
-  </p>
 
    <p><%= f.label :subject %>
   <%= f.text_field :subject %>
