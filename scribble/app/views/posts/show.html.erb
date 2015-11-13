@@ -1,4 +1,5 @@
 <h2><%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<h3>Author: <%= @post.user.email %></h3>
 <%= image_tag @post.image_url, class: "post-photo", alt: "" %>
 <p><%= @post.message %></p>
 
@@ -12,11 +13,13 @@
 
   <% @comments.each do |comment| %>
   <h3 class="username">
-    <%= comment.username %> says:
+    <%= comment.user.email %> says:
   </h3>
   <p class="comment">
     <%= comment.comment %>
+    <!-- <%# if comment.user_id == current_user.id %> -->
     <%= link_to "(Edit comment)", edit_post_comment_path(@post, comment) %>
+    <%# end %>
   </p>
   <% end  %>
 </div>

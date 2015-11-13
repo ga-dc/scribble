@@ -25,12 +25,11 @@ def create
 end
 #show
 def show
-  @post = Post.find(params[:id])
-  @comments = @post.comments
+
 end
 
 def edit
-  @post = Post.find(params[:id])
+
 end
 
 def update
@@ -50,7 +49,13 @@ end
 
 private
   def post_params
-    params.require(:user).permit(:title, :message, :image_url)
+    params.require(:post).permit(:title, :message, :image_url)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+    @user = current_user
+    @comments = @post.comments
   end
 
 end
