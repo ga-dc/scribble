@@ -1,15 +1,5 @@
 class CommentsController < ApplicationController
 
-  def index
-    @post = Post.find(params[:post_id])
-    @comments = Comment.all
-  end
-
-  def show
-    @post = Post.find(params[:post_id])
-    @comment = Comment.all
-  end
-
   def new
     @post = Post.find(params[:post_id])
     @comment = Comment.new
@@ -17,7 +7,13 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = Post.create()
+    @comment = @post.comments.create(comment_params)
+
+    redirect_to post_path(@post)
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def edit
@@ -27,19 +23,20 @@ class CommentsController < ApplicationController
 
   def update
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(param[:id])
+    @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     redirect_to post_path(@post)
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to post_comments_path
+    redirect_to post_path(@post)
   end
 
-  def comment_params
-    params.require(:comment).permit(:username, :content)
-  end
-
+  private
+    def comment_params
+      params.require(:comment).permit(:username, :content)
+    end
 end

@@ -8,9 +8,10 @@
 <h3>Comments <%= link_to "Add comment (+)", new_post_comment_path(@post) %></h3>
 
 <ul>
-  <li>
     <% @post.comments.each do |comment| %>
-      <%= "#{comment.content} - #{comment.username} @ #{comment.created_at}" %>
-    <% end %>
+  <li>
+      <p><%= "#{comment.content} - #{comment.username} @ #{comment.created_at}" %></p>
+      <p><%= link_to "edit", edit_post_comment_path(@post, comment) %> || <%= link_to "delete", post_comment_path(@post, comment), method: :delete %></p>
   </li>
+    <% end %>
 </ul>

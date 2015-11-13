@@ -1,6 +1,6 @@
-<h2>Write a comment!</h2>
+<h2>Write a comment</h2>
 
-<%= form_for @comment do |f| %>
+<%= form_for [@post, @comment] do |f| %>
   <%= f.label :username%>
   <%= f.text_field :username %>
 
