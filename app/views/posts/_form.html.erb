@@ -1,0 +1,19 @@
+<div id='form'>
+  <%= form_for @post do |f| %>
+    <div id='form_post_headline'>
+      <%= f.label :headline %>
+      <%= f.text_field :headline %>
+    </div>
+    <div id='form_post_body'>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div id='form_post_image'>
+      <%= f.label :image %>
+      <%= f.text_field :image %>
+    </div>
+    <div id='form_post_submit'>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
