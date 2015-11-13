@@ -22,8 +22,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params.merge(user: current_user))
-    @post = Post.find(params[:post_id])
-    redirect_to @post
+    redirect_to @comment.post
   end
 
   def destroy
