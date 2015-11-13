@@ -1,0 +1,76 @@
+body {
+  background-color: rgba(128,0,0,0.1);
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  line-height: 19px;
+}
+
+#mainwrapper header {
+  background-color: rgba(128,0,0,0.6);
+  overflow: auto;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+}
+#logo {
+	width: 28%;
+	float: left;
+	padding-left: 2%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+nav {
+	text-align: right;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-right: 2%;
+	width: 68%;
+	float: left;
+}
+header nav a {
+	padding-right: 2%;
+  color: black;
+  font-weight: bold;
+}
+#content #mainContent h1, #content #mainContent h2    {
+  font-family: 'Pacifico', cursive;
+	color: black;
+  text-align: center;
+  font-size: 70px;
+}
+#content #mainContent h3 {
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+  font-weight: 200;
+  font-size: 30px;
+  letter-spacing: 5px;
+	color: black;
+  text-align: center;
+}
+footer article  {
+	width: 46%;
+	float: left;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: justify;
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+	font-weight: 200;
+	color: rgba(0,0,0,0.7);
+}
+footer article h3  {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+#footerbar {
+	height: 18px;
+	clear: both;
+  background-color: rgba(128,0,0,0.6);
+	width: 100%;
+}
+footer {
+	width: 71%;
+	padding-left: 2%;
+	padding-right: 2%;
+}

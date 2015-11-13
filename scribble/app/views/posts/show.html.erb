@@ -1,0 +1,22 @@
+<p>
+  <h1>Title:</h1>
+  <%= @post.title %>
+</p>
+
+<p>
+  <h2>Text</h2>
+  <%= @post.body %>
+</p>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h3>Add a comment</h3>
+<%= render 'comments/form' %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+
+<%= link_to 'Back', posts_path %>
+
+<%= link_to 'Destroy', posts_path, method: :destroy, data: {confirm: 'Are you sure?'} %>
