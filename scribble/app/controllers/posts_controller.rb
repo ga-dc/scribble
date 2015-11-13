@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def set_post
+  end
+  
   def index
-    @posts = Post.all
+    if current_user
+      @posts = current_user.posts
+    else
+      @posts = Post.all
+    end
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.create(post_params)
 
     if @post.save
       redirect_to @post
