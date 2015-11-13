@@ -2,22 +2,27 @@
 
   <h2><%= @post.title %></h2>
   <h4>(By <%= @post.user.email %>)</h4>
-  <p class="post-content"><%= @post.content %></p>
-  <p class="post-timestamp"><%= @post.created_at %></p>
-  <p class="edit-post"><%= link_to "(edit post)", edit_post_path(@post) %></p>
+
+  <div class="post-scroll">
+    <p class="post-content"><%= @post.content %></p>
+    <p class="post-timestamp"><%= @post.created_at %></p>
+    <p class="edit-post"><%= link_to "(edit post)", edit_post_path(@post) %></p>
 
 
 
-  <div class="comments">
-    <h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+    <div class="comments">
+      <h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
 
-      <% @post.comments.each do |comment| %>
-    <div class="each-comment">
-        <p class="comment-info"><%= "#{comment.username} @ #{comment.created_at} " %></p>
-        <p class="comment-content"> "<%= comment.content%>"</p>
-        <p class="edit-comment"><%= link_to "edit", edit_post_comment_path(@post, comment) %> // <%= link_to "delete", post_comment_path(@post, comment), method: :delete %></p>
+        <% @post.comments.each do |comment| %>
+      <div class="each-comment">
+          <p class="comment-info"><%= "#{comment.username} @ #{comment.created_at} " %></p>
+          <p class="comment-content"> "<%= comment.content%>"</p>
+          <p class="edit-comment"><%= link_to "edit", edit_post_comment_path(@post, comment) %> // <%= link_to "delete", post_comment_path(@post, comment), method: :delete %></p>
+      </div>
+        <% end %>
+
     </div>
-      <% end %>
-
   </div>
+
+
 </div>

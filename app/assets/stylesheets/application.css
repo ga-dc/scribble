@@ -97,11 +97,8 @@ nav a:hover{
   color: red;
 }
 
-div{
-  overflow:auto;
-}
 
-.all-posts{
+.posts-index{
   width: 530px;
   height: 480px;
   padding: 10px;
@@ -110,7 +107,16 @@ div{
   margin-top: 10px;
 }
 
-.all-posts h2{
+.all-posts{
+  height: 430px;
+  overflow:auto;
+}
+
+.empty{
+  height:10px;
+}
+
+h2{
   text-align: center;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -144,10 +150,12 @@ div{
 
 .each-post h4{
   text-align: center;
+  margin: 5px;
 }
 
 .post-content{
   padding: 12px;
+  margin:auto;
 }
 
 .post-timestamp{
@@ -162,6 +170,11 @@ div{
   padding-right: 20px;
   padding-bottom: 10px;
   font-size: 12px;
+}
+
+.post-scroll{
+  height:410px;
+  overflow:auto;
 }
 
 .comments{
