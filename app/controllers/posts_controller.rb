@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @last_viewed_post = Post.find(session[:last_viewed_post_id])
     @posts = Post.all.order(session[:sort_by])
       if current_user
       @posts = current_user.posts
@@ -49,7 +48,6 @@ class PostsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:id])
-    # session[:last_viewed_post_id] = @post.id
     @comment = @post.comments.build
   end
 

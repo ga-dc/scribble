@@ -1,5 +1,5 @@
 <%= form_for :post, url: posts_path do |f| %>
-
+<h3><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h3>
 <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,13 +13,6 @@
       </ul>
     </div>
   <% end %>
-
-  <!-- <form action="/posts/sort" method="get">
-    <label>Sort By</label>
-    <input type="text" name="sort_by">
-    <input type="submit" value="sort">
-  </form>
-  Sorting by: <%= session[:sort_by] %> -->
 
   <% if @last_viewed_post %>
   <h3>Last viewed post: <%= @last_viewed_post.name %></h3>
