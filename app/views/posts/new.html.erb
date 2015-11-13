@@ -1,11 +1,14 @@
 <h2>New Post</h2>
 
-<%= form_for @post do |f| %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+<form action="/posts" method="post" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
+<%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
 
   <%= f.submit %>
 <% end %>

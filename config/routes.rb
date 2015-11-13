@@ -3,8 +3,16 @@ Rails.application.routes.draw do
 # FOR FRIDAY HW:
     root to: 'posts#index'
 
-    resources :posts
-    resources :comments
+    resources :posts do
+      resources :comments
+    end
+
+    get '/sign_in', to: 'users#sign_in'
+    post '/sign_in', to: 'users#sign_in!'
+    get '/sign_up', to: 'users#sign_up'
+    post '/sign_up', to: 'users#sign_up!'
+    get '/sign_out', to: 'users#sign_out'
+  end
 
     # posts routes
   #   get     '/posts',          to: 'posts#index'
@@ -80,5 +88,3 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-
-end

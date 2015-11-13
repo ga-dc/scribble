@@ -9,9 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
-
-    redirect_to post_path(@post)
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to post_path
+    else
+      redirect_to new_post_path
+    end
   end
 
   def show
@@ -25,9 +28,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @artist.update(artist_params)
-
-    redirect_to post_path(@post)
+    @post.update(post_params)
+    redirect_to post_path
   end
 
   def destroy
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :author)
+    params.require(:post).permit(:title, :body)
   end
 
 end
