@@ -1,7 +1,7 @@
-<h1>Posts
-  <%= link_to "My Posts", posts_path %>
+<h2>
+  <%= link_to "Go to My Posts", posts_path %>
   <%= link_to "(+)", new_post_path %>
-</h1>
+</h2>
 <ul>
   <% @posts.each do |post| %>
   <li class = "post_title">
