@@ -101,3 +101,44 @@ div.links {
   font: 15px 'Merienda One', Helvetica, sans-serif;
   color: #556B2F;
 }
+
+.form {
+  text-align: center;
+}
+
+.form p {
+  font: 15px 'Merienda One', Helvetica, sans-serif;
+  color: #531F8D;
+  display: block;
+}
+
+input {
+  background-color: #cfe2cf;
+  display: block;
+  border: 1px solid black;
+  margin: auto;
+  border-radius: 5px;
+  color: brown;
+}
+
+textarea {
+  background-color: #cfe2cf;
+  height: 300px;
+  width: 500px;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  color: brown;
+  border: 1px solid black;
+}
+
+.back {
+  text-align: center;
+  font: 400 30px/1.2 'Merienda One', Helvetica, sans-serif;
+}
+
+.title {
+  font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
+  text-align: center;
+  color: #008B8B;
+}
