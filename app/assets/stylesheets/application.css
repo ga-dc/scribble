@@ -14,17 +14,48 @@
  *= require_self
  */
 
-a {
-  text-decoration: none;
-  color: black;
-}
 
-#new-post-container {
-  margin-top: 20px;
-}
+
+ /********************
+ NAV BAR
+ ********************/
+
+ #logo {
+   font-family: 'Anton', sans-serif;
+   font-size: 35px;
+   text-transform: uppercase;
+   font-weight: 200;
+   letter-spacing: 0.25px;
+ }
+
+ #logo:hover {
+   color: #4d4d4d;
+ }
 
 #new-post {
+  display: inline-block;
+  position: relative;
   margin-top: 10px;
+  background-color: #7d7d7d;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+#new-post:hover {
+  background-color: black;
+}
+
+#login {
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: 10px;
+  right: 20px;
   background-color: #7d7d7d;
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
@@ -35,9 +66,56 @@ a {
   text-decoration: none;
 }
 
-#new-post:hover {
-  background-color: #4d4d4d;
+#login:hover {
+  background-color: black;
 }
+
+#signup {
+  display: inline-block;
+  float: right;
+  top: 10px;
+  right: 0px;
+  position: relative;
+  background-color: #7d7d7d;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#signup:hover {
+  background-color: black;
+}
+
+#signout {
+  margin-right: 20px;
+  display: inline-block;
+  background-color: #7d7d7d;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#signout:hover {
+  background-color: black;
+}
+
+#rule {
+    width: 100%;
+    border-bottom: 1px solid #4d4d4d;
+}
+
+
+/********************
+CORE STYLES
+********************/
 
 body {
     margin: 0 auto;
@@ -46,14 +124,20 @@ body {
     padding: 0 100px 0 30px;
     max-width: 500px;
 }
-
-#logo {
-  font-family: 'Oswald', sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+a {
+  text-decoration: none;
+  color: black;
 }
+
+#posts {
+  margin-top: 60px;
+}
+
+
+
+/********************
+POSTS
+********************/
 
 #post-title {
   margin-top: 40px;
@@ -62,6 +146,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-size: 20px;
+}
+
+#post-title:hover {
+  color: #7d7d7d;
 }
 
 #post-body {
@@ -78,7 +166,7 @@ body {
 }
 
 #edit-post:hover {
-  color: #4d4d4d;
+  color: black;
 }
 
 #comment-title {
@@ -100,4 +188,8 @@ body {
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+#new-comment:hover {
+  color: black;
 }
