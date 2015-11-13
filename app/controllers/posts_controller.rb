@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :couldnt_find_record
   #auth check before creating/editing/etc
   before_action :authenticate_user!, except: [:show, :index]
   #the index function
@@ -17,8 +18,14 @@ class PostsController < ApplicationController
   end
   #creates a new post
   def create
-    @post = current_user.posts.create(post_params)
-    redirect_to post_path(@post)
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      flash[:notice] = "Post was successfully created."
+      redirect_to @post
+    else
+      render :new
+    end
+
   end
   #deletes a post, current_user must be the post's author to delete it
   def destroy

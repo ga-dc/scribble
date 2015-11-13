@@ -10,6 +10,9 @@
   <header>
   <img src="http://i.imgur.com/4qBjlFx.png"/>
   <h1><%=link_to "Post Index", posts_path%></h1>
+  <%flash.each do |type, message|%>
+    <p class="<%= type %>"><%= message %></p>
+  <%end%>
   <hr>
   <% if current_user %>
     <h3><%="#{current_user.email}"%>  <%= link_to '(Signout)', destroy_user_session_path, :method => :delete %></h3>

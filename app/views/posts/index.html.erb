@@ -2,6 +2,9 @@
 <hr>
 <%=link_to "New Post", new_post_path%>
 <hr>
+<% flash.each do |type, message| %>
+  <p><%= type %>: <%= message %></p>
+<% end %>
 <section>
 <%@posts.reverse_each do |post|%>
   <section>

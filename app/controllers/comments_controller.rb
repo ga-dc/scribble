@@ -20,8 +20,13 @@ class CommentsController < ApplicationController
   #creates a new comment attached to the current post
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comments_params)
-    redirect_to post_path(@post)
+    @comment = @post.comments.new(comments_params)
+    if @post.save
+      flash[:notice] = "Comment successfully created."
+      redirect_to @post
+    else
+      render :new
+    end
   end
   #deletes a comment, redirects back to the post show page to which the comment was formerly attached
   def destroy
