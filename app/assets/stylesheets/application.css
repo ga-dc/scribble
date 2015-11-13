@@ -113,3 +113,50 @@ nav a:hover{
   margin-top: 5px;
   border-bottom:
 }
+
+.post-title{
+  color: black;
+  border-top: dotted 1px white;
+  padding-top: 5px;
+}
+
+.each-post{
+  width: 530px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.each-post h2{
+  text-align: center;
+}
+
+.comments{
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+}
+
+.each-comment{
+  border: solid silver 1px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.comment-info{
+  font-size: 11px;
+  text-align: left;
+  width: 400px;
+}
+
+.comment-content{
+  margin: 0 auto;
+  width: 400px;
+}
+
+.edit-comment{
+  font-size:10px;
+  color: grey;
+  text-align: right;
+}
