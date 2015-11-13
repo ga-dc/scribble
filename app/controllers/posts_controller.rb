@@ -1,5 +1,19 @@
 class PostsController < ApplicationController
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
+  def sort
+    session[:sort_by] = params[:sort_by]
+    redirect_to posts_path
+  end
+
+  def delete_session
+    session.delete(:last_viewed_post)
+    redirect_to posts_path
+  end
+
   def index
+    @last_viewed_post = Post.find(session[:last_viewed_post_id])
+    @posts = Post.all.order(session[:sort_by])
     @posts = Post.all
   end
 
@@ -26,6 +40,7 @@ class PostsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:id])
+    session[:last_viewed_post_id] = @post.id
     @comment = @post.comments.build
   end
 
@@ -49,9 +64,5 @@ end
   private
   def post_params
     params.require(:post).permit(:title, :text)
-  end
-
-  def comment_params
-    params.require(:comment).permit(:commenter, :text)
   end
 end

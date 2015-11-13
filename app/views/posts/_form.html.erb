@@ -14,6 +14,17 @@
     </div>
   <% end %>
 
+  <form action="/artists/sort" method="get">
+    <label>Sort By</label>
+    <input type="text" name="sort_by">
+    <input type="submit" value="sort">
+  </form>
+  Sorting by: <%= session[:sort_by] %>
+
+  <% if @last_viewed_artist %>
+  <h3>Last viewed artist: <%= @last_viewed_artist.name %></h3>
+  <% end %>
+
 <p>
   <%= f.label :title %>
   <%= f.text_field :title %>
