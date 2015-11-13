@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create, :new]
+  before_action :is_same_user, only: [:edit, :update, :destroy, :create, :new]
 
   def index
     @posts = Post.all
@@ -39,5 +40,14 @@ class PostsController < ApplicationController
   private
   def posts_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def is_same_user
+    @user = current_user
+    @post = Post.find(params[:id])
+    if not @user == @post.user
+      flash[:alert] = "You do not have the right"
+      redirect_to posts_path
+    end
   end
 end
