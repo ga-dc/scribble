@@ -4,8 +4,9 @@
 <p class="textarea"><%=@comment.text%>
 <hr>
 
-
-<%=link_to "Edit Comment", edit_post_comment_path(@post, @comment)%>
-<%=form_for [@post,@comment], method: "delete" do |f| %>
-  <%=f.submit "Delete Comment", class: "delete"%>
+<%if current_user == @post.user%>
+  <%=link_to "Edit Comment", edit_post_comment_path(@post, @comment)%>
+  <%=form_for [@post,@comment], method: "delete" do |f| %>
+    <%=f.submit "Delete Comment", class: "delete"%>
+  <%end%>
 <%end%>

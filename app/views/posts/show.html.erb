@@ -8,10 +8,23 @@
 
   </section>
 
-  <sectio>
+  <section>
+    <p>Tags:</p>
+    <%@post.tags.each do |tag|%>
+      <%=link_to tag.category.descrip, category_path(tag.category)%>
+    <%end%>
+
+    <%=form_for [@post, @tag] do |f|%>
+      <%=text_field_tag :category%>
+      <%=f.submit "Add Tag"%>
+    <%end%>
+
+
     <hr>
+  <%if current_user == @post.user%>
   <%=link_to "(Edit)", edit_post_path(@post)%>
   <%= link_to '(Delete)', post_path(@post), :confirm => 'Are you sure?', :method => :delete %>
+  <%end%>
 
 </section>
 <hr>
@@ -21,10 +34,12 @@
 <section>
   <p>By: <%=comment.author%>--<%=link_to "Details", post_comment_path(@post, comment)%> - Posted at: <%=comment.created_at%> <%if comment.created_at != comment.updated_at%>--Updated At: <%=comment.updated_at%><%end%></p>
   <p class="textarea"><%=comment.text%></p>
-  <%=form_for [@post,comment], method: "delete" do |f| %>
-    <%=f.submit "Delete Comment", class: "delete"%>
+  <%if current_user == @post.user%>
+    <%=form_for [@post,comment], method: "delete" do |f| %>
+      <%=f.submit "Delete Comment", class: "delete"%>
+    <%end%>
   <%end%>
-  
+
 
 
 </section>
