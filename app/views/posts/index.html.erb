@@ -1,0 +1,14 @@
+<h2> 你好 - Welcome to Scribbler!</h2>
+
+<h2>
+<%= link_to "New Post (+)", new_post_path %>
+</h2>
+<h2></h2>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= link_to post.title, post_path(post)%>
+    </a>
+  </li>
+<% end %>
+</ul>

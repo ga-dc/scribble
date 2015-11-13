@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body{
+   font-family:"Courier New", Courier, monospace;
+   max-width: 50em;
+   margin:auto;
+   padding:2em 1em;
+ }
+
+ .top{
+  max-width:100%;
+  min-height:20em;
+  /* city background: url(https://images.unsplash.com/photo-1443453489887-98f56bc5bb38?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300);*/
+
+/*mountain background https://images.unsplash.com/photo-1432057322224-8916b9ed202a?dpr=2&fit=crop&fm=jpg&h=625&ixlib=rb-0.3.5&q=50&w=1300*/
+
+  background: url(https://images.unsplash.com/43/WrZ1xIWJQY6UB8MEbWTd_IMG_9088_edt.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=e6151bc25ceb1da60d3118a220d677fd);
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+nav{
+  text-align: center;
+}
+
+ nav a {
+   border: 1px solid black;
+   margin: .5em;
+   padding: .5em;
+   background-color: #eeeeee;
+ }
+
+ nav a:hover {
+   background-color: #9CAA8C;
+   color: blue;
+ }
+ 
+ a, a:visited {
+   text-decoration: none;
+   color: blue;
+ }
+
+ a:hover {
+   background-color: #ccc;
+   color: white;
+ }
+
+ ul {
+   list-style-type: none;
+ }
+
+ li {
+   margin: .25em;
+ }
+
+ h1 {
+   text-align: right;
+   font-inherit;
+   color:inherit;
+   letter-spacing:-.05em;
+   text-decoration:none;
+
+ }
+
+ h2 {
+   text-align: center;
+ }
+
+ h2 > a {
+   font-size: .75em;
+ }
+
+ input {
+   display: block;
+   margin: 5px 0 20px 0;
+   padding: 9px;
+   border: solid 1px black;
+   width: 300px;
+   background: whitesmoke;
+ }
+
+
+ #post_article{
+   width: 80%;
+   height: 100px;
+ }
+
+ input[type=submit],
+ a.delete{
+   width: auto;
+   padding: 9px 15px;
+   background-color: gray;
+   border: 0;
+   font-size: 14px;
+   color: #FFFFFF;
+ }
+
+ input.delete, a.delete {
+   background-color: red;
+ }
+
+
+ .artist-photo {
+   width: 400px;
+ }
+
+ span.nationality {
+   font-size: .5em;
+ }

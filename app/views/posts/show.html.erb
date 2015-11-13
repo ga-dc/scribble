@@ -1,0 +1,23 @@
+<h2>
+
+  <%= @posts.title %>
+  <% if current_user.id == @posts.user_id %>
+  <%= link_to "Edit", edit_post_path %>
+  <% end %>
+</h2>
+<h4>User Id: <%= @posts.user_id %></h4>
+<article><%= @posts.article %></article>
+
+
+<h3>Comments:
+   <%= link_to '(+)', new_post_comment_path(@posts) %>
+ </h3>
+
+ <ul>
+  <% @posts.comments.each do |comment| %>
+    <li>
+      <!-- <p><%= comment.user %>: <%= comment.article %></p> -->
+      <%= link_to "#{comment.user} : #{comment.article}", post_comment_path(@posts, comment)%>
+    </li>
+  <% end %>
+</ul>
