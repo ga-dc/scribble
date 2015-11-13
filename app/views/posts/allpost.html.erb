@@ -1,0 +1,19 @@
+<h2>
+  <%= link_to "Go to My Posts", posts_path %>
+  <%= link_to "(+)", new_post_path %>
+</h2>
+<ul>
+  <% @posts.each do |post| %>
+  <li class = "post_title">
+    <%= link_to post.title, post_path(post) %>
+  </li>
+  <li class = "post_text">
+    <%= post.post %>
+  </li>
+
+  <%post.categories.each do |tag|%>
+  <%= link_to "#{tag.category},".html_safe, category_path(tag) %>
+  <% end %>
+
+  <% end %>
+</ul>
