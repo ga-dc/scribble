@@ -22,8 +22,16 @@
       </tr>
     <% end %>
   </tbody>
+  <form action="/posts/sort" method="get">
+  <label>Sort By</label>
+  <input type="text" name="sort_by">
+  <input type="submit" value="sort">
+</form>
+Sorting by: <%= session[:sort_by] %>
 </table>
 
 <br>
-
+<% if @last_viewed_post %>
+  <h3>Last viewed post: <%= @last_viewed_post.name %></h3>
+<% end %>
 <%= link_to 'New Post', new_post_path %>
