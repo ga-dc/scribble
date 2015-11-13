@@ -1,0 +1,19 @@
+<h2><%=@post.title%> - <%=@post.user.email%></h2>
+
+<p><%=@post.post_text%></p>
+
+<div class="comment">
+  <% @comments.each do |comment|%>
+  <p>
+    <h3>comment <%=link_to "##{comment.id}", post_comment_path(@post, comment)%>
+    - <%= User.find_by(id: comment.user_id).email %>
+    - <%=comment.created_at %></h3>
+  </p>
+  <p>
+    <%=comment.comment_text%>
+  </p>
+  <% end %>
+</div>
+
+<%= link_to "Add Comment", new_post_comment_path(@post) %>
+<%= link_to "Edit Post", edit_post_path(@post) %>

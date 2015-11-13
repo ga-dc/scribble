@@ -1,0 +1,9 @@
+<p><h3>comment by <%=@comment.user_id%> - <%=@comment.created_at%></h3></p>
+
+<p><%=@comment.comment_text%></p>
+
+<%= link_to "Edit Comment", edit_post_comment_path(@post, @comment) %>
+
+<%=form_for [@post, @comment], method: "delete" do |f| %>
+  <%= f.submit "Delete Comment", class: "delete"%>
+<% end %>

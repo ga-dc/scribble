@@ -1,0 +1,13 @@
+<h2>Post</h2>
+
+
+<h2>Comments</h2>
+
+<% @comments.each do |comment| %>
+  <li>
+    <h3>Posted by: <%=comment.user.email%> - <%=comment.created_at%></h3>
+    <p><%= comment.comment_text%></p>
+    <p><%= link_to "Edit Comment", post_comments_path(comment)%>
+
+  </li>
+<% end %>
