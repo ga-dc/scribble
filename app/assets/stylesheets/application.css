@@ -45,6 +45,7 @@ img.welcome_img {
 .new_post {
   font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
   margin-top: 20px;
+  margin-bottom: 30px;
   position: relative;
   text-align: center;
 }
@@ -58,11 +59,15 @@ img.welcome_img {
   margin-top: 10px;
   border: 1px solid red !important;
   position: relative;
+  width: 75%;
+  margin: auto;
+  height: 300px;
+  margin-top: 10px;
+  /*text-align: center;*/
 }
 
 .blog_post h3 {
-  display: inline-flex;
-  border: 1px solid red !important;
+  display: inline;
   position: absolute;
   font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
   margin: 0 auto;
@@ -70,12 +75,27 @@ img.welcome_img {
 
 .blog_post img {
   display: inline;
-  border: 1px solid red !important;
+  max-height: 300px;
+
 }
 
 .blog_post p {
   display: inline;
+  overflow: hidden;
+  height: 200px;
   position: absolute;
-  /*padding: 20px;*/
-  margin: 50px;
+  margin: 60px;
+}
+
+div.links {
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+}
+
+.links a {
+  margin: 40px;
+  border: 1px solid red !important;
+  position: relative fixed;
+  display: flex;
 }

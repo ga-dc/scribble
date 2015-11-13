@@ -1,17 +1,17 @@
 class ArticlesController < ApplicationController
 
-# allows user to sort blog posts
+  # allows user to sort blog posts
   def sort
     session[:sort_by] = params[:sort_by]
     redirect_to articles_path
   end
 
-# controller to show all the blog posts
+  # controller to show all the blog posts
   def index
-     @articles = Article.all
+    @articles = Article.all
   end
 
-# controller to show specific blog posts
+  # controller to show specific blog posts
   def show
     @article = Article.find(params[:id])
   end
@@ -25,10 +25,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-# Controller to create a new post
+  # Controller to create a new post
   def create
     @article = Article.new(article_params)
-# if title is at least one letter the article is saved, otherwise it takes user back to "New"page
+    # if title is at least one letter the article is saved, otherwise it takes user back to "New"page
     if @article.save
       redirect_to @article
     else
@@ -36,14 +36,14 @@ class ArticlesController < ApplicationController
     end
   end
 
-# updates existing post
+  # updates existing post
   def update
-    @article = Article.find(params[:id])
-    if @article.update(article_params)
-      redirect_to @article
-    else
-      render 'edit'
-    end
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -59,4 +59,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :text, :photo_url)
   end
 
+  def set_article
+    @article = Article.find(params[:id])
+  end
 end
