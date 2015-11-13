@@ -9,18 +9,19 @@
 Comment.destroy_all
 Post.destroy_all
 
+
 posts = Post.create([
-  {username: "rscarlet",
+  {user_id: 1,
     post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     title: "SDM Dance Party"
   },
 
-  {username: "rhakurei",
+  {user_id: 2,
     post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     title: "NO MORE INCIDENTS OR ELSE"
   },
 
-  {username: "jcena",
+  {user_id: 3,
     post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     title: "u can't c me now"
   }
@@ -29,15 +30,15 @@ posts = Post.create([
 
 posts.each do |post|
   post.comments.create([
-    {username: "sizayoi",
+    {user_id: 4,
       comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     },
 
-    {username: "mkirisame",
+    {user_id: 5,
       comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     },
 
-    {username: "rastley",
+    {user_id: 6,
       comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
     }
   ])
