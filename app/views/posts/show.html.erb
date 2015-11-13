@@ -3,6 +3,9 @@
   <%= image_tag @post.image_url, alt: "Photo for #{@post.title}" %>
   <h3>Author: <%=@post.user.email %></h3>
   <p><%= @post.content %></p>
+  <% @post.categories.each do |category| %>
+  <p class="tags"><%= category.name %></p>
+  <% end %>
 </div>
 
 <%= link_to "Edit Post", edit_post_path(@post) %>

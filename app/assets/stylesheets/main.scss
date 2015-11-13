@@ -3,6 +3,7 @@
 $primary-color: #2646ea;
 $secondary-color: #FF8300;
 $third-color: #E08283;
+$fourth-color: #BE90D4;
 $decorative-font: 'Orbitron', sans-serif;
 $text-font: 'Helvetica', sans-serif;
 
@@ -19,11 +20,11 @@ body {
   font-family: $text-font;
 }
 
-img, a, .main {
+img, a, .main, .tags {
   @include border-radius(8px);
 }
 
-a {
+a, .tags {
   display: inline-block;
   text-decoration: none;
   font-family: $decorative-font;
@@ -72,4 +73,9 @@ a {
   li {
     list-style: none;
   }
+}
+
+.tags {
+  background-color: $fourth-color;
+  padding: 1% 2%;
 }
