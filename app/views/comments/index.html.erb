@@ -1,0 +1,11 @@
+<h2>Comments <%= link_to "<i class='fa fa-plus-square'></i>".html_safe, new_post_comment_path %></h2>
+
+<ul>
+
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= link_to "#{comment.content}", post_comment_path( @post, comment ) %>
+    </li>
+
+  <% end %>
+</ul>
