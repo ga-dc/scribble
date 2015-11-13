@@ -19,6 +19,12 @@ a{
 
 h1 > a{
   text-decoration: none;
+  display: inline-block;
+  float:left;
+}
+
+h3 > a{
+  display: inline-block;
 }
 .wrapper{
   width: 80%;
@@ -38,3 +44,20 @@ textarea{
   border-top: 2px dotted #46464C;
   margin-top: 20px;
 }
+.login{
+  float: right;
+}
+.login a{
+  background-color: #D0D0D3;
+  padding: 5px 10px 5px 10px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }

@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="wrapper">
-<header>
+<header class="clearfix">
   <h1><%= link_to "Ipsum Blog", posts_path %></h1>
+  <div class="login">
+      <% if current_user %>
+        Signed in as <%= current_user.username %>
+        <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Join', new_user_registration_path %>
+        <%= link_to 'Login', new_user_session_path %>
+      <% end %>
+  </div>
 </header>
 <%= yield %>
 
