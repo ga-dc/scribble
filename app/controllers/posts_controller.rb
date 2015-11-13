@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-
+#
 # new / for making new post part 1
   def new
     @posts = Post.new
@@ -13,7 +13,8 @@ class PostsController < ApplicationController
 
 # create / for making new post part 2
   def create
-    @posts = Post.create!(post_params)
+    @posts = current_user.posts.create!(post_params)
+    # @posts = Post.create!(post_params)
     redirect_to post_path(@posts)
   end
 
@@ -25,6 +26,9 @@ class PostsController < ApplicationController
 # edit / edit a post part 1
   def edit
     @posts = Post.find(params[:id])
+    if current_user.id != @posts.user_id
+      redirect_to post_path(@posts)
+    end
   end
 
 # update / edit a post part 2

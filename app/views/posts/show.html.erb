@@ -1,8 +1,11 @@
 <h2>
+
   <%= @posts.title %>
+  <% if current_user.id == @posts.user_id %>
   <%= link_to "Edit", edit_post_path %>
+  <% end %>
 </h2>
-<h4><%= @posts.date %></h4>
+<h4>User Id: <%= @posts.user_id %></h4>
 <article><%= @posts.article %></article>
 
 
