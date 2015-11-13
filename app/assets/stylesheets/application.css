@@ -23,11 +23,11 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #333333;
-    background: #f6f6f6;
+    background: #dddddd;
 }
 
 a {
-	color: #aaa;
+	color: #999;
 	text-decoration: none;
 }
 
@@ -63,9 +63,22 @@ a:hover {
   padding-top: 0;
 }
 
-.main > section:nth-child(even) {
-	background: #87cef8;
-	color: #fff;
+.ident {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+
+.ident_small {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  top: 6px;
+  margin-left: 20px;
+}
+
+div .comment {
+  margin: 8px 0;
 }
 
 .main section:first-child > div {
@@ -91,6 +104,10 @@ a:hover {
 
 @media screen and (max-width: 55em) {
 
+  .ident_small {
+    margin: 0 10px;
+  }
+
 	.posts p,
   .posts a {
 		padding: 2em 5%;
@@ -113,7 +130,7 @@ a:hover {
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: #666666;
+	background: #59323C;
 	z-index: 10000;
 	height: 90px;
 	overflow: hidden;
@@ -144,7 +161,7 @@ a:hover {
 
 .cbp-af-header h1 {
 	text-transform: uppercase;
-	color: #333;
+	color: #eeeeee;
 	letter-spacing: 4px;
 	font-size: 1.6em;
 	margin: 0;
@@ -163,7 +180,7 @@ a:hover {
 }
 
 .cbp-af-header nav a:hover {
-	color: #333;
+	color: #eee;
 }
 
 /* Transitions and class for reduced height */

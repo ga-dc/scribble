@@ -19,11 +19,14 @@
     </div>
 
     <% @post.comments.each do |comment| %>
-    <p>
-      <strong><%= comment.user.email %></strong>: <%= comment.body %>
-    </p>
+    <div class="comment">
+      <img class="ident" src="<%= comment.user.identicon %>" alt="Identicon">
+      <p>
+        <strong><%= comment.user.username %></strong>: <%= comment.body %>
+      </p>
 
-    <%= link_to 'Edit Comment', edit_post_comment_path(@post, comment) %>
+      <%= link_to 'Edit Comment', edit_post_comment_path(@post, comment) %>
+    </div>
     <% end  %>
 
   </div>
