@@ -19,13 +19,9 @@
 <% end %>
 </ul>
 
-<ul>
-  <% @categories.each do |category| %>
-  <li>
-    <%= link_to "#{category.category}".html_safe, method: :post, class: "no-fav" %>
-  </li>
-  <% end %>
-</ul>
+<%@categories.each do |tag|%>
+<%= link_to "#{tag.category},".html_safe, category_path(tag) %>
+<% end %>
 
 <%= form_for [@post,@category] do |f| %>
 
