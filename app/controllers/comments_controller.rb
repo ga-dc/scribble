@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create, :new]
 
   def show
     @post = Post.find(params[:post_id])

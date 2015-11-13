@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create, :new]
 
   def index
     @posts = Post.all
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(posts_params)
+    @post = current_user.posts.create!(posts_params)
     redirect_to @post
   end
 
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.comments.destroy_all
     @post.destroy
     redirect_to posts_path
   end

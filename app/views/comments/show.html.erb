@@ -6,3 +6,4 @@
 
 <%= link_to "Corresponding Post", @post %>
 <%= link_to "Edit this Comment", edit_post_comment_path(@post, @comment) %>
+<%= link_to "Delete Comment", post_comment_path(@post, @comment), method: "delete" %>
