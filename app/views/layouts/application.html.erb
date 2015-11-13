@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav></nav>
+
+  <h1> Scribble</h1>
+
+  <%= image_tag "moe.jpeg" %>
+
+  <%= link_to "sign-up", new_user_registration_path %>
+  <%= link_to "sign-in", new_user_session_path %>
+
+  <%= link_to "sign-out", destroy_user_session_path, method: :delete %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>

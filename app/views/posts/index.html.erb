@@ -1,0 +1,17 @@
+<h1>Hello World</h1>
+
+
+
+<h2>Posts <%= link_to "+", new_post_path %></h2>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+    <%= link_to post.title, post_path(post) %>
+
+
+        <%= post.body %>
+
+    </li>
+  <% end %>
+</ul>
