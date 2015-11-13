@@ -8,14 +8,13 @@
 </head>
 <body>
   <nav>
-    <%= link_to "New", new_post_path() %>
-    <%= link_to "Posts", posts_path() %>
     <%= link_to "Home", "/" %>
+    <%= link_to "New Post", new_post_path() %>
     <% if current_user %>
-      <h3><%= link_to "Sign out", destroy_user_session_path, method: :delete %></h3>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <h3><%= link_to "Sign up", new_user_registration_path %></h3>
-      <h3><%= link_to "Log in", new_user_session_path %></h3>
+      <%= link_to "Sign up", new_user_registration_path %>
+      <%= link_to "Log in", new_user_session_path %>
     <% end %>
   </nav>
   <h1>Scribble</h1>
