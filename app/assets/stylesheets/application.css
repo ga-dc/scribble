@@ -132,6 +132,10 @@ nav a:hover{
   text-align: center;
 }
 
+.each-post h4{
+  text-align: center;
+}
+
 .comments{
   background-color: white;
   margin: 5px;

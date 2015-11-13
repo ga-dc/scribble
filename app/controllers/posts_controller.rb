@@ -5,19 +5,23 @@ class PostsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @post = Post.new
   end
 
   def create
-    @post = Post.create!(post_params)
+    authenticate_user!
+    @post = current_user.posts.create!(post_params)
     redirect_to post_path(@post)
   end
 
   def edit
+    authenticate_user!
     @post = Post.find(params[:id])
   end
 
   def update
+    authenticate_user!
     @post = Post.find(params[:id])
     @post.update(post_params)
     redirect_to post_path(@post)
@@ -29,6 +33,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authenticate_user!
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
