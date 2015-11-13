@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <li>
-    <h3><%= link_to post.title, post %> - <%=post.user_id%></h3>
+    <h3><%= link_to post.title, post %> - <%=post.user.email%></h3>
     <p><%= post.post_text%></p>
 
   </li>

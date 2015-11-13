@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @post = Post.find_by(id: params[:post_id])
@@ -12,13 +11,13 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @post = Post.find_by(id: params[:post_id])
+    @post = current_user.posts.find_by(id: params[:post_id])
     @comment = Comment.new
   end
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create!(comment_params)
+    @comment = @post.comments.create(comment_params.merge(user: current_user))
     redirect_to post_path(@post)
   end
 
@@ -30,7 +29,7 @@ class CommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
+    @comment.update(comment_params.merge(user: current_user))
     redirect_to post_path(@post)
   end
 

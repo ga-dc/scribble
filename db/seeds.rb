@@ -8,38 +8,26 @@
 
 Comment.destroy_all
 Post.destroy_all
+User.destroy_all
 
-
-posts = Post.create([
-  {user_id: 1,
-    post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    title: "SDM Dance Party"
-  },
-
-  {user_id: 2,
-    post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    title: "NO MORE INCIDENTS OR ELSE"
-  },
-
-  {user_id: 3,
-    post_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    title: "u can't c me now"
-  }
-
-])
-
-posts.each do |post|
-  post.comments.create([
-    {user_id: 4,
-      comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    },
-
-    {user_id: 5,
-      comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    },
-
-    {user_id: 6,
-      comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
-    }
+User.create([
+  {email: "r_scarlet@sdm.gsk", password: "septette", password_confirmation: "septette", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+  {email: "r_hakurei@hakurei.gsk", password: "capriccio", password_confirmation: "capriccio", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+  {email: "y_saigyouji@netherwor.ld", password: "resurrection", password_confirmation: "resurrection", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
   ])
+
+users = User.all
+
+users.each do |user|
+  user.posts.create({title: "this is some post title", post_text: "this is some post text"})
+end
+
+posts = Post.all
+
+users.each do |user|
+  posts.each do |post|
+    post.user.comments.create({
+          comment_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dignissim vehicula. Etiam quis aliquet neque, sed posuere enim. Curabitur fringilla condimentum posuere. Proin feugiat consectetur viverra. In accumsan, risus in tempor auctor, felis libero molestie elit, vel vehicula justo nibh sed lectus. Donec nec commodo est. Nullam rhoncus tortor enim, sed sodales urna pretium in. Donec at dui bibendum, vehicula tortor ac, bibendum nulla.",
+        })
   end
+end
