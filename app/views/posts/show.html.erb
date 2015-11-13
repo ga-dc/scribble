@@ -1,0 +1,19 @@
+<h2><%= @post.title %></h2>
+<h3><%= @post.user.email %></h3>
+<h3><%= @post.created_at.strftime("%m/%d/%y")%></h3>
+<div>
+  <p class="text"><%= @post.text %></p>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+  <%= form_for @post, method: :delete do |f|%>
+    <%= f.submit "Delete" %>
+  <% end %>
+  <% @post.comments.each do |com| %>
+    <p><%= com.user.email %> - <%= com.created_at.strftime("%m/%d/%y") %></p>
+    <p class= "text"><%= com.text %></p>
+    <%= link_to "Edit Comment", edit_post_comment_path(@post,   com) %>
+    <%= form_for [@post, com], method: :delete do |f| %>
+      <%= f.submit "Delete" %>
+    <% end %>
+  <% end %>
+  <%= link_to "New Comment", new_post_comment_path(@post) %>
+</div>
