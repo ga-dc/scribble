@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @categories = @post.categories
   end
 
   def new
@@ -50,7 +51,7 @@ class PostsController < ApplicationController
     end
 
   def post_params
-    params.require(:post).permit(:title, :post)
+    params.require(:post).permit(:title, :post, :category)
   end
 
 end

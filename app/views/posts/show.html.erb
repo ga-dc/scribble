@@ -1,8 +1,5 @@
 <h2><%= @post.title %></h2>
-<p>
-  <strong>Author:</strong>
-  <%= @post.user.email %>
-</p>
+
 
 <p><%= @post.post %></p>
 <p>Date Created: <%= @post.created_at.strftime('%r %a %h %d') %></p>
@@ -16,6 +13,14 @@
       <%= comment.comment %>
       <%= comment.updated_at.strftime('%r %a %h %d') %>
       <%= link_to "Update Comment", post_comment_path(@post,comment) %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to "#{category.category}".html_safe, method: :post, class: "no-fav" %>
     </li>
   <% end %>
 </ul>

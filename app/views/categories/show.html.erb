@@ -1,0 +1,12 @@
+<h1><%=@category.category.upcase%></h1>
+
+<ul>
+  <% @category.posts.each do |post| %>
+    <li>
+      <%= post.title %>
+    </li>
+    <li>
+      <%= post.post %>
+    </li>
+  <% end %>
+</ul>
