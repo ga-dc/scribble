@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= image_tag 'scribble_logo.png' %>
+    <nav>
+      <ul>
+        <li><%= link_to 'Posts', posts_path %></li>
+      </ul>
+    </nav>
+  </header>
 
 <%= yield %>
 
