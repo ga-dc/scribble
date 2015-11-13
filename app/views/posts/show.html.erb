@@ -1,0 +1,25 @@
+<div class="post_title">
+  <h1><%= @post.title %></h1>
+  <div>
+    By: <%=@post.author %>
+    <%= link_to "edit post", edit_post_path(@post) %>
+  </div>
+</div>
+
+<div class="post">
+  <p><%=@post.post%></p>
+
+  <p><%= link_to "Add Comment", new_post_comment_path(@post) %></p>
+</div>
+
+<h3>Comments</h3>
+
+<div class= 'comments'>
+  <% @post.comments.each do |comment| %>
+  <div>
+    <%=comment.comment %>
+    <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+    <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+  <% end %>
+  </div>
+</div>

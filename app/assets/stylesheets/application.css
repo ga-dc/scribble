@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html{
+  background: url(http://www.sports-logos-screensavers.com/user/WashingtonCapitals6.jpg);
+  background-size: cover;
+}
+
+ body{
+    font-family: monospace;
+    max-width: 50em;
+    margin:auto;
+    padding:2em 1em;
+    text-align: center;
+    background-color: blue;
+    color: #eeeeee;
+  }
+  nav {
+     border: 1px solid white;
+     margin: .5em;
+     padding: .5em;
+     background-color: blue;
+     color: black;
+   }
+   a:link {
+     color: white;
+   }
+   a:visited {
+     color: white;
+   }
+   a:hover {
+     color: tomato;
+   }
+   ul {
+     list-style: none;
+     text-align: center;
+     padding-right: 30px;
+   }
+   .post{
+     border: 1px solid white;
+     margin: .5em;
+     padding: .5em;
+   }
+   .comments{
+     border: 1px solid white;
+     margin: .5em;
+     padding: .5em;
+   }
