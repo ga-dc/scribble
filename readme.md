@@ -1,38 +1,25 @@
-# Scribble
+# README
 
-![](https://dl.dropboxusercontent.com/s/8frf8rblw6pnpds/hipsterlogogenerator_1438007087793.png?dl=0)
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-is a Ruby on Rails application where users can read, write, and interact
-with the best content all around the world. It is designed to be built, refined, and deployed over the course of four nights.
+Things you may want to cover:
 
-We will start off with two models: `Post` and `Comment`, and eventually
-add in `User` with secure password authentication.
+* Ruby version
+  * 2.2.3p173
 
-## Models + Migrations (due Wednesday)
+* System dependencies
 
-- Create ERD for Post and Comment
-- Create models for Post and Comment
-- Create migrations for Post and Comment
+* Configuration
 
-## Views + Controllers (due Wednesday)
+* Database creation
 
-- Add views and controllers. Full CRUD/REST.
-- Remember to add authenticity tokens to forms.
-- Use strong params.
+* Database initialization
 
-## Helpers (due Friday)
+* How to run the test suite
 
-- Convert links, forms, etc. to helpers.
+* Services (job queues, cache servers, search engines, etc.)
 
-## Routes (due Friday)
+* Deployment instructions
 
-- Implement nested routes.
-
-## Sessions (due Friday)
-
-- Add User model with authentication.
-- Associate posts with users.
-
-## Deploy (due Friday)
-
-- Deploy to Heroku.
+* ...
