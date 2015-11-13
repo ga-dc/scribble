@@ -1,18 +1,19 @@
 
-<h2>Posts <%= link_to "(+)", new_post_path(), class: "btn btn-primary" %></h2>
+<h2>Posts <%= link_to '(+)', new_post_path(), class: 'btn btn-primary' %></h2>
 
-<div id="post_feature">
+<div id='post_feature'>
   <% @posts.each do |post| %>
-    <div id="post_headline">
+    <div id='post_headline'>
       <%= post.headline %>
     </div>
-    <div id="post_body">
+    <div id='post_body'>
       <%= post.body %>
     </div>
-    <div id="post_actions">
+    <div id='post_actions'>
       <%= link_to 'Show', post %> |
       <%= link_to 'Edit', edit_post_path(post) %> |
       <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <hr>
     </div>
   <% end %>
 </div>

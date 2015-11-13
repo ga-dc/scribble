@@ -13,3 +13,62 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: url('/assets/birds.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+header {
+  background-color: #000;
+  margin-right: -10px;
+  margin-top: -10px;
+  margin-left: -10px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+main {
+  margin: 0 auto;
+  padding: 50px;
+  background-color: RGBA(33, 33, 33, .7);
+  color: #fff;
+  max-width: 500px;
+}
+
+#site_title {
+  font-size: 3em;
+  font-family: 'Homemade Apple', cursive;
+  marin: 0 auto;
+  padding: 10px;
+
+}
+
+a, a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* mouse over link, active link */
+a:hover, a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#post_headline {
+  margin-bottom: 5px;
+  font-size: 1.5em;
+}
+
+#post_body {
+  margin-bottom: 10px;
+}
+
+#post_actions {
+  font-size: .75em;
+}
