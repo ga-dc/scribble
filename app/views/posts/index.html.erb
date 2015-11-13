@@ -1,0 +1,24 @@
+<h1>Scribble</h1>
+<ul>
+<% @posts.each do |post| %>
+<li>
+  <h2>
+  <% if current_user %>
+    <%= link_to post.title,post_path(post) %>
+  <% else %>
+    <%= post.title %>
+  <% end %>
+  </h2>
+  <p>
+    <%= post.user.email %>
+  </p>
+  <p>
+    <%= post.created_at %>
+  </p>
+</li>
+<% end %>
+</ul>
+
+<% if current_user %>
+  <p><%= link_to "new post",new_post_path %></p>
+<% end %>
