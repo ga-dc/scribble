@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    authenticate_user!
     @posts = Post.all
   end
 
