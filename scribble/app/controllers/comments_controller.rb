@@ -32,6 +32,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
   #
+  #
   # # # update
   def update
     @post = Post.find(params[:post_id])
