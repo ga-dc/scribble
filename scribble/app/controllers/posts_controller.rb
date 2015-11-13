@@ -2,8 +2,17 @@ class PostsController < ApplicationController
   # A frequent practice is to place the standard CRUD actions in each
   # controller in the following order: index, show, new, edit, create, update
   # and destroy.
+
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
+    # authenticate_user!
+    if current_user
+    @posts = current_user.posts
+    else
     @posts = Post.all
+    end
   end
 
   def show
@@ -18,8 +27,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.save
+    @post = current_user.posts.create(post_params)
     redirect_to @post
   end
 
