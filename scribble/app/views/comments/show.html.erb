@@ -1,0 +1,6 @@
+<h2><%= @comment.name %></h2>
+<%= link_to "(edit comment)", edit_post_comment_path(@post, @comment) %>
+
+<p><%= @comment.content %></p>
+
+<p><%= @comment.created_at %> by <%= @comment.username %></p> on <%= link_to "#{@post.title}", post_path %>

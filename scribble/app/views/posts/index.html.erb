@@ -1,0 +1,12 @@
+<div class="all-posts">
+  <h2><strong>Posts</strong> <%= link_to "(+)", new_post_path %></h2>
+
+    <% @posts.each do |post| %>
+  <p class="post-title">
+      <%= link_to post.title, post %>
+  </p>
+  <p class="post-content">
+      <%= post.content %>
+  </p>
+    <% end %>
+</div>

@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+
+body{
+  background-image: url("p4.png");
+  background-repeat: repeat;
+  font-family: helvetica;
+}
+
+header{
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 550px;
+  height: 80px;
+  display:block;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: solid rgba(255, 255, 255, 0.4) 2px;
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+}
+
+header h1{
+  margin: 0 auto;
+  padding-top: 10px;
+  text-shadow: 3px 4px dimgrey;
+}
+
+a{
+  text-decoration: none;
+  /*color: inherit;*/
+}
+
+a:hover{
+}
+
+nav{
+  width: 550px;
+  height: 20px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-top: 3px;
+  border-top: solid white 2px;
+  border-bottom: solid white 2px;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+nav a{
+  color:black;
+}
+
+nav a:hover{
+  background-color: silver;
+}
+
+.notice{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0;
+  color: red;
+}
+
+.alert{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0;
+  color: red;
+}
+
+.all-posts{
+  width: 530px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.all-posts h2{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 5px;
+  border-bottom:
+}
