@@ -1,9 +1,6 @@
-* {
-  background-image: url('/assets/seamlesstexture16_1200.jpg');
-}
-
 body {
   position: static;
+  background-image: url('/assets/seamlesstexture16_1200.jpg');
 }
 header {
   display: flex;
@@ -57,13 +54,15 @@ img.welcome_img {
 
 .blog_post {
   margin-top: 10px;
-  border: 1px solid red !important;
   position: relative;
   width: 75%;
   margin: auto;
   height: 300px;
   margin-top: 10px;
-  /*text-align: center;*/
+  background-image: url('/assets/summer5.jpg');
+  background-position: left top;
+  background-size: 200%;
+  border-radius: 5px;
 }
 
 .blog_post h3 {
@@ -71,12 +70,13 @@ img.welcome_img {
   position: absolute;
   font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
   margin: 0 auto;
+  color: #008B8B;
 }
 
 .blog_post img {
   display: inline;
   max-height: 300px;
-
+  border-radius: 5px;
 }
 
 .blog_post p {
@@ -85,6 +85,7 @@ img.welcome_img {
   height: 200px;
   position: absolute;
   margin: 60px;
+  color: #531F8D;
 }
 
 div.links {
@@ -94,8 +95,9 @@ div.links {
 }
 
 .links a {
-  margin: 40px;
-  border: 1px solid red !important;
+  margin: 20px;
   position: relative fixed;
   display: flex;
+  font: 15px 'Merienda One', Helvetica, sans-serif;
+  color: #556B2F;
 }
