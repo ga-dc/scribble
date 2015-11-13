@@ -1,6 +1,6 @@
 <%= form_for([@post, @comment]) do |f| %>
   <p class="subTitle">
-    by <%= @user.email %>
+    by <%= @user.username %>
   </p>
   <p>
     <%= f.label :body %><br>
