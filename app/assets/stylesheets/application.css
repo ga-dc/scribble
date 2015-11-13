@@ -43,6 +43,7 @@ body {
 
 a {
   text-decoration: none;
+  font-family: 'Josefin Slab', sans-serif;
 }
 
 li {
@@ -59,4 +60,8 @@ h2 {
 
 h1 {
   font-family: 'Josefin Slab', sans-serif;
+}
+
+.comment_text {
+  font-family: 'Josefin Sans', sans-serif;
 }

@@ -1,7 +1,7 @@
 <h2><%= @post.title %></h2>
 
 
-<p><%= @post.post %></p>
+<p class = "post_text"><%= @post.post %></p>
 <p>Date Created: <%= @post.created_at.strftime('%r %a %h %d') %></p>
 
 <%= link_to "(edit)", edit_post_path(@post) %>
@@ -9,18 +9,20 @@
 
 <ul>
   <% @post.comments.each do |comment| %>
-    <li>
-      <%= comment.comment %>
-      <%= comment.updated_at.strftime('%r %a %h %d') %>
-      <%= link_to "Update Comment", post_comment_path(@post,comment) %>
-    </li>
-  <% end %>
+  <li class = "comment_text">
+    <%= comment.comment %>
+  </li>
+  <li>
+  <%= comment.updated_at.strftime('%r %a %h %d') %>
+  <%= link_to "Update Comment", post_comment_path(@post,comment) %>
+</li>
+<% end %>
 </ul>
 
 <ul>
   <% @categories.each do |category| %>
-    <li>
-      <%= link_to "#{category.category}".html_safe, method: :post, class: "no-fav" %>
-    </li>
+  <li>
+    <%= link_to "#{category.category}".html_safe, method: :post, class: "no-fav" %>
+  </li>
   <% end %>
 </ul>
