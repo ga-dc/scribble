@@ -1,0 +1,14 @@
+<section class="posts">
+  <h1>Posts</h1>
+
+  <div class="center">
+    <% @posts.each do |post| %>
+      <h2><%= post.title %></h2>
+      <p class="subTitle">by <%= post.user.username %>, updated on <%= post.updated_at.strftime("%x") %></p>
+      <p class="inline"><%= post.comments.length %> comments</p> |
+      <%= link_to 'Show Post', post_path(post) %> |
+      <%= link_to 'Edit', edit_post_path(post) %>
+    <% end %>
+  </div>
+
+</section>
