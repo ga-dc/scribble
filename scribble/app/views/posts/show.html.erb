@@ -1,0 +1,17 @@
+<div class = "show_post">
+  <h1><%=@post.title%></h1>
+  <%=link_to "EDIT", edit_post_path(@post), class: "edit" %>
+  <p><%=@post.text%></p>
+</div>
+<h1>Please comment on my blog post!</h1>
+<%=link_to "ADD COMMENT", new_post_comment_path(@post), class: "new_comment" %>
+<div class = "comments">
+    <% @post.comments.each do |comment| %>
+      <div class = "eachcomment"
+        <p>User: <%=comment.user.name%></p>
+        <p><%= comment.text %></p>
+      </div>
+  <%=link_to "EDIT", edit_post_comment_path(@post, comment), class: "edit_comment" %>
+  <%= link_to 'DELETE', post_comment_path(@post, comment),:confirm => 'Are you sure?', :method => :delete, class: "delete_comment" %>
+  <% end %>
+</div>
