@@ -1,3 +1,11 @@
+TODO:
+
+-add error checking, mainly look for blank inputs.
+
+-clean up tagging method
+
+-push updated version to heroku (https://tsolowscribbler.herokuapp.com/posts)
+
 ```
 +---------------------------------------------------------------------------------------------------------------------------------------+
 |                                                                                                                                       |
@@ -33,11 +41,3 @@
 |                                                                                                                                       |
 +---------------------------------------------------------------------------------------------------------------------------------------+
 ```
-
-TODO:
-
--Add tags and categories as per bonus.
-
--Make it look better.
-
--Take care of error handling for out of range requests.

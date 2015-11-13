@@ -2,6 +2,6 @@
 
 <%@category.tags.each do |tag|%>
   <ul>
-    <li><%=tag.post.title%>  <%= link_to '(Delete)', post_tag_path(tag.post, tag), :confirm => 'Are you sure?', :method => :delete%></li>
+    <li><%=link_to tag.post.title, post_path(tag.post)%>  <%= link_to '(Delete)', post_tag_path(tag.post, tag), :confirm => 'Are you sure?', :method => :delete%></li>
   </ul>
 <%end%>
