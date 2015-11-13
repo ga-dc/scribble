@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
+  def set_post
+  end
 
   def sort
     session[:sort_by] = params[:sort_by]
@@ -12,9 +17,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @last_viewed_post = Post.find(session[:last_viewed_post_id])
+    # @last_viewed_post = Post.find(session[:last_viewed_post_id])
     @posts = Post.all.order(session[:sort_by])
-    @posts = Post.all
+      if current_user
+      @posts = current_user.posts
+    else
+      @posts = Post.all
+    end
   end
 
   # new
@@ -29,7 +38,7 @@ class PostsController < ApplicationController
 
   # create
   def create
-    @post = Post.new post_params
+    @post = current_user.posts.create(post_params)
     if @post.save
       redirect_to @post
     else
@@ -40,7 +49,7 @@ class PostsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:id])
-    session[:last_viewed_post_id] = @post.id
+    # session[:last_viewed_post_id] = @post.id
     @comment = @post.comments.build
   end
 

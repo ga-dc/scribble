@@ -14,15 +14,15 @@
     </div>
   <% end %>
 
-  <form action="/artists/sort" method="get">
+  <!-- <form action="/posts/sort" method="get">
     <label>Sort By</label>
     <input type="text" name="sort_by">
     <input type="submit" value="sort">
   </form>
-  Sorting by: <%= session[:sort_by] %>
+  Sorting by: <%= session[:sort_by] %> -->
 
-  <% if @last_viewed_artist %>
-  <h3>Last viewed artist: <%= @last_viewed_artist.name %></h3>
+  <% if @last_viewed_post %>
+  <h3>Last viewed post: <%= @last_viewed_post.name %></h3>
   <% end %>
 
 <p>
