@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>Scribble</h1>
+    <nav>
+      <span><%= link_to "POSTS", posts_path %></span>
+      <span class="login">
+        <% if current_user %>
+          <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to 'Signup', new_user_registration_path %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+     </span>
+    </nav>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<h2>POSTS</h2>
+<h3><%= @post.title %></h3>
+<span>Created At: <%= @post.created_at %></span>
+<span>Updated At: <%= @post.updated_at %></span>
+<p><%= @post.text %></p>
+
+<%= link_to "Edit this post", edit_post_path(@post) %>
+
+<h3>COMMENTS</h3>
+<%= link_to "(+)", new_post_comment_path(@post) %>
+<ul>
+  <% @comments.each do |comment| %>
+  <li>
+    <%= link_to comment.text, post_comment_path(@post, comment) %>
+  </li>
+  <% end %>
+</ul>
