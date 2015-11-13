@@ -1,0 +1,70 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+
+
+*/
+
+
+body {
+  background-image: url('paper.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.new_post {
+  display: inline-block;
+}
+
+.post_input {
+  height: 20%;
+}
+
+.post_title {
+  padding-top: 2%;
+  padding-bottom: .5%;
+  font-family: 'Josefin Slab', sans-serif;
+  font-size: 1.5em;
+}
+
+.post_text {
+  margin-left: 25%;
+  width: 50%;
+  padding-left: 1%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+h3 {
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+h2 {
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+h1 {
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+.comment_text {
+  font-family: 'Josefin Sans', sans-serif;
+}
