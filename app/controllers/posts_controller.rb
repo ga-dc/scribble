@@ -5,7 +5,7 @@ def index
 end
 
 def create
-  @post = post.create!(post_params)
+  @post = Post.create!(post_params)
       redirect_to (post_path(@post))
 end
 
