@@ -3,7 +3,7 @@
 <a href="/posts">View All</a>
   <%= link_to "Add New", new_post_path %>
 </div>
-<% @posts[0..2].each do |post| %>
+<% @recent_posts.each do |post| %>
 <div class = "post">
       <h2><%=link_to "#{post.title}", post%></h2>
 </div>

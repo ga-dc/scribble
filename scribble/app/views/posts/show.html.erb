@@ -7,8 +7,10 @@
 <%=link_to "ADD COMMENT", new_post_comment_path(@post), class: "new_comment" %>
 <div class = "comments">
     <% @post.comments.each do |comment| %>
-        <time><%=comment.user.email%></time>
+      <div class = "eachcomment"
+        <p>User: <%=comment.user.email%></p>
         <p><%= comment.text %></p>
+      </div>
   <%=link_to "EDIT", edit_post_comment_path(@post, comment), class: "edit_comment" %>
   <%= link_to 'DELETE', post_comment_path(@post, comment),:confirm => 'Are you sure?', :method => :delete, class: "delete_comment" %>
   <% end %>

@@ -72,6 +72,7 @@ nav.mainnav ul li{
   margin-top: 80px;
   width: 1000px;
   line-height: 300%;
+  box-shadow: 10px 10px 5px #888888;
 }
 .post:nth-child(odd){
   background-color: rgba(196, 197, 199, 0.3);
@@ -90,6 +91,7 @@ main{
   background-color: rgba(196, 197, 199, 0.3);
   padding-top: 50px;
   padding-bottom: 50px;
+  box-shadow: 10px 10px 5px #888888;
 }
 .new_comment {
   background-color: green;
@@ -98,13 +100,11 @@ main{
   padding-right: 4px;
   padding-top: 2px;
   padding-bottom: 2px;
-  font-size: 25px;
+  font-size: 26px;
   text-align: left;
 }
 
 .comments {
-  background-color: rgba(228, 221, 155, 0.3);
-  border: 2px solid white;
   margin: 0 auto;
   margin-top: 40px;
   width: 500px;
@@ -116,8 +116,10 @@ main{
   padding-right: 2px;
   padding-top: 1px;
   padding-bottom: 1px;
-  font-size: 15px;
+  font-size: 16px;
   text-align: left;
+  border: 2px solid black;
+  font-family: "Chelsea Market";
 }
 
 .delete_comment{
@@ -127,8 +129,10 @@ main{
     padding-right: 2px;
     padding-top: 1px;
     padding-bottom: 1px;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
+    border: 2px solid black;
+    font-family: "Chelsea Market";
 }
 .form {
   margin: auto;
@@ -164,6 +168,7 @@ main{
   padding-bottom: 2px;
   font-size: 25px;
   text-align: left;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .delete{
@@ -189,4 +194,18 @@ main{
 }
 .notice {
   color: green;
+}
+textarea {
+  font-size: 20px;
+  font-family: "Cabin Sketch";
+  text-align: center;
+}
+
+.eachcomment{
+  border: 2px dotted white;
+  background-color: rgba(228, 221, 155, 0.2);
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 10px 10px 5px #888888;
+  font-family: "Chelsea Market";
 }

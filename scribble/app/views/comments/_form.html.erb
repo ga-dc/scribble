@@ -1,0 +1,6 @@
+<%= form_for [@post, @comment], :html =>{ :class =>'form' } do |f| %>
+  <%= f.label :text %>
+  <%= f.text_area :text, size: "50x10" %>
+  <%= f.label :submit %>
+  <%= f.submit%>
+<% end %>
