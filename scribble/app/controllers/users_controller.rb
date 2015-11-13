@@ -19,25 +19,25 @@ class UsersController < ApplicationController
     redirect_to action: :sign_up
   end
 
-  def sign_in
+  def log_in
   end
 
-  def sign_in!
+  def log_in!
     @user = User.find_by(username: params[:username])
     if !@user
       message = "This user doesn't exist!"
     elsif @user.password_digest != params[:password]
       message = "Your password's wrong!"
     else
-      message = "You're signed in, #{@user.username}!"
+      message = "You're logged in, #{@user.username}!"
     end
     flash[:notice] = message
-    redirect_to action: :sign_in
+    redirect_to action: :log_in
   end
 
   def sign_out
     flash[:notice] = "Thank you for visiting!"
-    redirect_to "/sign_in"
+    redirect_to "/log_in"
   end
 
 end

@@ -2,21 +2,49 @@
 <html>
 <head>
   <title>Scribble</title>
-  <%= stylesheet_link_tag    'style' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300|Pacifico' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="style.scss">
 </head>
 <body>
+  <div id="mainwrapper">
+    <header>
+      <div id="logo">
 
-  <h1>Scribble</h1>
-<nav>
-  <a href="/sign_in">Sign in</a>
-  <a href="/sign_up">Sign up</a>
-  <a href="/sign_out">Sign out</a>
-  <a href="/posts">Posts</a>
-</nav>
+        <%= link_to image_tag("scribble.jpg") %>
+      </div>
+    <nav>
+      <a href="/posts">POSTS</a>
+      <a href="/log_in">LOG IN</a>
+      <a href="/sign_up">SIGN UP</a>
+    </nav>
+  </header>
+  <div id="content">
+    <section id="mainContent">
+      <h1>Scribble</h1>
+      <h3>Welcome to Scribble!</h3>
+    </section>
+  </div>
+    <%= yield %>
+  <footer>
+    <article>
+      <h3>Samuel L. Ipsum</h3>
+      <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+    </article>
+    <article>
+      <h3>Cupcake Ipsum</h3>
+      <p>Cupcake ipsum dolor sit amet soufflé gummies. Tiramisu caramels dragée apple pie cupcake. Oat cake muffin donut jujubes cake. Marzipan toffee jujubes. Bonbon sesame snaps marzipan chupa chups liquorice. Pastry wafer marshmallow caramels liquorice.</p>
+    </article>
+  </footer>
+  </div>
+    <div id="footerbar"><!-- Small footerbar at the bottom --></div>
 <h2><%= flash[:notice] %>
-<%= yield %>
 
+  </div>
 </body>
 </html>
+
+<!-- <a href="/sign_out">Sign out</a> -->
+<!--  -->
