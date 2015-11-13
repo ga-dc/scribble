@@ -1,14 +1,16 @@
-<%= link_to 'New article', new_article_path %>
-<% @articles.each do |article| %>
-<div class='blog-post'>
-  <!-- <p class='date'><%= article.title %></p> -->
-  <h3><%= article.title %></h3>
-  <img class='post_photo'><%= image_tag article.photo_url %></img>
-  <td><%= article.text %></td>
-  <td><%= link_to 'Read More', article_path(article) %></td>
-  <td><%= link_to 'Edit', edit_article_path(article) %></td>
-  <td><%= link_to 'Destroy', article_path(article),
-  method: :delete,
-  data: { confirm: 'Are you sure?' } %></td>
+<div class='new_post'>
+  <a><%=link_to 'New article', new_article_path %></a>
 </div>
-  <% end %>
+
+<% @articles.each do |article| %>
+<div class='blog_post'>
+  <img class='post_photo'><%= image_tag article.photo_url %></img>
+  <h3><%= article.title %></h3>
+  <p><%= article.text %></p>
+  <a><%= link_to 'Read More', article_path(article) %></a>
+  <a><%= link_to 'Edit', edit_article_path(article) %></a>
+  <a><%= link_to 'Destroy', article_path(article),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></a>
+</div>
+<% end %>
