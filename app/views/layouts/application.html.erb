@@ -6,10 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/posts">
+        Blog
         <span class="glyphicon glyphicon-registration-mark  " aria-hidden="true"></span>
       </a>
       <% if current_user %><span class="btn btn-danger navbar-right" id="signout"><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></span>
