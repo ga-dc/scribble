@@ -10,13 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
+    @post = Post.create(post_params)
       #assign result to @post just so can pass @post into redirect_to below to get the :id
     if @post.save
       flash[:notice] = "Successfully created..."
       redirect_to post_path(@post)
     else
-
+      render :new
     end
   end
 
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    #Whitelist params (strong params)
+    #Whitelist params from forms (strong params)
     def post_params
       params.require(:post).permit(:title, :body)
     end

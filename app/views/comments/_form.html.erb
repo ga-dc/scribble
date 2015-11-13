@@ -1,0 +1,12 @@
+<p>
+  <%= @comment.errors.full_messages.first if @comment.errors.any? %>
+</p>
+
+<%= form_for ([@post, @comment]) do |f| %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+
+<% end %>
