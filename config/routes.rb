@@ -4,15 +4,11 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    resources :categories
   end
 
   resources :categories
-  resources :posts do
-    member do
-      post 'add_tag'
-      get 'show_tag'
-    end
-  end
+
   # get    '/posts'           => 'posts#index'
   # get    '/posts/new'       => 'posts#new'
   # get    '/posts/:id'       => 'posts#show'

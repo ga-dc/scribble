@@ -26,3 +26,11 @@
   </li>
   <% end %>
 </ul>
+
+<%= form_for [@post,@category] do |f| %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.submit "Add a New Category"%>
+<% end %>

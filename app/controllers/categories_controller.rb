@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @category = @post.tags.create(params[:category])
+    @category = @post.categories.create(category_params)
 
     redirect_to post_path(@post)
   end
@@ -32,5 +32,9 @@ class CategoriesController < ApplicationController
 
   end
 
+  private
+  def category_params
+    params.require(:category).permit(:category)
+  end
 
 end

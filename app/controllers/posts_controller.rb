@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def show
     @categories = @post.categories
+    @category = Category.new
   end
 
   def new
