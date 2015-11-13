@@ -1,1 +1,20 @@
-<h1>Hello Rails</h1>
+<h2>Scribble Posts</h2>
+
+<%= link_to 'New Blog Post', new_post_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Post</th>
+  </tr>
+
+  <% @post.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.body %></td>
+    <td><%= link_to 'Show', post_path(post) %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    
+
+  </tr>
+<% end %>
+</table>

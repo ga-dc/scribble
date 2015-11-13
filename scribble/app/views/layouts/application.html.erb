@@ -2,12 +2,20 @@
 <html>
 <head>
   <title>Scribble</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'style' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <h1>Scribble</h1>
+<nav>
+  <a href="/sign_in">Sign in</a>
+  <a href="/sign_up">Sign up</a>
+  <a href="/sign_out">Sign out</a>
+  <a href="/posts">Posts</a>
+</nav>
+<h2><%= flash[:notice] %>
 <%= yield %>
 
 </body>
