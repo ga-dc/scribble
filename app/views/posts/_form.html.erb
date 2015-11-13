@@ -1,0 +1,32 @@
+<%= form_for :post, url: posts_path do |f| %>
+<h3><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h3>
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this post from being saved:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @last_viewed_post %>
+  <h3>Last viewed post: <%= @last_viewed_post.name %></h3>
+  <% end %>
+
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+</p>
+<p>
+  <%= f.submit "Post!" %>
+</p>
+<% end %>
