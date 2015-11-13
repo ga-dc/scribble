@@ -1,0 +1,27 @@
+<h1>Scribbles</h1>
+<%= link_to 'New Scribble', new_article_path %>
+<table>
+
+  <tr>
+    <strong><th>Title</th></strong>
+    <strong><th>Content</th></strong>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+
+  <tr>
+    <strong><td><%= article.title %></td></strong>
+    <td><%= article.text %></td>
+
+
+
+
+    <td><%= link_to 'Show', article_path(article) %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article_path(article),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table>

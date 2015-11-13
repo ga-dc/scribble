@@ -43,9 +43,70 @@ add in `User` with secure password authentication.
   * Tag represents the join table between Post and Category.
 - The Post show page should include...
   *  A linkable list of that Post's Categories.
-    * When clicked, each Tag should link to its Category show page. 
+    * When clicked, each Tag should link to its Category show page.
   *  A form that allows you to create a Tag and/or Category.
     *  If the Category exists, it will create a tag for that post.
     *  If the Category does not yet exist, it will create that Category and create a Tag for that post.
     *  If the Category exists AND the post already has that Tag, nothing will happen.
 - The Category show page should display all posts with that particular category.
+
+
+
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
