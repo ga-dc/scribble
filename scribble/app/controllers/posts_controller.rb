@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    authenticate_user!
     @post = Post.find(params[:id])
   end
 
