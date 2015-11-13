@@ -1,2 +1,16 @@
-<%= link_to 'New Post', new_post_path %>
-<h1>Scribble</h1>
+<h1>Scribble Posts</h1>
+<%= link_to "New post", new_post_path%>
+
+<table>
+    <th>Title</th>
+    <th>Text</th>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.text %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    </tr>
+  <% end %>
+</table>
