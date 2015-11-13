@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <%= link_to "/", class: "header" do %>
@@ -25,7 +26,11 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= yield %>
 
+  <%= yield %>
+  <footer>
+    <span class = "fa fa-star fa-spin"></span>
+    <p>&copy; Starr Chen 2015</p>
+  </footer>
 </body>
 </html>
