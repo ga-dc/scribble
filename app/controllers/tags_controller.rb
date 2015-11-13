@@ -20,6 +20,7 @@ class TagsController < ApplicationController
       @post.tags.each do |tag|
         if tag.category.descrip == params[:category]
           bool = "false"
+          flash[:alert] = "Tag creation failed, tag already exists."
         end
       end
       #if that category hasn't been attached to the post yet via tagging...

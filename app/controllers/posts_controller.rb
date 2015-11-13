@@ -23,6 +23,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Post was successfully created."
       redirect_to @post
     else
+      flash[:notice] = "Post wasn't successfully created."
       render :new
     end
 

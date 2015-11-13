@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment successfully created."
       redirect_to @post
     else
+      flash[:alert] = "Comment creation failed, likely missing a needed field."
       render :new
     end
   end
