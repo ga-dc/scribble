@@ -2,4 +2,9 @@
   <li>
   <%= link_to post.title, post_path(post) %>
   </li>
+
+  Categories:
+  <%post.categories.each do |tag| %>
+  <p><%= link_to "#{tag.category}", "/categories/#{tag.id}" , class: "categories" %></p>
+  <%end%>
 <%end %>

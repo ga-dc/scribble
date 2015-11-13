@@ -17,12 +17,16 @@
       <% end %>
     </ul>
   </header>
+
   <div id="left"></div>
   <div id="right"></div>
   <div id="top"></div>
   <div id="bottom"></div>
   <div class="main">
     <h1>Get your Scribble on!</h1>
+    <% flash.each do |key, value| %>
+       <div class="alert alert-<%= key %>"><%= value %></div>
+     <% end %>
     <h2><%= link_to "All Posts", '/' %></h2>
     <h2><%= link_to "My Posts", posts_path() %></h2>
     <%= yield %>

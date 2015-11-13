@@ -6,4 +6,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :posts do
+    member do
+      post 'add_tag'
+    end
+  end
+
+get '/categories/:id', to: 'categories#show'
+
 end

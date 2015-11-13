@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     if current_user
@@ -15,19 +16,26 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @category = Category.new
   end
 
   def create
     @post = current_user.posts.create!(post_params)
+    @category = @post.categories.create!(:category)
     redirect_to post_path(@post)
   end
 
   def show
     @post = Post.find(params[:id])
+    @categories = @post.categories
   end
 
   def edit
-    @post = Post.find(params[:id])
+    if @post.user == current_user
+    else
+    flash[:alert] = "You didn't belong there, so I put you here..."
+    redirect_to '/'
+    end
   end
 
   def update
@@ -51,6 +59,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def category_params
+    params.require(:category).permit(:category)
   end
 
 end
