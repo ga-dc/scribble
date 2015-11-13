@@ -14,7 +14,7 @@ users = User.create([
   {email: "belle@french.com"},
   {email: "ariel@atlantis.com"}
 
-  ])
+])
 
 posts = Post.create([
 
