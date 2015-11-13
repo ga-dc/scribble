@@ -5,34 +5,28 @@
 </p>
 <p>
 <% if current_user.email == @post.user.email %>
-<%= link_to "Edit Post",edit_post_path(@post) %>
+  <%= link_to "Edit Post",edit_post_path(@post) %>
 <% end %>
 <%= link_to "Add Comment",new_post_comment_path(@post) %>
-<% if @post.comments %>
 </p>
+<% if @post.comments %>
 <ul>
-<% @post.comments.each do |comment| %>
+  <% @post.comments.each do |comment| %>
   <li>
     <p>
       <%= comment.body %>
     </p>
-
-      <% if comment.user %>
-      <p>
+  <% if comment.user %>
+    <p>
       <%= comment.user.email %>
-      </p>
-
-        <p>
-
-        
-        <% if current_user.email == comment.user.email %>
-        <%= link_to "Edit Comment",edit_post_comment_path(@post,comment) %>
-        <%= link_to "Delete Comment", post_comment_path(@post,comment), method: 'delete' %>
-        <% end %>
-
-      <% end %>
     </p>
-
+    <p>
+    <% if current_user.email == comment.user.email %>
+      <%= link_to "Edit Comment",edit_post_comment_path(@post,comment) %>
+      <%= link_to "Delete Comment", post_comment_path(@post,comment), method: 'delete' %>
+    <% end %>
+  <% end %>
+    </p>
   </li>
 <% end %>
 </ul>
