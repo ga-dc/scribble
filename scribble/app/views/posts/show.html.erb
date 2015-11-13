@@ -1,9 +1,9 @@
-<h2 class='headline'><%= @post.headline %></h2>
+<h2 class='page_title'><%= @post.headline %></h2>
 
 <nav>
-<%= link_to 'Back', posts_path %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 </nav>
 
 
@@ -12,8 +12,8 @@
 <p id='post_body'><%= @post.body %></p>
 
 <div class='comments'>
-<h3>Comments</h3>
-<!-- Create Comment -->
+  <h3>Comments</h3>
+  <!-- Create Comment -->
   <div id='show_add_comment'>
     <%= link_to 'Add new comment', new_post_comment_path(@post)%>
   </div>
