@@ -8,7 +8,7 @@
 <div class = "comments">
     <% @post.comments.each do |comment| %>
       <div class = "eachcomment"
-        <p>User: <%=comment.user.email%></p>
+        <p>User: <%=comment.user.name%></p>
         <p><%= comment.text %></p>
       </div>
   <%=link_to "EDIT", edit_post_comment_path(@post, comment), class: "edit_comment" %>

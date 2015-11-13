@@ -209,3 +209,13 @@ textarea {
   box-shadow: 10px 10px 5px #888888;
   font-family: "Chelsea Market";
 }
+.field {
+  margin: 10px;
+}
+.field input {
+  font-size: 20px;
+  font-family: "Chelsea Market"
+}
+.actions input{
+   font-size: 30px;
+}
