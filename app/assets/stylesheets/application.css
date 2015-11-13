@@ -18,7 +18,7 @@
   padding: 0px;
 }
 body {
-  background-color: orange;
+  background-color: lightgrey;
 }
 h1 {
   padding-left: 10px;
@@ -44,8 +44,12 @@ nav a {
   text-decoration: none;
   padding: 10px;
   margin: 10px;
-  background-color: yellow;
+  color: white;
 }
+ h2 {
+   padding: 10px;
+   margin: 10px;
+ }
 
 li {
   text-decoration: none;
@@ -53,10 +57,11 @@ li {
 a {
   text-decoration: none;
   padding-left: 10px;
+  color: ghostwhite;
 }
 
 a:hover {
-  background-color: yellow;
+  background-color: grey;
 }
 
 .add {
@@ -82,12 +87,13 @@ a:hover {
 }
 
 .submit {
-  background-color: purple;
+  background-color: grey;
   border: none;
   padding: 10px;
   margin: 10px;
   font-weight: bold;
   display: inline-block;
+  color: ghostwhite;
 }
 
 .view {
