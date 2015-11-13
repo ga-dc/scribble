@@ -4,7 +4,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 def index
-  @posts = Post.all
+  if current_user
+    @posts = current_user.posts
+  else
+    @posts = Post.all
+  end
 end
 
 def new
@@ -12,8 +16,12 @@ def new
 end
 
 def create
-  @post = Post.create!(post_params)
-    redirect_to post_path(@post)
+  @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to @post, notice: "post created successfully!"
+    else
+      render 'new', alert: "an error occurred, please try again"
+    end
 end
 #show
 def show
@@ -27,8 +35,11 @@ end
 
 def update
   @post = Post.find(params[:id])
-  @post.update(post_params)
-  redirect_to post_path(@post)
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
 end
 
 def destroy
@@ -39,7 +50,7 @@ end
 
 private
   def post_params
-    params.require(:post).permit(:title, :message, :image_url, :author_id)
+    params.require(:user).permit(:title, :message, :image_url)
   end
 
 end
