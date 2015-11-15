@@ -1,0 +1,57 @@
+html, body, h1, header, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: garamond, sans-serif;
+}
+
+html {
+  background-color: #E7E7E7;
+}
+
+body {
+  width: 80%;
+  margin: 50px auto;
+  padding: 10px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 1px gray;
+  background-color: #FFFFFF;
+}
+
+h1#scribble-title {
+  font-family: abel, sans-serif;
+  font-size: 30px;
+  letter-spacing: 10px;
+  text-align: left;
+  color: black;
+  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 5px;
+}
+
+.nav_link {
+  font-size: 20px;
+  font-family: garamond;
+  font-weight: 600;
+}
+
+a:link {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #A14EF5;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #FCD400;
+  font-weight: bold;
+}
+
+a:active {
+  color: #5EFFCB;
+  font-weight: bold;
+}
