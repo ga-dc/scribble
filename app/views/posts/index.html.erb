@@ -1,0 +1,4 @@
+<% @posts.each do |post| %>
+<%= link_to(post.title,post) %>
+<% end %>
+<%= link_to("new post",new_post_path) %>

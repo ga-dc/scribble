@@ -1,0 +1,18 @@
+<h2><%= @post.title %></h2>
+<h3>By: <%= @post.author %></h3>
+<p>
+  <%= @post.post_body %>
+</p>
+<span>Posted at: <%= @post.created_at %></span>
+<span>Updated at: <%= @post.updated_at %></span>
+<%= link_to("edit",edit_post_path(@post)) %>
+
+<% @post.comments.each do |comment| %>
+<div class="">
+  <p>
+    <%= comment.comment %>
+  </p>
+  <span><%= comment.username %></span>
+  <span><%= comment.created_at %></span>
+</div>
+<% end %>
