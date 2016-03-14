@@ -1,14 +1,14 @@
-require "bundler/setup" # require all the gems we'll be using for this app from the Gemfile. Obviates the need for `bundle exec`
-
-require "pg"
-require "active_record"
-require "pry"
-
-require_relative "../models/post"
-require_relative "../models/comment"
-
-require_relative "../db/connection.rb"
-
+# require "bundler/setup" # require all the gems we'll be using for this app from the Gemfile. Obviates the need for `bundle exec`
+#
+# require "pg"
+# require "active_record"
+# require "pry"
+#
+# require_relative "../models/post"
+# require_relative "../models/comment"
+#
+# require_relative "../db/connection.rb"
+#
 
 Post.destroy_all
 Comment.destroy_all
