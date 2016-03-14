@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<button type="button">Sign Up</button> <button type="button">Sign In</button>
+
+<%= yield %>
+
+<!-- <%= form_for @artist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.submit "Create" %>
+<% end %> -->
+
+</body>
+</html>
