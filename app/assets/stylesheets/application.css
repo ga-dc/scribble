@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: #add8e6;
+}
+h1 {
+  font-size: 48px;
+  color: white;
+}
+p {
+  font-size: 28px;
+}
+.post_container {
+  width: 80%;
+  border: 5px solid white;
+  margin-bottom;: 5px
+}
+.author {
+  font-size: 14px;
+}
+.body {
+  font-size: 18px;
+}

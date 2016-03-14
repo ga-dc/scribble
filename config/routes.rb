@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
-  get 'posts/index'
 
+  get '/posts', to: 'posts#index'
+  get '/posts/new', to: 'posts#new'
+  post '/posts', to: 'posts#create'
+  get '/posts/:id', to: 'posts#show'
+  get '/posts/:id/edit', to: 'posts#edit'
+  patch '/posts/:id', to: 'posts#update'
+  delete '/posts/:id', to: 'posts#destroy'
 
-  resources :posts
+  get '/posts/:post_id/comments', to: 'comments#index'
+  post '/posts/:post_id/comments', to: 'comments#create'
+  get '/posts/:post_id/comments/new', to: 'comments#new'
+  get '/posts/:post_id/comments/edit', to: 'comments#edit'
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'posts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
