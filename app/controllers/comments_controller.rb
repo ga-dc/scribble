@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 end
 
   def create
-    @comment = Comment.create!(comment_time: params[:comment_time], comment_email: params[:comment_email], comment: params[:comment])
+    @comment = Comment.create!({comment_time: params[:comment_time], comment_email: params[:comment_email], comment: params[:comment]})
     redirect_to "/comments/#{@comment.id}"
   end
 
