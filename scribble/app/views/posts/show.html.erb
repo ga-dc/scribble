@@ -1,0 +1,12 @@
+<h2><%=@post.title%></h2>
+<article>
+  author: <%=@post.user%> : created at: <%= @post.created_at %>
+  <p><%= @post.content %></p>
+  tagz
+  <%=@post.tags%>
+</article>
+<section>
+<%@post.comments.each do |comment|%>
+<%=comment.content%>
+<%end%>
+</section>

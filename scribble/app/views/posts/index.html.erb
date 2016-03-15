@@ -1,5 +1,14 @@
 <h2>All Posts</h2>
-
-<% @posts.each do |post|%>
-<%= post.content %>
+<% @posts.reverse_each do |post|%>
+<article>
+  <h3>
+    <a href="/posts/<%= post.id %>">
+      <%= post.title %>
+    </a>
+  </h3>
+  author: <%=post.user%> : created at: <%= post.created_at %>
+  <p><%= post.content %></p>
+  tagz
+  <%=post.tags%>
+</article>
 <% end %>
