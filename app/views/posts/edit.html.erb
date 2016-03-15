@@ -1,0 +1,17 @@
+<h2>Edit Post<h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :user %>:
+  <%= f.text_field :user, :value => @post.user %><br />
+
+  <%= f.label :title %>:
+  <%= f.text_field :title, :value => @post.title %><br />
+
+  <%= f.label :content %>:
+  <%= f.text_area :content, :value => @post.content %><br />
+
+  <%= f.submit %>
+
+  <%= button_to "delete", @post, :method => :delete %>
+
+<% end %>

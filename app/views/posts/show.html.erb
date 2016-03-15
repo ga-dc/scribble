@@ -1,6 +1,7 @@
 <br>
 <a href="../posts">&#8592; Back</a>
 <h2><%=@post.title%></h2>
+<a href="/posts/<%= @post.id %>/edit">(edit)</a>
 <article>
   author: <%=@post.user%> : created at: <%= @post.created_at %>
   <p><%= @post.content %></p>
@@ -9,8 +10,11 @@
 
 <section>
   <h4>Comments</h4>
-<%@post.comments.each do |comment|%>
-<%=comment.content%>
-<%end%>
+  <%@post.comments.each do |comment|%>
+  <li>
+  <%=comment.content%>
+  </li>
+  <%end%>
+  <a href="#">add comment</a>
 </section>
 </article>
