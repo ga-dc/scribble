@@ -20,8 +20,12 @@ class PostsController < ApplicationController
     redirect_to "/posts"
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
   def destroy
-
+    @post = Post.delete
   end
 
   private
