@@ -1,6 +1,6 @@
-Post.create!(name:"1st blog post", title:" this is a title", content:"this is the content")
+Post.create!(name:"1st blog post", title:" this is the title", content:"this is the content")
 
-Comment.create!(name:"guest comment", commField: "this is a rad post", post_id: 1) 
+Comment.create!(name:"guest comment", commField: "this is a rad post", post_id: 1)
 
 
 
