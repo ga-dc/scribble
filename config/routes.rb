@@ -1,29 +1,10 @@
 Rails.application.routes.draw do
   root to: "posts#index"
 
-  get "posts" => "posts#index"
-  get "posts/new" => "posts#new"
-  post "posts" => "posts#create"
-  get "posts/:id" => "posts#show"
-  get "posts/:id/edit" => "posts#edit"
-  put "posts/:id" => "posts#update"
-  delete "posts/:id" => "posts#destroy"
+  resources :posts
+  resources :comments
+  resources :users
 
-  get "comments" => "comments#index"
-  get "comments/new" => "comments#new"
-  post "comments" => "comments#create"
-  get "comments/:id" => "comments#show"
-  get "comments/:id/edit" => "comments#edit"
-  put "comments/:id" => "comments#update"
-  delete "comments/:id" => "comments#destroy"
-
-  get "users" => "users#index"
-  get "users/new" => "users#new"
-  post "users" => "users#create"
-  get "users/:id" => "users#show"
-  get "users/:id/edit" => "users#edit"
-  put "users/:id" => "users#update"
-  delete "users/:id" => "users#destroy"
 
 end
   # The priority is based upon order of creation: first created -> highest priority.
