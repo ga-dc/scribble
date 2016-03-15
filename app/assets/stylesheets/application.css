@@ -30,19 +30,27 @@ p {
   width: 70%;
   margin: auto;
   border: 5px solid white;
+  padding: 10px;
 }
 
 .post_container {
   border-bottom: 5px solid white;
   margin-bottom: 15px
-  padding: 10px;
-}
-.author {
-  font-size: 14px;
-}
-.body {
-  font-size: 18px;
 }
 .title {
   text-decoration: underline;
+}
+.body {
+  font-size: 18px;
+  margin-left: 20px;
+}
+.author {
+  font-size: 14px;
+  margin-left: 20px;
+}
+.comment_num {
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  margin-left: 20px;
 }
