@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :date
-      t.string :entry
+      t.string :content
     end
   end
 end

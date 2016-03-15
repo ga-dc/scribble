@@ -1,0 +1,12 @@
+<form action = "/posts/new" method = "post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Post Title
+  <input name="title" type="text" placeholder="Post Title">
+  <br>
+  Date:
+  <input type="date" name="post date">
+  <br>
+  New Post
+  <input name="content" type="text" placeholder="What's on your mind?">
+  <button type="submit">Submit</button>
+</form>

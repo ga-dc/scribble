@@ -1,1 +1,13 @@
-<h1>Posts</h1>
+<h1>SRIBBLE POSTS</h1>
+
+<h3><a href="/posts/new">Create a New Post</a></h3>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href="/posts/<%= post.id %>">
+        <%= post.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

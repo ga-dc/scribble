@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -14,6 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts params
+    puts "New Post Created"
     @post = Post.create!(post_params)
     redirect_to "/posts"
   end
@@ -24,7 +26,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :date, :entry)
+    params.require(:post).permit(:title, :date, :content)
   end
 
 end
