@@ -1,10 +1,14 @@
+<br>
+<a href="../posts">&#8592; Back</a>
 <h2><%=@post.title%></h2>
 <article>
   author: <%=@post.user%> : created at: <%= @post.created_at %>
   <p><%= @post.content %></p>
   tagz
   <%=@post.tags%>
+
 <section>
+  <h4>Comments</h4>
 <%@post.comments.each do |comment|%>
 <%=comment.content%>
 <%end%>
