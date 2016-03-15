@@ -2,7 +2,9 @@
 
 <a href="/posts/new">Create Post</a>
 
-<% @posts.each do |post| %>
-  <h2><%= post[:title] %> </h2>
-  <p><%= post[:content] %> </p>
+<% @posts.reverse_each do |post| %>
+  <h2><%= post[:title] %></h2>
+  <p><%= post[:content] %></p>
+
+  <a href="/posts/<%= post.id %>">Comments: <%= post.comments.length %> </a>
 <% end %>
