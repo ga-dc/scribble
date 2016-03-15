@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  get "posts" => "posts#index"
+  get "posts/new" => "posts#new"
+  post "posts" => "posts#create"
+  get "posts/:id" => "posts#show"
+  get "posts/:id/edit" => "posts#edit"
+  put "posts/:id" => "posts#update"
+  delete "posts/:id" => "posts#destroy"
+
+  get "comments" => "comments#index"
+  get "comments/new" => "comments#new"
+  post "comments" => "comments#create"
+  get "comments/:id" => "comments#show"
+  get "comments/:id/edit" => "comments#edit"
+  put "comments/:id" => "comments#update"
+  delete "comments/:id" => "comments#destroy"
+
+  get "users" => "users#index"
+  get "users/new" => "users#new"
+  post "users" => "users#create"
+  get "users/:id" => "users#show"
+  get "users/:id/edit" => "users#edit"
+  put "users/:id" => "users#update"
+  delete "users/:id" => "users#destroy"
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +78,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
