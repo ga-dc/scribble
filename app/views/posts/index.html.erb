@@ -1,0 +1,11 @@
+<h1>Blog About It!</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+      <!-- <a href="/posts/<%= post.id %>"> -->
+
+        <%= post.name %>
+
+      </a>
+  <% end %>
+</ul>
