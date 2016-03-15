@@ -1,0 +1,17 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.blog_post:hover {
+	transition(0.3s, height);
+	/*background: #fff;*/
+	border-radius: 3px;
+	box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+	margin: 0 auto 1.6%;
+	overflow: hidden;
+	position: relative;
+	font-size: 14px;
+	line-height: 1.45em;
+  left: 5px;
+  /*-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;*/
+}

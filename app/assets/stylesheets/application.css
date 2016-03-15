@@ -1,0 +1,173 @@
+body {
+  position: static;
+  background-image: url('/assets/seamlesstexture16_1200.jpg');
+}
+header {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+}
+h1 {
+  font: 400 80px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+  margin: auto;
+  position: relative;
+}
+
+img.header_img {
+  height: 100px;
+  padding: 0px;
+}
+
+
+.welcome {
+  position: relative;
+  text-align: center;
+}
+
+img.welcome_img {
+  margin: auto;
+  display: block;
+  height: 300px;
+  position: relative;
+  padding-top: 10px;
+}
+
+.welcome a{
+  margin-top: 40px;
+  color: #4C4C4C;
+}
+
+.new_post {
+  font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.new_post a{
+  color: #556B2F;
+}
+
+
+.blog_post {
+  margin-top: 10px;
+  position: relative;
+  width: 75%;
+  margin: auto;
+  height: 300px;
+  margin-top: 10px;
+  background-image: url('/assets/summer5.jpg');
+  background-position: left top;
+  background-size: 200%;
+  border-radius: 5px;
+}
+
+.blog_post h3 {
+  display: inline;
+  position: absolute;
+  font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
+  margin: 0 auto;
+  color: #008B8B;
+}
+
+.blog_post img {
+  display: inline;
+  max-height: 300px;
+  border-radius: 5px;
+}
+
+.blog_post p {
+  display: inline;
+  overflow: hidden;
+  height: 200px;
+  position: absolute;
+  margin: 60px;
+  color: #531F8D;
+}
+
+div.links {
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+}
+
+.links a {
+  margin: 20px;
+  position: relative fixed;
+  display: flex;
+  font: 15px 'Merienda One', Helvetica, sans-serif;
+  color: #556B2F;
+}
+
+.form {
+  text-align: center;
+}
+
+.form p {
+  font: 15px 'Merienda One', Helvetica, sans-serif;
+  color: #531F8D;
+  display: block;
+}
+
+input {
+  background-color: #cfe2cf;
+  display: block;
+  border: 1px solid black;
+  margin: auto;
+  border-radius: 5px;
+  color: brown;
+}
+
+textarea {
+  background-color: #cfe2cf;
+  height: 300px;
+  width: 500px;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  color: brown;
+  border: 1px solid black;
+}
+
+.back {
+  text-align: center;
+  font: 400 30px/1.2 'Merienda One', Helvetica, sans-serif;
+}
+
+.title {
+  font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
+  text-align: center;
+  color: #008B8B;
+}
+
+.comment_view {
+  text-align: center;
+}
+
+.post {
+  margin-top: 10px;
+  position: relative;
+  width: 75%;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+.post img {
+  margin: 0 auto;
+  max-height: 300px;
+  border-radius: 5px;
+  display: block;
+}
+
+.post p {
+  display: block;
+  margin: auto;
+  color: #531F8D;
+}
+
+.comment_view {
+  color: #EF786F;
+}
