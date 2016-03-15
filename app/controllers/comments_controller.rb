@@ -1,14 +1,48 @@
 class CommentsController < ApplicationController
 
   def index
-  @comment = Comment.all
-  render :index
-end
-
-  def create
-    @comment = Comment.create!({comment_time: params[:comment_time], comment_email: params[:comment_email], comment: params[:comment]})
-    redirect_to "/comments/#{@comment.id}"
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments.all
   end
 
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
+  end
 
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(comment_params)
+
+    redirect_to post_comments_path(@post, @comment)
+  end
+
+  def show
+    @post = Post.find(params[:post_id])
+    @comment = Commment.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = Commment.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = Commment.find(params[:id])
+    @comment.update(comment_params)
+
+    redirect_to post_comments_path(@post, @comment)
+  end
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Commment.find(params[:id])
+    @comment.destroy
+
+    redirect_to post_comments_path( @post )
+  end
+  private
+  def comment_params
+    params.require(:comment).permit(:name, :comment, :comment_email, :post_id:)
+  end
 end
