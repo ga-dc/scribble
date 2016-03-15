@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#index'
   get '/posts/new', to: 'posts#new'
   post '/posts', to: 'posts#create'
+  post 'posts/new', to: 'posts#create'
   get '/posts/:id', to: 'posts#show'
   get '/posts/:id/edit', to: 'posts#edit'
   patch '/posts/:id', to: 'posts#update'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   post '/posts/:post_id/comments', to: 'comments#create'
   get '/posts/:post_id/comments/new', to: 'comments#new'
   get '/posts/:post_id/comments/edit', to: 'comments#edit'
-  
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

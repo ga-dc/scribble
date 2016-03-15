@@ -1,11 +1,12 @@
 <h1>This Is Where The Posts Go</h1>
-<p>
+<p><a href="/posts/new">Create New Post</a>
+  <div class="big-box">
   <% @posts.reverse_each do |p| %>
   <div class="post_container">
     <p class="title"> <%= p.title %> </p>
     <p class="body"> <%= p.body %> </p>
-    <p class="author"> <%= p.author %> </p>
+    <p class="author"> --<%= p.author %> </p>
     <p></p>
   </div>
   <% end %>
-</p>
+</div>

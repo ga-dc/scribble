@@ -1,14 +1,16 @@
 <h1>This Is Where ONLY ONE Post Goes</h1>
 <p>
-  <div class="post_container">
-    <p class="title"> <%= @post.title %> </p>
-    <p class="body"> <%= @post.body %> </p>
-    <p class="author"> <%= @post.author %> </p>
-    <p class="comment">
+  <div class="big-box">
+    <div class="post_container">
+      <p class="title"> <%= @post.title %> </p>
+      <p class="body"> <%= @post.body %> </p>
+      <p class="author"> ---<%= @post.author %> </p>
+      <p class="comment">
         <% @comment.reverse_each do |comment| %>
-        <%= comment.body %>
+        <p><%= comment.body %> --anonymous</p>
         <% end %>
-    </p>
-    <p></p>
+      </p>
+      <p></p>
+    </div>
   </div>
 </p>

@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.create
+    @post = Post.new(params.require(:post).permit(:title, :body, :author))
+    if @post.save
+      redirect_to :action => :index
+    end
   end
 
   def new

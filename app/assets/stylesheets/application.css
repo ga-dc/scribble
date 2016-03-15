@@ -19,19 +19,30 @@ body {
 }
 h1 {
   font-size: 48px;
+  text-align: center;
   color: white;
 }
 p {
   font-size: 28px;
 }
-.post_container {
-  width: 80%;
+
+.big-box {
+  width: 70%;
+  margin: auto;
   border: 5px solid white;
-  margin-bottom;: 5px
+}
+
+.post_container {
+  border-bottom: 5px solid white;
+  margin-bottom: 15px
+  padding: 10px;
 }
 .author {
   font-size: 14px;
 }
 .body {
   font-size: 18px;
+}
+.title {
+  text-decoration: underline;
 }
