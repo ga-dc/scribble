@@ -3,10 +3,7 @@
 <article>
     <% @posts.each do |post|%>
         <h2>
-            <!-- <a href="/posts/<%= post.id %>">
-                <%= post.title%>
-            </a> -->
-            <%= link_to(@post) %>
+            <%= link_to post.title, post_path(post) %>
         </h2>
         <p>
             <%= post.content%>
