@@ -11,8 +11,10 @@
   <% @posts.each do |post| %>
 
   <h3><%= post.title %></h3>
+  created on --> <%= post.created_at %>
+  <br>
+  <!-- creates link to rest of post-->
+  <%= link_to 'view this', post_path(post) %>
 
   <% end %>
 </div>
-
-<%= link_to 'Back to Posts', posts_path %>
