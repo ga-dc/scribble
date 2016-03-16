@@ -2,13 +2,34 @@ class CommentsController < ApplicationController
 
 
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
 
+
+
   def create
-    @comment = Comment.create(comment_params)
+    @post = Post.find(params[:post_id])
+
+    @comment = @post.comments.create(comment_params)
   end
+
+
+
+  def destroy
+    @post = Post.find(params[:id])
+    @comment = @post.comment.find(params[:id])
+
+    @comment.destroy
+
+
+
+
+  end
+
+
+
 
 
 

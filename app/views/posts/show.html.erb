@@ -1,7 +1,6 @@
-<h1>this is the post show page</h1>
 
 
-<h2> <%= @post.title %> </h2>
+<h1> <%= @post.title %> </h1>
 <h4><%= @post.body %></h4>
 
 
@@ -10,6 +9,13 @@
   <% @post.comments.each do |comment| %>
     <li>
         <%= comment.content %>
+
+        <%= button_to "delete", method: :delete %>
+
+
+
+
+
     </li>
 
   <% end %>
@@ -17,4 +23,4 @@
 
 
 
-<h2><%= link_to "Add comment for this post", new_comment_path %></h2>
+<h2><%= link_to "Add comment for this post", new_post_comment_path(@post) %></h2>
