@@ -1,0 +1,7 @@
+<h2>Posts</h2>
+
+  <% @post.each do |post| %>
+    <h2> <%= post.title %></h2>
+    <%= image_tag post.image_url, size: "800x400"%>
+    <p style="width: 800px;"><%= truncate(post.text, :length => 485)%></p>
+  <% end %>
