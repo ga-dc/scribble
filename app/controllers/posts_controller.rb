@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
 
   end
 
@@ -19,7 +19,12 @@ class PostsController < ApplicationController
   end
 
   def create
-
+    # upon saving with the submit button, rails triggers post request and posts#create action
+    # params for request are whitelisted to prevent mass assignment
+    @post = Post.new(post_params)
+    #params for request are saved to @post, output is redirected to the posts#show action
+    @post.save
+    redirect_to @post
   end
 
   def update
@@ -29,6 +34,12 @@ class PostsController < ApplicationController
   def destroy
 
   end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+
 
 
 end
