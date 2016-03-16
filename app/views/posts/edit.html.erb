@@ -1,6 +1,6 @@
 <h1>EDIT</h1>
 <!-- form sends patch request to trigger posts#update action -->
-<%= form_for :post, url: posts_path(@post), method: :patch do |f| %>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -12,7 +12,7 @@
   </p>
 
   <p>
-    <!-- on submit, posts#create action is triggered -->
+    <!-- on submit, posts#update action is triggered -->
     <%= f.submit "Submit" %>
   </p>
 <% end %>

@@ -30,11 +30,18 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    # this conditional checks to see if params went thru correctly.
+    # gotta have new params to update with
+    if @post.update(post_params)
+      redirect_to @post
+    end
   end
 
   def destroy
-
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
