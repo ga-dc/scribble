@@ -1,5 +1,5 @@
 <h1>EDIT</h1>
-<!-- form sends post request to to posts_path route -->
+<!-- form sends patch request to trigger posts#update action -->
 <%= form_for :post, url: posts_path(@post), method: :patch do |f| %>
   <p>
     <%= f.label :title %><br>
