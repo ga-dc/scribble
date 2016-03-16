@@ -2,12 +2,14 @@ class PostsController < ApplicationController
 # customary in rails to put actions in order like:
 # index, show, new, edit, create, update, destroy
   def index
-
+    @posts = Post.all
   end
 
   def show
+    #shows individual posts
+    #paths to individual posts will be created that look like:
+    #posts/:id
     @post = Post.find(params[:id])
-
   end
 
   def new
