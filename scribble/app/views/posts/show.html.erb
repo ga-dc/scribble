@@ -1,1 +1,12 @@
-<h1>Post Title<h1>
+<a href="/posts">Back</a>
+<h1><%= @post[:title] %></h1>
+
+<p><%= @post[:content] %></p>
+<a href="/posts/<%= @post[:id] %>/edit">edit</a>
+
+<p>Comments:</p>
+
+<%= link_to "New Comment", new_post_comment_path(@post) %>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>
