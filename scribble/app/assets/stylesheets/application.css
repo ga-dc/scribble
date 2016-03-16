@@ -14,17 +14,26 @@
  *= require_self
  */
 
- .logo {
-   text-align: center;
-   transform: scale(.5);
- }
-
  .allposts {
    padding-top: 100px;
    margin-left: 15%;
    margin-right: 15%;
    text-align: left;
  }
+
+ .form {
+   text-align: center;
+ }
+
+ .form-element {
+   padding-bottom: 10px;
+ }
+
+ .logo {
+   text-align: center;
+   transform: scale(.5);
+ }
+
 
  .singlepost {
    padding: 10px;
