@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.create(post_params)
+    redirect_to "/"
   end
 
   def new
@@ -30,6 +31,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to "/"
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 
 

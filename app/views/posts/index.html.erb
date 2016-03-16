@@ -1,11 +1,17 @@
 <h1>Posts</h1>
 
 
+
+
+<h2><%= link_to "Create New Post", new_post_path %></h2>
+
 <ul>
   <% @post.each do |post| %>
     <li>
       <a href="/posts/<%= post.id %>">
         <%= post.title %>
+        <br>
+        <%= post.body %>
       </a>
     </li>
   <% end %>
