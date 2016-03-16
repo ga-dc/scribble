@@ -4,16 +4,16 @@
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
 
-  <label for="your post">Post here: </label>
+
+  <label for="post">Post here: </label>
 
   <input type="text" name="Make a Post" id="newpost">
 
   <button type="submit">Submit</button>
-<!--      ^ buttons submit forms  -->
 
 </form>
 <ul>
-<%  @posts.each do |post| %>
-<li>    <%= post.name%> </li>
-<%end%>
+  <%  @posts.each do |post| %>
+  <li>    <%= post.name%> </li>
+  <%end%>
 </ul>
