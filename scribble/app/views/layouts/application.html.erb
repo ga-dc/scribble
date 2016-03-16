@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='logo'>
+    <%= image_tag "logo.png" %>
+  </div>
+
+  <div class="navlink">
+    <article>
+      <a href="<%= new_post_path %>">
+        <%= 'Make a new post' %>
+      </a>
+    </article>
+  </div>
 
 <%= yield %>
 

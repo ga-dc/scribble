@@ -1,12 +1,12 @@
-<h1>This is where the posts will go!</h1>
-
-
-<ul>
+<div class="allposts">
   <% @posts.each do |post| %>
-    <li>
-      <a href="/posts/<%= post.id %>">
-        <%= post.title %>
-      </a>
-    </li>
+  <div class="singlepost">
+    <a href="/posts/<%= post.id %>">
+      <%= post.title %>
+    </a>
+    <p>
+      <%= post.content %>
+    </p>
+  </div>
   <% end %>
-</ul>
+</div>
