@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 
-<div class="main">
-  <div class="container">
-    <h1 class="title">Scribbles</h1>
-    <p>A light left on for the aimless lines</p>
-  </div>
-</div>
+<% @posts.each do |post| %>
+  <p><%= post.title%></p>
+  <p><%= post.author%></p>
+  <p><%= post.post_content%></p>
+  <p><%= link_to"see more",post_path(post)%></p>
+<% end %>
