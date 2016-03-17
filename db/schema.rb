@@ -17,17 +17,18 @@ ActiveRecord::Schema.define(version: 20160315022620) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.string   "title"
     t.string   "commentor"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "reaction"
+    t.text     "body"
     t.integer  "post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
+    t.text     "body"
     t.string   "author"
-    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
