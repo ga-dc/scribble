@@ -13,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    #do i need this???
+    @post = Post.new
   end
 
   def edit
