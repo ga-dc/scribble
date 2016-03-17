@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def new
@@ -13,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_param)
+    @post = Post.create!(post_params)
+    
     redirect_to post_path(@post)
   end
 
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_param)
+    @post.update(post_params)
 
     redirect_to post_path(@post)
   end

@@ -1,19 +1,7 @@
-# require "bundler/setup" # require all the gems we'll be using for this app from the Gemfile. Obviates the need for `bundle exec`
-#
-# require "pg"
-# require "active_record"
-# require "pry"
-#
-# require_relative "../models/post"
-# require_relative "../models/comment"
-#
-# require_relative "../db/connection.rb"
-#
-
 Post.destroy_all
 Comment.destroy_all
 
-testing_tag = Post.create(name: "Testing tags", author: "Thomas", author_email: "blah@gmail.com", post_content: "Testing", post_tag: "tags",  category: "")
+testing_tag = Post.create(name: "Testing tags", author: "Thomas", author_email: "blah@gmail.com", post_content: "Testing", post_tag: "tags",  category: "");
 
 dan = Post.create(title: "Dan Post", author: "Dan", author_email: "dan@email.com", post_content: "My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and Winston or anybody else is in there, you the first motherfucker to get shot. You understand?", post_tag: "sam. l. ipsum",  category: "");
 
