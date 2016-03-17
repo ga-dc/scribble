@@ -8,6 +8,6 @@
 <div>
     <h4>Comments<%= link_to "(new)", new_post_comment_path(@post) %></h4>
     <% @post.comments.each do |comment| %>
-        <p><%= comment.response %></p>
+        <p><%= comment.response %><%=link_to "Edit/Delete", edit_post_comment_path(@post, comment)%></p>
     <% end %>
 </div>
