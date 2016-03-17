@@ -1,0 +1,8 @@
+<h2>Create New Comment</h2>
+
+<%= form_for [@post, @comment] do |f|%>
+    <%=  f.label :response%>
+    <%=  f.text_area :response, :cols => "150", :rows => "10 "%>
+</br>
+    <%= f.submit "Submit"%>
+<% end %>
