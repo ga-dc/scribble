@@ -1,0 +1,10 @@
+<h1>Edit Comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content, :value => @comment.content %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= button_to "Delete Comment", [@post, @comment], :method => :delete %>

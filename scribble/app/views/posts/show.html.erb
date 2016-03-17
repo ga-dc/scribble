@@ -1,0 +1,13 @@
+<a href="/posts">Back</a>
+<h1><%= @post[:title] %></h1>
+
+<p><%= @post[:content] %></p>
+<a href="/posts/<%= @post[:id] %>/edit">edit</a>
+
+<p>Comments:</p>
+
+<%= link_to "New Comment", new_post_comment_path(@post) %>
+<% @post.comments.reverse_each do |comment| %>
+  <p><%= comment.content %></p>
+  <%= link_to "(edit)", edit_post_comment_path(@post, comment) %>
+<% end %>
