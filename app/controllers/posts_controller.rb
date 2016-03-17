@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    puts params 
+    @post = Post.find params[:id]
   end
 
 
