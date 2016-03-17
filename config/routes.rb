@@ -1,4 +1,4 @@
-Rails::Application.routes.draw do
+Scribble::Application.routes.draw do
   root "posts#index"
   resources :posts, only: [:index, :show, :new]
   resources :comments, only: [:index, :show, :new]

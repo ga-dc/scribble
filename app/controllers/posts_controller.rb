@@ -8,9 +8,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    puts params 
+    puts params
     @post = Post.find params[:id]
   end
 
 
 end
+
+
+
+rails/info/routes
+config/routes.rb
