@@ -1,0 +1,11 @@
+
+<form action="/posts" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label for="posts[title]">Title:</label>
+  <input name="posts[title]" type="text" placeholder="kind">
+
+  <label for="posts[body]">Body:</label>
+  <input name="posts[body]" size = 150>
+
+  <button type="submit">Submit</button>
+</form>

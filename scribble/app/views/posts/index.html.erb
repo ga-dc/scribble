@@ -1,0 +1,19 @@
+<h2>Search</h2>
+
+<form method="get" action="/forms">
+  <label for="search">Search: </label>
+  <input type="text" name="q" id="search">
+  <button type="submit">Search</button>
+</form>
+
+<br>
+<%= link_to "Add New Post", new_post_path %>
+
+<br>
+
+
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %>
+  <%= link_to post.title, post.url %>
+<% end %>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
-  #
-  # resources :posts
-  # resources :comments
 
+  resources :posts do
+    resources :comments
+  end 
   # get    "/posts"             , to   "posts#index"
   # get    "/posts/new"         , to   "posts#new"
   # get    "/posts/:id"         , to   "posts#show"
