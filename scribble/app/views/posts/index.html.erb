@@ -1,9 +1,13 @@
 <div class="allposts">
   <% @posts.each do |post| %>
   <div class="singlepost">
-    <a href="/posts/<%= post.id %>">
+    <h2>
+      <a href="/posts/<%= post.id %>">
       <%= post.title %>
-    </a>
+      </a>
+    </h2>
+    <h3><%=post.created_at %></h3>
+
     <p>
       <%= post.content %>
     </p>
