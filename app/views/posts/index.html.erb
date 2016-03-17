@@ -14,6 +14,7 @@
         <%= post.body %>
       </a>
       <%= button_to "delete", post, method: :delete %>
+      <%= link_to "edit", edit_post_path(post) %>
 
     </li>
   <% end %>
