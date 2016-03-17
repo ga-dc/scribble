@@ -7,11 +7,18 @@
 <h3>Comments</h3>
 <ul>
   <% @post.comments.each do |comment| %>
+
+
     <li>
+      <a href="/posts/<%= @post.id %>/comments/<%= comment.id %>" >
+
         <%= comment.content %>
 
-        <%= button_to "delete", method: :delete %>
 
+      </a>
+
+
+        <!-- <%= button_to "delete", @comment, method: :delete %> -->
 
 
 
@@ -20,6 +27,9 @@
 
   <% end %>
 </ul>
+
+
+
 
 
 
