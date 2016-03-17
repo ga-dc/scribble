@@ -1,0 +1,13 @@
+
+
+<%= form_for @post do |f| %>
+
+<p>
+  <%= f.label :title %><br>
+  <%= f.check_box_tag (:title) %>
+</p>
+
+<p>
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+</p>

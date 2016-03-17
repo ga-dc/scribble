@@ -54,3 +54,7 @@ p {
   color: white;
   margin-left: 20px;
 }
+.timestamp {
+  font-size: 10px;
+  font-style: italic;
+}

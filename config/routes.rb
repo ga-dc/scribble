@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
 
-  get '/posts', to: 'posts#index'
-  get '/posts/new', to: 'posts#new'
-  post '/posts', to: 'posts#create'
-  post 'posts/new', to: 'posts#create'
-  get '/posts/:id', to: 'posts#show'
-  get '/posts/:id/edit', to: 'posts#edit'
-  patch '/posts/:id', to: 'posts#update'
-  delete '/posts/:id', to: 'posts#destroy'
+  # get '/posts', to: 'posts#index'
+  # get '/posts/new', to: 'posts#new'
+  # post '/posts', to: 'posts#create'
+  #
+  # get '/posts/:id', to: 'posts#show'
+  # get '/posts/:id/edit', to: 'posts#edit'
+  # patch '/posts/:id', to: 'posts#update'
+  # delete '/posts/:id', to: 'posts#destroy'
+  #
+  # get '/posts/:post_id/comments', to: 'comments#index'
+  # get '/posts/:post_id/comments/new', to: 'comments#new', as: :new_comment
+  # post '/posts/:post_id/comments', to: 'comments#create', as: :post_comments_path
+  #
+  # get '/posts/:post_id/comments/edit', to: 'comments#edit'
 
-  get '/posts/:post_id/comments', to: 'comments#index'
-  post '/posts/:post_id/comments', to: 'comments#create'
-  get '/posts/:post_id/comments/new', to: 'comments#new'
-  get '/posts/:post_id/comments/edit', to: 'comments#edit'
-
+resources :posts do
+  resources :comments
+end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
