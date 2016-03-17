@@ -4,7 +4,7 @@
     <div class="post_container">
       <p class="title"> <%= @post.title %> </p>
       <p class="timestamp"><%= @post.created_at %></p>
-      <%= button_to "edit", @post, :method => :edit %>
+      <%= button_to "edit", edit_post_path, :class => "button", :method => :get  %>
       <%= button_to "delete", @post, :method => :delete %>
       <p class="body"> <%= @post.body %> </p>
       <p class="author"> ---<%= @post.author %> </p>
