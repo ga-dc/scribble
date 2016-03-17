@@ -10058,3 +10058,12 @@ Processing by PostsController#index as HTML
   [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
   Rendered posts/index.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/15" for ::1 at 2016-03-15 21:22:04 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 19.8ms | ActiveRecord: 0.6ms)
