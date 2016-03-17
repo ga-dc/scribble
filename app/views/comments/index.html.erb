@@ -1,0 +1,11 @@
+
+<body>
+
+    <ul>
+      <% @comments.each do |comment| %>
+        <li><%= comment.title %></li>
+        <li><%= comment.author%></li>
+        <li><%= comment.body %></li>
+      <% end %>
+    </ul>
+</body>
