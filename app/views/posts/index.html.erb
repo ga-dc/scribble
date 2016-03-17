@@ -1,0 +1,19 @@
+<h1> Create New Post</h1>
+
+<form method="post" action="/posts">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+
+
+  <label for="post">Post here: </label>
+
+  <input type="text" name="Make a Post" id="newpost">
+
+  <button type="submit">Submit</button>
+
+</form>
+<ul>
+  <%  @posts.each do |post| %>
+  <li>    <%= post.name%> </li>
+  <%end%>
+</ul>
