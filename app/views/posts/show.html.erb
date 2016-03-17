@@ -1,7 +1,13 @@
-<article>
+<div>
     <h1><%= @post.title %></h1>
     <p>Created At: <%= @post.created_at%></p>
     <p><%= @post.content %></p>
     <button><%=link_to "Back", posts_path%></button>
     <button><%=link_to "Edit/Delete", edit_post_path%></button>
-</article>
+</div>
+<div>
+    <h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+        <p><%= comment.response %></p>
+    <% end %>
+</div>
