@@ -1,0 +1,14 @@
+<h2>Log in</h2>
+
+<%= form_for :create do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :post_author %>
+
+  <%= f.label :password %>
+  <%= password_field_tag(:password) %> <br>
+
+  <%= check_box_tag(:remember_me) %>
+  <%= label_tag(:remember_me, "Remember me") %>
+
+  <%= f.submit "Log in" %>
+<% end %>
