@@ -1,5 +1,6 @@
 <article>
     <h1><%= @post.title %></h1>
+    <p>Created At: <%= @post.created_at%></p>
     <p><%= @post.content %></p>
     <button><%=link_to "Back", posts_path%></button>
     <button><%=link_to "Edit/Delete", edit_post_path%></button>

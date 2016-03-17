@@ -5,9 +5,8 @@
         <h2>
             <%= link_to post.title, post_path(post) %>
         </h2>
-        <p>
-            <%= post.content%>
-        </p>
+        <p>Created At: <%= post.created_at%></p>
+        <p><%= post.content%></p>
     <% end %>
     <% if @posts.size == 0%>
         <em>No Posts Found. Try Adding a Post.</em>
