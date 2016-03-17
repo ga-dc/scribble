@@ -17,5 +17,5 @@ end
 
 
 
-rails/info/routes
-config/routes.rb
+# rails/info/routes
+# config/routes.rb

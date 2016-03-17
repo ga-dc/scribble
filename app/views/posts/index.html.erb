@@ -1,11 +1,9 @@
 <h1>Blog About It!</h1>
-
-<ul>
+<section>
   <% @posts.each do |post| %>
-      <!-- <a href="/posts/<%= post.id %>"> -->
-
-        <%= post.title %>
-
-      </a>
+    <article>
+      <h2><%= link_to post.title, post%></h2>
+      <p><%= post.body %></p>
+    </article>
   <% end %>
-</ul>
+</section>
