@@ -1,0 +1,27 @@
+<h2>Edit Posts</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title  %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :author_email %>
+  <%= f.text_field :author_email %>
+
+  <%= f.label :post_content %>
+  <%= f.text_field :post_content %>
+
+  <%= f.label :post_tag %>
+  <%= f.text_field :post_tag %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>

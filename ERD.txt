@@ -1,0 +1,19 @@
+Posts
+  "name"
+  "author"
+  "author_email"
+  "post"
+  "post_tag"
+  "category"
+  "created_at"
+  "updated_at"
+
+
+Comments
+  "name"
+  "comment"
+  "comment_email"
+  "post_id"
+  "created_at"
+  "updated_at"
+  end
