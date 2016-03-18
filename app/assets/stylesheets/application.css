@@ -1,41 +1,66 @@
-*{
-
-}
+/**{
+  border-style: dotted;
+  border-color: gray;
+}*/
 html, body {
   height: 100%;
   margin: 0;
 }
 
 body {
-  background-image: url('http://thedreamwithinpictures.com/wp-content/uploads/2014/04/22ec5__2048.jpg');
-  background-repeat: no-repeat;
+  /*background-image: url('http://thedreamwithinpictures.com/wp-content/uploads/2014/04/22ec5__2048.jpg');*/
   background-size: cover;
   font-family: 'Amatic SC', cursive;
   color: #ded399;
 }
-.a {
-    color: yellow;
+.title {
+  font-size: 90px;
+  font-weight: lighter;
+  text-shadow: black 0 2px 0;
+  margin-left: 1em;
 }
+
+.write_new {
+  padding:.4em;
+  margin-left: 20%;
+  margin-right: 65%;
+  border-radius: 100px;
+  background-color: black;
+
+}
+.ptitle {
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  text-shadow: black 0 2px 0;
+
+}
+.pauthor {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  text-shadow: black 0 2px 0;
+}
+.pcontent {
+
+}
+
+.a {
+    color: green;
+    font-size: 20px;
+    text-decoration: none;
+}
+.go_postal {
+  padding-left: 5%;
+  background-color: black;
+  margin: 3em;
+  padding: 3%;
+  border-radius: 10px;
+}
+
 .container {
   margin: 0 auto;
   width: 960px;
-}
-
-/* Main */
-.main {
-  color: #fff;
-  position: relative;
-  top: 100px;
-  text-align: center;
-}
-
-.main h1 {
-  font-size: 80px;
-  font-weight: 300;
-}
-
-.main p {
-  font-size: 30px;
 }
 
 @media screen and (max-width: 800px) {
@@ -65,7 +90,7 @@ body {
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: #ded399;
-   opacity: .4;
+   opacity: .5;
    font-size: 17px;
    font-family: 'Amatic SC', cursive;
    text-decoration: none;

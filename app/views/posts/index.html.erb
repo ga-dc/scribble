@@ -1,7 +1,9 @@
 
 <% @posts.each do |post| %>
-  <p><%= post.title%></p>
-  <p><%= post.author%></p>
-  <p><%= post.post_content%></p>
+<p class="ptitle"><%= post.title%></p>
+<p class="pauthor"><%= post.author%></p>
+<div class="go_postal">
+  <p class="pcontent"><%= post.post_content%></p>
   <p><%= link_to"see more",post_path(post),:class => "a"%></p>
+</div>
 <% end %>
