@@ -1,0 +1,13 @@
+<h1>My Blue Blog</h1>
+<p><a href="/posts/new">Create a Post!</a></p>
+  <div class="big-box">
+  <% @posts.reverse_each do |p| %>
+  <div class="post_container">
+    <p class="title"> <a href="/posts/<%= p.id %>"> <%= p.title %> </a></p>
+    <p class="body"> <%= p.body %> </p>
+    <p class="author"> --<%= p.author %> </p>
+    <p class="comment_num"> <a href="/posts/<%= p.id %>">Comments: <%= p.comments.length %></a></p>
+    <p></p>
+  </div>
+  <% end %>
+</div>

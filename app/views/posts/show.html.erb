@@ -1,0 +1,23 @@
+<h1>A Single Post</h1>
+<%= link_to "Home", root_path %>
+<p>
+  <div class="big-box">
+    <div class="post_container">
+      <p class="title"> <%= @post.title %> </p>
+      <p class="timestamp"><%= @post.created_at %></p>
+      <%= button_to "edit", edit_post_path, :class => "button", :method => :get  %>
+      <%= button_to "delete", @post, :method => :delete %>
+      <p class="body"> <%= @post.body %> </p>
+      <p class="author"> ---<%= @post.author %> </p>
+      <p><%= link_to "Leave a comment!", new_post_comment_path(@post.id) %></p>
+      <p class="comment"><%= @post.comments.length %> Comments</p>
+      <p class="comment">
+        <% @comment.reverse_each do |comment| %>
+        <p><%= comment.body %> --anonymous</p>
+        <p class="timestamp"><%= comment.created_at %></p>
+        <% end %>
+      </p>
+      <p></p>
+    </div>
+  </div>
+</p>
