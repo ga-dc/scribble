@@ -1,0 +1,14 @@
+<h1>Posts <%= link_to "(new)", new_post_path%></h1>
+
+<article>
+    <% @posts.each do |post|%>
+        <h2>
+            <%= link_to post.title, post_path(post) %>
+        </h2>
+        <p>Created At: <%= post.created_at%></p>
+        <p><%= post.content%></p>
+    <% end %>
+    <% if @posts.size == 0%>
+        <em>No Posts Found. Try Adding a Post.</em>
+    <% end %>
+</article>
