@@ -1,10 +1,10 @@
-<%= link_to "Create New Post", new_post_path %>
+<%= link_to("Create New Post", new_post_path) if @current_user %>
 
 <section>
   <% @posts.each do |post| %>
     <article>
-        <h2><%= link_to "#{post.title}", post_path(post) %></h2>
-        <time><%= "Created by #{post.post_author} at #{post.created_at}" %></time>
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <time>Updated by <%= post.user.email %> at <%= post.created_at %></time>
         <p><%= post.post_content %></p>
     </article>
   <% end %>

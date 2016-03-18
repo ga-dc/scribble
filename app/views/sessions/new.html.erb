@@ -1,8 +1,8 @@
 <h2>Log in</h2>
 
-<%= form_for :create do |f| %>
+<%= form_for @user, url: session_path, method: :post do |f| %>
   <%= f.label :email %>
-  <%= f.email_field :post_author %>
+  <%= f.email_field :email %>
 
   <%= f.label :password %>
   <%= password_field_tag(:password) %> <br>
@@ -13,6 +13,6 @@
   <%= f.submit "Log in" %>
 <% end %>
 
-<%= link_to "Sign Up", forms_sign_up_path %>
+<%= link_to "Sign Up", new_user_path %>
 <br>
 <%= link_to "Forgot your password?", forms_forgot_password_path %>

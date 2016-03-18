@@ -4,12 +4,18 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    return unless authorized
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
   end
 
   def create
-    @comment = Comment.create!(comment_params)
-    redirect_to "/comments/#{@comment.id}"
+    return unless authorized
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user = @current_user
+    @comment.save
+    redirect_to "/posts/#{@post.id}"
     # redirect_to post_path(@comment)
   end
 
@@ -18,10 +24,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    return unless authorized
     @comment = Comment.find(params[:id])
   end
 
   def update
+    return unless authorized
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
 
@@ -29,6 +37,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    return unless authorized
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to comments_path

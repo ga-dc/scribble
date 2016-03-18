@@ -9,10 +9,13 @@
 <body>
 
 <h1 class='logo'><%= link_to "Scribble", root_path %></h1>
+<% if @current_user %>
+  <%= link_to "Log Out #{@current_user.email}", session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_path%>
+  <%= link_to "Sign In", new_session_path%>
+<% end %>
 
-<%= link_to "Sign Up", forms_sign_up_path %>
-
-<%= link_to "Sign In", forms_sign_in_path %>
 <br>
 <br>
 
