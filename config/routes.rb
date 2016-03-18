@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "/forms", to: "forms#post"
   get "/forms/sign_in", to: "forms#sign_in"
   get "/forms/sign_up", to: "forms#sign_up"
+  get "/forms/forgot_password", to: "forms#forgot_password"
+
 #   get "/forms/textarea_and_input_type_hidden", to: "forms#textarea_and_input_type_hidden"
 #   get "/forms/input_text_number_password", to: "forms#input_text_number_password"
 #   get "/forms/checkbox", to: "forms#checkbox"

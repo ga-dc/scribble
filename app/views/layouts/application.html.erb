@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1 class = "logo">
-  <%= image_tag "scribble.png"%>
-</h1>
+
+<h1 class='logo'><%= link_to "Scribble", root_path %></h1>
+
+<%= link_to "Sign Up", forms_sign_up_path %>
+
+<%= link_to "Sign In", forms_sign_in_path %>
+<br>
+<br>
 
 <%= yield %>
 

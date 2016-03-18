@@ -1,17 +1,11 @@
-<%= link_to "Sign Up", forms_sign_up_path %>
+<%= link_to "Create New Post", new_post_path %>
 
-<%= link_to "Sign In", forms_sign_in_path %>
-
-<h1>Posts <a href="/posts/new"></a></h1>
-
-<ul>
+<section>
   <% @posts.each do |post| %>
-      <!-- <a href="/posts/<%= post.id %>"> -->
-        <%= post.title %><br>
-        <%= post.post_author %><br>
-        <%= post.post_content %><br>
-        <%= "____________________________________________" %><br>
-
-      <!-- </a> -->
+    <article>
+        <h2><%= link_to "#{post.title}", post_path(post) %></h2>
+        <time><%= "Created by #{post.post_author} at #{post.created_at}" %></time>
+        <p><%= post.post_content %></p>
+    </article>
   <% end %>
-</ul>
+</section>
