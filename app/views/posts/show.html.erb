@@ -1,0 +1,33 @@
+<br>
+<a href="../posts">&#8592; Back</a>
+<h2><%=@post.title%></h2>
+<a href="/posts/<%= @post.id %>/edit">(edit)</a>
+<article>
+  author: <%=@post.user%> : created at: <%= @post.created_at %>
+  <p><%= @post.content %></p>
+  tagz
+  <%=@post.tags%>
+
+  <section>
+    <h4>Comments</h4>
+    <%@post.comments.each do |comment|%>
+    <li>
+      <%=comment.content%>
+    </li>
+    <%end%>
+  </section>
+  <p>add comment</p>
+  <%= form_for ([@post, @post.comments.new]) do |f| %>
+  <p>
+    <%= f.label :user %> <br>
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
+</article>
