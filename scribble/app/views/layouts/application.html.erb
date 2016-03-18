@@ -12,11 +12,10 @@
   </div>
 
   <div class="navlink">
-    <article>
-      <a href="<%= new_post_path %>">
-        <%= 'Make a new post' %>
-      </a>
-    </article>
+    <nav>
+      <%= link_to "Home", :root %>
+      <%= link_to "Make a new post", new_post_path %>
+    </nav>
   </div>
 
 <%= yield %>

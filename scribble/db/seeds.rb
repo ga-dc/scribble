@@ -8,4 +8,6 @@
 Post.destroy_all
 Comment.destroy_all
 
-Post.create(title: 'Sample title', content: "Sample post text. Blah blah blah. I write things!")
+sample1 = Post.create(title: 'Sample title', content: "Sample post text. Blah blah blah. I write things!")
+
+Comment.create(title: 'sample comment title', content: "Sample comment text. Blah blah blah. I comment on things!", post: sample1)
