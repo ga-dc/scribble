@@ -4,7 +4,16 @@
 
 <h4><%= link_to "EDIT", edit_post_path(@post) %></h4>
 
-<h2>Add a Comment:</h2>
+<h2>Comments</h2>
+<% @post.comments.each do |c| %>
+  <p>
+    Comment:
+    <%= c.comment %>
+  </p>
+<% end %>
+
+
+<h3>Add a Comment:</h3>
 <%= form_for ([@post, @post.comments.build]) do |f| %>
   <p>
     <%= f.label :comment %><br>
