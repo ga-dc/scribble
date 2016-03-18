@@ -1,5 +1,5 @@
 <div class="allposts">
-  <% @posts.each do |post| %>
+  <% @posts.reverse_each do |post| %>
   <div class="singlepost">
     <h2>
       <a href="/posts/<%= post.id %>">
