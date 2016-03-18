@@ -4,6 +4,14 @@
 
 <h4><%= link_to "EDIT", edit_post_path(@post) %></h4>
 
-<%= form_for @post, method: :delete do |f| %>
-  <%= f.submit "DELETE", class: "delete" %>
+<h2>Add a Comment:</h2>
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+
+  <p>
+    <%= f.submit "SUBMIT" %>
+  </p>
 <% end %>

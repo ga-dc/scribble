@@ -24,3 +24,7 @@
   </p>
 
 <% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "DELETE", class: "delete" %>
+<% end %>
