@@ -1,0 +1,33 @@
+
+<h1> <%= @post.title %> </h1>
+<h4><%= @post.body %></h4>
+
+
+<h3>Comments</h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+
+
+    <li>
+      <a href="/posts/<%= @post.id %>/comments/<%= comment.id %>" >
+
+        <%= comment.content %>
+
+
+      </a>
+      <%= button_to "delete", post_comment_path(@post, comment), method: :delete %>
+      <%= link_to "edit", edit_post_comment_path(@post, comment) %>
+
+        <!-- <%= button_to "delete", @comment, method: :delete %> -->
+
+
+
+
+    </li>
+
+  <% end %>
+</ul>
+
+<h2><%= link_to "add comment", new_post_comment_path(@post) %></h2>
+
+<%= link_to "home", root_path, method: :get %>
