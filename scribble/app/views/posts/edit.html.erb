@@ -2,10 +2,10 @@
 
 <%= form_for @post do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, size: "100" %>
 
   <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.text_area :content, size: "100x30" %>
 
   <%= f.submit %>
 <% end %>
