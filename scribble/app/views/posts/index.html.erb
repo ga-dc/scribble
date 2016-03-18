@@ -1,0 +1,5 @@
+<% @posts.comments.each do |post|%>
+<%= post.article %>
+<p> comment.body </p>
+<%= link_to "View Post", post_path(post) %>
+<%end%>
