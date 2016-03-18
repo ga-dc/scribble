@@ -15,8 +15,8 @@
 
 
       </a>
-      <%= button_to "edit", edit_post_path(@post) %>
       <%= button_to "delete", post_comment_path(@post, comment), method: :delete %>
+      <%= link_to "edit", edit_post_comment_path(@post, comment) %>
 
         <!-- <%= button_to "delete", @comment, method: :delete %> -->
 
@@ -28,6 +28,6 @@
   <% end %>
 </ul>
 
-<h2><%= button_to "add comment", new_post_comment_path(@post) %></h2>
+<h2><%= link_to "add comment", new_post_comment_path(@post) %></h2>
 
 <%= link_to "home", root_path, method: :get %>
