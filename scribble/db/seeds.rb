@@ -9,5 +9,7 @@ Post.destroy_all
 Comment.destroy_all
 
 sample1 = Post.create(title: 'Sample title', content: "Sample post text. Blah blah blah. I write things!")
+sample2 = Post.create(title: 'Dogs are cute', content: "I like dogs. They are pretty awesome. They are fluffy and full of love. I have two dogs that I love very much. Their names are Noname and Maggie.")
 
 Comment.create(title: 'sample comment title', content: "Sample comment text. Blah blah blah. I comment on things!", post: sample1)
+Comment.create(title: 'Hooray for dogs!', content: "I also enjoy dogs!", post: sample2)
