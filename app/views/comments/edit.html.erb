@@ -10,9 +10,13 @@
   <%= f.label :comment_content %>
   <%= f.text_field :comment_content %>
 
-  <%= f.submit %>
+  <%= f.submit %>  <%= f.submit %>
 <% end %>
 
 <%= form_for [@post, @comment], method: :delete do |f| %>
   <%= f.submit "Delete!", class: "delete" %>
+<% end %>
+
+<%= form_for [@post, @comment], method: :save do |f| %>
+  <%= f.submit "Save", class: "save" %>
 <% end %>
