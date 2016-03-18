@@ -1,0 +1,7 @@
+<%= @post.article %>
+<h3>New Comment</h3>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
