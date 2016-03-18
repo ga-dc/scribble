@@ -1,9 +1,10 @@
 class CreatePost < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.int     :time
+      t.integer     :time
+      t.string :date
       t.string  :title
-      t.text    :description
+      t.text    :body
     end
   end
 end
