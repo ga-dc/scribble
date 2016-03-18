@@ -14,13 +14,13 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment =
-    @comment =
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
   end
 
   def delete
-    @comment =
-    @comment =
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 
 end

@@ -14,13 +14,13 @@ class PostsController < ApplicationController
     end
 
     def update
-      @post = Post.find
-      @post = Post.
+      @post = Post.find(params[:id])
+      @post.update(post_params)
     end
 
     def delete
-      @post = Post.
-      @post = Post.
+      @post = Post.find(prams[;id])
+      @post.destroy
     end
 
   end
