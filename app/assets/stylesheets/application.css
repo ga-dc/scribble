@@ -96,14 +96,17 @@ body {
   height: 500px;
 }
 
-.pcontent{
+.pcontent, .show_content{
   text-align: center;
   margin-right:30%;
   margin-left:30%;
   background-color: rgba(45, 75, 6, 0.5);
   border-radius: 5px;
   padding:10px;
+}
 
+.show_content {
+  font-size: 25;
 }
 
 .submit_button {
@@ -128,4 +131,7 @@ body {
 
 .page {
   padding-bottom: 5%;
+}
+.snip {
+  font-size: 16px;
 }
