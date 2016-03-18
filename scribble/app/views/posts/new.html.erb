@@ -1,0 +1,16 @@
+<h1>Make a new post</h1>
+<div class="form">
+  <%= form_for @post do |f| %>
+  <div class="form-element">
+    <%= f.label :title %>
+    <%= f.text_field :title, size: "100" %>
+  </div>
+  <div class="form-element">
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "100x30" %>
+  </div>
+  <div class="form-element">
+    <%= f.submit "Post!" %>
+  </div>
+  <% end %>
+</div>

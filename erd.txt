@@ -1,0 +1,14 @@
+Post
++ title
++ content
++ belongs to a user/author
++ time stamp
+
+Comment
++ title
++ content
++ belongs to a user/author
++ belongs to a post
++ time stamp
+
+User

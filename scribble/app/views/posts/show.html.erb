@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+<h3><%= @post.created_at %></h3>
+<div class='singlepost'>
+  <%= @post.content %>
+</div>
+<h4><%= link_to "Edit/Delete", edit_post_path %></h4>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <div class="singlepost">
+    <%= comment.title %>
+    <%= comment.content %>
+  </div>
+<% end %>

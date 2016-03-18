@@ -1,0 +1,19 @@
+<h1>Make a new comment</h1>
+<p>
+  <%= @post.content %>
+</p>
+<div class="form">
+  <%= form_for [@post, @comment] do |f| %>
+  <div class="form-element">
+    <%= f.label :title %>
+    <%= f.text_field :title, size: "100" %>
+  </div>
+  <div class="form-element">
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "100x15" %>
+  </div>
+  <div class="form-element">
+    <%= f.submit "Comment!!" %>
+  </div>
+  <% end %>
+</div>
