@@ -1,0 +1,39 @@
+<h2>New Post</h2>
+
+<%= form_for @post do |f| %>
+
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </p>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.submit "POST" %>
+  </p>
+
+<% end %>
+
+<!-- <form action = "/posts/new" method = "post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Post Title
+  <input name="title" type="text" placeholder="Post Title">
+  <br>
+  Date:
+  <input type="date" name="post date">
+  <br>
+  New Post
+  <input name="content" type="text" placeholder="What's on your mind?">
+  <button type="submit">Submit</button>
+</form> -->

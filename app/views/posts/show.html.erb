@@ -1,0 +1,26 @@
+<h2><%= @post.title %></h2>
+<h4><%= @post.date %></h4>
+<%= @post.content %>
+
+<h4><%= link_to "EDIT", edit_post_path(@post) %></h4>
+
+<h2>Comments</h2>
+<% @post.comments.each do |c| %>
+  <p>
+    Comment:
+    <%= c.comment %>
+  </p>
+<% end %>
+
+
+<h3>Add a Comment:</h3>
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+
+  <p>
+    <%= f.submit "SUBMIT" %>
+  </p>
+<% end %>
