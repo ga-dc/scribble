@@ -1,0 +1,4 @@
+<h3><%= comment.body %></h3>
+<% if comment.body != nil %>
+    <%= link_to 'Delete', [comment.post, comment], method: :delete %>
+<% end %>

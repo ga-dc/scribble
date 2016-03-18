@@ -1,0 +1,7 @@
+<h2>Show Post </h2>
+<h2 class="post-title"><%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<p><%= @post.body %></p>
+
+<%= render 'comments/form' %>
+
+<%= render @post.comments %>
