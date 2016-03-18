@@ -1,0 +1,25 @@
+<%= link_to "&larr; Back".html_safe, root_path %>
+
+<article>
+    <h2><%= @post.title %></h2>
+    <time>Updated by <%=@post.user.email%> at <%=@post.created_at%></time>
+    <p><%= @post.post_content %></p>
+</article>
+
+<%= link_to("Edit Post", edit_post_path(@post)) if @current_user == @user %>
+<%= link_to("Delete Post", post_path(@post), method: :delete) if @current_user == @user %>
+
+<div class="comments">
+  <h3>Comments</h3>
+  <%= link_to("New Comment", new_post_comment_path(@post)) if @current_user %>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <time>Updated by <%=comment.user.email%> at <%=comment.updated_at%></time>
+      <p><%= comment.comment_content %></p>
+
+        <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+        <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+
+    </div>
+  <% end %>
+</div>

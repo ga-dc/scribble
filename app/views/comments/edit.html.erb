@@ -1,0 +1,7 @@
+<h2>Edit comment</h2>
+
+<%= form_for :create do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit "Create comment" %>
+<% end %>
