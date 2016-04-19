@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# "We need a clean start, Morty"
+Post.destroy_all
+
+
 test_post = Post.create(subject:"Test 1", body:"Semi-articulated opinion", poster:"Opinion8r")
 test_post2 = Post.create(subject:"Test 2", body:"Quasi-articulated opinion", poster:"Op(9-n)r")
 test_post3 = Post.create(subject:"Test 3", body:"Opinion", poster:"Str8UpStu")
