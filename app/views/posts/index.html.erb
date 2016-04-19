@@ -1,11 +1,6 @@
-<h3> All of your Posts </h3>
+<h3> Your Blogs </h3>
 <% @posts.each do |post| %>
   <p>
-    <%= link_to post.title, post_path(post)%>,
-    <%=  post.title %> | <i><%= link_to "Delete this post", post_path(post ), method: :delete %><i>
-  </p>
-  <p>
-    <%=  post.body %>
-  </p>
-  <%= "_" * 40 %>
+    Title: <%= link_to post.title, post_path(post)%>  |  <i><%= link_to "Delete", post_path(post), method: :delete %></i>
+
 <% end %>
