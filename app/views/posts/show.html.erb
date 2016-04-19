@@ -3,6 +3,12 @@
 
 <p><%= @post.body %></p>
 
+<div class="tags">
+  <% @post.all_tags.each do |tag| %>
+  <span><%= tag.name %> <span>
+  <% end %>
+</div>
+
 <%= form_for @comment do |c| %>
   <%= c.label :title %>
   <%= c.text_field :title %><br>

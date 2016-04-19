@@ -8,8 +8,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
-    redirect_to @post
+    @post = Post.new(post_params)
+    if @post.valid?
+      flash[:notice] = "Post added"
+      @post.save
+      redirect_to @post
+    else
+      flash[:alert] = "Post rejected"
+      render :new
+    end
   end
 
   def edit
@@ -18,8 +25,15 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to posts_path()
+    test_post = Post.new(post_params)
+    if test_post.valid?
+      flash[:notice] = "Edit complete"
+      @post.update(post_params)
+      redirect_to post_path()
+    else
+      flash[:alert] = "Edits rejected"
+      render :edit
+    end
   end
 
   def show
@@ -30,13 +44,16 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.tags.each do |t|
+      t.destroy
+    end
     @post.destroy
     redirect_to posts_path()
   end
 
   private
   def post_params
-    params.require(:post).permit(:body, :title, :author)
+    params.require(:post).permit(:body, :title, :author, :all_tags)
   end
 
 end
