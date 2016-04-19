@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "#{@post.title} was successfully saved."
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to posts_path 
+    redirect_to posts_path
   end
 
   private
