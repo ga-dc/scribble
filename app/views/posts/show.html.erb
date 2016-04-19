@@ -2,3 +2,31 @@
 <section><%= @post.text %></section>
 <h5>Edit | <%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are you sure?'}%></h5>
 <h6>Created at: <%= @post.created_at %></h6>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+<div class="comment">
+  <h3><%= comment.commenter %> says:</h3>
+   <h4><%= comment.body %></h4>
+   <h5>
+     <%= comment.created_at %>
+      | Edit |
+      <%= link_to 'Delete', [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'}%>
+    </h5>
+</div>
+<% end %>
+
+<h2>Add a comment: </h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<p>
+  <%= f.label :commenter, "Name: "%><br>
+  <%= f.text_field :commenter %>
+</p>
+<p>
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
