@@ -10,15 +10,20 @@
   <div id="wrapper">
     <!-- <img src="../../assets/images/scribble3.png" alt="logo pic" style=height = 200px> -->
 <header class="scribble_logo">SCRIBBLE</header>
-
   <%= link_to "HOME", root_path %>
   <%= link_to "ALL POSTS", posts_path %>
   <%= link_to "NEW", new_post_path %>
 </div>
 
+<% flash.each do |type, message| %>
+  <p class="flash <%= type %>"><%= message %></p>
+<% end %>
+
 <div class="content">
 <%= yield %>
 </div>
+
+<footer>Zaneh M. Williams</footer>
 
 </body>
 </html>

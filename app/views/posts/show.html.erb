@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-<h3>  <%= @post.title %> <%= link_to "(edit)", edit_post_path %> </h3>
-  <p><%= @post.body %></p>
-</body>
-</html>
+<h2 class="show_title">  <%= @post.title.upcase %> <%= link_to "(edit)", edit_post_path %> </h2>
+<p><%= @post.body %></p>
+<h3 class="show_title"> COMMENTS:</h3>
+<% @post.comments.each do |cmt| %>
+  <div class="comment">
+    <%= cmt.comment %>
+  </div>
+<% end %>
+
+
+<%= form_for Comment.new do |f| %>
+  <p><%= f.label :comment %><br></p>
+  <%= f.text_area :comment %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+
+  <%= f.submit %>
+<% end %>
