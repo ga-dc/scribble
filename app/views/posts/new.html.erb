@@ -1,0 +1,7 @@
+<p><%= link_to "All Posts", posts_path %></p>
+
+<%= form_for @post do |f| %>
+  <p><%= f.label :title %>  <%= f.text_field :title %></p>
+  <p><%= f.label :body  %>  <%= f.text_field :body %></p>
+  <%= f.submit %>
+<% end%>
