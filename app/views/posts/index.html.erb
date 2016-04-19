@@ -1,0 +1,30 @@
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+
+<div class="container">
+  <post>
+  <header>
+    <%= link_to "#{post.subject}", post_path(post) %>
+    <br>
+    poster: <%= post.poster %>
+  </header>
+
+  <main class="post">
+    <%= post.body %>
+  </main>
+
+  <footer>
+
+    <% post.comments.each do |comment| %>
+    <div class="comment">
+      <header> <%= comment.commenter %> said: </header>
+      <!-- <p class ="comment">  -->
+        <%= comment.text %>
+      <!-- </p> -->
+    </div>
+    <% end %>
+
+  </footer>
+  </post>
+</div>
+<% end %>

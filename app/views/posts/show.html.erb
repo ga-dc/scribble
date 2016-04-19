@@ -1,0 +1,24 @@
+<h1>Post <%= @post.id %> /h1>
+
+  <header>
+    "<%= @post.subject %>"
+    <br>
+    poster: <%= @post.poster %>
+  </header>
+
+  <main class="post">
+    <%= @post.body %>
+  </main>
+
+  <footer>
+
+    <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <header> <%= comment.commenter %> said: </header>
+      <!-- <p class ="comment">  -->
+        <%= comment.text %>
+      <!-- </p> -->
+    </div>
+    <% end %>
+
+  </footer>
