@@ -2,6 +2,7 @@
   <td><%= post.id %></td>
   <td><%= post.title %></td>
   <td><%= post.content %></td>
+  <td><%= raw tag_links(post.all_tags)%></td>
   <td><%= link_to 'Show', post_path(post) %></td>
   <td><%= link_to 'Edit', edit_post_path(post) %></td>
   <td><%= link_to 'Destroy', post_path(post),
