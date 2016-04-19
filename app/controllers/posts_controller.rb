@@ -17,14 +17,25 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    redirect_to @post
+    @post = Post.new(post_params)
+
+    if @post.save
+      redirect_to @post, notice: "Post created successfully!"
+    else
+      render 'new'
+    end
+
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to @post
+
+    if @post.update(post_params)
+      redirect_to @post, notice: "Post updated successfully!"
+    else
+      render 'new'
+    end
+
   end
 
   def destroy
