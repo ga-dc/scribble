@@ -1,4 +1,4 @@
-<h3> Your Blogs </h3>
+Your Blog Posts
 <% @posts.each do |post| %>
   <p>
     Title: <%= link_to post.title, post_path(post)%>  |  <i><%= link_to "Delete", post_path(post), method: :delete %></i>

@@ -1,5 +1,7 @@
+<div class="new_form">
 <%= form_for @post do |f| %>
   <p><%= f.label :title %>  <%= f.text_field :title %></p>
   <p><%= f.label :body  %>  <%= f.text_area :body %></p>
   <%= f.submit %>
 <% end%>
+</div>

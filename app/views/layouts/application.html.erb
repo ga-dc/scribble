@@ -7,9 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>SCRIBBLES</h1>
-<p><%= link_to "All", posts_path %>        <%= link_to "New", new_post_path %></p>
+  <div id="wrapper">
+    <!-- <img src="../../assets/images/scribble3.png" alt="logo pic" style=height = 200px> -->
+<header class="scribble_logo">SCRIBBLE</header>
+
+  <%= link_to "ALL", posts_path %>
+  <%= link_to "NEW", new_post_path %>
+</div>
+
+<div class="content">
 <%= yield %>
+</div>
 
 </body>
 </html>
