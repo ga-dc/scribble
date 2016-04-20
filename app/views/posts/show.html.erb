@@ -1,28 +1,28 @@
 <div class="postcontent">
-<h1><%= @post.title.capitalize %></h1>
+  <h1><%= @post.title.capitalize %></h1>
+    <h5><%= link_to 'Edit', edit_post_path %>
+      |
+        <%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are you sure?'}%></h5>
 
-<h5><%= link_to 'Edit', edit_post_path %>
-  |
-<%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Are you sure?'}%></h5>
+    <section><%= @post.text %></section>
+    <h6>Created <%= time_ago_in_words(@post.created_at) %> ago</h6>
+  </div>
 
-<section><%= @post.text %></section>
-<h6>Created <%= time_ago_in_words(@post.created_at) %> ago</h6>
-</div>
+  <% if @post.comments.length > 0 %>
+      <h2>Comments</h2>
+  <% end %>
 
-<% if @post.comments.length > 0 %>
-<h2>Comments</h2>
-<% end %>
-<% @post.comments.each do |comment| %>
-<div class="comment">
-  <h3><%= comment.commenter %> says:</h3>
-   <h4><%= comment.body %></h4>
-   <h5>
-     Created <%= time_ago_in_words(comment.created_at) %> ago
-     | <%= link_to 'Edit',  "/posts/#{comment.post_id}/comments/#{comment.id}/edit" %>
-      <%= link_to 'Delete', [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'}%>
-    </h5>
-</div>
-<% end %>
+  <% @post.comments.each do |comment| %>
+      <div class="comment">
+      <h3><%= comment.commenter %> says:</h3>
+       <h4><%= comment.body %></h4>
+       <h5> Created <%= time_ago_in_words(comment.created_at) %> ago
+           | <%= link_to 'Edit',  "/posts/#{comment.post_id}/comments/#{comment.id}/edit" %>
+            <%= link_to 'Delete', [comment.post, comment],
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'}%>
+      </h5>
+    </div>
+  <% end %>
 
-<h2>Add a comment: </h2>
 <%= render 'comments/form' %>
