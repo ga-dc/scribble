@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment= @post.comments.find(params[:id])
     @comment.update(comment_params)
-    redirect_to edit_post_comment_path
+    redirect_to edit_post_comment_path, notice: "Comment Successfully Updated"
   end
 
   def create
