@@ -14,19 +14,31 @@ require_relative './comment_data.rb'
 Post.destroy_all
 Comment.destroy_all
 
-post_data = get_post_data()
-comment_data = get_comment_data()
+# post_data = get_post_data()
+# comment_data = get_comment_data()
 
-post_data.each_pair do |post_name, posts|
+# user.create ([
+#   {user:"player_one"},
+#   {user:"player_two"}
+#   ])
+
+post_data.each do |post_name, posts|
   info = post_data[post_name]
   current_post = Post.create!({
     username:     info[:username],
+    text:         body[:text],
+    post_id:      integer[:post_id],
+    created_at:   create[:created_at],
+    updated_at:   update[:updated_at]
   })
 
   comments.each do |comment|
     Comment.create!({
-      title:      comment[:title],
-      username:   info[:username]
+    title:        comment[:title],
+    text:         body[:text],
+    user_id:      integer[:user_id],
+    created_at:   create[:created_at],
+    updated_at:   update[:updated_at]
     })
   end
 end
