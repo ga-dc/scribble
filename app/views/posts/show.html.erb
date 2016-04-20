@@ -1,11 +1,17 @@
 <h2 class="show_title">  <%= @post.title.upcase %> <%= link_to "(edit)", edit_post_path %> </h2>
 <p><%= @post.body %></p>
 <h3 class="show_title"> COMMENTS:</h3>
+<div class=comment_box>
 <% @post.comments.each do |cmt| %>
   <div class="comment">
     <%= cmt.comment %>
+    <%= link_to '(Delete)', comment_path(cmt),
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %>
+    <%= link_to '(Edit)', edit_comment_path(cmt) %>
   </div>
 <% end %>
+</div>
 
 
 <%= form_for Comment.new do |f| %>

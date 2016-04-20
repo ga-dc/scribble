@@ -1,8 +1,6 @@
 body {
   background-color: solid white;
   font-family: sans-serif;
-  /*font-size: 50px;
-  font-weight: lighter;*/
 }
 
 #wrapper {
@@ -65,8 +63,14 @@ footer {
   text-align: center;
   display: block;
   margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
   border-style: solid;
   border-width: 2px 2px 2px 2px medium;
+  width: 50%;
+  height: 25px;
+  background-color: lemonchiffon;
 }
 
 .field_with_errors {
@@ -76,5 +80,14 @@ footer {
   border-style: solid;
   border-width: 2px 2px 2px 2px medium;
   background-color: red;
+}
 
+.comment_box {
+  margin: auto;
+  padding 0px;
+  display: block;
+  border-style: solid;
+  border width: 2px 2px 2px 2px medium;
+  width: 50%;
+  background-color: lemonchiffon;
 }
