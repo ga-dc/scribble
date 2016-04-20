@@ -15,6 +15,11 @@
     <span><%= link_to 'View all posts', posts_path %></span>&nbsp;&nbsp;&nbsp;
     <span><%= link_to 'Create new post', new_post_path %></span>
 </header>
+
+<% flash.each do |type, message| %>
+<div class="<%= type%>"><%= message %></div>
+<% end %>
+
 <%= yield %>
 
 </body>
