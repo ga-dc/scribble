@@ -1,0 +1,17 @@
+<h3>Editing Post</h3>
+
+
+<%= form_for @post do |p| %>
+
+<p>
+<h3><%= p.label "Title:" %></h3>
+<%= p.text_field :title %>
+</p>
+<h3><%= p.label "Post:" %></h3>
+<p><%= p.text_area :text %></p>
+<p><%= p.submit %></p>
+
+
+<%end%>
+
+<h3><%= link_to "Back to Posts", posts_path %></h2>
