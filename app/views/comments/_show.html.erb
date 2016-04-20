@@ -1,0 +1,7 @@
+<div class="comment">
+  <h2><%= @comment.commenter %> says:</h2>
+  <h4><%= @comment.body %>
+    <h5>
+      Created <%= time_ago_in_words(@comment.created_at) %> ago
+     </h5>
+  </div>
