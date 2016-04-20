@@ -28,10 +28,6 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
-  title
-  content
-  author
-
   private
   def post_params
     params.require(:post).permit(:body, :author)
