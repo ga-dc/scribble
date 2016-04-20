@@ -1,19 +1,42 @@
-class CommentsController < ApplicatonController
+class CommentsController < ApplicationController
 
+  def new
+    @comment = Comment.new
+  end
 
-def new
-end
+  def edit
+    @comment = Comment.find(params[:id])
+  end
 
-def create
-end
+  def create
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to post_path(@comment.post), notice: "Comment successfully created!"
+    else
+      render 'new'
+    end
+  end
 
-def update
-end
+  def update
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    if @comment.update(comment_params)
+      redirect_to @post, notice: "Comment successfully updated!"
+    else
+      render 'edit'
+    end
+  end
 
-def edit
-end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @comment.destroy
+    redirect_to @post, notice: "Comment successfully destroyed!"
+  end
 
-def destroy
-end
+  private
+    def comment_params
+      params.require(:comment).permit(:commenter, :text, :post_id)
+    end
 
 end

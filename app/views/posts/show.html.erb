@@ -1,5 +1,7 @@
 <h1>Post <%= @post.id %> </h1>
 <%= link_to "Back to Posts", posts_path%>
+ | |
+<%= link_to "Edit Post", edit_post_path%>
 <post>
   <header>
     "<%= @post.subject %>"
