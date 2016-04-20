@@ -24,18 +24,4 @@
 
 <br />
 
-<%= link_to 'New post', new_post_path %>
-
-
-<!-- <ul>
-  <% @posts.each do |post| %>
-    <li>
-      <p>
-      <%= link_to post.title, post_path(post) %> |
-      <%= link_to "Delete Post", post_path(post),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></p>
-    </li>
-
-    <% end %>
-  </ul> -->
+<p><%= link_to 'New post', new_post_path %> | <%= link_to "Home", posts_path %></p>
