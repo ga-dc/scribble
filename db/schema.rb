@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160419020331) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "name"
-    t.text     "body"
+    t.text     "message"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160419020331) do
   create_table "posts", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
-    t.text     "body"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -10,33 +10,33 @@ Comment.destroy_all
 
 hall_oates = Post.create({
   name: "Hall & Oates",
-  title: "Oh my"
-  body: "rails done did it again",
+  title: "Oh my",
+  content: "rails done did it again"
 })
 
 limp_bizkit = Post.create({
   name: "Limp Bizkit",
-  title: "Sleep Deprived"
-  body: "I can't sleep, ruby is keeping me up all night",
+  title: "Sleep Deprived",
+  content: "I can't sleep, ruby is keeping me up all night"
 })
 
 weird_al = Post.create({
   name: "Weird Al Yankovic",
-  title: "Ruby is awesome"
-  body: "I'm loving ruby on rails",
+  title: "Ruby is awesome",
+  content: "I'm loving ruby on rails"
 })
 
-hall_oates.comment.create({
+hall_oates.comments.create({
   name: "Taylor Swift",
-  body: "I'm standing in a nice dress"
+  message: "I'm standing in a nice dress"
 })
 
-limp_bizkit.comment.create({
+limp_bizkit.comments.create({
   name: "Adele",
-  body: "hello, its me.  I was wondering.."
+  message: "hello, its me.  I was wondering.."
 })
 
-weird_al.comment.create({
+weird_al.comments.create({
   name: "Rihanna",
-  body: "nobody text me crisis"
+  message: "nobody text me in crisis"
 })
