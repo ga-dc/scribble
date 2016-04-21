@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resources :categories
   resources :posts do
     resources :comments
+    resources :tags, only: [:new, :create]
   end
-  resources :categories
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
