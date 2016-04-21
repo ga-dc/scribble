@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :post
+  has_many :tags
+  has_many :posts, through: :tags
 end
