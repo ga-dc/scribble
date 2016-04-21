@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'posts#index'
 
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :posts
   resources :comments, only: [:new, :create, :edit, :update, :destroy]
 
   resources :categories, only: [:index, :show]

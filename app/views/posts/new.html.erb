@@ -1,11 +1,1 @@
-<%= form_for @post do |p| %>
-  <%= p.label :title %>
-  <%= p.text_field :title %>
-  <%= p.label :author %>
-  <%= p.text_field :author %>
-  <%= p.label :body %>
-  <%= p.text_area :body %>
-  <%= p.label :all_tags %>
-  <%= p.text_area :all_tags %>
-  <%= p.submit %>
-<% end %>
+<%= render 'form' %>
