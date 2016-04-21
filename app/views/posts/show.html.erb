@@ -8,6 +8,17 @@
   <%= @post.text %>
 </p>
 
+<h2>Tags</h2>
+<% @post.tags.each do |tag| %>
+<p><%= link_to tag.category.name, category_path(tag.category) %></p>
+<% end %>
+
+<%= form_for [@post, @tag] do |f| %>
+  <%= text_field_tag :category_name %>
+  <%= f.submit 'Create Tag' %>
+<% end %>  
+
+
 <h2>Comments</h2>
 <%= render @post.comments %>
 
