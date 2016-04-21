@@ -8,8 +8,9 @@
 
   <% @posts.each do |post| %>
    <article>
+     <p>
       <tr>
-        <td><%= post.title %></td>
+        <td><strong><%= post.title %></strong></td>
         <td><%= post.text %></td>
         <% if post.tags.length > 0 %>
           <h2>Tags</h2>
@@ -17,7 +18,7 @@
             <%= link_to tag.category.name, category_path(tag.category) %>
           <% end %>
         <% end %>
-
+        </p>
 
         <td><%= link_to 'Show', post_path(post) %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
