@@ -1,0 +1,10 @@
+<% @posts.each do |post| %>
+ <h2><%= link_to post.title, post_path(post) %></h2>
+ <p><%= post.text %></p>
+  <% if post.tags.length > 0 %>
+    <h2>Tags</h2>
+    <% post.tags.each do |tag| %>
+      <%= link_to tag.category.name, category_path(tag.category) %>
+    <% end %>
+  <% end %>
+<% end %>
