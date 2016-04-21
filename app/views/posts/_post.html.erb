@@ -1,0 +1,7 @@
+<div class="all_posts">
+  <% @posts.each do |post| %>
+  <p><%= link_to post.title, post_path(post) %></p>
+  <p>Written By: <%= post.author %></p>
+  <p><%= post.body %></p>
+  <% end %>
+</div>

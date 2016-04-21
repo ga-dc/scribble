@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all
     @post = Post.find(params[:id])
     @comments = Comment.all
     @comment = Comment.new
@@ -13,7 +14,17 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @comment = Comment.new
+    # @comment = Comment.new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to @post
   end
 
   def create

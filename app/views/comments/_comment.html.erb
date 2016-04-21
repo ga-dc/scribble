@@ -1,0 +1,9 @@
+<%= link_to "Add A Comment", new_post_comment_path %>
+
+<div class="comments">
+<% @comments.each do |comment| %>
+<p><%= comment.body %></p>
+<p><%= comment.author %></p>
+<%= link_to "Delete Comment", comment_path(comment), method: :delete %>
+<% end %>
+</div>

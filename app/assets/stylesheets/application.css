@@ -14,7 +14,30 @@
  *= require_self
  */
 
+h1 {
+  margin: 30px 0 20px 10px;
+}
 
-.comments {
-  border-bottom: 1px solid black;
+h3 {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+h3 a {
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+h4 {
+  margin: 20px 0 20px 10px;
+}
+
+.post_form,
+.show_post,
+.all_posts,
+.comment_form {
+  margin-left: 10px;
 }
