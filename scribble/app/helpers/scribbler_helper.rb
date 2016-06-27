@@ -1,0 +1,2 @@
+module ScribblerHelper
+end
