@@ -1,9 +1,13 @@
 <h1> Life, Universe and Everything </h1>
+<h2> (Scribbler) </h2>
 
+<h3><%= link_to 'Create new Topic', new_post_path %></h3>
+<div id="tablebox">
 <table>
   <tr>
-    <th>Title</th>
+    <th>Topic</th>
     <th>Text</th>
+    <th>Comments</th>
   </tr>
 
   <% @posts.each do |post| %>
@@ -13,3 +17,4 @@
   </tr>
   <% end %>
 </table>
+</div>
