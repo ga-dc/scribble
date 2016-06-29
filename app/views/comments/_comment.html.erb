@@ -4,4 +4,5 @@
   <%= link_to 'Delete Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-</p
+</p>
+<p><%= link_to "Edit", edit_post_comment_path(@post, comment)%></p>
