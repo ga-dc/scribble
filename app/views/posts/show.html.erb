@@ -7,8 +7,9 @@
   <% @post.comments.each do |comment| %>
     <li>
       <%= comment.body %>
-      <%= comment.author %>
+      | Posted by <%= comment.author %>
       <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+      <%= link_to "Delete", @comment, method: :delete, class: "delete" %>
     </li>
   <% end %>
 </ul>
