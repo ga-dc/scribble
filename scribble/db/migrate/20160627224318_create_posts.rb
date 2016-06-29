@@ -4,7 +4,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :topic
       t.text :text
 
-      t.timestamps null: false
+      t.datetime :created_at
+      t.datetime :updated_at
     end
   end
 end

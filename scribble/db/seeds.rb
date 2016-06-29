@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Comment.destroy_all
+Post.destroy_all
+
+posts = Post.create([
+  {topic: "Greetings", text: "my name is Jebuiz Yhar"}
+])
+
+comments = Comment.create([
+  {text: "Transmission from 2048 AD"}
+  ])
