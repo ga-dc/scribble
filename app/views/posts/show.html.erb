@@ -1,0 +1,6 @@
+<h2><%= link_to "Posts", posts_path %></h2>
+<p><%= @post.title %></p>
+<p><%= @post.body %></p>
+<% @post.comments.each do |comment| %>
+  <%= comment.body %>
+<% end %>

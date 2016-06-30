@@ -29,7 +29,7 @@ comments = Comment.create([
   # {body:"The first comment on the first post", post: posts[0], user: users[0]},
   # {body:"The first comment on the second post", post: posts[1], user: users[1]},
   # {body:"The first comment on the third post", post: posts[2], user: users[1]}
-  {body:"The first comment on the first post" }, #post: posts[0]},
-  {body:"The first comment on the second post"}, #post: posts[1]},
-  {body:"The first comment on the third post" }, #post: posts[2]}
+  {body:"The first comment on the first post" , post: posts[0]},
+  {body:"The first comment on the second post", post: posts[1]},
+  {body:"The first comment on the third post" , post: posts[2]}
 ])
