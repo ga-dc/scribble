@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160628214848) do
     t.string   "author"
     t.text     "body"
     t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -28,7 +30,8 @@ ActiveRecord::Schema.define(version: 20160628214848) do
     t.string   "author"
     t.text     "body"
     t.text     "title"
-
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "posts"
