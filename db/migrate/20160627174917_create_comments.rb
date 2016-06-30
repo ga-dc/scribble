@@ -3,7 +3,8 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.string :comment_content
       t.string :commenter
-      t.string :commenter_photo
+      t.string :commenter_nationality
+      t.references :post
       t.timestamps null: false
     end
   end

@@ -1,0 +1,22 @@
+<h2><%= @post.title %></h2>
+<h4><%= @post.author %></h4>
+<p>
+  <%= @post.post_content %>
+</p>
+
+<%= link_to "Edit Post",edit_post_path %>
+
+<%= link_to "New Comment",new_post_comment_path(@post) %>
+
+<% @post.comments.each do |comment| %>
+<ul>
+  <li>
+    <h4>
+      <%= "#{comment.commenter}, #{comment.commenter_nationality}" %> | <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete %> | <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+    </h4>
+    <p>
+      <%= "#{comment.comment_content}" %>
+    </p>
+  </li>
+</ul>
+<% end %>
