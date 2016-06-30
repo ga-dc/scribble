@@ -1,9 +1,9 @@
-<%= 'All Post' %>
+<h2> All Post <%= link_to "(+)", new_post_path %></h2>
 
 <ul>
   <% @post.each do |p| %>
   <li>
-    <%= p %>
+    <%= link_to p.title,p %>
     </li>
     <% end %>
 </ul>
