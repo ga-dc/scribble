@@ -1,0 +1,29 @@
+<!-- <h2>New Post</h2>
+
+<%= form_for :post, url: post_path do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %> -->
+<!-- <form action="/posts" method="post" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="post[title]">Title:</label>
+  <input name="post[title]">
+
+  <label for="post[body]">Body:</label>
+  <input name="post[body]">
+
+  <input type="submit" value="Create">
+</form> -->
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href ="/posts/<%= post.id %>">
+        <%= post.title %>
+    </li>
+  <% end %>
+</ul>
