@@ -1,4 +1,4 @@
 <h2><%= @comment.title %></h2>
 <h4><%= @comment.body %></h4>
-<p><%= link_to "Edit Comment", edit_comment_path(@comment) %></p>
+<p><%= link_to "Edit Comment", edit_post_comment_path(@post, @comment) %></p>
 <p><%= link_to "Back to Posts", posts_path %></p>
