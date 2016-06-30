@@ -33,6 +33,7 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 - Create models for Post and Comment
 - Create migrations for Post and Comment
 
+now start with controllers (already added seed data )
 ## Index Feature
 - Create an index where a user can see all posts
 - Each post should link to its respective show page
