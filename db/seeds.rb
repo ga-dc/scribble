@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Post.destroy_all
+Comment.destroy_all
+
+slydog = Post.create(title:"You Sly Dog You", body:"Damn You're Sly")
