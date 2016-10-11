@@ -12,7 +12,7 @@ def show
 end
 
 def create
-  @post.Post.new(post_params)
+  @post = Post.new(post_params)
   redirect_to post_params
 end
 
@@ -26,7 +26,7 @@ def update
 end
 
 def destroy
-  @post.Post.find(params[:id])
+  @post = Post.find(params[:id])
   @post.destroy
   redirect_to post_params
 end
