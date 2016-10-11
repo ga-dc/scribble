@@ -1,1 +1,15 @@
-<h1>Hello World</h1>
+<%= link_to "Back",post_path(@post) %>
+
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f| %>
+
+<p><%= f.label :title %>
+<%= f.text_field :title %></p>
+
+<p><%= f.label :body %>
+<%= f.text_field :body %></p>
+
+<%= f.submit "Submit Edited Post" %>
+
+<% end %>
