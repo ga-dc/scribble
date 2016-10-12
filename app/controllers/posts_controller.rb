@@ -18,12 +18,21 @@ class PostsController < ApplicationController
   #create
   def create
     @post = Post.create!(post_params)
+
     redirect_to post_path(@post)
   end
 
   #edit
+
   #update
+
   #destroy
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+
+    redirect_to posts_path
+  end
 
   #private
   private
