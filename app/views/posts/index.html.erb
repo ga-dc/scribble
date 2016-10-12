@@ -1,1 +1,9 @@
 <h2> Posts </h2>
+  <div>
+    <% @post.each do |post| %>
+    <%= link_to post.headline, post_path(post) %> <br>
+    <% end %>
+  </div>
+
+  <br>
+<%= link_to "New Post!", new_post_path %>

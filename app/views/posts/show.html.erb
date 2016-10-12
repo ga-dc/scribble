@@ -1,0 +1,10 @@
+<h2> <%= @post.headline %> </h2>
+<img src="<%= @post.img_url %>">
+
+<div class="comment">
+<% @post.comments.each do |comment| %>
+<p> <%= comment.body %> </p>
+<% end %>
+</div>
+
+<%= link_to "Edit this Post", edit_post_path %>

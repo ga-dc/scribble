@@ -9,6 +9,11 @@
 Post.destroy_all
 Comment.destroy_all
 
-got = Post.create([{headline: "Season 6 of GoT was off the hook!", likes: 500}])
+got = Post.create(headline: "Season 6 of GoT was off the hook!", likes: 500, img_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Game_of_Thrones_Season_6.jpeg/220px-Game_of_Thrones_Season_6.jpeg")
+got2 = Post.create(headline: "Whoaaaa, didnt see that coming!", likes: 200, img_url: "https://fsmedia.imgix.net/16/77/d9/53/3bfd/4f63/8815/f4aeb991003a/ep51-ss03-1920jpg.jpeg")
+got3 = Post.create(headline: "I can't wait till the next season", likes: 300, img_url: "https://i.ytimg.com/vi/42XOTq22088/maxresdefault.jpg")
 
-comment1 = Comment.create([{body: "I agree, it was the best season yet.", likes_comments: 200, post_id: 1}])
+
+comment1 = Comment.create(title: "Best Season", body: "I agree, it was the best season yet.", likes_comments: 200, post: got)
+comment2 = Comment.create(title: "Worst Season", body: "Mehhh, I dont agree at all.", likes_comments: 200, post: got)
+comment3 = Comment.create(title: "Best Season", body: "HOUSE LANNISTER!", likes_comments: 200, post: got)

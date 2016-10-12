@@ -1,0 +1,11 @@
+<h2> Create a new post </h2>
+<p>
+<%= form_for @post do |f| %>
+  <%= f.label :headline %> <br>
+  <%= f.text_area :headline %>
+<br>
+  <%= f.label "Choose an Image!" %> <br>
+  <%= f.text_field :img_url %>
+</p>
+  <%= f.submit "Submit" %>
+  <% end %>
