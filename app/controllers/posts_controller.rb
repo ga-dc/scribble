@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.create!(post_params)
+    @comment = Comment.create!(comments_params)
     redirect_to root_path
   end
   def show
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
   end
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy_all
+    @post.destroy
     redirect_to root_path
   end
 private
