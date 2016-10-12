@@ -1,5 +1,6 @@
-<h1>Hello!</h1>
+<h1>Welcome to my blog, Scribble</h1>
+<%= link_to 'create new blog', new_post_path %>
 <%= @posts.each do |post| %>
-<h2>This is a post</h2>
-<%= @post %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <%= post.body %>
 <% end %>
