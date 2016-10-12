@@ -1,1 +1,10 @@
-<h1>Hello World</h1>
+<%= link_to "Back", post_path(@post) %>
+
+<h1>Edit Comment</h1>
+<%= form_for [@post,@comment], method: :put do |f| %>
+
+<%= f.label :body %>
+<%= f.text_field :body %>
+
+<%= f.submit "Submit Comment" %>
+<% end %>

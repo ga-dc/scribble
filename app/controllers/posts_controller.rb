@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_id = @post.id
+    @comments = Comment.where(:post_id => @post_id)
   end
 
   def new

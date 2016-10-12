@@ -7,3 +7,10 @@
 <%= form_for @post, method: :delete do |f| %>
 <%= f.submit "Delete", class: "delete" %>
 <% end %>
+
+<%= link_to "Add a Comment", new_post_comment_path(@post) %>
+
+<% @comments.each do |comment| %>
+<p><%= comment.body %> <%= link_to "edit", edit_post_comment_path(@post,comment.id) %>
+<%= link_to "delete", post_comment_path(@post,comment), method: :delete %></p>
+<% end %>
