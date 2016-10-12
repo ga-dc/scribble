@@ -1,0 +1,9 @@
+<h1>View Post Comments for post <%=@post.title%></h1>
+
+  <% @post.comments.each do |comment| %>
+
+  <li>         
+    <p><%= comment.comment%> </p>
+  </li>
+  <% end %>
+</ul>
