@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   #index
-  # show
+  #show
   #edit
   #new
   #create
