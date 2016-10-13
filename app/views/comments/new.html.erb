@@ -1,0 +1,8 @@
+<h1>New Comment</h1>
+<%= form_for :Comment, url: new_comment_path do |f| %>
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </p>
+  <%= f.submit %>
+<% end %>
