@@ -1,13 +1,20 @@
-<%= link_to "Back", posts_path %>
+<div id="container">
+<div class="post_desc"><h1><%= @post.title %></h1>
+  <time><%= @post.user.email %> <%= @post.user.created_at %></time>
+  <br />
+  <p><%= @post.body %></p>
+  <p><%= link_to "Edit", edit_post_path %>
+  <%= link_to "Delete", post_path(@post), method: :delete, class: "delete" %></p></div>
 
-<h1><%= @post.title %> <%= link_to "edit", edit_post_path %> <%= link_to "Delete", post_path(@post), method: :delete, class: "delete" %></h1>
-
-<p><%= @post.body %></p>
 
 
-<%= link_to "Add a Comment", new_post_comment_path(@post) %>
-
+  <h4>Scribble Comments</h4>
 <% @comments.each do |comment| %>
-<p><%= comment.body %> <%= link_to "edit", edit_post_comment_path(@post,comment.id) %>
-<%= link_to "delete", post_comment_path(@post,comment), method: :delete %></p>
+  <time><%=comment.user.email%><%= comment.user.created_at %></time>
+  <p><%= comment.body %>
+  <p><%= link_to "edit", edit_post_comment_path(@post,comment.id) %>
+    <%= link_to "delete", post_comment_path(@post,comment), method: :delete %></p>
 <% end %>
+</div>
+
+<div id="new"><%= link_to "Add a Comment", new_post_comment_path(@post) %></div>

@@ -3,18 +3,22 @@
   <head>
     <title>Scribble</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if !current_user %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <% else %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :destroy %>
-    <% end %>
+    <nav>
+      <div class="scribble"><%= link_to "Scribble", posts_path %></div>
+        <div class="user_nav"><% if !current_user %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <% else %>
+        <%= current_user.email %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <% end %></div>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 

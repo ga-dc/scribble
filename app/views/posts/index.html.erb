@@ -1,8 +1,12 @@
-<h1>Posts</h1>
 
-<%= link_to "Post Something!", new_post_path %>
 
-<% @posts.each do |post| %>
-<h3><%= link_to post.title, post_path(post) %></h3>
-<p><%= post.body %></p>
-<% end %>
+<div id="container">
+  <h1>Scribble Posts</h1>
+  <% @posts.each do |post| %>
+  <h4><%= link_to post.title, post_path(post) %></h4>
+  <time><%= post.user.email %> <%= post.created_at %></time>
+  <p><%= post.body %></p>
+  <% end %>
+</div>
+
+<div id="new"><%= link_to "Post Something!", new_post_path %></div>
