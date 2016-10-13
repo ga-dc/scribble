@@ -1,0 +1,12 @@
+<h3>Edit "<%= "#{@comment.title}" %>"</h3>
+ <%= form_for ([@post, @comment]) do |f| %>
+ <%= f.label :title %>
+ <%= f.text_field :title %> <br>
+
+ <%= f.label :body %>
+ <%= f.text_area :body %> <br>
+
+ <%=f.submit "Update" %>
+<%= link_to "Back", root_path %>
+
+ <% end %>

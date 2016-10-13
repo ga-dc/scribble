@@ -1,0 +1,12 @@
+<h2> <%= @post.headline %> </h2>
+<img src="<%= @post.img_url %>">
+
+<div class="comment">
+<% @post.comments.each do |comment| %>
+<p><%= link_to "#{comment.body}", post_comment_path(@post) %> </p>
+<% end %>
+</div>
+<h3> <%= link_to "Comment", new_post_comment_path(@post) %> </h3>
+<%= link_to "Edit this Post", edit_post_path %>
+<%= link_to "Delete this post", post_path(@post), method: :delete %>
+<%= link_to "back", root_path %>
