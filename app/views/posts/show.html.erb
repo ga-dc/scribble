@@ -1,0 +1,10 @@
+<h2> Individual Posts </h2>
+
+<%= @post.body %>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.body %><%=link_to " Edit", edit_comment_path(comment)  %>
+    </li>
+  <% end %>
+</ul>
