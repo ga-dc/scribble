@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  background-color: #141746;
+  color: #F6F6F6;
+  font-family: 'Gentium Basic', serif;
+  text-align: center;
+}
+a:link, a:visited{
+  color: #F6F6F6;
+  text-decoration: none;
+}
