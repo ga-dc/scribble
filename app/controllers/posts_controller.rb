@@ -4,11 +4,11 @@ def index
   @posts = Post.all
 end
 
-def show
+def edit
   @post = Post.find(params[:id])
 end
 
-def edit
+def show
   @post = Post.find(params[:id])
 end
 
@@ -27,16 +27,20 @@ def create
 end
 
 def update
-  @post = Post.update(params[:id])
+  @post = Post.find(params[:id])
 
   if @post.update(post_params)
-    redirect_to @article
+    redirect_to @post
   else
     render 'edit'
   end
 end
 
 def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
+
+  redirect_to :root
 end
 
 def post_params
