@@ -4,5 +4,10 @@ body {
 }
 
 .comm {
-  border: 1px double grey;
+  border: 2px double grey;
+
+}
+
+.post {
+  border: 2px double blue;
 }
