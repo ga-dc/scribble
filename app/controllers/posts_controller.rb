@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @category = Category.new
     @post = Post.find(params[:id])
     @comments = @post.comments
   end
@@ -43,8 +44,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+
   private
   def strong_params
     params.require(:post).permit(:title, :body)
   end
+
+
 end
