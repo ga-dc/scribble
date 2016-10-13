@@ -14,7 +14,15 @@
  *= require_self
  */
 
-/*body {
-  text-align: center;
-  margin: 10%
-}*/
+body {
+  padding: 0 100px 0 100px;
+  background-color: #C4D6FF
+}
+
+img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 300px;
+  width: 500px;
+}
