@@ -1,0 +1,26 @@
+<h1> All Posts </h1>
+
+<form method="get" action= <%= new_post_path %> >
+  <button type="submit">Add a New Post</button>
+</form>
+
+<ul>
+  <% @posts.each do |post| %>
+
+  <li> Title=<%= link_to post.title, post_path(post.id)%> ID= <%= post.id %> Date:<%= post.date_published %>
+    <p> <%= post.article %> </p>
+
+    <%= link_to "Delete This POST ", post_path(post), method: :delete %>
+    <form method="get" action= <%= edit_post_path(post.id) %> >
+      <button type="submit">Edit Post</button>
+    </form>
+
+    <p> Author = <%= post.author_id %> </p>
+
+    <form method="get" action= <%= post_comments_path(post.id) %> >
+      <button type="submit">View Comments</button>
+    </form>
+
+  </li>
+  <% end %>
+</ul>

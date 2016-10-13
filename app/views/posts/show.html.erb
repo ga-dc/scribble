@@ -1,0 +1,21 @@
+<h1> View Post <%=@post.title%> </h1>
+<%=@post.id %>
+<%=@post.article %>
+<%=@post.author_id %>
+<%=@post.comments_enabled %>
+<%=@post.date_published %>
+<%=@post.banner_url %>
+<%=@post.views %>
+<%=@post.enabled %>
+
+<form method="get" action= <%= posts_path %> >
+    <button type="submit">Return</button>
+</form>
+<ul>
+<% @post.comments.each do |comment| %>
+ <li>
+  <%= comment.comment %>
+</li>
+
+<% end %>
+</ul>

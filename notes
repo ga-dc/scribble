@@ -1,0 +1,20 @@
+Starting a new Rails project
+
+Create the project with:
+rails new project -d postgresql
+
+Creating Models
+
+Models are singular and lowercase unless there is muti words then they are snake case.
+
+Controller are plural located in app/controllers directory
+each controller is named by class followed by the word "Controller"
+
+Create the class definition:
+  class ClassnameController < ApplicationController
+    def index
+     @classes= Class.all
+    end
+  end
+
+  Add the route as a method

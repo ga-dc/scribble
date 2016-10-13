@@ -1,0 +1,17 @@
+<h1>View Post Comments for post <%=@post.title%></h1>
+
+<form method="get" action= <%= new_post_comment_path %> >
+  <button type="submit">Add a New Comment to this Post</button>
+</form>
+
+
+  <% @post.comments.each do |comment| %>
+
+  <li>
+    <p><%= comment.comment%> </p>
+
+    <%= link_to "Edit this Comment", edit_post_comment_path(@post,comment )%>
+   <%= link_to "Delete This Comment ", post_comment_path(@post,comment), method: :delete %>
+  </li>
+  <% end %>
+</ul>
