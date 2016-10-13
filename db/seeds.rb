@@ -6,8 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 10.times do |index|
+
+  comments = []
+  3.times do
+    comments << Comment.new({body: "This is the comment"})
+  end
+
   Post.create ({
-    body: "This is the post"
+    body: "This is the post",
+    comments: comments
     })
 end
