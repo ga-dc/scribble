@@ -4,7 +4,7 @@
 <ul>
   <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.body %>
+      <%= comment.body %><%=link_to " Edit", edit_comment_path(comment)  %>
     </li>
   <% end %>
 </ul>

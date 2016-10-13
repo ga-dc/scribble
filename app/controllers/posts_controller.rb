@@ -20,7 +20,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    byebug
   end
 
   private
