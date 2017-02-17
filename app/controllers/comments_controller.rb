@@ -1,0 +1,8 @@
+class CommentsController < ApplicationController
+
+
+
+
+
+  
+end
