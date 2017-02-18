@@ -1,2 +1,35 @@
 <h1>Let's Write a New Post</h1>
+
+<form action="/" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="post[title]">Title:</label>
+  <input name="post[title]">
+
+  <label for="post[author]">Author:</label>
+  <input name="post[author]">
+
+  <label for="post[content]">Content:</label>
+  <input name="post[content]">
+
+  <input type="hidden" name="post[likes]" value="0">
+
+  <input type="submit" value="POST">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h3><a href="/">HOME</a></h3>

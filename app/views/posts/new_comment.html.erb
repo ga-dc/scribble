@@ -1,3 +1,19 @@
 <h1>We're Here to Make a New Comment</h1>
 
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="comment[author]">Author:</label>
+  <input name="comment[author]">
+
+  <label for="comment[content]">Content:</label>
+  <input name="comment[content]">
+
+  <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+
+  <input type="hidden" name="comment[likes]" value="0">
+
+  <input type="submit" value="COMMENT">
+</form>
+
 <h3><a href="/posts/<%= @post.id %>">BACK</a></h3>
