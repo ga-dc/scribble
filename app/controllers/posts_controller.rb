@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.all.sort_by do |post|
       post[:created_at]
     end
+    @posts.reverse!
   end
 
   def show
@@ -41,6 +42,17 @@ class PostsController < ApplicationController
     @post.update(post_params)
 
     redirect_to "/posts/#{@post.id}"
+  end
+
+  def edit_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def update_comment
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+
+    redirect_to "/posts/#{@comment.post_id}"
   end
 
   private

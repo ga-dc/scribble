@@ -6,11 +6,15 @@
 <p>Likes: <%= @post.likes %></p>
 <br>
 <h3>Comments</h3>
-<% @post.comments.each do |comment| %>
+<% @comment = @post.comments.sort_by do |comment| %>
+<% comment[:likes] %>
+<% end %>
+<% @comment.reverse! %>
+<% @comment.each do |comment| %>
 <br>
 <h4><%= comment.author %> at <%= comment.created_at %></h4>
 <p><%= comment.content %></p>
-<p>Last Updated At: <%= comment.updated_at %></p>
+<p>Last Updated At: <%= comment.updated_at %> <a href="/posts/comments/<%= comment.id %>/edit">EDIT</a></p>
 <p>Likes: <%= comment.likes %></p>
 <hr>
 <% end %>
