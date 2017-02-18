@@ -44,6 +44,14 @@ class PostsController < ApplicationController
     redirect_to "/posts/#{@post.id}"
   end
 
+  def destroy_post
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to "/"
+  end
+
+
   def edit_comment
     @comment = Comment.find(params[:id])
   end
@@ -54,6 +62,14 @@ class PostsController < ApplicationController
 
     redirect_to "/posts/#{@comment.post_id}"
   end
+
+  def destroy_comment
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    redirect_to "/posts/#{@comment.post_id}"
+  end
+
 
   private
   def comment_params

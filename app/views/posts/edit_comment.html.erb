@@ -12,4 +12,11 @@
 
   <input type="submit" value="UPDATE">
 </form>
+
+<form action="/posts/comments/<%= @comment.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button" type="submit" value="DELETE">
+</form>
+
 <h3><a href="/posts/<%= @comment.post_id %>">BACK</a></h3>
