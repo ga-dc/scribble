@@ -1,0 +1,15 @@
+<h2><%= @post.post_title %> <a href="/posts/<%= @post.id %>/edit">(edit)</a></h2>
+<h4><%= @post.post_text %></h4>
+
+<h3>Comments</h3>
+<ul>
+  <% @comments.comment.each do |comment| %>
+    <!-- build the list element for each song -->
+    <li>
+      <a href="/comments/<%= comment.id %>">
+        <%= comment.comment_title %>
+      </a>
+    </li>
+
+  <% end %>
+</ul>
