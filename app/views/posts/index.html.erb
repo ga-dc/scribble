@@ -3,10 +3,12 @@
 <br>
 <hr>
 <br>
-<h3><%= post.title %></h3>
+<h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
 <h4><%= post.author %> at <%= post.created_at %></h4>
 <p><%= post.content %></p>
 <p>Last Updated: <%= post.updated_at %></p>
 <p>Likes: <%= post.likes %></p>
-<h4><a href="#">Comments</a></h4>
+<h4>Top Comment</h4>
+<p><%= post.comments.first.author %> at <%= post.comments.first.updated_at %> Likes: <%= post.comments.first.likes %></p>
+<p><%= post.comments.first.content %></p>
 <% end %>

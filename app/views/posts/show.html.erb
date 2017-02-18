@@ -1,0 +1,17 @@
+<h1><%= @post.title %></h1>
+<h4><%= @post.author %> at <%= @post.created_at %></h4>
+<p><%= @post.content %></p>
+<p>Last Updated: <%= @post.updated_at %></p>
+<p>Likes: <%= @post.likes %></p>
+<br>
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+<br>
+<h4><%= comment.author %> at <%= comment.created_at %></h4>
+<p><%= comment.content %></p>
+<p>Last Updated At: <%= comment.updated_at %></p>
+<p><%= comment.likes %> Likes</p>
+<hr>
+<% end %>
+<br>
+<h3><a href="/">HOME</a></h3>
