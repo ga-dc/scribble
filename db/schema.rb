@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170218185811) do
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.string   "author"
-    t.integer  "timestamp"
     t.integer  "likes"
     t.integer  "post_id"
     t.datetime "created_at"
@@ -30,7 +29,6 @@ ActiveRecord::Schema.define(version: 20170218185811) do
     t.string   "title"
     t.string   "author"
     t.string   "content"
-    t.integer  "timestamp"
     t.integer  "likes"
     t.datetime "created_at"
     t.datetime "updated_at"
