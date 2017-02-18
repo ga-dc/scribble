@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.all.sort_by do |post|
+      post[:created_at]
+    end
   end
 
   def show
@@ -26,6 +28,17 @@ class PostsController < ApplicationController
 
   def create_post
     @post = Post.create!(post_params)
+
+    redirect_to "/posts/#{@post.id}"
+  end
+
+  def edit_post
+    @post = Post.find(params[:id])
+  end
+
+  def update_post
+    @post = Post.find(params[:id])
+    @post.update(post_params)
 
     redirect_to "/posts/#{@post.id}"
   end

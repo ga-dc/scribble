@@ -1,0 +1,19 @@
+<h1>Let's edit <%= @post.title %></h1>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="post[title]">Title:</label>
+  <input name="post[title]" value="<%= @post.title %>">
+
+  <label for="post[author]">Author:</label>
+  <input name="post[author]" value="<%= @post.author %>">
+
+  <label for="post[content]">Content:</label>
+  <input name="post[content]" value="<%= @post.content %>">
+
+  <input type="submit" value="UPDATE">
+</form>
+
+<h3><a href="/posts/<%= @post.id %>">BACK</a></h3>
