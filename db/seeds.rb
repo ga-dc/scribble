@@ -11,10 +11,10 @@ Comment.destroy_all
 
 #dummy posts data
 
-post_one = Post.create(title: "Post One", author: "Ebenezer Williams", content: "This is the body of the post")
-post_two = Post.create(title: "Post Two", author: "Ebenezer Williams", content: "This is the body of the second post")
-post_three = Post.create(title: "Post Three", author: "Ebenezer Williams", content: "This is the body of the third post")
+post_one = Post.create(title: "Web Design 101", author: "Ebenezer Williams", content: "Integer nec faucibus metus. Maecenas velit enim, ornare nec scelerisque ut, volutpat in tellus. In ultrices, tortor et egestas sodales, felis elit accumsan tortor, eu vestibulum metus enim vel odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla nibh augue, suscipit ac malesuada a, bibendum scelerisque justo. Vestibulum dignissim nec nibh eu molestie. Nam egestas mauris nisl.")
+post_two = Post.create(title: "Holliday Styles", author: "Ebenezer Williams", content: "Integer nec faucibus metus. Maecenas velit enim, ornare nec scelerisque ut, volutpat in tellus. In ultrices, tortor et egestas sodales, felis elit accumsan tortor, eu vestibulum metus enim vel odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla nibh augue, suscipit ac malesuada a, bibendum scelerisque justo. Vestibulum dignissim nec nibh eu molestie. Nam egestas mauris nisl.")
+post_three = Post.create(title: "5 Days in Tokyo", author: "Ebenezer Williams", content: "Integer nec faucibus metus. Maecenas velit enim, ornare nec scelerisque ut, volutpat in tellus. In ultrices, tortor et egestas sodales, felis elit accumsan tortor, eu vestibulum metus enim vel odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla nibh augue, suscipit ac malesuada a, bibendum scelerisque justo. Vestibulum dignissim nec nibh eu molestie. Nam egestas mauris nisl.")
 
 #dummy comment data
-post_one.comments.create(author: "Jon Smith", content: "Greate post", updated_at: datetime)
-post_one.comments.create(author: "Jason Smith", content: "thank you", updated_at: datetime)
+# post_one.comments.create(author: "Jon Smith", content: "Greate post")
+# post_one.comments.create(author: "Jason Smith", content: "thank you")
