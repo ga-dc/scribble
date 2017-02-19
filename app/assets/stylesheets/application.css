@@ -22,3 +22,15 @@ h2 {
 h6 {
   color: gray;
 }
+
+.logo a{
+  display:block;
+  margin: 0 auto;
+  background-size:100%;
+  width:200px;
+  text-indent:-999em;
+  background-repeat:no-repeat;
+  height:160px;
+  border:none;
+  background-image: url("logo.png");
+}

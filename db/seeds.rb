@@ -16,5 +16,7 @@ post_two = Post.create(title: "Holliday Styles", author: "Ebenezer Williams", co
 post_three = Post.create(title: "5 Days in Tokyo", author: "Ebenezer Williams", content: "Integer nec faucibus metus. Maecenas velit enim, ornare nec scelerisque ut, volutpat in tellus. In ultrices, tortor et egestas sodales, felis elit accumsan tortor, eu vestibulum metus enim vel odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla nibh augue, suscipit ac malesuada a, bibendum scelerisque justo. Vestibulum dignissim nec nibh eu molestie. Nam egestas mauris nisl.")
 
 #dummy comment data
-# post_one.comments.create(author: "Jon Smith", content: "Greate post")
-# post_one.comments.create(author: "Jason Smith", content: "thank you")
+post_one.comments.create(author: "Jon Smith", content: "Greate post")
+post_one.comments.create(author: "Jason Smith", content: "thank you")
+post_two.comments.create(author: "Ruth S.", content: "Amazing Work")
+post_three.comments.create(author: "Hamid Z.", content: "Tokyo is the best!")

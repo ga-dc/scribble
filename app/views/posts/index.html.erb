@@ -1,10 +1,11 @@
 <!-- <h1>Scribble</h1> -->
-
+<%= link_to "Create New Post", new_post_path %>
+<p>
 <% @post.each do |post| %>
 <div class="well">
   <h2><%= post.title %></h2>
   <h5>Author: <%= post.author %></h5>
-  <h6>Updated: <%= post.updated_at.strftime("%m  %d %Y") %></h6>
+  <h6>Updated: <%= post.updated_at.strftime("%m-%d-%Y at %H:%M %Z") %></h6>
   <p><%= post.content %></p>
   <%= link_to "See Comments", post_path(post) %>
 </div>
