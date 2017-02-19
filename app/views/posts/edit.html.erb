@@ -1,0 +1,15 @@
+<h2>Edit Post</h2>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" title="_method" value="put">
+
+  <label for="post[title]">Title:</label>
+  <input title="post[title]" value="<%= @post.title %>">
+
+  <input type="submit" value="Create">
+</form>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" title="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete!">
+</form>
