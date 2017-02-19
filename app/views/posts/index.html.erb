@@ -1,1 +1,16 @@
 <h2>Scribble</h2>
+
+<ul><span><%= link_to "Sign Up"%></span> <span><%= link_to "Sign In"%></span></ul>
+
+<% @posts.each do |post| %>
+
+ <h3><% @post.title %></h3>
+ <br />
+ <ul>
+   <span><h5><% @post.author %></span> <span><% @post.date_time %></span> <span><% @post.created_at %></span></h5>
+ </ul>
+ <br /> 
+ <h4><% @post.text %></h4>
+ <img src="<% @post.img_url %>">
+
+<% end %>
