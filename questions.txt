@@ -1,0 +1,6 @@
+1. Why did I have to add optional: true to my comment model in order to get this to work?
+2. Why did my form_for helper method not work until I put in ,url: "/"
+3. Why couldn't I pass a comment / post to the form_for helper method with a post_id attribute already set?
+4. What is the point of passing an object to the helper method if I have to create another one at the other end and set
+it's attributes from the params passed by the form.
+5. How exactly does the form_for method work? What is the input and what is the output?
