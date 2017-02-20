@@ -1,0 +1,22 @@
+<h1> Life, Universe and Everything </h1>
+<h2> (Scribbler) </h2>
+
+<h3><%= link_to 'Create new Topic', new_post_path %></h3>
+<div id="tablebox">
+<table>
+  <tr>
+    <th>Topic</th>
+
+  </tr>
+
+  <% @post.each do |post| %>
+  <tr>
+    <td><%= link_to post.topic, post_path(post) %></td>
+    <td><%= post.text %></td>
+    <td><%= link_to "Edit", edit_post_path(post) %></td>
+    <td><%= link_to "Delete", post_path(post),
+    method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+</div>

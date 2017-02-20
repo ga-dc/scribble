@@ -1,0 +1,27 @@
+<h1> Edit post</h1>
+
+<%= form_for :post, url: posts_path do |post| %>
+
+<% flash.each do |type, message| %>
+  <p class="<%= type %>"><%= message %></p>
+<% end %>
+
+
+
+<p>
+  <%= post.label :topic %></br>
+  <%= post.text_field :topic %>
+</p>
+
+<p>
+  <%= post.label :text %><br>
+  <%= post.text_area :text %>
+</p>
+
+<p>
+  <%= post.submit %>
+</p>
+
+<p><%= link_to 'Topic list', posts_path %></p>
+
+<% end %>
