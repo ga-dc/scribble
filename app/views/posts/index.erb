@@ -1,0 +1,17 @@
+<%= link_to 'My Blog', posts_path %>
+
+<%= link_to 'Create New article', new_post_path %>
+
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Tags</th>
+  </tr>
+
+<%= render partial: "post", collection: @posts %>
+
+</table>
