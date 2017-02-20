@@ -1,0 +1,15 @@
+
+Post                                              Comment
+
+""""""""""""""""""				                    """"""""""""""""""
+                                                Content- string
+"" title - string
+                                                author- string
+"" content- string     one -to-MANY     /
+""                    -------------------       time_stamp - int
+"" author - string                      \
+""                                               post_id - int
+"" time_stamp - int
+""
+"" likes - int
+"""""""""""""""""""
