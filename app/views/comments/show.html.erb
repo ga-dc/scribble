@@ -1,0 +1,2 @@
+<h2><%= @comment.title %> <%= link_to("(edit)", edit_comment_path(@comment)) if @current_user  %></h2>
+<h3>Post: <%= link_to @comment.post.title, @comment.post %></h3>
