@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+
+## Create new comments
 def create
   @post = Post.find(params[:post_id])
   @comment = @post.comments.create(comment_params)
@@ -7,7 +9,7 @@ def create
 
 end
 
-
+# delete existing comment
 def destroy
   @post = Post.find(params[:post_id])
   @comment = @post.comments.find(params[:id])
@@ -17,7 +19,7 @@ def destroy
 
 end
 
-
+# allows new comment method to take in author and content
 private
 def comment_params
   params.require(:comment).permit(:author, :content)
