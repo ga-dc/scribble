@@ -1,0 +1,17 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#bottomrow {
+  flex-direction: row;
+}
+
+textarea {
+  height: 250px;
+  width: 400px;
+}
+
+#comment_title {
+  height: 3em;
+  width: 220px;
+}
