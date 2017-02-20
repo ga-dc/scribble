@@ -16,16 +16,16 @@ ActiveRecord::Schema.define(version: 20170219163008) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "author"
-    t.string   "text"
-    t.datetime "time_created"
-    t.integer  "post_id"
+    t.string  "author"
+    t.string  "text"
+    t.integer "timestamp"
+    t.integer "post_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "author"
-    t.string   "text"
-    t.datetime "time_created"
+    t.string  "author"
+    t.string  "text"
+    t.integer "timestamp"
   end
 
 end

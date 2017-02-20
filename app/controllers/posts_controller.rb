@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update_post
     @update = Post.find(params[:id])
     @update.update(post_params)
-    redirect_to '/posts'
+    redirect_to "/posts/#{@update.id}"
   end
   def update_comment_prep
     @update = Comment.find(params[:id])
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def update_comment_execute
     @update = Comment.find(params[:id])
     @update.update(comment_params)
-    redirect_to '/posts'
+    redirect_to "/posts/#{@update.post_id}"
   end
   private
   def comment_params
