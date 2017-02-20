@@ -1,0 +1,39 @@
+<h1>Posts</h1>
+<%= link_to "New Post", new_post_path %>
+<% @posts.each do |post| %>
+
+  <div class = "post">
+  <header>
+    <%= link_to "#{post.subject}", post_path(post) %>
+  </header>
+
+  <main class="post">
+    <%= post.poster %> says:
+    <%= post.body %>
+  </main>
+
+  <footer>
+    <%= link_to "Comment on this post", new_comment_path %>
+
+    <% post.comments.each do |comment| %>
+    <div class="comment">
+
+      <header class="comment">
+        <%= comment.commenter %> said:
+      </header>
+
+      <p class ="comment">
+        <%= comment.text %>
+        <%= link_to "Edit this comment", edit_comment_path(comment) %>
+      </p>
+
+    </div>
+    <% end %>
+
+  </footer>
+  <%= link_to "Delete", post_path(post),
+                        method: :delete,
+                        data: { confirm: "Delete post?" } %>
+
+</div>
+<% end %>

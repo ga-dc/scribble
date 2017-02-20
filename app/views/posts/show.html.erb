@@ -1,0 +1,27 @@
+<h1>Post <%= @post.id %> </h1>
+<%= link_to "Back to Posts", posts_path%>
+ | |
+<%= link_to "Edit Post", edit_post_path%>
+<post>
+  <header>
+    "<%= @post.subject %>"
+    <br>
+    poster: <%= @post.poster %>
+  </header>
+
+  <main class="post">
+    <%= @post.body %>
+  </main>
+
+  <footer>
+
+    <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <header class="comment"> <%= comment.commenter %> said: </header>
+      <p class ="comment">
+        <%= comment.text %>
+      </p>
+    </div>
+    <% end %>
+  </footer>
+</post>
