@@ -1,0 +1,10 @@
+<h3><%= link_to "Edit Post", edit_post_path(@post) %></h3>
+<h3><%= link_to "Delete Post", post_path(@post), method: :delete %></h3>
+
+<div class="show_post">
+  <p><%= @post.title %></p>
+  <p><%= @post.author %></p>
+  <p><%= @post.body %></p>
+</div>
+
+<%= render 'comments/form' %>
