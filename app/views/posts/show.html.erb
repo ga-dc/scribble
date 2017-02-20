@@ -1,0 +1,30 @@
+<ul>
+  <li> <%= @post.author %> </li>
+  <li> <%= @post.text %> </li>
+  <% if @comments.length > 1 %>
+    <% @comments.each do |comment| %>
+      <li> <%= comment.author %> </li>
+      <li> <%= comment.text %> </li>
+      <a href='/posts/update_comment/<%= comment.id%>'>Click here to update comment</a>
+    <% end %>
+  <% elsif @comments.length == 1 %>
+    <li> <%= @comments[0].author %> </li>
+    <li> <%= @comments[0].text %> </li>
+    <a href='/posts/update_comment/<%= @comments[0].id%>'>Click here to update comment</a>
+  <% else %>
+    <li> no comments yet </li>
+  <% end %>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<a href='/posts/new_comment/<%= @post.id %>'>click here to add a comment</a>
+<a href='/posts/delete/<%= @post.id %>'>Click here to delete</a>
+<a href='/posts/update/<%= @post.id %>'>Click here to update this</a>

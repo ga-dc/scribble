@@ -1,0 +1,9 @@
+<ul>
+  <% @posts.each do |post| %>
+  <li> <%= post.author %> </li>
+  <li> <%= post.text %> </li>
+  <li><a href="/posts/<%= post.id %>">Click here to see more</a></li>
+  <% end %>
+</ul>
+
+<a href='posts/new_post'>Click Here For new post</a>
