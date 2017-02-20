@@ -1,0 +1,16 @@
+<h2><%= @post.title %></h2>
+<h4><%= @post.body %></h4>
+<p><%= link_to "Edit Post", edit_post_path(@post) %></p>
+
+<h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.body %>
+      <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+      <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Back to Posts", posts_path %></p>
