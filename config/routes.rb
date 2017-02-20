@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/posts/:id' => 'posts#create_comment'
   get '/posts/delete/:id' => 'posts#delete'
   get '/posts/update/:id' => 'posts#update'
-  post '/posts/update/:id' => 'posts#update_post'
+  patch '/posts/update/:id' => 'posts#update_post'
   get '/posts/update_comment/:id' => 'posts#update_comment_prep'
   patch '/posts/update_comment/:id' => 'posts#update_comment_execute'
 
