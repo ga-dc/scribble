@@ -1,22 +1,31 @@
-<h1>Let's Edit <%= @comment.author %>'s Comment</h1>
+<div class="content">
 
-<form action="/posts/comments/<%= @comment.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="put">
 
-  <label for="comment[author]">Author:</label>
-  <input name="comment[author]" value="<%= @comment.author %>">
+  <a href="/"><img class="scribble" src="https://camo.githubusercontent.com/c0fa788c04276e154ec92e5ea05aa5c6692f43ea/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f732f386672663872626c7736706e7064732f686970737465726c6f676f67656e657261746f725f313433383030373038373739332e706e673f646c3d30" alt="Scribble Logo"></a>
+  <br>
+  <hr>
+  <br>
+  <h1>Let's Edit <%= @comment.author %>'s Comment</h1>
 
-  <label for="comment[content]">Content:</label>
-  <input name="comment[content]" value="<%= @comment.content %>">
+  <form action="/posts/comments/<%= @comment.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="put">
 
-  <input type="submit" value="UPDATE">
-</form>
+    <label for="comment[author]">Author:</label>
+    <input name="comment[author]" value="<%= @comment.author %>">
 
-<form action="/posts/comments/<%= @comment.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="delete">
-  <input class="button" type="submit" value="DELETE">
-</form>
+    <label for="comment[content]">Content:</label>
+    <input name="comment[content]" value="<%= @comment.content %>">
 
-<h3><a href="/posts/<%= @comment.post_id %>">BACK</a></h3>
+    <input type="submit" value="UPDATE">
+  </form>
+
+  <form action="/posts/comments/<%= @comment.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input class="button" type="submit" value="DELETE">
+  </form>
+
+  <h3><a href="/posts/<%= @comment.post_id %>">BACK</a></h3>
+
+</div>

@@ -1,26 +1,34 @@
-<h1>Let's edit <%= @post.title %></h1>
+<div class="content">  
 
-<form action="/posts/<%= @post.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="put">
+  <a href="/"><img class="scribble" src="https://camo.githubusercontent.com/c0fa788c04276e154ec92e5ea05aa5c6692f43ea/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f732f386672663872626c7736706e7064732f686970737465726c6f676f67656e657261746f725f313433383030373038373739332e706e673f646c3d30" alt="Scribble Logo"></a>
+  <br>
+  <hr>
+  <br>
+  <h1>Let's edit <%= @post.title %></h1>
 
-  <label for="post[title]">Title:</label>
-  <input name="post[title]" value="<%= @post.title %>">
+  <form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="put">
 
-  <label for="post[author]">Author:</label>
-  <input name="post[author]" value="<%= @post.author %>">
+    <label for="post[title]">Title:</label>
+    <input name="post[title]" value="<%= @post.title %>">
 
-  <label for="post[content]">Content:</label>
-  <input name="post[content]" value="<%= @post.content %>">
+    <label for="post[author]">Author:</label>
+    <input name="post[author]" value="<%= @post.author %>">
 
-  <input type="submit" value="UPDATE">
-</form>
+    <label for="post[content]">Content:</label>
+    <input name="post[content]" value="<%= @post.content %>">
 
-<form action="/posts/<%= @post.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="delete">
-  <input class="button" type="submit" value="DELETE">
-</form>
+    <input type="submit" value="UPDATE">
+  </form>
+
+  <form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input class="button" type="submit" value="DELETE">
+  </form>
 
 
-<h3><a href="/posts/<%= @post.id %>">BACK</a></h3>
+  <h3><a href="/posts/<%= @post.id %>">BACK</a></h3>
+
+</div>

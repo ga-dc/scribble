@@ -1,24 +1,30 @@
-<h1><%= @post.title %></h1>
-<h4><a href="/posts/<%= @post.id %>/edit">EDIT</a></h4>
-<h4><%= @post.author %> at <%= @post.created_at %></h4>
-<p><%= @post.content %></p>
-<p>Last Updated: <%= @post.updated_at %></p>
-<p>Likes: <%= @post.likes %></p>
-<br>
-<h3>Comments</h3>
-<% @comment = @post.comments.sort_by do |comment| %>
-<% comment[:likes] %>
-<% end %>
-<% @comment.reverse! %>
-<% @comment.each do |comment| %>
-<br>
-<h4><%= comment.author %> at <%= comment.created_at %></h4>
-<p><%= comment.content %></p>
-<p>Last Updated At: <%= comment.updated_at %> <a href="/posts/comments/<%= comment.id %>/edit">EDIT</a></p>
-<p>Likes: <%= comment.likes %></p>
-<hr>
-<% end %>
-<br>
-<h3><a href="/posts/<%= @post.id %>/comment">COMMENT</a></h3>
-<br>
-<h3><a href="/">HOME</a></h3>
+<div class="content">
+
+  <a href="/"><img class="scribble" src="https://camo.githubusercontent.com/c0fa788c04276e154ec92e5ea05aa5c6692f43ea/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f732f386672663872626c7736706e7064732f686970737465726c6f676f67656e657261746f725f313433383030373038373739332e706e673f646c3d30" alt="Scribble Logo"></a>
+  <br>
+  <hr>
+  <br>
+  <h1 class="title"><%= @post.title %></h1>
+  <h4 class="title">by <%= @post.author %></h4>
+  <p><%= @post.content %></p>
+  <p class="right_align">Last Updated: <%= @post.updated_at %> <a href="/posts/<%= @post.id %>/edit">EDIT POST</a></p>
+  <p class="right_align">Originally Posted At: <%= @post.created_at %></p>
+  <p class="likes"><%= @post.likes %> <img class="likemark" src="http://emojipedia-us.s3.amazonaws.com/cache/6e/bd/6ebd94944d1917ffe02c81acb4fad0f9.png" alt="Likes Checkmark"></p>
+  <br>
+  <h3>Comments</h3>
+  <% @comment = @post.comments.sort_by do |comment| %>
+  <% comment[:likes] %>
+  <% end %>
+  <% @comment.reverse! %>
+  <% @comment.each do |comment| %>
+  <div class="comment_box">
+    <p><span class="comment_author"><%= comment.author %>:<br></span><%= comment.content %></p>
+    <p class="right_align">Last Updated At: <%= comment.updated_at %> <a href="/posts/comments/<%= comment.id %>/edit">EDIT</a></p>
+    <p class="right_align">Originally Posted At: <%= comment.created_at %></p>
+  <p class="likes"><%= comment.likes %> <img class="likemark" src="http://emojipedia-us.s3.amazonaws.com/cache/6e/bd/6ebd94944d1917ffe02c81acb4fad0f9.png" alt="Likes Checkmark"></p>
+  </div>
+  <br>
+  <% end %>
+  <h3 class="centered"><a href="/posts/<%= @post.id %>/comment">COMMENT</a></h3>
+
+</div>
