@@ -1,0 +1,12 @@
+<%= form_for @post do |pot| %>
+  <%= pot.label :title %>
+  <%= pot.text_field :title %>
+
+  <%= pot.label :author %>
+  <%= pot.text_field :author %>
+
+  <%= pot.label :post_content %>
+  <%= pot.text_field :post_content %>
+
+  <%= pot.submit %>
+<% end %>

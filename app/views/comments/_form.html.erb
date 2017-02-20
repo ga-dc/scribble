@@ -1,0 +1,12 @@
+<%= form_for [@post,@comment] do |com| %>
+  <%= com.label :commenter %>
+  <%= com.text_field :commenter %>
+
+  <%= com.label :commenter_nationality %>
+  <%= com.text_field :commenter_nationality %>
+
+  <%= com.label :comment_content %>
+  <%= com.text_field :comment_content %>
+
+  <%= com.submit %>
+<% end %>

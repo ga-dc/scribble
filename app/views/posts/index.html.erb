@@ -1,0 +1,8 @@
+<h2>Posts</h2>
+<h3><%= link_to "New Post", new_post_path %></h3>
+
+<% @posts.each do |post| %>
+  <h4>
+    <%= link_to post.title, post %> | <%= link_to   'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Edit', edit_post_path(post) %>
+  </h4>
+<% end %>
