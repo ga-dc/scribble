@@ -18,5 +18,5 @@ posts = Post.create([
 comments = Comment.create([
   {content: "comment comments comment comments comment, comment's comments comment comment, comment, comments & commented.",post: posts[0]},
   {content: "comment comments comment comments comment, comment's comments comment comment, comment, comments & commented.",post: posts[1]},
-  {content: "comment comments comment comments comment, comment's comments comment comment, comment, comments & commented.",post: posts[1]}
+  {content: "comment comments comment comments comment, comment's comments comment comment, comment, comments & commented.",post: posts[2]}
   ])
