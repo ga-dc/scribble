@@ -1,0 +1,7 @@
+<h2><%= @post.title %></h2>
+<p><%= @post.body %></p>
+<% @post.comments.each do |comment| %>
+  <div class="comment">
+    <%= comment.body %>
+  </div>
+<% end %>
