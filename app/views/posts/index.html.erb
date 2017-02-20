@@ -1,0 +1,13 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <p><%= link_to post.title, post %></p>
+      <ul>
+        <li> <%= link_to "Edit Me", post_path(post) %></li> 
+        <li><%= link_to "Delete Me", post_path(post), method: :delete %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<h2><%= link_to "New Post", new_post_path %></h2>
