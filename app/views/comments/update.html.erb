@@ -1,0 +1,15 @@
+<h2>Edit Comment</h2>
+
+<%= form_for @comments do |comment| %>
+  <%= comment.label :name %>
+  <%= comment.text_field :name %>
+
+  <%= comment.label :comment %>
+  <%= comment.text_field :comment %>
+
+  <%= comment.submit %>
+<% end %>
+
+<%= form_for @comments, method: :delete do |comment| %>
+  <%= comment.submit "Delete!", class: "delete" %>
+<% end %>
