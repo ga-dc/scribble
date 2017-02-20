@@ -1,0 +1,7 @@
+  <p>
+    <%= link_to comment.body, comment_path(comment) %>
+    <%= comment.body %>
+    <%= comment.author %>
+    <%= link_to "Delete this comment", comment_path(comment), method: :delete%>
+    <%= link_to "Edit this comment", edit_comment_path(comment)%>
+  </p>

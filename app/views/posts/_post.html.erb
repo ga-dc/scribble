@@ -1,0 +1,7 @@
+  <p>
+    <%= link_to post.title, post_path(post) %>
+    <%= post.body %>
+    <%= post.author %>
+    <%= link_to "Delete this post", post_path(post), method: :delete%>
+    <%= link_to "Edit this post", edit_post_path(post)%>
+  </p>

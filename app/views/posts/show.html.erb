@@ -1,0 +1,13 @@
+<style>
+img{max-width: 40%}
+</style>
+
+<h1>Dug Blog</h1>
+<h2>I'm at views/posts/show.html.erb!</h2>
+    <nav>
+      <a href="/posts">All Posts</a>
+    </nav>
+<p><%= @post.title %></p>
+<p><%= @post.body %></p>
+<p><%= @post.author%> </p>
+<p>    <%= link_to "Delete this post", post_path(@post.id), method: :delete%></p>
