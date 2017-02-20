@@ -1,12 +1,11 @@
-<h1>Welcome To Scribble</h1>
-<h3><a href="posts/new">Create New Post!</a></h3>
+<h1>Welcome To Scribble! <span><a href="posts/new">(Create New Post!)</a></span></h1>
 <div>
   <% @posts.each do |post| %>
-    <p>
-      <a href="/posts/<%= post.id %>"><%= post.title %></a><br />
-      Updated by <%= post.user %> at <%= post.created_at %><br />
-        <%= post.content %>
-        <hr />
-    </p>
+    <div>
+      <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+      <h4>Updated by <%= post.user %> at <%= post.created_at %></h4>
+      <p><%= post.content %></p>
+      <hr />
+    </div>
   <% end %>
 </div>
