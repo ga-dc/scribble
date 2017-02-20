@@ -27,6 +27,14 @@ class PostsController < ApplicationController
     @toss.delete
     redirect_to "/posts"
   end
+  def update
+    @update = Post.find(params[:id])
+  end
+  def update_post
+    @update = Post.find(params[:id])
+    @update.update(post_params)
+    redirect_to '/posts'
+  end
   private
   def comment_params
     params.require(:comment).permit(:author, :text, :post_id)
