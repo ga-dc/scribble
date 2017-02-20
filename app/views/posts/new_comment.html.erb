@@ -10,10 +10,18 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <label for="comment[author]">Author:</label>
+    <br>
     <input name="comment[author]">
 
+    <br>
+    <br>
+
     <label for="comment[content]">Content:</label>
-    <input name="comment[content]">
+    <br>
+    <textarea class="content_box" name="comment[content]"></textarea>
+
+    <br>
+    <br>
 
     <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
 
@@ -22,6 +30,6 @@
     <input type="submit" value="COMMENT">
   </form>
 
-  <h3><a href="/posts/<%= @post.id %>">BACK</a></h3>
+  <h3><a class="underline" href="/posts/<%= @post.id %>">BACK</a></h3>
 
 </div>

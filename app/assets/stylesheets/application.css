@@ -84,3 +84,34 @@ html {
   width: 20px;
   height: 20px;
 }
+
+.continued {
+  text-align: center;
+}
+
+a .index_post {
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.index_post {
+  padding: 5px;
+  text-decoration: none;
+}
+
+.index_post:hover {
+  background-color: rgba(0,0,0,.1)
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.content_box {
+  width: 500px;
+  height: 200px;
+}

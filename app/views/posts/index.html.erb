@@ -6,15 +6,21 @@
   <br>
   <hr>
   <br>
-  <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
-  <h4>by <%= post.author %></h4>
-  <p><%= post.content %></p>
-  <p class="right_align">Last Updated: <%= post.updated_at %></p>
-  <p class="right_align">Originally Posted At: <%= post.created_at %></p>
+  <a href="/posts/<%= post.id %>">
+  <div class="index_post">
+    <h2><%= post.title %></h2>
+    <h4>by <%= post.author %></h4>
+    <p><%= post.content[0..100] %>...</p>
+    <p class="continued">Read More</p>
+    <p class="right_align">Last Updated: <%= post.updated_at %></p>
+    <p class="right_align">Originally Posted At: <%= post.created_at %></p>
   <p class="likes"><%= post.likes %> <img class="likemark" src="http://emojipedia-us.s3.amazonaws.com/cache/6e/bd/6ebd94944d1917ffe02c81acb4fad0f9.png" alt="Likes Checkmark"></p>
+  </div>
+  </a>
   <% end %>
   <br>
   <br>
-  <h3 class="centered"><a href="/posts/new_post">NEW POST</a></h3>
+  <h3 class="centered underline"><a href="/posts/new_post">NEW POST</a></h3>
+  <br>
 
 </div>

@@ -12,13 +12,23 @@
     <input type="hidden" name="_method" value="put">
 
     <label for="comment[author]">Author:</label>
+    <br>
     <input name="comment[author]" value="<%= @comment.author %>">
 
+    <br>
+    <br>
+
     <label for="comment[content]">Content:</label>
-    <input name="comment[content]" value="<%= @comment.content %>">
+    <br>
+    <textarea class="content_box" name="comment[content]"><%= @comment.content %></textarea>
+
+    <br>
+    <br>
 
     <input type="submit" value="UPDATE">
   </form>
+
+  <br>
 
   <form action="/posts/comments/<%= @comment.id %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -26,6 +36,6 @@
     <input class="button" type="submit" value="DELETE">
   </form>
 
-  <h3><a href="/posts/<%= @comment.post_id %>">BACK</a></h3>
+  <h3><a class="underline" href="/posts/<%= @comment.post_id %>">BACK</a></h3>
 
 </div>

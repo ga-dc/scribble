@@ -7,7 +7,7 @@
   <h1 class="title"><%= @post.title %></h1>
   <h4 class="title">by <%= @post.author %></h4>
   <p><%= @post.content %></p>
-  <p class="right_align">Last Updated: <%= @post.updated_at %> <a href="/posts/<%= @post.id %>/edit">EDIT POST</a></p>
+  <p class="right_align">Last Updated: <%= @post.updated_at %> <a class="underline" href="/posts/<%= @post.id %>/edit">EDIT POST</a></p>
   <p class="right_align">Originally Posted At: <%= @post.created_at %></p>
   <p class="likes"><%= @post.likes %> <img class="likemark" src="http://emojipedia-us.s3.amazonaws.com/cache/6e/bd/6ebd94944d1917ffe02c81acb4fad0f9.png" alt="Likes Checkmark"></p>
   <br>
@@ -19,12 +19,12 @@
   <% @comment.each do |comment| %>
   <div class="comment_box">
     <p><span class="comment_author"><%= comment.author %>:<br></span><%= comment.content %></p>
-    <p class="right_align">Last Updated At: <%= comment.updated_at %> <a href="/posts/comments/<%= comment.id %>/edit">EDIT</a></p>
+    <p class="right_align">Last Updated At: <%= comment.updated_at %> <a class="underline" href="/posts/comments/<%= comment.id %>/edit">EDIT</a></p>
     <p class="right_align">Originally Posted At: <%= comment.created_at %></p>
   <p class="likes"><%= comment.likes %> <img class="likemark" src="http://emojipedia-us.s3.amazonaws.com/cache/6e/bd/6ebd94944d1917ffe02c81acb4fad0f9.png" alt="Likes Checkmark"></p>
   </div>
   <br>
   <% end %>
-  <h3 class="centered"><a href="/posts/<%= @post.id %>/comment">COMMENT</a></h3>
+  <h3 class="centered"><a class="underline" href="/posts/<%= @post.id %>/comment">COMMENT</a></h3>
 
 </div>
