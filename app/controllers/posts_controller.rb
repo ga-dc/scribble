@@ -5,21 +5,21 @@ class PostsController < ApplicationController
     #render :index      You can add this if you want to change the default view file
   end
 
-  # # show
-  # def show
-  #   @artist = Artist.find(params[:id])
-  # end
-  #
-  # # new
-  # def new
-  #   @artist = Artist.new
-  # end
-  #
-  # # create
-  # def create
-  #   @artist = Artist.create!(artist_params)
-  #   redirect_to "/artists"
-  # end
+  # show
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  # new
+  def new
+    @post = Post.new
+  end
+
+  # create
+  def create
+    @post = Post.create!(posts_params)
+    redirect_to "/posts/#{@post.id}"
+  end
   #
   # # edit
   # def edit
