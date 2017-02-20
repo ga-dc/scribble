@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scribble</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav>
+    <h3>scribble</h3>
+    <h3><%= link_to "See all posts", posts_path()  %></h3>
+    <h3><%= link_to "Add new post", new_post_path() %></h3>
+    <h3><%= link_to "See categories", categories_path() %></h3>
+  </nav>
+
+  <% flash.each do |type, message| %>
+    <p><%= type %> : <%= message%></p>
+  <% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

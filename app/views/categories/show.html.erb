@@ -1,0 +1,4 @@
+<h2>Posts tagged with: <%= @category.name %></h2>
+<% @tag.each do |t| %>
+<p><%= link_to t.post.title, post_path(t.post) %></p>
+<% end %>
