@@ -1,0 +1,19 @@
+html {
+  border: 3px double black;
+  
+}
+
+body {
+  background-color: lightgrey;
+  text-align: center;
+
+}
+
+.comm {
+  border: 2px double grey;
+
+}
+
+.post {
+  border: 2px double blue;
+}
