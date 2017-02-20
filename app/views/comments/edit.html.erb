@@ -1,0 +1,10 @@
+<%= form_for @comment do |c| %>
+  <%= c.label :title %>
+  <%= c.text_field :title %><br>
+  <%= c.label :author %>
+  <%= c.text_field :author %><br>
+  <%= c.label :body %>
+  <%= c.text_field :body %><br>
+  <%= c.hidden_field :post_id%>
+  <%= c.submit %>
+<% end %>
