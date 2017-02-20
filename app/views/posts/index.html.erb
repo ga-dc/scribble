@@ -1,0 +1,31 @@
+<h1>Listing posts</h1>
+<%= link_to 'New post', new_post_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+   <article>
+     <p>
+      <tr>
+        <td><strong><%= post.title %></strong></td>
+        <td><%= post.text %></td>
+        <% if post.tags.length > 0 %>
+          <h2>Tags</h2>
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.category.name, category_path(tag.category) %>
+          <% end %>
+        <% end %>
+        </p>
+
+        <td><%= link_to 'Show', post_path(post) %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Delete', post_path(post),
+                method: :delete,
+                data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    </article>
+  <% end %>
+</table>

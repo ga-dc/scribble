@@ -1,0 +1,8 @@
+<h1>Editing post</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'All Posts', posts_path %> |
+<%= link_to 'Delete This Post', post_path(@post),
+        method: :delete,
+        data: {confirm: 'Are you sure?'} %>
