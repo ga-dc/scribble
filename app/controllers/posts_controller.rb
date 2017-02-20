@@ -17,32 +17,31 @@ class PostsController < ApplicationController
 
   # create
   def create
-    @post = Post.create!(posts_params)
+    @post = Post.create!(post_params)
     redirect_to "/posts/#{@post.id}"
   end
-  #
-  # # edit
-  # def edit
-  #   @artist = Artist.find(params[:id])
-  # end
-  #
-  # # update
-  # def update
-  #   @artist = Artist.find(params[:id])
-  #   @artist.update(artist_params)
-  #
-  #   redirect_to "/artists/#{@artist.id}"
-  # end
-  #
-  # # destroy
-  # def destroy
-  #   @artist = Artist.find(params[:id])
-  #   @artist.destroy
-  #   redirect_to "/artists"
-  # end
+
+  # edit
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  # update
+  def update
+    @post = Post.find(params[:id])
+    @Post.update
+    redirect_to "/posts/#{@post.id}"
+  end
+
+  # destroy
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to "/posts"
+  end
 
   private
-  def posts_params
+  def post_params
     params.require(:post).permit(:title, :user, :content)
   end
 end
