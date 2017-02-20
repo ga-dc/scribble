@@ -1,0 +1,10 @@
+<h2>Edit Comment</h2>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Delete!", @comment, method: :delete, class: "delete" %>
