@@ -1,0 +1,5 @@
+<h2>This post is about <%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<h5> <%= link_to "go back to all post", posts_path%></h5>
+<ul>
+  <%= @post.body %>
+</ul>
