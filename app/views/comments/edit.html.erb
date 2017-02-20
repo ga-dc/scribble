@@ -1,0 +1,14 @@
+<%= link_to "Back", post_path(@post), method: :get %>
+<h1>Edit Comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+
+  <%= f.label :body, :"Comment" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit :"Edit Comment" %>
+<% end %>
+
+<%= form_for [@post, @comment], method: :delete do |f| %>
+ <%= f.submit :"Delete Comment" %>
+<% end %>

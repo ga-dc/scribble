@@ -1,0 +1,10 @@
+<%= link_to "Back", post_path(@post) %>
+<h1>New Comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+
+  <%= f.label :body, :"Comment" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit :"Add Comment" %>
+<% end %>
