@@ -1,0 +1,22 @@
+<h2>Edit <%= @post.title %></h2>
+
+<%= form_for @post, url: "/posts/#{@post.id}", :method => :PUT do |f| %>
+  <p><%= f.label :title %>
+  <%= f.text_field :title %></p>
+
+  <p><%= f.label :user %>
+  <%= f.text_field :user %></p>
+
+  <p><%= f.label :tags %>
+  <%= f.text_field :tags, multiple: true%></p>
+
+  <p><%= f.label :content %>
+  <%= f.text_field :content %></p>
+
+  <%= f.submit "Edit" %>
+<% end %>
+
+
+<%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
+  <% f.submit "Delete", class: "btn-delete" %>
+<% end %>

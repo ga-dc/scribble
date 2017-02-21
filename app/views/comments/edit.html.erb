@@ -1,0 +1,12 @@
+<h2>Edit Comment!<% @comment.content %></h2>
+
+<%= form_for @comment, url: "/comments/#{@comment.id}", :method => :PUT do |f| %>
+
+  <p><%= f.label :Auther %>
+  <%= f.text_field :user %></p>
+
+  <p><%= f.label :content %>
+  <%= f.text_field :content %></p>
+
+  <%= f.submit "Edit" %>
+<% end %>

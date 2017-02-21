@@ -1,0 +1,42 @@
+<h4><a href="/">&#8592; Home</a><span class="edit"><a href="/posts/<%= @post.id %>/edit">Edit This Post!</a></span></h4>
+
+
+<h3><%= @post.title %></h3>
+<h4>Updated by <%= @post.user %> at <%= @post.created_at %></h4>
+<h4>Tags: <%= @post.tags.join(", ") %></h4>
+<p>
+  <%= @post.content %>
+</p>
+
+
+<h3>Comments:</h3>
+<% @post.comments.each do |comment| %>
+  <div class="comment">
+    <h4>Added by <%= comment.user %> at <%= comment.created_at %></h4>
+      <%= comment.content %>
+      <p>
+        <a href="/comments/<%= comment.id %>/edit"><button>Edit</button></a>
+        <%= form_for comment, url: "/comments/#{comment.id}", method: :delete do |f| %>
+        <% f.submit "Delete", class: "btn-delete" %>
+        <% end %>
+      <p>
+  </div>
+<% end %>
+
+
+<div class="newComment">
+  <h4>Add New Comment!</h4>
+  <%= form_for @post.comments.new do |f| %>
+
+  <p><%= f.label :auther %>
+  <%= f.text_field :user, size: "17x12"%>
+
+  <%= f.label :comment %>
+  <%= f.text_field :content, size: "37x12" %>
+
+  <span class="hide"><%= f.label :post_id %>
+  <%= f.text_field :post_id%></span></p>
+
+  <span class="add"><%= f.submit "Add!" %></span>
+  <% end %>
+</div>

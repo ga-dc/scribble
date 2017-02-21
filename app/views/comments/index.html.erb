@@ -1,0 +1,11 @@
+<h3>All Comments!</a></h3>
+<div>
+  <% @comments.each do |comment| %>
+    <p>
+      <a href="/comments/<%= comment.id %>"><%= comment.post.title %></a><br />
+      Updated by <%= comment.user %> at <%= comment.created_at %><br />
+        <%= comment.content %>
+        <hr />
+    </p>
+  <% end %>
+</div>
