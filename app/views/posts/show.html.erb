@@ -4,11 +4,9 @@
 <h3>Comments</h3>
 <ul>
   <% @post.comments.each do |comment| %>
-    <!-- build the list element for each comment -->
     <li>
-      <a href="/comments/<%= comment.id %>">
-        <%= comment.post %>
-        <!-- (<%= comment.album %>) -->
+      <a href="/comments/<%= comment.id %>" class="comment">
+        <%= comment.content %>
       </a>
     </li>
 
