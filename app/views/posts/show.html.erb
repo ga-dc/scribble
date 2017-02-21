@@ -4,10 +4,10 @@
 <h3>Comments</h3>
 <ul>
   <% @comments.comment.each do |comment| %>
-    <!-- build the list element for each song -->
+    <!-- show all comments associated with this post-->
     <li>
-      <a href="/comments/<%= comment.id %>">
         <%= comment.comment_title %>
+        <%= comment.comment_text %>
       </a>
     </li>
 
