@@ -1,0 +1,6 @@
+<h4> <a href="/posts"> < Back </a></h4>
+
+<h2> <%= @post.title %><a href="/posts/<%= @post.id%>/edit"> (edit)</a></h1>
+
+<p class="byLine"> Updated by <%= @post.user %> at <%= @post.updated_at %></p>
+<p> <%= @post.content %> </p>
