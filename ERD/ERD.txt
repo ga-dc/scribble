@@ -6,10 +6,10 @@ Post                                              Comment
 "" title - string
                                                 author- string
 "" content- string     one -to-MANY     /
-""                    -------------------       time_stamp - int
+""                    -------------------       time_stamp - string
 "" author - string                      \
 ""                                               post_id - int
-"" time_stamp - int
+"" time_stamp - string
 ""
 "" likes - int
 """""""""""""""""""
