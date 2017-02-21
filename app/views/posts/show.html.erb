@@ -3,13 +3,11 @@
 
 <h3>Comments</h3>
 <ul>
-  <% @comments.comment.each do |comment| %>
+  <% @post.comments.each do |comment| %>
     <!-- show all comments associated with this post-->
     <li>
         <%= comment.comment_title %>
         <%= comment.comment_text %>
-      </a>
     </li>
-
   <% end %>
 </ul>
