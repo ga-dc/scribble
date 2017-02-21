@@ -50,8 +50,11 @@ h4 {
   padding-bottom: 0;
 }
 form label {
-  margin: 0 10px;
+  margin-right: 10px;
   min-width: 200px;
+}
+#comment_user {
+  margin-right: 10px;
 }
 button {
   width: 70px;

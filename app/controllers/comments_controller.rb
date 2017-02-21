@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   # update
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(song_params)
+    @comment.update(comment_params)
     redirect_to "/posts/#{@comment.post_id}"
   end
 

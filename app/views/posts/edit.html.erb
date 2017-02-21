@@ -1,6 +1,6 @@
 <h2>Edit <%= @post.title %></h2>
 
-<%= form_for @post, url: "/posts/#{@post.id}" do |f| %>
+<%= form_for @post, url: "/posts/#{@post.id}", :method => :PUT do |f| %>
   <p><%= f.label :title %>
   <%= f.text_field :title %></p>
 
