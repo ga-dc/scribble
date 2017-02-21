@@ -4,6 +4,7 @@
     <div>
       <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
       <h4>Updated by <%= post.user %> at <%= post.created_at %></h4>
+      <h4>Tags: <%= post.tags.join(", ") %></h4>
       <p><%= post.content %></p>
       <hr />
     </div>
