@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.view_post{
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 900px;
+  background-color: rgba(145,125,35,0.5);
+}
+.each_post{
+  align-items: center;
+  margin: 0 auto;
+  width: 800px;
+  background-color: rgba(145,125,35,0.5);
+}
+a:link{
+  color: hotpink;
+}
+a:visited{
+   color: yellow;
+}
