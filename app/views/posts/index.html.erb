@@ -1,0 +1,10 @@
+<h2>Posts</h2>
+
+<% @posts.each do |post| %>
+<div class="">
+  <h3><%= link_to post.title, post %></h3>
+  <h6>This post was created on <%= post.created_at %> by <%= post.author %>.</h6>
+  <p><%= truncate(post.message, length: 500) %></p>
+  <hr>
+</div>
+<% end %>
