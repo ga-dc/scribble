@@ -23,8 +23,9 @@
 }
 
 textarea {
-height: 200px;
-width: 600px;
+  min-height: 200px;
+  min-width: 600px;
+  background-color: rgba(0, 158, 154, .4);
 }
 
 article {
@@ -50,4 +51,14 @@ time {
   padding: 20px;
   margin-top: 40px;
   background-color: rgba(0, 133, 213, .4);
+}
+
+body {
+  display: block;
+   text-align: center;
+}
+
+.form {
+  margin: auto;
+  position: relative;
 }
