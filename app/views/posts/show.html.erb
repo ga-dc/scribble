@@ -1,26 +1,28 @@
 <h1>Post View</h1>
+
+
 <article>
 
 <h2><%= @post.title %></h2>
 <time>Posted by <%= @post.author %> at <%= @post.updated_at %></time>
 <p><%= @post.content %></p>
 
-<%= link_to "Edit Post", edit_post_path(@post) %>
+<%= link_to "Edit Post", edit_post_path(@post) %> |
 <%= link_to "Delete Post", post_path(@post), method: :delete %>
 
+<div class="comment_section">
+<p><%= link_to "Add a Comment", new_post_comment_path(@post) %></p>
 
 <% @post.comments.each do |comment| %>
 
-  <div class="comment_section">
+
     <h3>Comments</h3>
 
-    <%= link_to "Add a Comment", new_post_comment_path(@post) %>
-
-      <time>Posted by <%= comment.author %> at <%= comment.updated_at %></time>
+      <p><time>Posted by <%= comment.author %> at <%= comment.updated_at %></time></p>
         <p>
           <%= comment.content %>
         </p>
-          <%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %>
+          <%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %> |
           <%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete %>
       </div>
 

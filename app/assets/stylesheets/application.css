@@ -14,8 +14,29 @@
  *= require_self
  */
 
+.logo {
+  max-height: 40%;
+  max-width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 textarea {
 height: 200px;
 width: 600px;
+}
+
+article {
+  background-color: rgba(0, 158, 154, .4);
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+.comment_section{
+  margin-top: 40px;
+  background-color: rgba(0, 133, 213, .4);
 }
