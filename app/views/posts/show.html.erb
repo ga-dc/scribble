@@ -12,4 +12,4 @@
   <% end %>
 </ul>
 
-<a href="/comments/new">Write a comment</a>
+<%= link_to "Add Comment", comments_new_path(post_id: @post.id) %>
