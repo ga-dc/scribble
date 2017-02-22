@@ -1,7 +1,3 @@
-- posts
-  - update
-  - delete
-
 - comments
   - create
   - update
