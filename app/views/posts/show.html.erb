@@ -4,3 +4,14 @@
 
 <p class="byLine"> Updated by <%= @post.user %> at <%= @post.updated_at %></p>
 <p> <%= @post.content %> </p>
+
+
+<h3> Comments </h3>
+<% @comments.each do |comment| %>
+<p class="byLine"> Updated by <%= comment.user %> at <%= comment.updated_at %></p>
+<p class='commentContent '> <%= comment.content %> </p>
+<p> <%= link_to "Edit Comment", edit_post_comment_path(@post, comment.id) %>
+<%end%>
+
+<p> <%= link_to "Write new comment", new_post_comment_path(@post) %></p>
+<p><%= link_to "See Just Comments", post_comment_path(@post) %></p>

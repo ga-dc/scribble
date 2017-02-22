@@ -1,11 +1,12 @@
-<h1> All Posts <a href="posts/new">(+)</a></h1>
+
 <% @posts.each do |post| %>
-<div class='postBox'>
   <h2><a href="/posts/<%= post.id %>">
     <%= post.title %>
   </a></h2>
-  <p class="byLine"> Updated by <%= post.user %> at <%= post.updated_at %></p>
-  <p> <%= post.content %> </p>
+<div class='postBox'>
+  <p class="byLine"> Updated by <%= post.user %> at <time><%= post.updated_at %></time></p>
+  <article> <%= post.content %> </article>
   <hr>
   <%end%>
 </div>
+<h3><a href="posts/new">Create A New Post</a></h3>

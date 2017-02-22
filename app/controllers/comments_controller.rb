@@ -1,39 +1,43 @@
-class PostsController < ApplicationController
+class CommentsController < ApplicationController
   def index
-    @posts = Post.all
+    @post = Post.find(params[:post_id])
+    @comments = Comment.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments.all
   end
 
   def new
-    @post = Post.new
+    @comment = Comment.new
   end
 
   def create
-    @post = Post.create!(post_params)
+    @comment = Comment.create!(comment_params)
     redirect_to "/posts/#{@post.id}"
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to "/posts/#{@post.id}"
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.update(comment_params)
+    redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
     redirect_to "/posts"
   end
 
   private
-def post_params
-  params.require(:post).permit(:title, :user, :created_at, :content)
+def comment_params
+  params.require(:comment).permit(:user, :content)
 end
 end
