@@ -8,4 +8,29 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.create!(post_params)
+    redirect_to "/posts"
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to "/posts/#{@post.id}"
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy_all
+    redirect_to "/posts"
+  end
+
 end
