@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   private #private method for permitting specific fields when submitting a form and persisting data to db
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :date)
   end
 
 end

@@ -7,5 +7,5 @@
 
 <h3>Comments <%= link_to "(+)", new_post_comment_path(@post.id) %></h3>
 <% @comments.each do |comment| %>
-  <p><%= comment.content %> <%= link_to " (edit)", edit_post_comment_path(@post.id) %></p>
+  <p><%= comment.content %> <%= link_to " (edit)", edit_post_comment_path(@post.id, comment.id) %></p>
 <% end %>
