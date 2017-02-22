@@ -1,11 +1,3 @@
-Start off with two models: Post and Comment
-
-## Models + Migrations
-
-- Create ERD for Post and Comment
-- Create models for Post and Comment
-- Create migrations for Post and Comment
-
 ## Index
 
 - Create an index where a user can see all posts
