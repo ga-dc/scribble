@@ -1,8 +1,3 @@
-- comments
-  - create
-  - update
-  - delete
-
 ## Bonus
 
 Create two additional models: Category and Tag.
