@@ -29,14 +29,25 @@ width: 600px;
 
 article {
   background-color: rgba(0, 158, 154, .4);
+  padding: 20px;
 }
 
-h1 {
+h1, h3 {
   font-family: 'Pacifico', cursive;
   text-align: center;
 }
 
+h2, article {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+time {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+}
+
 .comment_section{
+  padding: 20px;
   margin-top: 40px;
   background-color: rgba(0, 133, 213, .4);
 }
