@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scribble</title>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oswald:300|Pacifico" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+  <a href="/"><img class="logo" src="<%= image_path("scribble_logo.png") %>"></a>
+  </header>
+    <%= yield %>
+  </body>
+</html>
