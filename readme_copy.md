@@ -1,14 +1,11 @@
-## Create
+- posts
+  - update
+  - delete
 
-- Allow the user to create new posts and comments
-
-## Update
-
-- Allow the user to edit existing posts and comments
-
-## Delete
-
-- Allow the user to delete existing posts and comments.
+- comments
+  - create
+  - update
+  - delete
 
 ## Bonus
 
