@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <header>
+      <img src = '/images/Scribble.png'>
+
+      <nav>
+        <%= link_to "Songs", songs_path %>
+        <%= link_to "Artists", artists_path %>
+      </nav>
+
+    </header>
+
     <%= yield %>
   </body>
 </html>
