@@ -9,8 +9,9 @@
 <ul>
   <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.author %>
-      <%= comment.comment_text %>
+      <p><%= link_to comment.comment_text %></p>
+      <p class = "comment_author"> <%= comment.author %> </p>
+    
     </li>
   <% end %>
 </ul>

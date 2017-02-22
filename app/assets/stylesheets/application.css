@@ -22,3 +22,8 @@ body{
 img{
 width: 100pt;
 }
+
+.comment_author{
+  font-style: italic;
+  font-size: 12pt;
+}

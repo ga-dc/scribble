@@ -1,0 +1,4 @@
+<h2><%= @comment.title %> <%= link_to "(edit)", edit_comment_path(@comment) %></h2>
+<p>Author: <%= @comment.author%></p>
+<p>Created: <%= @comment.created_at%></p>
+<p> <%= @comment.comment_text%></p>
