@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   def new
+    puts params.inspect
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new
   end

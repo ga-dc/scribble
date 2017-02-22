@@ -5,7 +5,7 @@
   <%= @post.content %>
 </p>
 
-<h3>Comments <%= link_to "(+)", new_post_comment_path(:post_id) %></h3>
+<h3>Comments <%= link_to "(+)", new_post_comment_path(@post.id) %></h3>
 <% @comments.each do |comment| %>
   <p><%= comment.content %></p>
 <% end %>
