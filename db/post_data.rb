@@ -12,9 +12,9 @@ def get_post_data
             },
     "post_3" => {
               title: "Tuesday Morning...",
-              user:"Lisa B."
+              user:"Lisa B.",
               article: "Your head is not an artifact! About four years. I got tired of hearing how young I looked. When has justice ever been as simple as a rule book? Yes, absolutely, I do indeed concur, wholeheartedly! For an android with no feelings, he sure managed to evoke them in others. Why don't we just give everybody a promotion and call it a night - 'Commander'? Mr. Crusher, ready a collision course with the Borg ship. Could someone survive inside a transporter buffer for 75 years? Some days you get the bear, and some days the bear gets you. Maybe if we felt any human loss as keenly as we feel one of those close to us, human history would be far less bloody. Not if I weaken first. Damage report! Maybe if we felt any human loss as keenly as we feel one of those close to us, human history would be far less bloody. I've had twelve years to think about it. And if I had it to do over again, I would have grabbed the phaser and pointed it at you instead of them. You bet I'm agitated! I may be surrounded by insanity, but I am not insane. This is not about revenge. This is about justice. Travel time to the nearest starbase? Computer, belay that order. Did you come here for something in particular or just general Riker-bashing? That might've been one of the shortest assignments in the history of Starfleet. I think you've let your personal feelings cloud your judgement. I'll be sure to note that in my log. I can't. As much as I care about you, my first duty is to the ship. You're going to be an interesting companion, Mr. Data. Captain, why are we out here chasing comets?",
-            },
+            }
     }
   return post_data
 end
