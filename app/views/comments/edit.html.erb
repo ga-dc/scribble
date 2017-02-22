@@ -1,0 +1,12 @@
+<h2>Edit Comment</h2>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :album %>
+  
+  <%= f.submit %>
+<% end %>
+
+<%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>

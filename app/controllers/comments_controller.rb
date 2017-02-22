@@ -6,7 +6,7 @@ end
 
 def new
   @post = Post.find(params[:post_id])
-  @comment = @post.comment.new
+  @comment = @post.comments.new
 end
 
 def create
