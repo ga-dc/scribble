@@ -1,0 +1,8 @@
+<h2> All Comments of Posts</h2>
+<div class='comments'>
+  <% @comments.each do |comment| %>
+  <p>
+    <%= link_to "#{@post.title} - Comments" , post_comment_path(@post, comment) %>
+  </p>
+  <%end%>
+</div>
