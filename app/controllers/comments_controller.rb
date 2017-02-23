@@ -9,6 +9,21 @@ def create
 
 end
 
+#edit comment
+
+def edit
+  @post = Post.find(params[:post_id])
+  @comment = @post.comments.find(params[:id])
+
+end
+
+def update
+  @post = Post.find(params[:post_id])
+  @comment = Comment.find(params[:id])
+  @comment.update(comment_params)
+  redirect_to post_path(@post)
+end
+
 # delete existing comment
 def destroy
   @post = Post.find(params[:post_id])
