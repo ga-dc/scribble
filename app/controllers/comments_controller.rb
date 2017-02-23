@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
    # edit
    def edit
      @comment = Comment.find(params[:id])
-     @post = post.find(params[:post_id])
+     @post = Post.find(params[:post_id])
    end
 
    # update
