@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+<p class="show-post">Posted by <%= @post.author %> on <%= @post.created_at %></p>
+
+<p><%= @post.content %></p>
+
+<%= link_to "Add a comment", new_post_comment_path(@post) %>
+
+<% if @post.comments.length > 0 %>
+<div class="comment-box">
+  <% @post.comments.each do |comment| %>
+    <p class="show-comment">Posted by <%= comment.author %> on <%= comment.created_at %></p>
+    <p><%= comment.content %></p>
+  <% end %>
+</div>
+<% end %>
