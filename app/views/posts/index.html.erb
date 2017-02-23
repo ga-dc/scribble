@@ -1,0 +1,13 @@
+<h2>Posts <%= link_to "(+)", new_post_path %></h2>
+
+<p><%= "*" * 60 %></p>
+<p><%= "*" * 60 %></p>
+
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post %></h3>
+  <h4><%= post.date %></h4>
+  <p>
+    <%= post.content %>
+  </p>
+  <p><%= "*" * 60 %></p>
+<% end %>

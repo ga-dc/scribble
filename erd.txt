@@ -1,0 +1,9 @@
+/ - - - - - - - - \                     / - - - - - - - - \
+|      POST       |                     |     COMMENT     |
+| =============== |                     | =============== |
+| title (string)  |    (One-to-many)    | content (string)|
+| content (string)|  -|-------------|<  | post_id (int)   |
+| date (string)   |                     |                 |
+|                 |                     |                 |
+|                 |                     |                 |
+\ - - - - - - - - /                     \ - - - - - - - - /
