@@ -1,0 +1,9 @@
+<h3>All Comments!</a></h3>
+<div class="comments_view">
+  <% @posts.comments.each do |comment| %>
+    <div class="comment">
+      Added by <%= comment.author %> at <%= comment.created_at %><br />
+        <%= comment.content %>
+      <% end %>
+  <hr>
+</div>

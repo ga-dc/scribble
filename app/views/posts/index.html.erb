@@ -1,0 +1,21 @@
+<h2>Interesting Facts about Ethiopia</h2>
+
+
+  <% @posts.each do |post| %>
+
+  <a href="/posts/<%= post.id %>"><%= post.title %></a>
+  </br>
+
+  <br>
+ <h4>By: <%= post.author %> at <%= post.created_at %></h4>
+
+
+  <div class="view_post">
+      <p><%= post.content %></p>
+  <p>  <a href="posts/<%= post.id %>">Edit</a> |
+    </div>
+
+<p>Updated by: <%= post.author %> at <%= post.updated_at %></p>
+<p>Likes: <%= post.likes %></p>
+<hr>
+  <% end %>
