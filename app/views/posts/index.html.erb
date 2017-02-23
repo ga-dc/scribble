@@ -4,13 +4,13 @@
 
 <% @posts.each do |post| %>
 
- <h3><%= @post.title %></h3>
+ <h3><%= link_to post.title %></h3>
  <br />
  <ul>
-   <span><h5><%= @post.author %></span> <span><%= @post.date_time %></span> <span><%= @post.created_at %></span></h5>
+   <h5><%= post.author %> <%= post.date_time %> <%= post.created_at %></h5>
  </ul>
  <br />
- <h4><%= @post.text %></h4>
- <img src="<%= @post.img_url %>">
+ <h4><%= post.text %></h4>
+ <img src="<%= post.img_url %>">
 
 <% end %>
