@@ -21,7 +21,6 @@ comment_data.each_pair do |post_title, comments|
   current_post = Post.create!({
     title:      info[:title],
     article:    info[:article],
-    user:       info[:user]
     })
 
 
