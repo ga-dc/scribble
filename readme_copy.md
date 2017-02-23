@@ -1,8 +1,5 @@
 ## Bonus
 
-Create two additional models: Category and Tag.
-* Tag represents the join table between Post and Category.
-
 Update the `Post` show page so that it includes...
 * A linkable list of that Post's Categories.
 * When clicked, each Tag should link to its Category show page.

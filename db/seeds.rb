@@ -9,11 +9,11 @@
 Comment.destroy_all
 Post.destroy_all
 
-cats = Post.create!(title: "Cats", text: "I think that cats are better than dogs!")
-  cats.comments.create!(text: "I agree!")
-  cats.comments.create!(text: "Wrong! Dogs are better!")
+cats = Post.create(title: "Cats", text: "I think that cats are better than dogs!")
+  cats.comments.create(text: "I agree!")
+  cats.comments.create(text: "Wrong! Dogs are better!")
 
-paris = Post.create!(title: "Paris", text: "Has anyone ever been to Paris?")
-  paris.comments.create!(text: "I have; it's great!")
-  paris.comments.create!(text: "Nope, but I heard Parisians are snobby.")
-  paris.comments.create!(text: "Don't you think you're overgeneralizing?")
+paris = Post.create(title: "Paris", text: "Has anyone ever been to Paris?")
+  paris.comments.create(text: "I have; it's great!")
+  paris.comments.create(text: "Nope, but I heard Parisians are snobby.")
+  paris.comments.create(text: "Don't you think you're overgeneralizing?")
