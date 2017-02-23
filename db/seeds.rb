@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Post.destroy_all
+Comment.destroy_all
+
+ex1 = Post.create(title:"This is the first post!",content: "This is the content of the first post!!")
+ex2 = Post.create(title:"This is the second post!",content: "This is the content of the second post!!")
