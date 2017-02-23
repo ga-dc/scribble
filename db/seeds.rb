@@ -12,4 +12,12 @@ Post.destroy_all
 
 first_post = Post.create!(author: "Nyk", title: "Awesome Title", text: "This is the legit")
 
-# Comment.create!(name: "Bobby Jr", content: "Awesome Title was legit!", post: first_post)
+Comment.create!(name: "Bobby Jr", content: "Awesome Title was legit!", post: first_post)
+
+second_post = Post.create!(author:"Nyk", title: "Poetry Corner", text: "Awesome Poem")
+
+Comment.create!(name:"Glen Coco", content: "that poem touched me", post:second_post)
+
+third_post = Post.create!(author:"Nyk", title: "Short Story Central", text:"There Once was a girl")
+
+Comment.create!(name:"Tommy Pickles", content:"what a story", post:third_post)
