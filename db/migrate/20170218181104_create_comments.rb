@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.string :comment_author
       t.string :comment_title
       t.string :comment_text
-      t.datetime :comment_created_on
+      t.timestamps
     end
   end
 end
