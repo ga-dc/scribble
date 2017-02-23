@@ -1,0 +1,23 @@
+
+<a href="/posts">Back</a>
+<%= form_for @posts do |f| %>
+ <%= f.label :author %>
+ <%= f.text_field :author %>
+
+ <br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+ <br>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+ <br>
+
+  <%= f.label :likes %>
+  <%= f.text_field :likes %>likes
+
+ <%= f.submit %>
+ <% end %>
