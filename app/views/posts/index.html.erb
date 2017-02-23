@@ -1,11 +1,10 @@
-<h2>All the Posts <a href="/posts/new">(+)</a></h2>
+<h2>All the Posts <%= link_to "(Contribute, please)", new_post_path(@post) %> </h2>
 
-<ul>
+<p>
   <%@posts.each do |post| %>
-    <li>
-      <a href="/posts/<%= post.id %>">
-        <%= post.title %>
-      </a>
-    </li>
+    <article>
+      <h2> <%= link_to post.title, post_path(post) %> </h2>
+        <%= post.article %>
+    </article>
   <% end %>
-</ul>
+</p>
