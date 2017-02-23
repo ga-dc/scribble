@@ -1,0 +1,10 @@
+<h1>Edit Post</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <li>
+      <%= post.title %>
+      <%= post.body %>
+    </li>
+  </div>
+<% end %>
