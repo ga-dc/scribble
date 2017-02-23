@@ -11,8 +11,8 @@ end
 
 def create
   @post = Post.find(params[:post_id])
-  @comment = @post.comments.create(comment_params)
-  redirect_to @comment
+  @comment = @post.comments.create!(comment_params)
+  redirect_to post_path(@post)
 end
 
 def show
@@ -26,15 +26,17 @@ def edit
 end
 
 def update
+  @post = Post.find(params[:post_id])
   @comment = Comment.find(params[:id])
   @comment.update(comment_params)
-  redirect_to post_comment_path
+  redirect_to post_path(@post)
 end
 
 def destroy
+  @post = Post.find(params[:post_id])
   @comment = Comment.find(params[:id])
   @comment.destroy
-  redirect_to comments_path
+  redirect_to post_path
 end
 
 private
