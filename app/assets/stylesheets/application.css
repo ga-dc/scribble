@@ -13,22 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   width: 800px;
+   margin: 20px auto;
+ }
 .view_post{
-  display: flex;
-  align-items: center;
+  width: 600px;
   margin: 0 auto;
-  width: 900px;
+  padding: 10px;
   background-color: rgba(145,125,35,0.5);
 }
 .each_post{
-  align-items: center;
+  width: 600px;
   margin: 0 auto;
-  width: 800px;
+  padding: 10px;
   background-color: rgba(145,125,35,0.5);
 }
+ p{
+  font-size: 16px;
+}
+a{
+  font-size: 16px;
+}
+img{
+  width: 200px;
+  height: 180px;
+}
 a:link{
-  color: hotpink;
+  color:hotpink;
 }
 a:visited{
-   color: yellow;
+  color: rgba(173,216,230,0.4);
 }
