@@ -1,0 +1,10 @@
+<h2> Favorite Things </h2>
+<a href="/posts/new"> Add a post</a>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+    <a href="/posts/show"> <%= post.id %>/<%= post.title %> / <%= post.content %> </a>  <a href="posts/<%= post.id %>/edit">edit </a> <a href="posts/<%= post.id %>">delete</a>
+    </li>
+  <% end %>
+</ul>

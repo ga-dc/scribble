@@ -1,0 +1,20 @@
+<h2> Edit Post</h2>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="post[title]">Title:</label>
+  <input name="post[title]" value="<%= @post.title %>">
+
+  <label for="post[title]">content:</label>
+  <input name="post[title]" value="<%= @post.content %>">
+
+  <input type="submit" value="Create">
+</form>
+
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete!">
+</form>
