@@ -1,10 +1,10 @@
 
-<h3><a href="/">Back</a></h3>
+<h3><a href="/">&larr;Back</a></h3>
 
 <h2><%= @post.title %></h2>
 
 
-<div class="post-show">
+<section class="post-show">
   <h6>This post was created on <%= @post.created_at %> by <%= @post.author %>.</h6>
   <p><%= @post.message %></p>
 
@@ -13,19 +13,30 @@
   <% end %>
 
   <div class="comments">
-    <h4>Comments</h4>
+    <h3>Comments</h3>
 
     <% @post.comments.each do |comment| %>
       <div class="comment">
         <p><%= comment.message %></p>
         <h6>by <%= comment.author %> on <%= comment.created_at %>.</h6>
-        <%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %>
+        <h5><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></h5>
       </div>
 
     <% end %>
   </div>
 
-  <h4>Leave a Comment</h4>
+  <h3 id="comment-click">Add Comment</h3>
+  <div class="comment-form hide">
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <%= f.label :message %>
+    <%= f.text_area :message %>
 
+    <%= f.label :author %>
+    <%= f.text_field :author %>
 
-</div>
+    <%= f.submit "Add Comment" %>
+  <% end %>
+  </div>
+</section>
+<br>
+<h3><a href="/">&larr;Back</a></h3>
