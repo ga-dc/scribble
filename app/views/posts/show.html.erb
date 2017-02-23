@@ -1,5 +1,5 @@
 <article>
-  <h2> <%= @post.title %> <%= link_to "(ooops...fix it)", edit_post_path(@post) %> </h2>
+  <h2> <%= @post.title %> <%= link_to "(ooops...)", edit_post_path(@post) %> <%= link_to "(ummmm...no.)", post_path(@post), method: :delete %> </h2>
     <p> <%= @post.article %> <p>
 
     <div>
@@ -7,8 +7,9 @@
       <% @post.comments.each do |comment| %>
         <section>
             <p>
-              <%= comment.body %>
+              <%= comment.body %> <%= link_to "(ooops...)", edit_post_comment_path(@post, comment) %> <%= link_to "(ummmm...no.)", post_comment_path(@post, comment), method: :delete %>
             </p>
+
         </section>
       <% end %>
     </div>
