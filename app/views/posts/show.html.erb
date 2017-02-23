@@ -1,0 +1,15 @@
+<%= link_to "< Back", posts_path %>
+<p>
+    <div class="well">
+        <h2><%= @post.title %></h2>
+        <h5>Author:
+            <%= @post.author %></h5>
+        <h6>Updated:
+            <%= @post.updated_at.strftime("%m-%d-%Y at %H:%M %Z") %></h6>
+        <p><%= @post.content %></p>
+        <p><%= link_to "Edit Post", edit_post_path(@post) %></p>
+        <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+    </dvi>
+    <hr>
+    <%= render "comments/show" %>
+    <%= render "comments/new" %>

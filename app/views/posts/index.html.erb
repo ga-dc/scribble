@@ -1,0 +1,15 @@
+<%= link_to "Create New Post", new_post_path %>
+<p>
+    <% @post.each do |post| %>
+    <div class="well">
+        <h2><%= post.title %></h2>
+        <h5>Author:
+            <%= post.author %></h5>
+        <h6>Updated:
+            <%= post.updated_at.strftime("%m-%d-%Y at %H:%M %Z") %></h6>
+        <p><%= post.content.first(300) %>
+            ...</p>
+        <%= link_to "Read More", post_path(post) %>
+    </div>
+    <hr>
+    <% end %>
