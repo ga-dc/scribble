@@ -9,7 +9,4 @@ Rails.application.routes.draw do
   delete '/posts/:id' => 'posts#destroy'
 
 
-
-
-
   end
