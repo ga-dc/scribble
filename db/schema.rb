@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170221181412) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "comment"
+    t.text     "body"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(version: 20170221181412) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "article"
+    t.text     "article"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "comments", "posts"
 end

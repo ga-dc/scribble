@@ -26,7 +26,7 @@ comment_data.each_pair do |post_title, comments|
 
 comments.each do |comment|
   Comment.create!({
-    comment:  comment[:comment],
+    body:  comment[:body],
     post:     current_post
     })
   end

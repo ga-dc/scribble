@@ -1,12 +1,15 @@
 <article>
   <h2> <%= @post.title %> <%= link_to "(ooops...fix it)", edit_post_path(@post) %> </h2>
     <p> <%= @post.article %> <p>
+
+    <div>
       <h3>Observations, inputs and ponderings... <%= link_to "Contribute, please", new_post_comment_path(@post) %> </h3>
+      <% @post.comments.each do |comment| %>
         <section>
-          <% @post.comments.each do |comment| %>
             <p>
-              <%= comment.comment %>
+              <%= comment.body %>
             </p>
-          <% end %>
         </section>
+      <% end %>
+    </div>
 </article>
