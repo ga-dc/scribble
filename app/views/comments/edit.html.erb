@@ -4,3 +4,7 @@
 
   <%= f.submit %>
 <% end %>
+
+<%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>

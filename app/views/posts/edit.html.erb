@@ -12,3 +12,7 @@
 
   <%= f.submit %>
 <% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>

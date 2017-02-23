@@ -22,15 +22,25 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  #edit
   def edit
     @post = Post.find(params[:id])
   end
 
+  #update
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
 
     redirect_to post_path(@post)
+  end
+
+  #destroy
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to posts_path
   end
 
   private #private method for permitting specific fields when submitting a form and persisting data to db
