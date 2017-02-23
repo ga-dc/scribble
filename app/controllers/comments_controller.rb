@@ -16,6 +16,7 @@ def create
 end
 
 def show
+  @post = Post.find(params[:post_id])
   @comment = Comment.find(params[:id])
 end
 
@@ -27,7 +28,7 @@ end
 def update
   @comment = Comment.find(params[:id])
   @comment.update(comment_params)
-  redirect_to @comment
+  redirect_to post_comment_path
 end
 
 def destroy

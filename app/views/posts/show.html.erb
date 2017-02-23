@@ -6,8 +6,8 @@
 <ul>
   <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.text %>
-      <%= link_to "(edit)", edit_post_comment_path(@comment) %>
+      <%= comment.text %><br>
+      <%= link_to "(edit)", edit_post_comment_path(@post) %>
     </li>
   <% end %>
 </ul>
