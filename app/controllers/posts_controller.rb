@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     @posts = Post.new
   end
 
+  #edit
+  def edit
+      @posts = Post.find(params[:id])
+  end
+
   #show
   def show
     @posts = Post.find(params[:id])
@@ -20,6 +25,27 @@ class PostsController < ApplicationController
     @post = Post.create!(post_params)
 
     redirect_to post_path(@post)
+  end
+
+  def post
+    @posts = Post.find(params[:id])
+  end
+
+  # update
+    def update
+      @posts = Post.find(params[:id])
+      @posts.update(post_params)
+
+      redirect_to "/posts/#{@posts.id}"
+    end
+
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+  redirect_to "/posts"
+
   end
 
 

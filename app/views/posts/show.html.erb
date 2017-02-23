@@ -4,6 +4,8 @@
   <h2><%= @posts.title %></h2>
   <h3>By:  <%=@posts.author%> </h3>
 <p><%= @posts.content %></p>
+<p><%= link_to 'edit', edit_post_path %> | <%= link_to 'delete', edit_post_path, method: :delete %> </p>
+
 
 </div>
 
@@ -11,8 +13,11 @@
   <h3>Comments</h3>
   <% @posts.comments.each do |comment| %>
     <div class="comment">
-      Added by <%= comment.author %> at <%= comment.created_at %><br /><%= comment.content %>
-       <%= link_to 'delete', [comment.post, comment], method: :delete %></p>
+      Added by <%= comment.author %> at <%= comment.created_at %><br /><%= comment.content %> <br>
+    <p><%= link_to "edit", [comment.post, comment], method: :edit  %> |  <%= link_to 'delete', [comment.post, comment], method: :delete %> </p>
+
+
+
 
       <% end %>
       <h2>New Comment</h2>
