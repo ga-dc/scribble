@@ -2,3 +2,13 @@
 <h6>Updated by <%= @post.author %> at <%= @post.created_at %></h6>
 
 <p><%= @post.content %></p>
+
+<%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
+<% f.submit "Delete Post", class: "btn-delete"%>
+<% end %>
+
+<h3>Comments</h3>
+  <% @comments.each do |comment| %>
+  <%= comment.content %> <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+
+<% end %>

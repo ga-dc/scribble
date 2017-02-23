@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 20170222183550) do
     t.string   "author"
     t.string   "content"
     t.string   "timestamp"
+    t.integer  "post_id"
     t.datetime "created_at"
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -30,4 +32,5 @@ ActiveRecord::Schema.define(version: 20170222183550) do
     t.datetime "created_at"
   end
 
+  add_foreign_key "comments", "posts"
 end
