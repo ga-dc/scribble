@@ -1,6 +1,6 @@
-<h2> Edit: <%= @post.title %> </h2>
+<h2> Edit: <%= @post.title %></h2>
 
-<%= form_for @post, url: "/posts/#{post.id}" do |f| %>
+<%= form_for  @post, url: "/posts/#{@post.id}" do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -9,18 +9,16 @@
   <%= f.text_field :author %>
 
 <br>
-
-  <%= f.label :content%>
-  <%= f.text_area :content, :cols => "50", :rows => "15" %>
-
 <br>
-
+  <%= f.label :content %>
+  <%= f.text_area :content, :cols => "50", :rows => "20" %>
+<br>
+<br>
 <%= f.submit "Update"%>
-
 <% end %>
 
 <br>
-
-<%= form_cor @post, url: "/posts/#{@post_id}", method: :delete do |f| %>
-<%= f.submit "Delete", class: "btn-delete"%>
+<br>
+<%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
+<% f.submit "Delete", class: "btn-delete"%>
 <% end %>
