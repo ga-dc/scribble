@@ -11,7 +11,12 @@ Things you may want to cover:
 
 * Configuration
 
-* Database creation
+```
+$ git clone git@github.com:ga-wdi-exercises/scribble.git
+$ cd scribble
+$ rails new . -d postgresql
+```
+
 
 * Database initialization
 
