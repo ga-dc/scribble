@@ -1,0 +1,12 @@
+<h1>  Heya, Looka Here at my Comment </h1>
+<h3>I wrote it ma'self </h3>
+  <p>post_id is:
+    <%=  @comment.post_id %>
+    <br><br>
+    comment_id is:
+    <%=  @comment.id     %>
+  </p
+    <h4>edit my comment content of whut all i said: </h4>
+    <br><br>
+    <%= @comment.content %>
+    <%= link_to "(edit)", edit_post_comment_path(@comment) %>
