@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scribble</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <a href="/"><img src="<%= image_path("scribble_logo.png") %>"></a>
+    </header>
+    <nav>
+      <img class="hidden-logo" src="<%= image_path("scribble_logo.png") %>">
+      <h2><%= link_to "Sign In", "#" %> | <%= link_to "Sign Up", "#" %> | <%= link_to "New Post", new_post_path %> </h2>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
