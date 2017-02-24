@@ -1,0 +1,30 @@
+<h4><%= link_to "Back to All Posts", posts_path %></h4>
+<div class="well">
+<div class="posttitle">
+<h2><%= @post.title %></h2> <h4><%= link_to "Edit Post", edit_post_path %></h2>
+</div>
+<div class="postcontent">
+<p>Updated by <%= @post.author %> at <%= @post.updated_at %></p>
+
+
+<%= @post.content %>
+</div>
+
+
+<br>
+<br>
+<div class="commenttitle">
+<h3>Comments</h3>
+</div>
+<div class="commentsection">
+<% @post.comments.each do |comment| %>
+ <h6>Posted by <%= comment.comment_by %> at <%= comment.created_at %></h6>
+ <p><%= comment.content %> <%= link_to "Edit", edit_post_comment_path(@post, comment) %></p>
+
+<% end %>
+</div>
+</div>
+<br>
+<div class="addnewcomment">
+<%= link_to "Add New Comment", new_post_comment_path( @post ) %>
+</div>

@@ -1,0 +1,22 @@
+
+<h2> All Posts </h2>
+
+<%= link_to "Add New Post", new_post_path %>
+
+
+<ul>
+
+  <% @posts.each do |post| %>
+
+<div class="well">
+  <h3><strong><%= link_to post.title, post_path(post) %></strong></h3>
+
+  <p>Created by <%= post.author %> at <%= post.created_at%></p>
+
+
+    <%= post.content %>
+  <br>
+
+  <% end %>
+</div>
+</ul>

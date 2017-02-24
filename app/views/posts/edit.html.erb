@@ -1,0 +1,26 @@
+<h2> Edit: <%= @post.title %></h2>
+
+<div class="well">
+<%= form_for  @post, url: "/posts/#{@post.id}" do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+<br>
+<br>
+  <%= f.label :content %>
+  <%= f.text_area :content, :cols => "50", :rows => "15" %>
+<br>
+<br>
+<%= f.submit "Update"%>
+<% end %>
+
+<br>
+<br>
+<%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
+<% f.submit "Delete", class: "btn-delete"%>
+<% end %>
+</div>
