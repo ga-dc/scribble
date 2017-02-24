@@ -1,0 +1,9 @@
+<h2> Comments</h2>
+
+<% @comments.each do |post| %>
+  <p>
+   <%=comment.username %>
+   <%=comment.content %>
+   Likes: <%=comment.likes %>
+ </p>
+<% end %>

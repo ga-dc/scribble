@@ -1,0 +1,9 @@
+<h1> Scibbler</h1>
+<a href="/posts/new"> Add a post</a>
+
+  <% @posts.each do |post| %>
+    <h2>
+    <a href="/posts/<%= post.id %>"> <%= post.title %></a>
+
+    </h2>
+  <% end %>
