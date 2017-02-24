@@ -1,0 +1,17 @@
+<h3><%= @post.title %></h3>
+ <br />
+   <h5><%= @post.author %> <%= @post.date_time %> <%= @post.created_at %> </h5>
+ <br />
+ <article>
+   <p><%= @post.text %>
+     <%= @post.img_url %>
+   </p>
+</article>
+
+ <h4>Comments</h4>
+ <% @post.comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+    <h5><%= comment.name %> <%= comment.date_time %> <%= comment.created_at %></h5>
+  </p>
+<% end %>
