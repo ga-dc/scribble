@@ -1,12 +1,14 @@
-<ul>
+<div>
   <% @posts.each do |post| %>
-  <li>
-    <a href="/posts/<%= post.id %>">
-      <%= post.title %>
-    </a>
-    <p> <%= post.content %></p>
-  </li>
+  <p>
+      <h2>  <a href="/posts/<%= post.id %>">
+         <%= post.title %>
+      </a>
+      </h2>
+
+    <p class="view_post"> <%= post.content %></p>
+  </p>
   <% end %>
-</ul>
+</div>
 
 <a href="/posts/new">Create New Post!</a>
