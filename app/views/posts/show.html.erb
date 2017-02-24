@@ -7,11 +7,15 @@
      <%= @post.img_url %>
    </p>
 </article>
+<%= link_to "New Post", new_post_path(@post) %> <span><%= link_to "Edit Post", edit_post_path %></span> <span><%= link_to "Delete Post", edit_post_path %></span>
 
- <h4>Comments</h4>
+
+ <h4>Comments <%= link_to "New Comment", new_post_comment_path(@post) %></h4>
+
  <% @post.comments.each do |comment| %>
+
   <p>
     <%= comment.content %>
     <h5><%= comment.name %> <%= comment.date_time %> <%= comment.created_at %></h5>
   </p>
-<% end %>
+  <% end %>
