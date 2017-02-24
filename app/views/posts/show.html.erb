@@ -1,0 +1,46 @@
+<center>
+<h1><%=@post.title%></h1>
+
+<p>
+  <%=@post.content%>
+</p>
+
+<br>
+<p> <%=link_to "Update Post", edit_post_path(@post.id)%> <%=link_to "Delete Post", "/posts/#{@post.id}/delete"%> </p>
+</p>
+<br>
+<br>
+<br>
+</center>
+
+
+
+<p>Add a Comment</p>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :comment %>
+  <%= f.text_area :content, :cols => "40", :rows => "10" %>
+  <br>
+  <br>
+  <%= hidden_field_tag 'id', @post.id%>
+  <%= f.submit %>
+<% end %>
+
+<p> Comments </p>
+
+<ul style = "list-style: none;">
+  <% @post.comments.each_with_index do |comment, i| %>
+    <li> <%= "#{i+1}. Title: #{comment.title}"%> </li>
+    <li> <%="Comment: #{comment.content}"%> </li>
+    <li> <%=link_to "Edit", "/posts/#{@post.id}/comments/#{comment.id}/edit" %> </li>
+    <li> <%=link_to "Delete", "/posts/#{@post.id}/comments/#{comment.id}/delete" %> </li>
+    <br>
+    <% end %>
+</ul>
+<br>
+
+<%= link_to "Back to Index", posts_path %>
