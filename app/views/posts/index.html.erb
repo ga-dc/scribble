@@ -1,11 +1,14 @@
 <h1>Welcome to Scribble</h1>
-
+  <
 <div>
-  <% @posts.each do |post| %?
-    <p>
+  <% @posts.each do |post| %>
+    <!-- <p>
     <a href="/posts/<%= post.id %>"><%= post.title %></a><br />
       <%= post.body %>
       <hr />
-    </p>
+    </p> -->
+    <h3><%= post.title %></h3>
+    <h4><%= post.user_id %>
+      <p><%= post.body %></p>
   <% end %>
 </div>
