@@ -1,10 +1,11 @@
 <%= link_to "Go Back", posts_path %>
 
 <h1><%= @post.title %></h1>
-<%= link_to "Delete", post_path(@post), method: :delete, style: "float:right;" %>
+<div class="float">
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Delete", post_path(@post), method: :delete %>
+</div>
 <p class="show-post">Posted by <%= @post.author %> on <%= @post.created_at %></p>
-
-
 
 <p><%= @post.content %></p>
 
@@ -23,7 +24,10 @@
     <div class="comment-box">
       <p class="show-comment">Posted by <%= comment.author %> on <%= comment.created_at %></p>
       <p><%= comment.content %></p>
-      <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, style: "float:right;" %>
+      <div class="float">
+        <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+        <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+      </div>
     </div>
   <% end %>
 <% end %>

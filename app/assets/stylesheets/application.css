@@ -58,3 +58,7 @@ header {
 .show-comment {
   font-style: italic;
 }
+
+.float {
+  float: right;
+}
