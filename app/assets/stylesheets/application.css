@@ -17,7 +17,7 @@
 img {
    display: block;
    margin: auto;
-   
+
 
  }
 
@@ -45,4 +45,8 @@ body {
 
 a {
   color: dodgerblue;
+}
+
+a:hover {
+  color: hotpink;
 }
