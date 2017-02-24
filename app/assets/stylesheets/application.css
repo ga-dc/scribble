@@ -28,11 +28,31 @@ header {
   font-size: 20px;
 }
 
+.comment-links {
+  margin-top: 30px;
+  width: 500px;
+  float: right;
+}
+
+.comment-links>* {
+  display: inline;
+}
+
+.comment-links a {
+  float: right;
+}
+
 .comment-box {
-  background: #dbd9d8;
+  background: #edeceb;
   padding: 5px 20px;
-  width: 400px;
-  margin: 30px;
+  margin: 10px 0;
+  width: 460px;
+  float: right;
+}
+
+.comment-field {
+  height: 60px;
+  width: 350px;
 }
 
 .show-comment {
