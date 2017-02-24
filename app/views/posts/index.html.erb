@@ -1,0 +1,11 @@
+<h1>Welcome to Scribble</h1>
+
+<div>
+  <% @posts.each do |post| %?
+    <p>
+    <a href="/posts/<%= post.id %>"><%= post.title %></a><br />
+      <%= post.body %>
+      <hr />
+    </p>
+  <% end %>
+</div>
