@@ -1,0 +1,24 @@
+<h2>Update Post</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_area :content, :cols => "40", :rows => "10" %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<p>Add Tags</p>
+<form action="/posts" method="get">
+<% if @categories %>
+<% @categories.each do |category| %>
+<input type="checkbox" name="tag" value= "<%=category.title%>"
+<br>"<%=category.title %>"
+<% end %>
+<input type="submit" value="Add Tag">
+</form>
+<% end %>

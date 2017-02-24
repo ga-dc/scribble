@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'posts#index'
+
+  get '/posts/:id/delete', to: 'posts#destroy'
+  get '/posts/:post_id/comments/:id/delete', to: 'comments#destroy'
+  get '/categories/new', to: 'categories#new'
+  post '/categories', to: 'categories#create'
+  get '/categories', to: 'categories#index'
+  resources :posts do
+    resources :comments, except: [:index]
+  end
+
 end

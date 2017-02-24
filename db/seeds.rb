@@ -3,5 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative '../app/models/post.rb'
+require_relative './schema.rb'
+
+
+Post.create!(title: 'Hello', content: 'Hey all')
