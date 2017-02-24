@@ -1,0 +1,5 @@
+<article>
+  <h2><%= @post.title %></h2>
+  <time>Updated by <%= @post.user.email %> at <%= @post.updated_at %></time>
+  <p><%= @post.body %></p>
+</article>
