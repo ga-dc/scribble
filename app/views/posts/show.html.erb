@@ -5,12 +5,12 @@
 
 
 <section class="post-show">
-  <h6>This post was created on <%= @post.created_at %> by <%= @post.author %>.</h6>
+  <h6>This post was created on <%= @post.created_at.strftime("%m/%d/%Y") %> by <%= @post.author %>.</h6>
   <p><%= @post.message %></p>
 
-  <%= form_for @post, method: :delete do |f| %>
-    <%= f.submit "Remove Post", class: "delete" %>
-  <% end %>
+  <a href="/posts/<%= @post.id %>/edit">
+    <h4>Edit Post</h4>
+  </a>
 
   <div class="comments">
     <h3>Comments</h3>
@@ -18,10 +18,9 @@
     <% @post.comments.each do |comment| %>
       <div class="comment">
         <p><%= comment.message %></p>
-        <h6>by <%= comment.author %> on <%= comment.created_at %>.</h6>
+        <h6>by <%= comment.author %> on <%= comment.created_at.strftime("%m/%d/%Y") %>.</h6>
         <h5><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></h5>
       </div>
-
     <% end %>
   </div>
 
