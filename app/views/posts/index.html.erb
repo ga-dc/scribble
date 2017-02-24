@@ -1,0 +1,9 @@
+<h1>Blog About It!</h1>
+<section>
+  <% @posts.each do |post| %>
+    <article>
+      <h2><%= link_to post.title, post%></h2>
+      <p><%= post.body %></p>
+    </article>
+  <% end %>
+</section>
