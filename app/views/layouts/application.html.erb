@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrapple</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="page">
+  <div class="headline">
+    <div class="container">
+      <h1 class="title">Lost in a Foundry</h1>
+      <h3 class="tagline">leave what you need to</h3>
+      <p class="write_new"><%= link_to"Write New Post",new_post_path,:class => "a"%></p>
+    </div>
+  </div>
+
+
+
+<%= yield %>
+</div>
+</body>
+</html>
