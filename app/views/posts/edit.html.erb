@@ -1,5 +1,5 @@
 <a href="/posts">Back</a>
-<%= form_for @posts do |f| %>
+<%= form_for @post do |f| %>
  <%= f.label :author %>
  <%= f.text_field :author %>
 
@@ -11,7 +11,7 @@
  <br>
 
   <%= f.label :content %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, :cols => "50", :rows => "20" %>
 
  <br>
 

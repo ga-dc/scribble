@@ -7,17 +7,19 @@ class PostsController < ApplicationController
 
   #new
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   #edit
   def edit
-      @posts = Post.find(params[:id])
+      @post = Post.find(params[:id])
   end
 
   #show
   def show
-    @posts = Post.find(params[:id])
+
+    @post = Post.find(params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 
   # create
@@ -28,15 +30,15 @@ class PostsController < ApplicationController
   end
 
   def post
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   # update
     def update
-      @posts = Post.find(params[:id])
-      @posts.update(post_params)
+      @post = Post.find(params[:id])
+      @post.update(post_params)
 
-      redirect_to "/posts/#{@posts.id}"
+      redirect_to "/posts/#{@post.id}"
     end
 
 
