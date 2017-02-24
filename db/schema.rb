@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20170221230936) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "content"
-    t.string  "username"
-    t.integer "likes"
     t.integer "post_id"
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end

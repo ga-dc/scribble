@@ -44,3 +44,28 @@ post6 = Post.create({
   username: "Lush123",
   likes: 2
 })
+
+comment1 = Comment.create({
+  content: "Cool",
+  post_id: 1
+})
+comment2 = Comment.create({
+  content: "Cool",
+  post_id: 2
+})
+comment3 = Comment.create({
+  content: "Cool",
+  post_id: 3
+})
+comment4 = Comment.create({
+  content: "Cool",
+  post_id: 4
+})
+comment5 = Comment.create({
+  content: "Cool",
+  post_id: 5
+})
+comment6 = Comment.create({
+  content: "Cool",
+  post_id: 6
+})

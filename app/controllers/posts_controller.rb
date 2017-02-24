@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   def index
-    @posts= Post.all
+    @posts= Post.all.order(:id)
+
   end
 
   def new
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to "/"
+    redirect_to "/posts"
   end
 
   private
