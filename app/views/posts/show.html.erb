@@ -1,0 +1,15 @@
+<h2><%= @post.post_title %> <a href="/posts/<%= @post.id %>/edit">(edit)</a></h2>
+<h4><%= @post.post_text %></h4>
+
+<h3>Comments</h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <!-- show all comments associated with this post-->
+    <li>
+        <%= comment.comment_title %>
+        <%= comment.comment_text %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Comment", comments_new_path(post_id: @post.id) %>

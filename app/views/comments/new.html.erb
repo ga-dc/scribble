@@ -1,0 +1,15 @@
+<h2>New Comment</h2>
+
+<form action="/comments" method="post" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="comment[comment_author]">Author:</label>
+  <input name="comment[comment_author]">
+
+  <label for="comment[comment_title]">Title:</label>
+  <input name="comment[comment_title]">
+
+  <label for="comment[comment_text]">Comment:</label>
+  <input name="comment[comment_text]">
+
+  <input type="submit" value="Create">
+</form>
