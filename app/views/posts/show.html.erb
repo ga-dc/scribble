@@ -3,3 +3,10 @@
 <p><%= @post.text %></p>
 
 <%= link_to 'All Posts', posts_path%>
+
+<hr>
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <h4><%= comment.user %></h4>
+  <p><%= comment.comment %></p>
+<% end %>
