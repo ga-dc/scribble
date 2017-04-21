@@ -1,0 +1,15 @@
+<h4> Category: <%= @post.category %></h4>
+
+<h1> <%= @post.title %> </h1>
+
+<img src="<%= @post.photo_url %>" alt="photo relating to <%= @post.title %>">
+<p> <%= @post.text %></p>
+
+<h4> Comments </h4>
+<ul>
+	<% @post.comments.each do |comment| %>
+		<li>From <%= comment.user_name%> : <%= comment.text %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Add Comment", new_post_comment_path(@post) %>
