@@ -1,3 +1,15 @@
 <h2><%= @posts.title %> <a href="/posts/<%= @posts.id %>/edit">(edit)</a></h2>
 <h4>By: <%= @posts.author %></h4>
 <h5>Category: <%= @posts.subject %></h5>
+
+
+<h3>Commentators:</h3>
+<ul>
+  <% @posts.comments.each do |comment| %>
+    <li>
+      <a href="/comments/<%= comment.id %>">
+        <%= comment.author %>
+      </a>
+    </li>
+  <% end %>
+</ul>
