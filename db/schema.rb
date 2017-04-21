@@ -16,18 +16,15 @@ ActiveRecord::Schema.define(version: 20170421003056) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string  "author_id"
     t.string  "author_name"
+    t.string  "text"
     t.integer "post_id"
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string  "title"
-    t.string  "description"
-    t.string  "date_created"
-    t.integer "date_upated"
-    t.integer "author_id"
+    t.string "title"
+    t.string "description"
   end
 
   add_foreign_key "comments", "posts"
