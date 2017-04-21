@@ -21,13 +21,12 @@ ActiveRecord::Schema.define(version: 20170420012753) do
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.string   "author_id"
+    t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
