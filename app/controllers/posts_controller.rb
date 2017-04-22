@@ -9,11 +9,12 @@ class PostsController < ApplicationController
 
   def new
     @posts = Post.new
+
   end
 
   def create
     @posts = Post.create!(post_params)
-    redirect_to "/posts/#{@post.id}"
+    redirect_to "/posts/#{@posts.id}"
   end
 
 
