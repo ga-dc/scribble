@@ -1,0 +1,11 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+<article>
+<h2><%= link_to "#{post.title}", post_path(post) %></h2>
+Posted by: <%= post.author %>
+<p><%= post.content %></p>
+
+</article>
+
+<% end %>
