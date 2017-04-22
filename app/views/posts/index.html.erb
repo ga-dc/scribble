@@ -1,0 +1,10 @@
+<h1>All posts<%= link_to "(+)", new_post_path, data: { confirm: "Would you like to add a new post?"} %></h1>
+<ul>
+
+<% @posts.each do |post| %>
+  <li>
+    <h3><%= link_to post.title, post %> by <%= post.user %></h3>
+  </li>
+<% end %>
+
+</ul>

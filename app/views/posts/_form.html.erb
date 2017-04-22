@@ -1,0 +1,34 @@
+<%= form_for @post, data: { confirm: "Are you done?"} do |f| %>
+  <div>
+  <%= f.label "User Name" %>
+  <%= f.text_field :user, size: '50' %>
+  </div>
+
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title, size: '50' %>
+  </div>
+
+  <div>
+  <%= f.label "Photo Link" %>
+  <%= f.text_field :photo_url, size: '50'  %>
+  </div>
+
+
+  <div>
+  <%= f.label :content  %>
+  <%= f.text_area :content, size: "48x10" %>
+  </div>
+
+
+  <%= f.submit "Save", class: "submitButton" %>
+
+
+
+<% end  %>
+
+<% if @post.id != nil %>
+  <%= form_for @post, data: { confirm: "You you sure?"}, method: :delete do |f| %>
+    <%= f.submit "Delete", class: "deleteButton" %>
+  <% end  %>
+<% end  %>
