@@ -4,7 +4,6 @@
 Posted By: <%= @post.author %>
 <p> <%= @post.content %></p>
 
-<div class= "comment_part">
 
 <h1> Comments </h1>
 
@@ -15,6 +14,8 @@ Posted By: <%= @post.author %>
 
 <% end %>
 
+<p> <%= link_to "Add new Comment", new_post_comment_path(@post) %> </p>
 
-</div>
+
+
 </article>
