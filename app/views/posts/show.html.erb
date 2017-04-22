@@ -1,0 +1,20 @@
+<h1> View Post </h1>
+<article>
+<h2> <%= @post.title %> </h2>
+Posted By: <%= @post.author %>
+<p> <%= @post.content %></p>
+
+<div class= "comment_part">
+
+<h1> Comments </h1>
+
+<% @post.comments.each do |comment| %>
+
+<p> <%= comment.content %> </p>
+<p> Posted by: <%= comment.author %> </p>
+
+<% end %>
+
+
+</div>
+</article>
