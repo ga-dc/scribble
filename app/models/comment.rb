@@ -1,3 +1,4 @@
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   belongs_to :post
-end  
+  validates :author, :text, {presence: true}
+end

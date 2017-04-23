@@ -1,3 +1,4 @@
-class Post < ActiveRecord::Base
-  has_many :comments 
+class Post < ApplicationRecord
+  has_many :comments
+  validates :title, :author, :text, {presence: true}
 end
