@@ -1,4 +1,4 @@
-<h1>Create A New Post</h1>
+<h1>Edit Post</h1>
 
 <%= form_for @post do |f| %>
 	<%= f.label :title %>
@@ -7,5 +7,9 @@
 	<%= f.label :description %>
 	<%= f.text_field :description %>
 
-  <%= f.submit "Create Post" %>
+	<%= f.submit "Edit" %>
+<% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+	<%= f.submit "Delete", class: "delete" %>
 <% end %>

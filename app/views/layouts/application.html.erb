@@ -1,20 +1,17 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scribble</title>
-    <%= csrf_meta_tags %>
+    <title> GA - Scribble</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <h1>Scrible</h1>
-  <nav>
-    <%= link_to "All Posts", posts_path %>
-    <%= link_to "Comments", new_post_comment_path%>
-  </nav>
+  	<nav>
+  		<%= link_to "View all Posts", posts_path %>
+  	</nav>
+
 
     <%= yield %>
   </body>

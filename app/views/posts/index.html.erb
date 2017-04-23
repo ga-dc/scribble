@@ -1,10 +1,12 @@
 
+<h1>All Posts <a href="/posts/new">(+)</a></h1>
 
 <ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title %>
-      <%= link_to post.description %>
-    </li>
-  <% end %>
+	<% @posts.each do |post| %>
+		<li>
+			<a href="posts/<%= post.id %>">
+				<%= post.title %>
+			</a>
+		</li>
+	<% end %>
 </ul>

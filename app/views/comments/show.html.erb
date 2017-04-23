@@ -1,0 +1,6 @@
+
+<ul>
+<%=@comment.author_name %>
+<%= @comment.content %>
+</ul>
+<%= link_to "(Edit/Delete)", edit_post_comment_path(@post, @comment) %>
