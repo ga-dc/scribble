@@ -1,0 +1,10 @@
+
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title %>
+      <%= link_to post.description %>
+    </li>
+  <% end %>
+</ul>
