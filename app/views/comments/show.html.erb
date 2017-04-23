@@ -1,7 +1,8 @@
 User : <%= @comment.user_name %>
-
-Comment : <%= @comment.text %>
-
 Created : <%= @comment.created_at %>
 
-<%= link_to "(edit)", edit_post_comment_path(@post, @comment) %>
+<div class="comment"><%= @comment.text %></div>
+
+
+
+<%= link_to "(Edit/Delete)", edit_post_comment_path(@post, @comment) %>
