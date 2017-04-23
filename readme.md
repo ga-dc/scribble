@@ -65,3 +65,14 @@ Create a form that allows you to create a Tag and/or Category.
 *  If the Category exists AND the post already has that Tag, nothing will happen.
 
 The Category show page should display all posts with that particular category.
+
+Post
+
+user (string)
+date date
+type (photo, video, article)
+
+Comment
+user (string)
+date (date)
+text(text)
