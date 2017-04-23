@@ -8,4 +8,19 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
   end
 
+  def new
+  @post = Post.new
+end
+
+def create
+  @post = Post.create!(post_params)
+  flash[:notice] = " Success! New artist was added."
+  redirect_to @post
+end
+
+private
+def post_params
+  params.require(:post).permit(:author, :title, :text, :category)
+end
+
 end
