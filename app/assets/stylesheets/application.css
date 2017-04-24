@@ -15,27 +15,59 @@
  */
 
 body {
+  background-image: url('http://orig09.deviantart.net/fe48/f/2016/060/c/7/untitled_drawing_by_diyismybae-d9tjjg8.png');
   text-align: center;
   vertical-align: middle;
+  width: 60%;
+  margin: 0 auto;
+  font-family: 'Merienda', cursive;
+  height: 100vh;
+
 }
 
 .logo {
-  height: 200px;
+  height: 250px;
 }
 
-ul {
-  display: inline-block;
-  text-align: left;
-  list-style: none;
-  padding: 0;
+
+h1, h2 {
+  margin-top: 0;
+}
+
+
+h3 {
+  text-align: justify;
+}
+
+hr {
+  border: 1px dashed black;
   margin: 0;
 }
 
+.new_post, .edit_post, .edit_comment {
+  width: 450px;
+}
+
 form {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
   margin: 0 auto;
+}
+
+
+.createdTime {
+  margin-bottom: 0;
+  text-align: right;
+  color: #336699;
+  font-size: 80%;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.indexContainer {
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 div {
@@ -44,20 +76,95 @@ div {
     margin-top: 10px;
 }
 
-.submitButton, .deleteButton {
-    margin-top: 10px;
-    width: 70px;
-    height: 40px;
-    color: white;
-    margin: 0 auto;
-    margin-top: 5px;
+.commentsContainer {
+  text-align: left;
+  margin: 0 auto;
+}
+
+
+.comments {
+  min-width: 135px;
+  padding: 5px;
+  margin:5px;
+}
+
+.commentFormLabel {
+  min-width: 120px;
+}
+
+.commentsFormContainer {
+  margin-bottom: 50px;
+}
+
+
+.postPhoto, .indexPhoto {
+  padding: 3px;
+  box-shadow: 8px 8px 10px #aaa;
+  border-radius: 30px;
+}
+
+.postPhoto {
+  width: 95%;
+  border:10px double #009eb6;
+}
+
+.indexPhoto {
+  width: 200px;
+  height: 130px;
+  border:5px double #009eb6;
+  margin: 10px;
+}
+
+.indexPhotoText {
+  position: absolute;
+  width: 200px;
+  background-color: rgba(38, 114, 82, 0.5);
+  padding: 10px 0 10px 0;
+  margin-top: 50px;
+  margin-left: 18px;
+  text-shadow: 2px 2px black;
+}
+
+.indexTitleText:hover {
+  background-color: rgba(38, 114, 82, 1);
+  font-size: 140%;
+
+}
+
+.indexPost:hover {
+  box-shadow: 0px 0px 35px 16px rgba(184,18,43,1);
+  border-radius: 30px;
+  margin:0;
+}
+
+
+.indexTitleText {
+  color: white;
+  font-family: arial;
+  font-weight: bold;
+  word-wrap: break-word
+}
+
+
+.newPostButton, .editButton, .submitButton, .deleteButton {
+  background-color: #ffcc00;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  width: 90px;
+  text-shadow: 1px 1px black;
+}
+
+.editButtonFrom {
+  margin: 5px 0 5px 0;
+  text-align: right;
 }
 
 .submitButton {
-  background-color: blue;
-  color: white;
+  background-color: #3399ff;
+  margin: 5px 0 5px 0;
 }
 
 .deleteButton {
-  background-color: red;
+  background-color: #cc3300;
 }

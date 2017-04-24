@@ -28,7 +28,7 @@
 <% end  %>
 
 <% if @post.id != nil %>
-  <%= form_for @post, data: { confirm: "You you sure?"}, method: :delete do |f| %>
+  <%= form_for @post, data: { confirm: "Do you really want to delete this post?"}, method: :delete do |f| %>
     <%= f.submit "Delete", class: "deleteButton" %>
   <% end  %>
 <% end  %>
