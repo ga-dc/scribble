@@ -1,0 +1,8 @@
+<h2><%= @post.title %></h2>
+<p><%= @post.content %></p>
+
+<% @post.comments.each do |comment| %>
+	<time><%= comment.updated_at %></time>
+	<p><%= comment.content %></p>
+<% end %>
+
