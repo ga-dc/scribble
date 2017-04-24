@@ -9,12 +9,11 @@ class PostsController < ApplicationController
 
   def new
     @posts = Post.new
-
   end
 
   def create
     @posts = Post.create!(post_params)
-    redirect_to "/posts/#{@posts.id}"
+    redirect_to post_path(@posts)
   end
 
   def edit
@@ -25,7 +24,12 @@ class PostsController < ApplicationController
     @posts = Post.find(params[:id])
     @post.update(post_params)
 
-    redirect_to "/posts/#{@posts.id}"
+    redirect_to "/posts/#{post.id}"
+  end
+
+  def destroy
+    @posts = Post.find(params[:id])
+    @post.destroy
   end
 
 

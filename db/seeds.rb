@@ -10,7 +10,7 @@ Comment.destroy_all
 Post.destroy_all
 
 one = Post.create(title: 'Out of Cheerios, Again.', author: 'Nire Noswad', subject: 'food', body: 'We are out of Cheerios.  I blame the dog.')
-two = Post.create(title: 'A Snake in My Boot', author: 'Woody', subject: 'danger')
+two = Post.create(title: 'A Snake in My Boot', author: 'Woody', subject: 'danger', body: 'Pizza party.')
 
 Comment.create(author: 'Hamish McEnroe', post: one)
 Comment.create(author: 'Bitsy Donaldson', post: one)
