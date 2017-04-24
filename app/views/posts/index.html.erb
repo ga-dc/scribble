@@ -1,0 +1,6 @@
+<h2>All posts</h2>
+<% @posts.each do |post| %>
+    <div class="post">
+    <ul><%= link_to "#{post.title}", post_path(post) %></ul>
+     </div>
+<% end %>
