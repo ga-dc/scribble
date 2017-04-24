@@ -19,7 +19,7 @@
 <hr/>
 
   <div class="commentsContainer">
-    <p class="comments"><%= comment.text %> (<%= link_to "Edit", edit_post_comment_path(comment), method: :get, data: { confirm: "Would you like to edit this comment?"}  %>)</p>
+    <p class="comments"><%= comment.text %> (<%= link_to "Edit", edit_post_comment_path(@post, comment), method: :get, data: { confirm: "Would you like to edit this comment?"}  %>)</p>
     <% if comment.updated_at != nil %>
       <p class="comments"><%= comment.updated_at.strftime("%b %e, %l:%M %p") %> </p>
     <% else %>
