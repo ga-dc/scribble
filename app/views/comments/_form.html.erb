@@ -1,0 +1,12 @@
+
+  <%= form_for [@post, @post.comments.new], method: :post, data: { confirm: "Are you done?"} do |f| %>
+
+    <div class= "commentsFormContainer">
+    <%= f.label "New Comment", class: "commentFormLabel"  %>
+    <%= f.text_area :text, size: "90" %>
+
+
+    <%= f.submit "Add", class: "submitButton" %>
+    </div>
+
+  <% end  %>
