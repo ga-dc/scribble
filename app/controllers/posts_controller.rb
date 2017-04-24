@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @posts = Post.find(params[:id])
     @post.update(post_params)
 
-    redirect_to "/post/#{@posts.id}"
+    redirect_to "/posts/#{@posts.id}"
   end
 
 
