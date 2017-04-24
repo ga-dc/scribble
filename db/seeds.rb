@@ -15,7 +15,7 @@ posts = Post.create([
 ])
 
 comments = Comment.create([
-  {author: "Whitney Purdham", subject: "Peets sucks", post_id:[4]},
-  {author: "Mary Kate Mezzetti", subject: "Starbucks sucks", post_id:[5]},
-  {author: "Meag Doherty", subject: "Dolcezza sucks", post_id:[4]}
+  {author: "Whitney Purdham", subject: "Peets sucks", post: posts[0]},
+  {author: "Mary Kate Mezzetti", subject: "Starbucks sucks", post: posts[0]},
+  {author: "Meag Doherty", subject: "Dolcezza sucks", post: posts[1]}
 ])
