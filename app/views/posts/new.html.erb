@@ -1,0 +1,22 @@
+<h2>New Post</h2>
+
+<%= form_for @post do |f| %>
+  <div class="form_meta_field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form_meta_field">
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+  <div class="form_meta_field">
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+  </div>
+  <div class="form_text_box">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+    <%= f.submit %>
+<% end %>
