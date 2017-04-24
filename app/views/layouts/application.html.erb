@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title> GA - Scribble</title>
+    <title>Scrible</title>
+    <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-<<<<<<< HEAD
-=======
 
-  	<nav>
-  		<%= link_to "View all Posts", posts_path %>
-  	</nav>
+    <h1><span>GA</span> Scrible</h1>
+    <%= link_to 'New Article', new_article_path %>
+    <%= link_to 'All Articles', articles_path %>
+    <%= link_to 'Users', users_path %>
 
-
->>>>>>> fixedmaster
     <%= yield %>
   </body>
 </html>
