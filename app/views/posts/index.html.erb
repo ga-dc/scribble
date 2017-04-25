@@ -9,15 +9,12 @@
   </div>
 </div>
 
-
-
 <div class="container">
 <% @posts.each do |post| %>
 <div class="box">
   <article class="media">
     <div class="media-content">
       <div class="content">
-        
         <p>
           <strong><%= post.title %></strong> <small><time><%= post.updated_at%></time></small>
           <br>
@@ -34,7 +31,6 @@
   </article>
 </div>
 <% end %>
-
-
+</div>
 
 

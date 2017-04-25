@@ -1,6 +1,25 @@
-<h1>Editing Comment</h1>
+<br>
+<div class="container form_edit">
+	<%= form_for [@post, @comment] do |f| %>
 
-<%= render 'form', comment: @comment %>
+	<div class="field">
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+	   <%= f.label :content, :class => 'label' %>
+	  <p class="control">
+	  <!-- BUG: text_area not POSTing -->
+	     <%= f.text_area :content, :class => "textarea"  %>
+	  </p>
+	</div>
+
+
+	<div class="field is-grouped">
+	  <p class="control">
+	    <%= f.submit :class => "button is-primary" %>
+	  </p>
+	  <p class="control">
+	    <%= link_to 'Back', posts_path, :class => "button is-link" %>
+	  </p>
+	</div>
+	<% end %>
+</div>
+

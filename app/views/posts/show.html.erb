@@ -5,7 +5,6 @@
   <article class="media">
     <div class="media-content">
       <div class="content">
-        
         <p>
           <strong><%= @post.title %></strong> <small><time><%= @post.updated_at%></time></small>
           <br>
@@ -15,10 +14,39 @@
         <%= link_to 'Edit', edit_post_path(@post), :class => "button is-warning"%>
         <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button is-danger" %>
       </div>
-      
       </div>
     </div>
   </article>
+  <br>
+  <% @post.comments.each do |comment| %>
+
+	<div class="box">
+	  <article class="media">
+	    <div class="media-content">
+	      <div class="content">
+	        <p>
+	          <%= comment.content %>
+	          <small><time><%= comment.updated_at%></time></small>
+	        </p>
+	        <div class="block">
+	        <%= link_to 'edit', edit_post_comment_path(comment), :class => "button is-warning" %>
+
+	        <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete , :class => "button is-danger" %>
+	      </div>
+	      
+	      </div>
+	    </div>
+	  </article>
+	</div>
+<% end %>
+
+	<div class="columns is-mobile">
+	  <div class="column is-half is-offset-one-quarter">
+	    <div class="block">
+	      <%= link_to 'New Comment', new_post_comment_path(@post) , :class => "button is-primary has-text-centered"%>
+	    </div>
+	  </div>
+	</div>
 </div>
 
 
