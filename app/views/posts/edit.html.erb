@@ -1,22 +1,12 @@
 <h2>Edit posts here</h2>
 
-<form class="/posts/<%= @posts.id %>" action="index.html" method="post">
-
-  <label for="post[author]">Author</label>
-  <input name="post[author]" value="<%= @posts.author %>">
-
-  <label for="post[title]">Title</label>
-  <input name="post[title]" value="<%= @posts.title %>">
-
-  <label for="post[subject]">Category</label>
-  <input name="post[subject]" value="<%= @posts.subject %>">
-
-  <label for="post[body]">Content</label>
-  <input name="post[body]" value="<%= @posts.body %>">
-
-  <input type="submit" value="Edit">
-
-</form>
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %>
+  Author: <%= f.text_field :author %>
+  Category: <%= f.text_field :subject %>
+  Body: <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
 
 <p>
   <%= link_to "Delete Post", post_path(params[:id]), :method => :delete %>

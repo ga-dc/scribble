@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
 
-  def index
-    @comments = Comment.all
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
   end
 
-  def show
-    @comments = Comment.find(params[:id])
+  def create
+    @post = Post.find(params[:id])
+    @comment = @post.comment.create
+    redirect_to root_path
   end
 end
