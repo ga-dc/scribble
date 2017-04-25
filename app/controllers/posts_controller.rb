@@ -6,17 +6,18 @@ class PostsController < ApplicationController
 
   def show
       @post = Post.find(params[:id])
+      @comment = @post.comments
   end
 
   def new
   @post = Post.new
-end
+  end
 
 def create
   @post = Post.create!(post_params)
   flash[:notice] = " Success! New artist was added."
   redirect_to @post
-end
+  end
 
 private
 def post_params
