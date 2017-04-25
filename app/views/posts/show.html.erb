@@ -1,0 +1,10 @@
+<h2><%= @post.name %></h2>
+<p><%= @post.content %></p>
+<br>
+<h3>Comments</h3>
+<%= link_to "Create New Comment", new_post_comment_path(@post) %>
+<br>
+<% @post.comments.each do |comment| %>
+  <h4><%= comment.name %></h4>
+  <p><%= comment.content %></p>
+<% end %>
