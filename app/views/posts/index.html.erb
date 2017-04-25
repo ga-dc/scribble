@@ -1,7 +1,10 @@
-<h1>Scribble <%= link_to "(+)", new_post_path %></h1>
-<% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <p>by <span><%= post.author %></span></p>
-  <p><%= post.text %></p>
-  <hr>
-<% end %>
+<section class="wrapper">
+  <h1>Scribble <%= link_to "(+)", new_post_path %></h1>
+  <div class="post">
+    <% @posts.each do |post| %>
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      <p>by <span><%= post.author %></span></p>
+      <p><%= post.text %></p>
+    <% end %>
+  </div>
+</section>
