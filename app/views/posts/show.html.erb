@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<div class="container">
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        
+        <p>
+          <strong><%= @post.title %></strong> <small><time><%= @post.updated_at%></time></small>
+          <br>
+          <%= @post.content %>
+        </p>
+        <div class="block">
+        <%= link_to 'Edit', edit_post_path(@post), :class => "button is-warning"%>
+        <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button is-danger" %>
+      </div>
+      
+      </div>
+    </div>
+  </article>
+</div>
+
+
+
 <%= link_to 'Back', posts_path %>

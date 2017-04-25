@@ -1,6 +1,32 @@
-<h1>Editing Post</h1>
+<div class="container form_edit">
+	<%= form_for @post do |f| %>
+	<div class="field">
+	  <%= f.label :title, :class => "label" %>
+	  <p class="control">
+	    <%= f.text_field :title, :class => "input" %>
+	  </p>
+	</div>
 
-<%= render 'form', post: @post %>
+	<div class="field">
+	   <%= f.label :content, :class => 'label' %>
+	  <p class="control">
+	     <%= f.text_area :content, :class => "textarea"  %>
+	  </p>
+	</div>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+
+	<div class="field is-grouped">
+	  <p class="control">
+	    <%= f.submit :class => "button is-primary" %>
+	  </p>
+	  <p class="control">
+	    <%= link_to 'Show', @post, :class => "button is-link" %>
+	  </p>
+	</div>
+	<% end %>
+</div>
+
+
+
+
+
