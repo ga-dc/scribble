@@ -25,7 +25,7 @@ body{
   padding-bottom:2em;
 }
 
-.logo a{
+/*.logo a{
   display:block;
   margin:auto;
   background-size:100%;
@@ -34,8 +34,8 @@ body{
   background-repeat:no-repeat;
   height:160px;
   border:none;
-  background: url(<%= asset_data_uri 'logo.png' %>);
-}
+  background: url("logo.png");
+}*/
 
 p{
   font-family: Georgia, serif;
