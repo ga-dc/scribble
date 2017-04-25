@@ -1,3 +1,4 @@
+<br>
 <div class="container form_edit">
 	<%= form_for @post do |f| %>
 	<div class="field">
@@ -10,7 +11,7 @@
 	<div class="field">
 	   <%= f.label :content, :class => 'label' %>
 	  <p class="control">
-	  	  <!-- BUG: text_area not POSTing -->
+	  <!-- BUG: text_area not POSTing -->
 	     <%= f.text_area :content, :class => "textarea"  %>
 	  </p>
 	</div>
@@ -18,17 +19,11 @@
 
 	<div class="field is-grouped">
 	  <p class="control">
-
 	    <%= f.submit :class => "button is-primary" %>
 	  </p>
 	  <p class="control">
-	    <%= link_to 'Show', @post, :class => "button is-link" %>
+	    <%= link_to 'Back', posts_path, :class => "button is-link" %>
 	  </p>
 	</div>
 	<% end %>
 </div>
-
-
-
-
-
