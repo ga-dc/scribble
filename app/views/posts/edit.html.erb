@@ -1,0 +1,13 @@
+<h2>Edit posts here</h2>
+
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %>
+  Author: <%= f.text_field :author %>
+  Category: <%= f.text_field :subject %>
+  Body: <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+<p>
+  <%= link_to "Delete Post", post_path(params[:id]), :method => :delete %>
+</p>
