@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
   # new
   def new
@@ -14,32 +15,30 @@ class PostsController < ApplicationController
   end
   # edit
   def edit
-    @artist = Artist.find(params[:id])
+    @post = Post.find(params[:id])
   end
   # create
   def create
-    @artist = Artist.create!(artist_params)
-
-    redirect_to artist_path(@artist)
+    @post = Post.create!(post_params)
+    redirect_to post_path(@post)
   end
-
-
-
-
-
   # update
   def update
-    @artist = Artist.find(params[:id])
-    @artist.update(artist_params)
+    @post = Post.find(params[:id])
+    @post.update(post_params)
 
-    redirect_to artist_path(@artist)
+    redirect_to post_path(@post)
   end
-
   # destroy
   def destroy
-    @artist = Artist.find(params[:id])
-    @artist.destroy
+    @post = Post.find(params[:id])
+    @post.destroy
 
-    redirect_to artists_path
+    redirect_to posts_path
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:author, :title, :photo_url, :text)
   end
 end

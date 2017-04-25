@@ -4,26 +4,28 @@
 <p><%= @post.text %></p>
 
 
-
+<h2>Comments</h2>
 <% @post.comments.each do |comment| %>
-  <div class="comments">
-    <h3><%= "#{comment.text} -- #{comment.author}" %></h3>
-  </div>
-<% end %>
-
-<h2> Add Comment: </h2>
-
-
-<%= form_for @post do |f| %>
   <p>
-    <%= f.label "#{:author}:" %>
+    <%= "#{comment.text}   -- #{comment.author}" %>
+  </p>
+  <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+  <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+<% end %>
+<hr>
+
+<h2>Add Comment</h2>
+
+<%= form_for [@post, @comment] do |f| %>
+  <p>
+    <%= f.label :author %>
     <%= f.text_field :author %>
   </p>
   <p>
-    <%= f.label "#{:text}:" %>
+    <%= f.label :text %>
     <%= f.text_field :text %>
   </p>
   <p>
     <%= f.submit %>
-  </p>
+</p>
 <% end %>
