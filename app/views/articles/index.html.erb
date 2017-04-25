@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
+
 
 
 
@@ -9,10 +9,10 @@
 
         <h2><%= article.title %></h2>
         <p><%= article.post %></p>
-        <td>User:<%= article.user_id %></td>
-        <td><%= link_to 'Show and Comment', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <span>User:<%= article.user_id %></span>
+        <span><%= link_to 'Show and Comment', article %></span>
+        <span><%= link_to 'Edit', edit_article_path(article) %></span>
+        <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
     <% end %>
 

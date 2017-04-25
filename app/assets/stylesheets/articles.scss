@@ -5,7 +5,7 @@ table {
   border-collapse: collapse;
 }
 
-table tr td {
+td {
   padding: 10px
 }
 
@@ -25,4 +25,12 @@ thead th {
 
 .list_line_odd {
   background: #FEFEFA;
+}
+
+h2 {
+  color: blue;
+}
+
+span {
+  color: red;
 }
