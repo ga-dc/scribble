@@ -12,4 +12,3 @@ comments = Comment.create([
 	{content: "I think my opinion is super important thanks to the internet", post_id: 1},
 	{content: "First", post_id: 2}, 
 	{content: "I thought there was an open bar here..", post_id: 2}])
->>>>>>> temp
