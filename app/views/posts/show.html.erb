@@ -25,15 +25,14 @@
 	    <div class="media-content">
 	      <div class="content">
 	        <p>
+	          <small>Updated at <time><%= comment.updated_at%></time></small>
+	          <br>
 	          <%= comment.content %>
-	          <small><time><%= comment.updated_at%></time></small>
 	        </p>
 	        <div class="block">
 	        <%= link_to 'edit', edit_post_comment_path(comment), :class => "button is-warning" %>
-
 	        <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete , :class => "button is-danger" %>
 	      </div>
-	      
 	      </div>
 	    </div>
 	  </article>
