@@ -1,7 +1,8 @@
-<h1><%= @post.author %></h1>
-<h1><%= @post.content %></h1>
-<h1><%= @post.title %></h1>
-<% @post.comments.each do |comment|%>
-<p><%= comment.name %></p>
-<p><%= comment.text %></p>
-<% end %>
+
+
+<h3>Author :<%= @post.author %></h3>
+<h3>Title :<%= @post.title %></h3>
+<h3>Content :<%=@post.content %></h3>
+
+<%= link_to "Edit Post", edit_post_path(@post) %><br>
+<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm:"Are you sure?"} %>
