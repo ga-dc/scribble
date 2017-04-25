@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+    <% @articles.each do |article| %>
+
+        <h2><%= article.title %></h2>
+        <p><%= article.post %></p>
+        <span>User:<%= article.user_id %></span>
+        <span><%= link_to 'Show and Comment', article %></span>
+        <span><%= link_to 'Edit', edit_article_path(article) %></span>
+        <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+
+    <% end %>
+
+
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>
