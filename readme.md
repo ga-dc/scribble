@@ -28,6 +28,11 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 - Create models for Post and Comment
 - Create migrations for Post and Comment
 
+```
+$ rails g migration create_posts
+$ rails g migration create_comments
+```
+
 ## Index
 
 - Create an index where a user can see all posts
