@@ -85,30 +85,30 @@ Comment.destroy_all
 ### Posts seed data
 
 post1 = Post.create({
-  title: "Summer Movie"
-  author: "Lemony Snicket"
-  body: "Text"
+  title: "Summer Movie",
+  author: "Lemony Snicket",
+  body: "Text",
   img_url: "https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg"
 })
 
 post2 = Post.create({
-  title: "Summer Book"
-  author: "Lemony Snicket"
-  body: "Text"
+  title: "Summer Book",
+  author: "Lemony Snicket",
+  body: "Text",
   img_url: "https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg"
 })
 
 post3 = Post.create({
-  title: "Summer Movie"
-  author: "Lemony Snicket"
-  body: "Text"
+  title: "Summer Movie",
+  author: "Lemony Snicket",
+  body: "Text",
   img_url: "https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg"
 })
 
 ### Comments seed data in the form of an array
 Comment.create([
-  {body: "Is that a banana?", author: "Alec Baldwin", post: post1}
-  {body: "Is that another banana?", author: "Alec Baldwin", post: post2}
+  {body: "Is that a banana?", author: "Alec Baldwin", post: post1},
+  {body: "Is that another banana?", author: "Alec Baldwin", post: post2},
   {body: "Is that another banana, again?", author: "Alec Baldwin", post: post3}
 ])
 ```
