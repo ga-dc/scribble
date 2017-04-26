@@ -211,6 +211,22 @@ CRUD actions
 ## Create
 
 - Allow the user to create new posts and comments
+```
+app/controllers/posts_controller.rb
+
+### Strong Params
+class PostsController < ApplicationController
+  def create
+    @post = Post.create(post_params)
+    redirect_to post_path(@post)
+  end
+  
+  private
+  def post_params
+    params.require(:post).permit(:title, :author, :body, :img_url)
+  end
+end
+```
 
 ## Update
 
