@@ -145,19 +145,69 @@ $ rails s
 ```
 In the browser: localhost:3000/
 
-## Create Controller
+Create Controller
 ----
 
 ## Index
 
 - Create an index where a user can see all posts
 - Each post should link to its respective show page
+```
+app/controllers/posts_controller.rb (plural naming convention)
+
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+end
+```
+- After creating, you should get a template error. Make your templates in a folder (in this case called 'posts') the app/views/ folder and creating a new file 'index.html.erb'
+```
+app/views/posts/index.html.rb
+
+### Create Template like so
+<h1>All posts</h1>
+<% @posts.each do |post| %>
+  <div class="post>
+    <h2><%= link_to post.title, posts_path(post) %></h2>
+    <p>by <%= post.author %>
+  </div>
+<% end %>
+```
 
 ## Show
 
 - Create a show where a user can see each individual post.
 - The show page should also show all of the post's comments.
+- Back to the post controller, add a show method.
+```
+app/controllers/posts_controller.rb
 
+class PostsController < ApplicationController
+  def show
+    @post = Post.find(params[:id])
+    @comments = post.comments
+  end
+end
+```
+- Create a show template to resolve template error:
+```
+app/views/posts/show.html.rb
+
+<h1><%= @post.title %></h1>
+<p>by <%= @post.author %></p>
+<img src="<%= @post.img_url %>" alt="<%= @post.title %>">
+<p><%= @post.body %></p>
+
+<% @comments.each do |comment| %>
+  <h4><%= comment.author %> - <%= comment.created_at %></h4>
+  <p><%= comment.body %></p>
+<% end %>
+```
+
+CRUD actions
+----
+** Repeat above process: add the method to the controller, create a template, link pages, etc. **
 ## Create
 
 - Allow the user to create new posts and comments
