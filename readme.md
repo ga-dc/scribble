@@ -127,9 +127,11 @@ $ rails c
 ```
 config/routes.rb
 
-root to 'posts#index'
 
 Rails.application.routes.draw do
+
+root to 'posts#index'
+
   resources :posts do
     resources :comments
   end
