@@ -1,0 +1,28 @@
+<section class="wrapper">
+  <header>
+  <%= link_to 'Home', posts_path%>
+
+  <div class="post">
+    <h1><%= @post.title %></h1>
+    <p>Written by: <%= @post.author %> | <%= @post.updated_at %></p>
+    <img src="<%= @post.img_url %>">
+    <p><%= @post.text %></p>
+
+    <%= link_to 'Edit Post', edit_post_path %>
+    </header>
+  </div>
+
+  <div class="comment">
+    <h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+    <% if @post.comments != nil %>
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.user %></p>
+        <p><%= comment.comment %>
+           <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+         | <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %></p>
+      <% end %>
+    <% else %>
+      <p>Post a comment!</p>
+    <% end %>
+  </div>
+</section>
