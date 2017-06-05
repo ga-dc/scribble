@@ -1,0 +1,20 @@
+<h2>Edit post</h2>
+
+<div>
+	<%= form_for @post do |f|%>
+		<%= f.label :username %>
+		<%= f.text_field :username, value: @post.username, readonly: "true" %>
+
+		<%= f.label :subject %>
+		<%= f.text_field :subject, value: @post.subject %>
+
+		<%= f.label :content %>
+		<%= f.text_area :content, value: @post.content %>
+
+		<%=f.submit%>
+	<%end%>
+
+	<%= form_for @post, method: :delete do |f|%>
+		<%=f.submit "Delete!"%>
+	<%end%>
+</div>

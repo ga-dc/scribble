@@ -1,0 +1,14 @@
+<h2>New Comment</h2>
+
+<div>
+	
+<%= form_for [@post,@comment] do |f|%>
+	<%= f.label :username%>
+	<%= f.text_field :username%>
+
+	<%= f.label "Enter Comment"%>
+	<%= f.text_area :text%>
+
+	<%= f.submit "Submit Comment"%>
+<%end%>
+</div>
