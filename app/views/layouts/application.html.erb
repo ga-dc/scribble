@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <h1 class='logo'><%= link_to "Scribble", root_path %></h1>
+    <%= link_to "Create New Post", new_post_path %>
+
+    <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
