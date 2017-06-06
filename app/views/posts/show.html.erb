@@ -1,0 +1,18 @@
+
+
+<div class="post">
+	<h3><%=@post.subject%></h3>
+	<h4><%=@post.username%></h4>
+	<p> <%=@post.content%></p>
+	<p> <%=@post.created_at%></p>
+</div>
+<h5><%= link_to "Edit Post", edit_post_path(@post)%></h5>
+<h5><%= link_to "Add a comment", new_post_comment_path(@post)%></h5>
+<% @post.comments.each do |comm|%>
+<div class="comment">
+	<p><%= comm.username %></p>
+	<p><%= comm.text %></p>
+	<p><%= comm.created_at %></p>
+	<%= link_to "Edit Comment", edit_post_comment_path(@post,comm)%>
+</div>
+<%end%>
