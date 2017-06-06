@@ -1,7 +1,9 @@
+<h2><%= link_to "Back to all posts", posts_path %></h2>
+
 <h1><%= @post.title %></h1>
 
 <p><%= @post.body %></p>
-
+<p><%= link_to "Edit Post", edit_post_path(@post) %></p>
 
 <% @post.comments.each do |comment| %>
   <p><%= comment.body %></p>
