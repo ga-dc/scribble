@@ -9,9 +9,15 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.create!(post_params)
-
-		redirect_to posts_path
+		@post = Post.new(post_params)
+		if @post.save
+			flash[:notice] = "New Post Created"
+			redirect_to posts_path
+		else
+			flash[:alert] = "Error! text field can't be blank"
+			redirect_to new_post_path
+		end
+		
 	end
 
 	def show

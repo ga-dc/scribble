@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606010742) do
+ActiveRecord::Schema.define(version: 20170601232934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 20170606010742) do
     t.string "subject"
     t.string "content"
     t.datetime "created_at"
-  end
-
-  create_table "posts_subjects", id: false, force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.bigint "subject_id", null: false
-    t.index ["post_id", "subject_id"], name: "index_posts_subjects_on_post_id_and_subject_id"
-  end
-
-  create_table "subjects", force: :cascade do |t|
-    t.string "subject"
   end
 
 end

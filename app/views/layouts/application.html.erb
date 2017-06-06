@@ -11,6 +11,9 @@
   <body>
   	<h1><a href="/posts">Scribble</a></h1>
   	<h2><%= link_to "Post your thoughts!", new_post_path%></h2>
+    <%flash.each do |type, messege|%>
+      <p class="flash <%=type%>"><%=messege%></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>
