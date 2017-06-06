@@ -1,12 +1,12 @@
 <h2>Edit</h2>
 
-<div>
+<div class="form">
 	<%=form_for [@post,@comment] do |f| %>
-		<%=f.label :username%>
-		<%=f.text_field :username, value: @comment.username%>
-		<%=f.label :text %>
-		<%=f.text_field :text %>
-		<%=f.submit "Edit"%>
+		<%=f.label :username%><br>
+		<%=f.text_field :username, value: @comment.username%><br>
+		<%=f.label :text %><br>
+		<%=f.text_field :text %><br>
+		<%=f.submit "Edit"%><br>
 	<%end%>
 
 	<%= form_for [@post,@comment], method: :delete do |f|%>
