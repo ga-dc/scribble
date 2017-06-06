@@ -6,10 +6,10 @@
 		<%= f.text_field :username, value: @post.username, readonly: "true" %><br>
 
 		<%= f.label :subject %><br>
-		<%= f.text_field :subject, value: @post.subject %><br>
+		<%= f.text_field :subject, value: @post.subject, required: true%><br>
 
 		<%= f.label :content %><br>
-		<%= f.text_area :content, value: @post.content %><br>
+		<%= f.text_area :content, value: @post.content, required: true%><br>
 
 		<%=f.submit%>
 	<%end%>

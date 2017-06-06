@@ -3,9 +3,9 @@
 <div class="form">
 	<%=form_for [@post,@comment] do |f| %>
 		<%=f.label :username%><br>
-		<%=f.text_field :username, value: @comment.username%><br>
+		<%=f.text_field :username, value: @comment.username, required: true%><br>
 		<%=f.label :text %><br>
-		<%=f.text_field :text %><br>
+		<%=f.text_field :text, required: true %><br>
 		<%=f.submit "Edit"%><br>
 	<%end%>
 
