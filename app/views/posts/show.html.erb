@@ -11,4 +11,6 @@
 
 <% @post.comments.each do |comment| %>
 <p><%= comment.body %></p>
+<p><%= link_to "Edit comment", edit_post_comment_path(@post) %></p>
+<p><%= link_to "Delete", post_comment_path(@post, comment), method: :delete %></p>
 <% end %>
