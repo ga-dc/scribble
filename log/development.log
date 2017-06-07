@@ -1,0 +1,819 @@
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/config/environment.rb:5)
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scribble_development"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "scribble_test"[0m
+  [1m[35m (248.2ms)[0m  [1m[35mCREATE DATABASE "scribble_development" ENCODING = 'utf8'[0m
+  [1m[35m (240.4ms)[0m  [1m[35mCREATE DATABASE "scribble_test" ENCODING = 'utf8'[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4326982041835596990);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20151110161914)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePosts < ActiveRecord::Migration[4.2] (called from block in execute at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0@global/gems/rake-12.0.0/lib/rake/task.rb:250)
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" serial primary key, "title" character varying, "body" text, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151110161914"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20151110162041)
+  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateComments < ActiveRecord::Migration[4.2] (called from block in execute at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0@global/gems/rake-12.0.0/lib/rake/task.rb:250)
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" serial primary key, "body" text, "post_id" integer, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151110162041"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4326982041835596990)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY updated_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Medieval Fourier Transform"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Type classes and generic derivation"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Big Data’s Radical Potential"], ["body", "Four loko bespoke knausgaard kinfolk dreamcatcher. Authentic bitters drinking vinegar portland mustache, mumblecore gluten-free vegan cred chicharrones keytar. Retro ethical authentic occupy. Kinfolk readymade skateboard, truffaut cold-pressed asymmetrical small batch. Franzen authentic ethical truffaut. Before they sold out jean shorts kale chips authentic, franzen yr readymade cornhole. Pickled truffaut chambray polaroid cray.  Distillery brooklyn waistcoat bicycle rights yr small batch. Cold-pressed readymade bushwick celiac, taxidermy offal everyday carry. Raw denim deep v chia normcore, farm-to-table tattooed listicle lo-fi whatever swag tote bag roof party cardigan mustache. Mixtape VHS williamsburg occupy, four loko vinyl echo park cred marfa you probably haven't heard of them tilde church-key cronut. Distillery lo-fi venmo, meh truffaut deep v paleo gentrify. Tousled selfies disrupt PBR&B, XOXO jean shorts selvage neutra flexitarian. Squid meggings hashtag kogi meditation kale chips, flexitarian knausgaard hoodie portland ramps.  Banh mi chillwave plaid polaroid. Single-origin coffee salvia humblebrag franzen lumbersexual XOXO tousled, dreamcatcher locavore. Selfies fap cliche, flannel before they sold out pour-over roof party squid narwhal selvage lo-fi chillwave meditation. Beard dreamcatcher meditation, pinterest iPhone photo booth plaid cronut austin gastropub. Direct trade pinterest butcher, meggings disrupt gluten-free pop-up authentic listicle ennui. Truffaut godard pitchfork, 3 wolf moon biodiesel viral celiac tousled pickled shoreditch. Marfa portland squid iPhone banh mi mixtape, food truck pickled street art flexitarian wolf schlitz paleo.  Poutine selvage keffiyeh gastropub. Authentic typewriter street art, photo booth shabby chic schlitz yr locavore tumblr beard pork belly PBR&B. Celiac kombucha meh, neutra etsy cold-pressed cray cardigan tousled occupy butcher. Cred gentrify distillery flannel polaroid vegan. Cornhole four dollar toast listicle semiotics retro kickstarter, roof party meditation selfies everyday carry cardigan williamsburg next level. Street art austin kombucha, offal tousled cred before they sold out butcher echo park tilde. Cronut cardigan locavore, selvage scenester kinfolk ennui slow-carb wolf."], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "The first comment on the first post"], ["post_id", 1], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "The first comment on the second post"], ["post_id", 2], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "The first comment on the third post"], ["post_id", 3], ["created_at", 2017-06-06 14:28:47 UTC], ["updated_at", 2017-06-06 14:28:47 UTC]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/RobTheHuman/.rvm/rubies/ruby-2.4.0/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/RobTheHuman/.rvm/rubies/ruby-2.4.0/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55)
+Started GET "/" for ::1 at 2017-06-06 10:39:17 -0400
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/activerecord-5.0.1/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 331ms (Views: 303.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/application.self-451537e9064729ae7f4ee6e5d62aac1a2466f5b7ee47f1b414c9309b150f10db.css?body=1" for ::1 at 2017-06-06 10:39:18 -0400
+Started GET "/assets/logo-22b5fb1e556f78819ada48709ca00b56f52a1e50c00fb713c52f0fc9ccf864ef.png" for ::1 at 2017-06-06 10:39:18 -0400
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/RobTheHuman/.rvm/rubies/ruby-2.4.0/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4326982041835596990);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20170606144045)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170606144045"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4326982041835596990)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+Started GET "/" for ::1 at 2017-06-06 10:42:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 175ms (Views: 155.7ms | ActiveRecord: 5.8ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+Started GET "/" for ::1 at 2017-06-06 10:51:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 192ms (Views: 171.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 10:51:31 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 10:51:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 10:52:52 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-06-06 10:53:01 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 57ms (Views: 43.1ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users" for ::1 at 2017-06-06 10:53:20 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RCcTM6jwBkNZAb2bJG4NC+5EQw5kKB9KhZECqLMv9lKZwu+wLXnnyrFVkpCVTPZxsb9LkkF4iJWQbJijiiZx0w==", "user"=>{"email"=>"RobLowe1992@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "roblowe1992@yahoo.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "roblowe1992@yahoo.com"], ["encrypted_password", "$2a$11$sdFWgp660sM6syy5xTtz7.y9iIHvh5fpjxZk.mzSx3vjphXnLtIIC"], ["created_at", 2017-06-06 14:53:20 UTC], ["updated_at", 2017-06-06 14:53:20 UTC]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-06-06 14:53:20 UTC], ["last_sign_in_at", 2017-06-06 14:53:20 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["updated_at", 2017-06-06 14:53:20 UTC], ["id", 1]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 194ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 10:53:20 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 1.1ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+Started GET "/" for ::1 at 2017-06-06 10:56:39 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:00:02 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-06-06 11:00:04 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VJHfTlcyo+jhYoukSeQoSvm/dG6kG7AbrNvShfLAb3eJdCPN0rtCYQk2pK/4xtMwpkR88oFLJ8S5JkiOy8no9g=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:00:04 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-06 11:00:12 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-06 11:00:18 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"525fJSFDZqKbohzdwrjP73q8JL0+Pz1KNXLb2UzacwqetUHj3U90jO6d0UDvXxh6u0BL0pVB6SEgV1DOJMkKuA==", "user"=>{"email"=>"RobLowe1992@Yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roblowe1992@yahoo.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2017-06-06 15:00:18 UTC], ["sign_in_count", 2], ["updated_at", 2017-06-06 15:00:18 UTC], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 147ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:00:18 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-06-06 11:02:23 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OCr82+2vPkKeUMyaE5DE6N2ewNNGuwCv7+I6pFQo8AJzNu4E0ww9JffuhTQD3eR3t9G/+s3oUbMZqIsacDS3aQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:02:23 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-06-06 11:02:24 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-06 11:02:25 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-06 11:02:30 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sJCd05x7H3IwjJmHLt2vxCE52v+yoQI+yC7rR1+crYfTWHptvUTWFUUyM03V1ZJwtsdhirQ1qkap4Ru0/CZ40A==", "user"=>{"email"=>"RobLowe1992@Yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roblowe1992@yahoo.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-06-06 15:02:30 UTC], ["last_sign_in_at", 2017-06-06 15:00:18 UTC], ["sign_in_count", 3], ["updated_at", 2017-06-06 15:02:30 UTC], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 150ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:02:30 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-06-06 11:02:35 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"teqINufQ9Jttetufez+Pp8835yFTdxIGiB5CXEZScHtYV1vfn28AoWuCfidbe0I267OPs5sljZsz4LvpBIOZ9Q=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:02:35 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4326982041835596990);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUsersToPosts (20170606153412)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4326982041835596990)[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4326982041835596990);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUsersToPosts (20170606153412)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170606153412"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4326982041835596990)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2017-06-06 11:50:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 28ms (Views: 18.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-06 11:50:04 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 41ms (Views: 26.8ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-06 11:50:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fG2oPIA4YEnzSz3aW+40ipz7WdOkUH6nC5FGDq8lrGbw6cchLxkJ2MDVqDDnJvJZpj4iFD47G4znuOM0nxEFgA==", "user"=>{"email"=>"RobLowe1992@Yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roblowe1992@yahoo.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-06-06 15:50:09 UTC], ["last_sign_in_at", 2017-06-06 15:02:30 UTC], ["sign_in_count", 4], ["updated_at", 2017-06-06 15:50:09 UTC], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2017-06-06 11:50:09 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-06-06 11:50:12 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.9ms)
+  Rendered posts/new.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for ::1 at 2017-06-06 11:50:27 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z/IuazaCpXrAfY8/Vs3WO0OxMZhJlMvPp1YjbWj8A2S+/ztD81hGh+I9sBynDpxZGL392xXfEOKGcfTMxgCZzg==", "post"=>{"title"=>"Test", "body"=>"This is a test"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Test"], ["body", "This is a test"], ["created_at", 2017-06-06 15:50:27 UTC], ["updated_at", 2017-06-06 15:50:27 UTC]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 10ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-06-06 11:50:27 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (21.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 33.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-06 11:53:18 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 22.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-06-06 11:53:19 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 3]]
+  Rendered posts/show.html.erb within layouts/application (17.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 27.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-06 11:53:23 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-06-06 11:53:24 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 3]]
+  Rendered posts/show.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-06-06 11:53:45 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/posts/4" for ::1 at 2017-06-06 11:53:46 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8JVUR6wZyaPmKEYA31uUYPnvQdh3vqbJPp5NJ0D3wTEpmEFvacMqXsRoeSMumN4CouONmyv1feQfuZqG7gtbmw==", "id"=>"4"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+NameError (undefined local variable or method `posts' for #<PostsController:0x007f9d01d81da0>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:25:in `destroy'
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__ob_he_uman__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb___2651691876745922668_70156209375980 at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.7ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (124.8ms)
+Started GET "/" for ::1 at 2017-06-06 11:54:14 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (8.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 29.4ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-06-06 11:54:17 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (9.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-06-06 11:54:19 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 3]]
+  Rendered posts/show.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-06-06 11:54:21 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/posts/4" for ::1 at 2017-06-06 11:54:22 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"28Ma+B5y6FlMa8Ch+zrBmmBs25aDaIw5mh19ETL7gJ8Czg/Q26gLpG4r/4IK+Yv4O2AX1d8jVxS7OqqwnAcaNQ==", "id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass):
+  
+app/controllers/posts_controller.rb:25:in `destroy'
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.6ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__ob_he_uman__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb___2651691876745922668_70156171626220 at /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.4ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (107.8ms)
+Started GET "/posts" for ::1 at 2017-06-06 11:55:24 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (17.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 32.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-06-06 11:55:25 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 4]]
+  Rendered posts/show.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/posts/4" for ::1 at 2017-06-06 11:55:26 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cgCrhFtKslkvd52AIZb7MO6FGnqho9yXaqeE6GgtCturDb6snpBRpA03oqPQVbFStYnWOf3oB7pLgFNJxtGQcQ==", "id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-06 11:55:26 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-06-06 11:55:28 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 3]]
+  Rendered posts/show.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 19.9ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/posts/3" for ::1 at 2017-06-06 11:55:30 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZyOFTx+Xt+ICrDzb/X3XnJv/vXe1CqZMJKmxb7u1prW+LpBn2k1UHyDsA/gMvp3+wPNxNOlBfWEFjmbOFUk8Hw==", "id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-06 11:55:30 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.8ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/RobTheHuman/wdi/sandbox/scribble/app/models/application_record.rb:1)
+Started GET "/" for ::1 at 2017-06-07 08:06:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (16.1ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 238ms (Views: 211.3ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-06-07 08:06:05 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (34.6ms)
+  Rendered posts/new.html.erb within layouts/application (37.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for ::1 at 2017-06-07 08:06:15 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"famODhi7270JZbmaeDm9zILsVZDdDeQ55ByxpFlDFS+kpJsm3WE4QCslhrmJ+veu2eCZ04FGPxTFO2YF97+PhQ==", "post"=>{"title"=>"ndfndknf", "body"=>"dbhbdjfbjdbfj"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "ndfndknf"], ["body", "dbhbdjfbjdbfj"], ["created_at", 2017-06-07 12:06:16 UTC], ["updated_at", 2017-06-07 12:06:16 UTC], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 26ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/posts/5" for ::1 at 2017-06-07 08:06:16 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 20.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2017-06-07 08:06:19 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/edit.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 15.8ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2017-06-07 08:06:22 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XXSL4TWblEfIMbA+fqtf3hB9tqZMn3fnA78FQ9P1HhiEeZ7J8EF3uupxjx2PaBW8S3F65RDUrMoimNLifQmEsg==", "post"=>{"title"=>"ndfndknf", "body"=>"dbhbdjfbjdbfjcdcdcdc"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "body" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["body", "dbhbdjfbjdbfjcdcdcdc"], ["updated_at", 2017-06-07 12:06:22 UTC], ["id", 5]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 11ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/posts/5" for ::1 at 2017-06-07 08:06:22 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/5" for ::1 at 2017-06-07 08:06:24 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fZP59H3gnwxkuwqQ/zh72BF1LOtDiACt3u/fCxpUQoqknuzcuDp88Ub7NbMO+zG6SnngqB/D24D/yAiqtKjYIA==", "id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 5]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 11ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-07 08:06:24 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-06-07 08:06:27 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wAnbrU/Fs5DDd0MzNF458bgJiWc3Lp82//1LZ8/LyRIZBM6Fih9QbeE3fBDFnXOT4wVFJGtlRBve2pzGYTdTuA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-07 08:06:27 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-06-07 08:06:29 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY updated_at DESC[0m  [["post_id", 3]]
+  Rendered posts/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/posts/3" for ::1 at 2017-06-07 08:06:32 -0400
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ivDAMD9yx2eAiEuanlMmnw6na/x3XeR6ql2cVPc1XMICJAyCL5jvq828fZE4hs9U2XX5R8B6BW0z8pi4PoVqsw==", "id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY updated_at DESC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 5ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-07 08:06:32 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-07 08:06:44 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-07 08:06:57 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eBrGt5t5JhS2TAR8vwyWe9CAsC4cqDH6Jnan95zvTaXwzgoFi5MO2Pt4MncZ2X+wB1IilauP0O2/2aMbVV971A==", "user"=>{"email"=>"email@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@yahoo.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eBrGt5t5JhS2TAR8vwyWe9CAsC4cqDH6Jnan95zvTaXwzgoFi5MO2Pt4MncZ2X+wB1IilauP0O2/2aMbVV971A==", "user"=>{"email"=>"email@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 163ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-06-07 08:07:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /Users/RobTheHuman/.rvm/gems/ruby-2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-06-07 08:07:10 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RNVa4pVqRUIX8iWaHLsEtR8zMVDpfE782lJNqLJAF0nMAZZQhYBtjlrGE5G6bu1+yOGj615br+tD/UlEe/AhOA==", "user"=>{"email"=>"email@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email@yahoo.com"], ["LIMIT", 1]]
+  [1m[35mSQL (6.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "email@yahoo.com"], ["encrypted_password", "$2a$11$9dHWE4st1FBq3GIWT/EgLe6./LLZCOwsSiKFNqwgtlCTbwNIOKgke"], ["created_at", 2017-06-07 12:07:10 UTC], ["updated_at", 2017-06-07 12:07:10 UTC]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-06-07 12:07:10 UTC], ["last_sign_in_at", 2017-06-07 12:07:10 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["updated_at", 2017-06-07 12:07:10 UTC], ["id", 2]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 198ms (ActiveRecord: 19.2ms)
+
+
+Started GET "/" for ::1 at 2017-06-07 08:07:10 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY updated_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.8ms)
+
+
