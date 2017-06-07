@@ -27,6 +27,9 @@ redirect_to post_path(@post), notice: "You successuflly edited your post!"
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "You successfully deleted your post!"
 
   end
 

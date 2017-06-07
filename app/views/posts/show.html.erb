@@ -1,7 +1,22 @@
-<h2><%= @post.title %></h2>
-<time>Created <%= @post.created_at %></time>
-  <time>Updated <%= @post.updated_at %></time>
+<div>
+  <h2><%= @post.title %></h2>
   <p><%= @post.content %></p>
   <p>By <%= @post.author %></p>
-  <%= link_to "Edit Post", edit_post_path(@post) %>
+  <p><time>Created: <%= @post.created_at %></time></p>
+  <p><time>Updated: <%= @post.updated_at %></time></p>
+  <%= link_to "Edit Post", edit_post_path(@post) %> |
   <%= link_to "Delete Post", post_path(@post), method: :delete %>
+
+</div>
+<br><hr>
+<div>
+  <h3>Comments</h3>
+  <%= link_to "Add new comment", new_post_comment_path(@post) %>
+  <% @post.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+  <p>By <%= comment.user %></p>
+  <p><time>Updated: <%= comment.updated_at %></time></p>
+  <%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %> |
+  <%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete %>
+  <% end %>
+</div>
