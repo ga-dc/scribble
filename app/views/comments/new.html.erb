@@ -1,0 +1,12 @@
+<h1>Add a Scribble</h1>
+
+<%= form_for @comment do |f|%>
+<!-- equals sign above so that form appears -->
+  <%=f.label :name %>
+  <%=f.text_field :name %>
+
+  <%=f.label :text %>
+  <%=f.text_field :text %>
+
+  <%= f.submit "Create"%>
+<%end%>

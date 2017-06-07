@@ -1,0 +1,16 @@
+<%= link_to "Back to Posts", post_path(@post) %>
+
+<h2><%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></h2>
+<h3>By: <%= @post.author %></h3>
+
+<p><%= @post.text %></br>
+
+<%= link_to "Add new comment", new_post_comment_path(@post) %>
+
+<ul>
+  <% @post.comment.each do |song| %>
+    <li>
+      <%= link_to "#{comment.name} (#{comment.text})", post_comment_path(@post, comment) %>
+    </li>
+  <% end %>
+</ul>
