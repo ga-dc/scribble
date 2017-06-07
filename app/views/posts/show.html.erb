@@ -1,0 +1,33 @@
+
+
+<h2><%= link_to "Edit Post", edit_post_path %></h2>
+
+<br>
+
+<h2> Title </h2>
+<p> <%= @post.title %> </p>
+
+<br>
+
+<h2> Body </h2>
+<p> <%= @post.body %> </p>
+
+<br>
+
+
+<h2>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h2>
+
+<ul>
+
+<% @post.comments.each do |comment| %>
+<li>
+
+<%= comment.body %>
+
+</li>
+<% end %>
+</ul>
+
+<br>
+
+<h3> <%= link_to 'Edit Comment', edit_post_comment_path(@post) %> </h3>
