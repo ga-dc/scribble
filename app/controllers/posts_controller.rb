@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create!(post_params)
+    redirect_to posts_path
   end
 
   def update
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id]).destroy
+    redirect_to posts_path
   end
 
 end
