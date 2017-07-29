@@ -1,7 +1,9 @@
 <h1> All Posts </h1>
 
+<a href="/posts/new"> <button>  New Post </button></a>
+
 <% @posts.each do |entry| %>
   <h3> <a href="/posts/<%= entry.id %>"><%= entry.title %> </a></h3>
-  <p> <%= entry.author %> </p>
+  <p> by: <%= entry.author %> </p>
   <p> <%= entry.content %> </p>
 <% end %>

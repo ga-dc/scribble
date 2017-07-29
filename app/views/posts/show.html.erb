@@ -9,6 +9,7 @@
 <p> <a href="<%= @post.link %>"> Link </a> </p>
 
 <h3>Comments</h3>
+<a href="/posts/<%= @post.id %>/comments/new"> <button> Leave a Comment </button> </a>
 <% @comment.each do |cmt| %>
   <p style="font-weight: 700"> <%= cmt.username %> -- <%= cmt.created_on %> -- Rating: <%= cmt.rating %> </p>
   <p> <%= cmt.content %> </p>
