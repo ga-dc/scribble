@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.string :author
       t.string :content
       t.datetime :created_at
-      t.date_time :updated_at
+      t.datetime :updated_at
 
       t.timestamps
     end
