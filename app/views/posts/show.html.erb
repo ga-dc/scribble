@@ -1,4 +1,7 @@
 <h1> <%= @post.title %> </h1>
+
+<a href="/posts/<%= @post.id %>/edit"><button>Edit</button></a>
+
 <h3> Written By: <%= @post.author %> </h3>
 <p> Created: <%= @post.created_on %> </p>
 
