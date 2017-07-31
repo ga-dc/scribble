@@ -1,3 +1,5 @@
+<p> <a href="/posts">All Posts</a></p>
+
 <h1> <%= @post.title %> </h1>
 
 <a href="/posts/<%= @post.id %>/edit"><button>Edit</button></a>
@@ -16,6 +18,5 @@
 <% @comment.each do |cmt| %>
   <p style="font-weight: 700"> <%= cmt.username %> -- <%= cmt.created_on %> -- Rating: <%= cmt.rating %> </p>
   <p> <%= cmt.content %> </p>
+  <%= link_to "Edit/Delete", edit_post_comment_path(@post, cmt) %>
 <% end %>
-
-<p> <a href="/posts"> <button> All Posts </button> </a> </p>
