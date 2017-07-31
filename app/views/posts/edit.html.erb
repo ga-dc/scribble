@@ -1,0 +1,23 @@
+<h2>Update <%= @post.title %></h2>
+
+
+<% @post.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+<br>
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+<br>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+<br>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+<br>
+  <%= f.submit %>
+<% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+  <% end %>
