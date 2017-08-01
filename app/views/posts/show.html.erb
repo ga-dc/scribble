@@ -1,0 +1,17 @@
+<div class="post">
+  <h2 class="title"><%= @post.title %></h2>
+  <h4 class="author"><%= @post.author %></h4>
+  <p class="post-content"><%= @post.content %></p>
+  <div class="row">
+        <p class='time-updated'><%= @post.updated_at %></p>
+        <%= link_to "(edit post)", edit_post_path(@post) %>
+  </div>
+</div>
+<ul class="comments">
+  <% @post.comments.each do |comment| %>
+    <li class="comment">
+      <p><%= comment.author %></p>
+      <p><%= comment.content %></p>
+    </li>
+  <% end %>
+</ul>
