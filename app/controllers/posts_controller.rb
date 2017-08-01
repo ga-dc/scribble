@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def new
@@ -23,8 +24,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post = Post.update(post_params)
-    redirect_to post_path
-  end 
+    redirect_to '/posts'
+  end
 
   private
   def post_params
