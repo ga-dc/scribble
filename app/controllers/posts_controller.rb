@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts.order(:created_at)
   end
 
   def show
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    redirect_to '/posts'
   end
 
   def edit
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post = Post.update(post_params)
+    @post.update(post_params)
     redirect_to '/posts'
   end
 
