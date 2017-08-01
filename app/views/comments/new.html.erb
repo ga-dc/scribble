@@ -1,4 +1,7 @@
 <h2>Comment</h2>
+<% @comment.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
 
 <div class="form">
 <%= form_for [@post, @comment] do |f| %>

@@ -9,8 +9,13 @@ class PostsController < ApplicationController
   end
 #create
   def create
-    @post = Post.create!(post_params)
-    redirect_to_post_path(post)
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:notice] = "post created"
+      redirect_to @post
+    else
+      render :new
+    end
   end
 #show
   def show
@@ -27,10 +32,10 @@ class PostsController < ApplicationController
     redirect_to_post_path(post)
   end
 #destroy
-  def delete
+  def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to_posts_path
+    redirect_to posts_path
   end
 
 private
