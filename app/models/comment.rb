@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-  belongs_to :post, dependent: :destroy
+  validates :title, :body, presence: true
+  belongs_to :post
 end

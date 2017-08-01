@@ -1,0 +1,19 @@
+<h1>Create a new Article!</h1>
+
+<% @post.errors.full_messages.each do |key, value| %>
+<h3 class="flash"> <%= key %></h3>
+<% end %>
+
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.submit "Create"%>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>All News Stories</h1>
+
+<% @posts.each do |post| %>
+  <p><a href="/posts/<%=post.id%>"><%= post.title %></a></p>
+<% end %>
+
+<p><a href="/posts/new">Add new article</a></p>
