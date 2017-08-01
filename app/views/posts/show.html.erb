@@ -1,0 +1,13 @@
+<h2>Post <%= @post.id %></h2>
+<%= image_tag(@post.img_url, class: "post_img")%>
+<p><%= @post.content %></p>
+
+<hr>
+<h3>Comments <%= link_to "+  ", new_post_comment_path(@post) %></h3>
+<% if @comments %>
+  <% @comments.each do |c| %>
+  <%= c.name %>
+  <%= c.body %>
+  <% end %>
+  <% end %>
+<br>
