@@ -1,0 +1,20 @@
+<h2>New Post</h2>
+
+
+<% @post.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+<br>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+<br>
+  <%= f.submit %>
+<% end %>

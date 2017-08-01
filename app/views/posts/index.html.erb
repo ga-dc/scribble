@@ -1,0 +1,8 @@
+<h1>A sea of posts <%= link_to "(+)", new_post_path %></h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2>  <%= link_to post.title, post %></h2>
+    <%=image_tag post.photo_url %>
+  </div>
+<% end %>
