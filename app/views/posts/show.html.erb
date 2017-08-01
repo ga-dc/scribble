@@ -7,8 +7,12 @@
         <%= link_to "(edit post)", edit_post_path(@post) %>
   </div>
 </div>
+
+<h3>Comments: <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+
 <ul class="comments">
   <% @post.comments.each do |comment| %>
+<%= link_to "See Comment", post_comment_path(comment.post, comment) %>
     <li class="comment">
       <p><%= comment.author %></p>
       <p><%= comment.content %></p>

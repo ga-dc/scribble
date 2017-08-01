@@ -1,0 +1,6 @@
+<h2>Comment from: <%= @comment.post.title %> <%= link_to "(edit)", edit_post_comment_path(@comment.post, @comment) %></h2>
+<h3>By: <%= @comment.author %></h3>
+
+<%= @comment.content %></br>
+
+<%= link_to "(go back to post)", post_path(@comment.post) %>
