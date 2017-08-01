@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scribble</title>
+    <title>Perry's Posts</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   </head>
 
   <body>
     <h3 class="flash notice"><%= flash[:notice] %></h3>
     <h3 class="flash alert"><%= flash[:alert] %></h3>
+
+    <h1><a class="heading" href=<%= root_path %>>Perry's Posts!</a></h1>
+    <hr>
 
     <%= yield %>
   </body>

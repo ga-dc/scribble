@@ -1,7 +1,9 @@
-<h1>All News Stories</h1>
 
 <% @posts.each do |post| %>
-  <p><a href="/posts/<%=post.id%>"><%= post.title %></a></p>
+<div class="article">
+  <h2 class="headline"><a href="/posts/<%=post.id%>"><%= post.title %></a></h2>
+  <p class="body"><%= post.body %></p>
+</div>
 <% end %>
 
-<p><a href="/posts/new">Add new article</a></p>
+<p class="new"><a href="/posts/new">Add new article</a></p>

@@ -1,4 +1,4 @@
-<h1>Create a new Article!</h1>
+<h2>Create a new Article!</h2>
 
 <% @post.errors.full_messages.each do |key, value| %>
 <h3 class="flash"> <%= key %></h3>
@@ -8,12 +8,15 @@
 <%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <hr class="form-space">
 
   <%= f.label :body %>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
+  <hr class="form-space">
 
   <%= f.label :photo_url %>
   <%= f.text_field :photo_url %>
+  <hr class="form-space">
 
   <%= f.submit "Create"%>
 <% end %>

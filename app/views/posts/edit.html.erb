@@ -9,12 +9,15 @@
 <input type="hidden" name="_method" value="patch">
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <hr class="form-space">
 
   <%= f.label :body %>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
+  <hr class="form-space">
 
   <%= f.label :photo_url %>
   <%= f.text_field :photo_url %>
+  <hr class="form-space">
 
   <%= f.submit "Update"%>
 <% end %>
