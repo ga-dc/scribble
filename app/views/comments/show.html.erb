@@ -1,0 +1,12 @@
+<ul>
+  <h3><%= @comment.comment_content %></h3>
+  <p>comment by: <%= @comment.comment_by %></p>
+  <p>comment date: <%= @comment.created_at %></p>
+  <p>edit date: <%= @comment.updated_at %></p>
+</ul>
+<p>Back to post: <%= link_to @post.title, post_path(@post) %></p>
+<p><%= link_to 'edit comment', edit_post_comment_path(@comment.post, @comment) %></p>
+
+<%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>

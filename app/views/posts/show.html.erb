@@ -1,0 +1,16 @@
+<h2><%= @post.title %><%= link_to "(edit_post)", edit_post_path(@post) %></h2>
+<h4>Posted By:</h4>
+<h4><%= @post.post_by %></h4>
+<p><%= @post.content %></p>
+<p>Post date: <%= @post.created_at %></p>
+<p>Edit date: <%= @post.updated_at %></p>
+
+<h4>Comments <%= link_to "(new_comment)", new_post_comment_path(@post) %></h4>
+
+<ul>
+  <% @post.comments.each do |comment| %>
+<li>
+  <%= link_to "#{comment.comment_content}", post_comment_path(@post, comment) %>
+</li>
+  <% end %>
+</ul>
