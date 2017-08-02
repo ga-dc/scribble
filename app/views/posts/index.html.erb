@@ -1,6 +1,6 @@
 <h1> All Posts </h1>
 
-<a href="/posts/new"> <button>  New Post </button></a>
+<a href="/posts/new">  New Post </a>
 
 <% @posts.each do |entry| %>
   <h3> <a href="/posts/<%= entry.id %>"><%= entry.title %> </a></h3>

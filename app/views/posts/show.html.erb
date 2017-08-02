@@ -1,8 +1,9 @@
 <p> <a href="/posts">All Posts</a></p>
 
 <h1> <%= @post.title %> </h1>
-
-<a href="/posts/<%= @post.id %>/edit"><button>Edit</button></a>
+<% if current_user == @post.user %>
+  <a href="/posts/<%= @post.id %>/edit"><button>Edit/Delete</button></a>
+<% end %>
 
 <h3> Written By: <%= @post.author %> </h3>
 <p> Created: <%= @post.created_on %> </p>
@@ -18,5 +19,7 @@
 <% @comment.each do |cmt| %>
   <p style="font-weight: 700"> <%= cmt.username %> -- <%= cmt.created_on %> -- Rating: <%= cmt.rating %> </p>
   <p> <%= cmt.content %> </p>
-  <%= link_to "Edit/Delete", edit_post_comment_path(@post, cmt) %>
+  <% if current_user == cmt.user %>
+    <%= link_to "Edit/Delete", edit_post_comment_path(@post, cmt) %>
+  <% end %>
 <% end %>
