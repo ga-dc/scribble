@@ -19,6 +19,15 @@ body {
   font-family: 'arial', sans-serif;
 }
 
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgba(0,0,0,0.7);
+}
+
 header {
   border-bottom: 2px solid grey;
 }
