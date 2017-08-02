@@ -1,0 +1,17 @@
+<h1> Comment by <%= @comment.username %> </h1>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label "Username" %>
+  <%= f.text_field :username %>
+
+  <%= f.label "Content" %>
+  <%= f.text_field :content %>
+
+  <%= f.label "Rating" %>
+  <%= f.number_field :rating %>
+
+  <%= f.submit "Update Post" %>
+<% end %>
+
+<%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete Post" %>
+<% end %>

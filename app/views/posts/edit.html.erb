@@ -1,0 +1,24 @@
+<h1> Edit/Delete Post </h1>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+<br>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+<br>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+<br>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+<br>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+<br>
+  <%= f.submit "Submit" %> <a href="/posts"> <button>Cancel</button> </a>
+<% end %>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete" %>
+<% end %>
