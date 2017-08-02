@@ -1,0 +1,17 @@
+<h2>edit comments</h2>
+
+<div class="form">
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+    <%= f.submit "edit comment"%>
+  <% end %>
+</div>
+
+<h2>Delete comment</h2>
+<%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
+<br>
+
+<%= link_to "back to article", post_path(@post) %>

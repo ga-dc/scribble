@@ -1,0 +1,9 @@
+<h2>Articles</h2>
+
+<div class="post-list">
+<% @posts.each do |post| %>
+  <div><%= link_to "#{post.title}", post_path(post) %></div>
+<% end %>
+</div>
+
+<%= link_to "+ New Article", new_post_path %>

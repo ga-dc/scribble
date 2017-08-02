@@ -1,0 +1,18 @@
+<h2>New article</h2>
+
+<% @post.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<div class="form">
+<%= form_for @post do |f|  %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "60x12" %>
+<%= f.submit "Post article"%>
+<% end %>
+</div>
+
+<br>
+<%= link_to "home", posts_path %>

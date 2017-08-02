@@ -1,0 +1,19 @@
+<% flash.each do |type, message| %>
+  <p class="flash <%= type %>"><%= message %></p>
+<% end %>  
+
+<h2><%= @post.title %></h2>
+
+<p><%= @post.content %></p>
+
+<p><%= link_to "edit or delete this article", edit_post_path(@post) %></p>
+
+<h3>comments</h3>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.text %> - <%= link_to "edit or delete", edit_post_comment_path(@post, comment)%></p>
+<% end %>
+
+<p><%= link_to "add new comment", new_post_comment_path(@post)%></p>
+
+
+<p><%= link_to "home", posts_path %></p>
