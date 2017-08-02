@@ -10,7 +10,7 @@ Post.destroy_all
 Comment.destroy_all
 
 posts = Post.create(
-[{title: "Blue Eyed Cat",
+{title: "Blue Eyed Cat",
   author: "Liz Jewell",
   content: "this is a blog post",
   is_published: false,
@@ -21,6 +21,10 @@ posts = Post.create(
   content: "this is also a blog post",
   is_published: false,
   img_url: "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx"
-},
-]
+}
 )
+
+comments = Comment.create([
+{body:"The first comment on the first post", post: posts[0]},
+{body:"The first comment on the second post", post: posts[0]},
+])

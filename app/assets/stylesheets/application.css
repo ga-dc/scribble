@@ -1,15 +1,69 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Tahoma, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+form label {
+  padding: 5px;
+  margin: 5px;
+}
+form input, textarea {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
+}
+
+.contentinput {
+  height: 400px;
+}
+
+.formitem {
+  width: 100%;
+  align-self: flex-start;
+}
+.formbutton {
+  width: 40%;
+  align-self: center;
+}
+
+.logo {
+  height: 300px;
+  margin: 10px;
+}
+
+.logobox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #bcd236;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.main {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

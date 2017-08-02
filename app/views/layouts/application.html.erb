@@ -10,8 +10,11 @@
 
   <body>
     <nav>
-      <a href="/posts">All Posts</a>
+    
+        <%= link_to "All Posts", posts_path %>
     </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

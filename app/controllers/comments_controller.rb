@@ -19,6 +19,30 @@ def create
 
 end
 
+def edit
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  # update
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    flash[:notice] = "Comment upated successfully."
+    redirect_to post_path(@post)
+  end
+
+  # destroy
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:alert] = "Comment deleted!"
+    redirect_to post_path(@post)
+  end
+
+
+
 
 private
 def comment_params
