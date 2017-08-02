@@ -14,26 +14,38 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(posts_params)
+    @post = current_user.posts.create!(posts_params)
 
-    redirect_to "/posts/#{@post.id}"
+    redirect_to post_path(@post)
   end
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user != current_user
+      flash[:alert] = "Must be creator of post to edit!"
+      redirect_to post_path(@post)
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    @new_post = @post.update!(posts_params)
-
-    redirect_to "/posts/#{@post.id}"
+    if @post.user == current_user
+      @new_post = @post.update!(posts_params)
+      flash[:notice] = "Updated Post"
+    else
+      flash[:alert] = "Must be creator of post to edit!"
+    end
+    redirect_to post_path(@post)
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy!
-
+    if @post.user == current_user
+      @post.destroy!
+      flash[:notice] = "Deleted Post"
+    else
+      flash[:alert] = "Must be creator of post to delete!"
+    end
     redirect_to posts_path
   end
 
