@@ -6,13 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 Comment.destroy_all
 Post.destroy_all
 
-first_post = Post.create(title: "Breaking News!", body: "Today we learned about Rails!", photo_url: "www.google.com")
+perry = User.create(email: 'perry@gmail.com', password: 'password')
 
-second_post = Post.create(title: "Trip to Post", body: "Today we take a field trip to the post", photo_url: "www.washingtonpost.com")
+first_post = perry.posts.create(title: "Breaking News!", body: "Today we learned about Rails!  It was so much fun.  I cannot wait to do more!", photo_url: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png")
 
-first_comment = Comment.create(title: "You suck!", body: "I want to learn about Python!", post: first_post)
+second_post = perry.posts.create(title: "Trip to Post", body: "Today we took a field trip to the Washington Post.  Wow, what a trip.  We walked there and then toured the building.", photo_url: "http://realorsatire.com/wp-content/uploads/2016/11/washintonpost.jpg")
 
-second_comment = Comment.create(title: "You are great!", body: "I love Rails!", post: first_post)
+first_comment = perry.comments.create(title: "You suck!", body: "I want to learn about Python!", post: first_post)
+
+second_comment = perry.comments.create(title: "You are great!", body: "I love Rails!", post: first_post)
+
+third_comment = perry.comments.create(title: "hey", body: "You are ok with me.", post: second_post)

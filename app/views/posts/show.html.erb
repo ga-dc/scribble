@@ -4,7 +4,11 @@
   <h2><%= @post.title %></h2>
   <img src="<%= @post.photo_url %>" alt="<%= @post.title %>" width="400px">
   <p><%= @post.body %></p>
-  <%= link_to "Edit this article", edit_post_path(@post) %>
+
+  <% if @post.user == current_user %>
+    <%= link_to "Edit this article", edit_post_path(@post) %>
+  <% end %>
+
 </div>
 
 <div class="comment new-comment">
@@ -17,7 +21,9 @@
   <div class="comment">
     <h4><%= link_to comment.title, post_comment_path(@post, comment) %></h4>
     <p><p><%= comment.body %></p></p>
-    <%= link_to "Edit this Comment", edit_post_comment_path(@post, comment) %>
+    <% if comment.user == current_user %>
+      <%= link_to "Edit this Comment", edit_post_comment_path(@post, comment) %>
+    <% end %>
     <br>
   </div>
 

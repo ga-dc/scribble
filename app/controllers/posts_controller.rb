@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.create!(post_params)
     if @post.save
       redirect_to post_path(@post), notice: "Post successfully created"
     else
@@ -24,11 +24,16 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user != current_user
+      flash[:alert] = "Only the author of the post can edit!"
+      redirect_to post_path(@post)
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
+    if @post.user == current_user
+      @post.update(post_params)
       redirect_to post_path(@post), notice: "Post successfully updated"
     else
       flash[:alert] = "Fields not entered correctly"
@@ -38,8 +43,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-
+    if @post.user == current_user
+      @post.destroy
+    else
+      flash[:alert] = "Only the author of the post can delete"
+    end
     redirect_to posts_path
   end
 

@@ -14,11 +14,20 @@
   </head>
 
   <body>
-    <h3 class="flash notice"><%= flash[:notice] %></h3>
-    <h3 class="flash alert"><%= flash[:alert] %></h3>
+    <header>
+      <p class="flash notice"><%= notice %></p>
+      <p class="flash alert"><%= alert %></p>
 
-    <h1><a class="heading" href=<%= root_path %>>Perry's Posts!</a></h1>
-    <hr>
+      <% if !current_user %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% else %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+
+      <h1><a class="heading" href=<%= root_path %>>Perry's Posts!</a></h1>
+      <hr>
+    </header>
 
     <%= yield %>
   </body>
