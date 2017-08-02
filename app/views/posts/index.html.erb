@@ -1,9 +1,9 @@
-<h1>Articles</h1>
+<h2>Articles</h2>
 
-<ul>
+<div class="post-list">
 <% @posts.each do |post| %>
-  <li><%= link_to "#{post.title}", post_path(post) %></li>
+  <div><%= link_to "#{post.title}", post_path(post) %></div>
 <% end %>
-</ul>
+</div>
 
 <%= link_to "New Article", new_post_path %>
