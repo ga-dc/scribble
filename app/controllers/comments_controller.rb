@@ -9,14 +9,10 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create!(comments_params)
+    @comment = @post.comments.create!(comments_params.merge(user: current_user))
 
     redirect_to post_path(@post)
   end
-
-  # def show
-  #   @comment = Comment.find(params[:id])
-  # end
 
   def edit
     @post = Post.find(params[:post_id])
