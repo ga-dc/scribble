@@ -8,6 +8,15 @@
   </div>
 </div>
 
+<ul class="tags">
+  <% @post.tags.each do |tag| %>
+    <li class="tag">
+      <p><%= link_to tag.category.name, category_path(tag.category) %>
+</p>
+    </li>
+  <% end %>
+</ul>
+
 <h3>Comments: <%= link_to "(+)", new_post_comment_path(@post) %></h3>
 
 <ul class="comments">
