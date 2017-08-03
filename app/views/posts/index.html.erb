@@ -1,4 +1,5 @@
 <h1>Scribble</h1>
+<%= link_to "New post", new_post_path(@post) %>
 <% @posts.each do |post| %>
   <div class="post">
     <h2><%= link_to post.title, post %></h2>
