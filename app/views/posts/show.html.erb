@@ -1,0 +1,25 @@
+<h2> <%= @post.title %> </h2>
+  <p> Published at: <%= @post.created_at %> </p>
+  <%= link_to "Edit Post", edit_post_path(@post)   %>
+  <p> <%= @post.content %> </p>
+
+<br><br>
+
+<p> Comments: </p>
+<% @comments.each do |comment|  %>
+  <%= comment.content %> <br><br>
+  <%= link_to "Edit comment", edit_post_comment_path(@post, comment) %> <br>
+  <p> Comment published at: <%= comment.created_at %></p>
+  <% end %>
+
+
+  <%= form_for [@post, @post.comments.new] do |f| %>
+
+    <%= f.label "Submit New Comment here" %>:
+    <%= f.text_field :content %><br><br>
+
+    <%= f.submit %>
+  <% end %>
+
+  <!--
+  <%= link_to "New Comment", new_post_comment_path(@post)  %> -->

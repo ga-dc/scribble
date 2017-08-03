@@ -1,0 +1,19 @@
+<h1> Edit your comment </h1>
+
+<%= form_for [@post, @comment] do |f| %>
+
+  <%= f.label "Edit content" %>:
+  <%= f.text_field :content %><br />
+
+  <br>
+
+  <%= f.submit %>
+
+  <% end %>
+
+  <br><br>
+
+  <%= form_for [@post, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete Comment!", class: "delete" %>
+
+<% end %>
