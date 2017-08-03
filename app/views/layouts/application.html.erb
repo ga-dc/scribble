@@ -8,6 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div class "nav">
+      <%= link_to "Home".html_safe, posts_path %>
+  </div>
+
   <body>
     <%= yield %>
   </body>
