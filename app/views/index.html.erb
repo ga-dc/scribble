@@ -1,0 +1,7 @@
+<h1>Scribble</h1>
+
+<% @posts.each do |post| %>
+<h3><%= post.title %></h3>
+<p> <%= post.content %> </p>
+<%= link_to 'Comments', post_comments_path(post) %>
+<% end %>
