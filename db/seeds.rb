@@ -7,10 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Post.destroy_all
 Comment.destroy_all
+User.destroy_all
 
-first = Post.create(title: 'title', content: 'content' , post_by: 'someuser')
-second = Post.create(title: 'more titles', content: 'content contennnnt' , post_by: 'somesssuser')
+jake = User.create(email: 'jeg4t@virginia.edu', password: 'password')
 
-first.comments.create(comment_content: 'coneten for comment', comment_by: 'anotheruser')
-first.comments.create(comment_content: 'wooooooo', comment_by: 'comeondude')
-second.comments.create(comment_content: 'contenente forzzzz comment', comment_by: 'anothernotheruser')
+
+first_post = jake.posts.create(title: 'title', content: 'content')
+second_post = jake.posts.create(title: 'more titles', content: 'content contennnnt')
+
+first_post.comments.create(comment_content: 'coneten for comment')
+first_post.comments.create(comment_content: 'wooooooo')
+second_post.comments.create(comment_content: 'contenente forzzzz comment')
