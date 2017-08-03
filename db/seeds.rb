@@ -30,3 +30,18 @@ jay.comments.create(
   author: "Eli",
   content: "I'm a commenter, too"
 )
+
+blog = Category.create(name: "blogs")
+
+Tag.create([
+  {
+  name: "tag",
+  category: blog,
+  post: cool_post
+  },
+  {
+  name: "tag2",
+  category: blog,
+  post: jay
+  }
+])
