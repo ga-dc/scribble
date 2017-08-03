@@ -1,0 +1,5 @@
+<h3>Comments for <%= @post.title %></h3>
+
+<% @comments.each do |comment| %>
+<%= comment.body %> <%= link_to '-', post_comment_path(@post, comment), method: :delete %>
+<% end  %>
