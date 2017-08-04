@@ -1,24 +1,23 @@
-# README
+Models + Migrations
+Create models for Post and Comment
+Create migrations for Post and Comment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Index
+Create an index where a user can see all posts
+Each post should link to its respective show page
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+Show
+Create a show where a user can see each individual post.
+The show page should also show all of the post's comments.
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create
+Allow the user to create new posts and comments
+Update
+Allow the user to edit existing posts and comments
+Delete
+Allow the user to delete existing posts and comments.
