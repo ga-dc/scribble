@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Tahoma, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+form label {
+  padding: 5px;
+  margin: 5px;
+}
+form input, textarea {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
+}
+
+.contentinput {
+  height: 400px;
+}
+
+.formitem {
+  width: 100%;
+  align-self: flex-start;
+}
+.formbutton {
+  width: 40%;
+  align-self: center;
+}
+
+.logo {
+  height: 300px;
+  margin: 10px;
+}
+
+.smalllogo {
+  height: 100px;
+  margin: 5px;
+}
+
+.logobox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.smalllogobox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #bcd236;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.main {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
