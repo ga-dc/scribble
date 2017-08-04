@@ -1,52 +1,70 @@
 class PostsController < ApplicationController
 
-# READ
+  # READ
 
-def index
+  def index
+    @posts = Post.all
+  end
 
-end
+  # ------------------------
+  # ------------------------
 
-def show
-
-end
-
-def new
-
-end
-
-def edit
-
-end
-# -----------------------------------------
-
-# CREATE
-
-def create
-
-end
-
-# -----------------------------------------
-
-# UPDATE
-
-def update
-
-end
-
-# -----------------------------------------
-
-# DELETE
-
-def delete
-
-end
+  def show
+    @post = Post.find(params[:id])
+  end
 
 
+  # ------------------------
+  # ------------------------
+
+
+  def new
+    @post = Post.new
+  end
+
+
+  def create
+    @post =  Post.create!(passing_info)
+    redirect_to post_path(@post)
+  end
+
+
+  # ------------------------
+  # ------------------------
+
+
+  def edit
+    @post = Post.find(params[:id])
+
+  end
+
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(passing_info)
+    redirect_to post_path(@post)
+  end
+
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+
+  end
 
 
 
+  private
+
+  def passing_info
+    params.require(:post).permit(:title, :text, :photo_url)
+  end
 
 
-# -----------------------------------------
+
+  
+
+  # -----------------------------------------
 
 end # end of CommentsController class

@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+<h1> NEW COMMENT </h1>
+<%= form_for [@post, @comment] do|f|  %>
+
+  <%=f.label :title %>
+  <%=f.text_field :title %>
+
+  <%=f.label :text %>
+  <%=f.text_field :text %>
+
+
+  <%=f.submit "CREATE NEW COMMENT" %>
+
+<%end %>

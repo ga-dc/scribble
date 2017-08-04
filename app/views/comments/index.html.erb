@@ -1,0 +1,8 @@
+<h1>  ---> <%=@post.title %> <-------- </h1>
+<% @comments.each do |comment| %>
+  <p>
+
+  <%=link_to "#{comment.title}  ----  #{comment.text}", post_comment_path(@post, comment)%>
+
+  </p>
+<% end %>
