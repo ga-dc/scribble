@@ -7,10 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% unless current_page?(root_path) %>
+    <div class = "smalllogobox">
+      <a href= "/">
+        <%= image_tag"scribblelogo.png", class: "smalllogo" %>
+      </a>
+    </div>
+    <% end %>
+
     <nav>
-    
         <%= link_to "All Posts", posts_path %>
     </nav>
     <p class="notice"><%= notice %></p>

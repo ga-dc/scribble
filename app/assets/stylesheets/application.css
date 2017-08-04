@@ -42,12 +42,25 @@ form input, textarea {
   margin: 10px;
 }
 
+.smalllogo {
+  height: 100px;
+  margin: 5px;
+}
+
 .logobox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 18px;
+}
+
+.smalllogobox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 
 nav {

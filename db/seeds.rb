@@ -9,7 +9,7 @@
 Post.destroy_all
 Comment.destroy_all
 
-posts = Post.create(
+posts = Post.create([
 {title: "Blue Eyed Cat",
   author: "Liz Jewell",
   content: "this is a blog post",
@@ -22,6 +22,7 @@ posts = Post.create(
   is_published: false,
   img_url: "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx"
 }
+]
 )
 
 comments = Comment.create([
