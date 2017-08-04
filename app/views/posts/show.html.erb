@@ -1,0 +1,21 @@
+<h2> title:   <%=@post.title %>  </h1>
+<h2> Text:    <%=@post.text %>  </h2>
+<h2> Photo URL: <%=@post.photo_url %>  </h2>
+<h1>---------------------------------</h1>
+
+<h2> <%= link_to "EDIT POST", edit_post_path(@post)  %> </h2>
+
+<h1> The following is a list of the the comments on this post </h1>
+<ul>
+<% @post.comments.each do |comment| %>
+
+  <li>
+  <%=link_to comment.title, post_comment_path(@post, comment)%>
+  </li>
+
+<%end %>
+
+</ul>
+<h1>---------------------------------</h1>
+
+<%=link_to "CREAT A NEW COMMENT", new_post_comment_path(@post)%>
