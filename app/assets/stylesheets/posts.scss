@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.posts {
-  list-style-type: none;
-}
-
 .post {
   margin: 5px auto;
   width: 50%;
@@ -13,8 +9,15 @@
   border: 1px solid black;
 }
 
+.post * { padding: 10px 0; }
+
 .post .row {
   justify-content: space-around;
+}
+
+.tags li {
+  display: inline-block;
+  border-top: 1px solid black;
 }
 
 .title {
@@ -22,6 +25,9 @@
 
 .post-content {
   text-align: center;
+  padding-bottom:40px;
+  border-bottom: 1px solid black;
+
 }
 
 .time-updated {

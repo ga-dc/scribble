@@ -1,3 +1,11 @@
 <div class="category">
   <h2 class="name"><%= @category.name %></h2>
-</div>
+
+  <ul class="tags">
+    <h2> Associated Posts </h2>
+    <% @category.tags.each do |tag| %>
+      <li class="tag">
+        <p><%= link_to tag.post.title, post_path(tag.post) %></p>
+      </li>
+    <% end %>
+  </ul>

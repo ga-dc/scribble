@@ -31,16 +31,20 @@ jay.comments.create(
   content: "I'm a commenter, too"
 )
 
-blog = Category.create(name: "Blogging")
+blogging = Category.create(name: "Blogging")
 cooking = Category.create(name: "Cooking")
 
 Tag.create([
   {
-  category: blog,
+  category: blogging,
   post: cool_post
   },
   {
-  category: blog,
+  category: cooking,
+  post: jay
+  },
+  {
+  category: blogging,
   post: jay
   }
 ])

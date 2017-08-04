@@ -14,11 +14,26 @@
  *= require_self
  */
 
+* {
+  margin: 0;
+}
+
 body {
-  margin: auto auto;
   width: 100vw;
   height: 100vh;
   text-align: center;
+}
+
+h1 { font-size: 50px; }
+
+.header { padding: 10px 0; }
+
+.container {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: rgb(166, 144, 164);
+  background-color: rgba(166, 144, 164, 0.1);
 }
 
 .row {
@@ -29,4 +44,8 @@ body {
 .column {
   display: flex;
   flex-direction: column;
+}
+
+li {
+  list-style-type: none;
 }

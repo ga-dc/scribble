@@ -7,12 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Scribble</h1>
-  <nav>
-    <%= link_to "All Posts", posts_path %>
-  </nav>
+  <div class="container">
 
-<%= yield %>
+    <div class="header">
+      <h1>Scribble</h1>
+      <nav>
+        <%= link_to "All Posts", posts_path %> |
+        <%= link_to "Create New Post", new_post_path %>
+      </nav>
+    </div>
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>
