@@ -1,0 +1,29 @@
+<div class="post">
+  <h2 class="title"><%= @post.title %></h2>
+  <h4 class="author">By: <%= @post.author %></h4>
+  <p class="post-content"><%= @post.content %></p>
+  <div class="row">
+        <p class='time-updated'><%= @post.updated_at %></p>
+        <%= link_to "(edit post)", edit_post_path(@post) %>
+  </div>
+
+  <ul class="tags">
+    <% @post.tags.each do |tag| %>
+      <li class="tag">
+        <%= link_to tag.category.name, category_path(tag.category) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<h3>Comments: <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+
+<ul class="comments">
+  <% @post.comments.each do |comment| %>
+<%= link_to "See Comment", post_comment_path(comment.post, comment) %>
+    <li class="comment">
+      <p><%= comment.author %></p>
+      <p><%= comment.content %></p>
+    </li>
+  <% end %>
+</ul>

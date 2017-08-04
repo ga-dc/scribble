@@ -1,0 +1,14 @@
+<h2>Posts <%= link_to "(+)", new_post_path %></h2>
+<ul class="posts">
+    <% @posts.each do |post| %>
+    <li class="post">
+      <h3 class="title"><%= link_to post.title, post %></h3>
+      <p class="author"><%= post.author %></p>
+      <p class="post-content"><%= post.content %></p>
+<div class="row">
+      <p class='time-updated'><%= post.updated_at %></p>
+      <!-- <p class='view-comments'>View Comments</p> -->
+</div>
+    </li>
+  <% end %>
+</ul>

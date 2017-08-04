@@ -1,0 +1,7 @@
+<h2>New Category</h2>
+
+<%= render 'form' %>
+
+<%= form_for @category, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
