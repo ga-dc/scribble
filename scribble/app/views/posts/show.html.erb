@@ -1,0 +1,11 @@
+<h2><p><%= @post.title %> <%= link_to "(edit)", edit_post_path(@post) %></p></h2>
+<h4><%= @post.body %></h4>
+<h3>comments <%= link_to "(+)", new_post_comment_path(@comment) %></h3>
+
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.body %>
+    </li>
+  <% end %>
+</ul>
