@@ -1,0 +1,22 @@
+<h2>Edit Comment</h2>
+<% @comment.errors.full_messages.each do |key, value| %>
+<h3 class="flash"> <%= key %>:<%= value %> </h3>
+<% end %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
+
+<% if @comment.user == current_user %>
+  <%= form_for [@post, @comment], method: :delete do |f| %>
+    <%= f.submit "Delete!", class: "delete" %>
+    <% end %>
+<% end %>

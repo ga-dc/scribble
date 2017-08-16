@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perry's Posts</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header>
+      <p class="flash notice"><%= notice %></p>
+      <p class="flash alert"><%= alert %></p>
+
+      <% if !current_user %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% else %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+
+      <h1><a class="heading" href=<%= root_path %>>Perry's Posts!</a></h1>
+      <hr>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
