@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<h3>Author: <%= @post.author %></h3>
+<h5>Created on: <%= @post.created_at %></h5>
+<h5>Updated on: <%= @post.updated_at %></h5>
+<p><%= @post.body %></p>
+<h3>Comments:</h3>
+<% for comment in @post.comments %>
+  <p><%= comment.body %></p>
+  <p><%= comment.author %></p>
+  <p><%= comment.created_at %></p>
+<% end %>
+<h5><%= link_to "New Comment", new_post_comment_path(@post) %></h5>
