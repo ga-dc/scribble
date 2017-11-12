@@ -9,7 +9,9 @@
   <p><%= comment.author %></p>
   <p><%= comment.created_at %></p>
   <h5><%= link_to "Edit Comment", edit_post_comment_path(@post,comment) %></h5>
+  <h5><%= link_to "Delete Comment", post_comment_path(@post,comment), method: :delete %></h5>
 <% end %>
 <h5><%= link_to "Edit Post", edit_post_path(@post) %></h5>
+<h5><%= link_to "Delete Post", post_path(@post), method: :delete %></h5>
 <h5><%= link_to "New Comment", new_post_comment_path(@post) %></h5>
 <h4><%= link_to "All Posts", posts_path %></h4>
