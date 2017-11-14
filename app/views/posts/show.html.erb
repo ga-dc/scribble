@@ -1,4 +1,5 @@
 <h2><%= @post.title %></h2>
+<h3><%= link_to "(edit)", edit_post_path %></h3>
 <h4>Author: <%= @post.author %></h4>
 <h5>Post Date: <%= @post.updated_at %></h5>
 <p><%= @post.content %></p>
@@ -13,5 +14,11 @@
   </div>
   <% end %>
 </div>
+
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete Post", class: "delete" %>
+<% end %>
+
+<br>  
 
 <%= link_to "Back to All Posts", posts_path %>
