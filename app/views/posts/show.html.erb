@@ -4,13 +4,15 @@
 <h5>Post Date: <%= @post.updated_at %></h5>
 <p><%= @post.content %></p>
 
-<h3>Comments</h3>
+<h3>Comments <%= link_to "(+)", new_post_comment_path(@post) %></h3>
+
 <div class="comment-container">
   <% @post.comments.each do |comment| %>
   <div class="comment">
     <h4><%= comment.author %></h4>
     <h5><%= comment.updated_at %></h5>
     <p><%= comment.content %><p>
+    <p><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></p>  
   </div>
   <% end %>
 </div>
@@ -19,6 +21,6 @@
   <%= f.submit "Delete Post", class: "delete" %>
 <% end %>
 
-<br>  
+<br>
 
 <%= link_to "Back to All Posts", posts_path %>
