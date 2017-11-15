@@ -4,7 +4,6 @@ class AddAttributesToPosts < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :author
       t.text :content
-      t.integer :likes
       t.datetime :created_at
     end
   end

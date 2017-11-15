@@ -17,16 +17,18 @@ ActiveRecord::Schema.define(version: 20171110193630) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
-    t.text "comments"
+    t.text "comment"
+    t.bigint "post_id"
     t.datetime "commented_at"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.text "content"
-    t.integer "likes"
     t.datetime "created_at"
   end
 
+  add_foreign_key "comments", "posts"
 end

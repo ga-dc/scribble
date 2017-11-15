@@ -1,0 +1,9 @@
+<ul>
+  <% @posts.each do |post| %>
+  <p>
+    <li>
+      <a href="posts/<%= post.id %>"> <%= "#{post.title}" %> by <%= "#{post.author}" %></a>
+    </li>
+  <% end %>
+  </p>
+</ul>
