@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110181839) do
+ActiveRecord::Schema.define(version: 20171116221002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "author"
@@ -32,5 +38,16 @@ ActiveRecord::Schema.define(version: 20171110181839) do
     t.datetime "updated_at"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_tags_on_category_id"
+    t.index ["post_id"], name: "index_tags_on_post_id"
+  end
+
   add_foreign_key "comments", "posts"
+  add_foreign_key "tags", "categories"
+  add_foreign_key "tags", "posts"
 end

@@ -12,10 +12,14 @@
     <h4><%= comment.author %></h4>
     <h5><%= comment.updated_at %></h5>
     <p><%= comment.content %><p>
-    <p><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></p>  
+    <p><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></p>
   </div>
   <% end %>
 </div>
+
+<% @post.categories.each do |category| %>
+  <p><%= category.name %></p>
+<% end %>
 
 <%= form_for @post, method: :delete do |f| %>
   <%= f.submit "Delete Post", class: "delete" %>
