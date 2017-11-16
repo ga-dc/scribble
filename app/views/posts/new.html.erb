@@ -1,0 +1,15 @@
+<h2>New Post</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :author, "Author name" %>
+  <%= f.text_field :author %>
+
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content, "Post content" %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+
+<% end %>
