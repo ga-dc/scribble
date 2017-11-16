@@ -1,17 +1,19 @@
 <h1><%= @post.title %></h1>
-<h3>Author: <%= @post.author %></h3>
-<h5>Created on: <%= @post.created_at %></h5>
-<h5>Updated on: <%= @post.updated_at %></h5>
-<p><%= @post.body %></p>
+<p>Tags: <% for category in @post.categories %>
+  <%= link_to category.title, category_path(category) %>
+<% end %></p>
+<h3>By: <%= @post.author %></h3>
+<h5>Created on: <%= @post.created_at.strftime("%b %d, %Y") %> / Updated on: <%= @post.updated_at.strftime("%b %d, %Y") %></h5>
+<p class="body"><%= @post.body %></p>
 <h3>Comments:</h3>
 <% for comment in @post.comments %>
   <p><%= comment.body %></p>
-  <p><%= comment.author %></p>
-  <p><%= comment.created_at %></p>
+  <p>Author: <%= comment.author %> / Created on: <%= comment.created_at.strftime("%b %d, %Y") %></p>
   <h5><%= link_to "Edit Comment", edit_post_comment_path(@post,comment) %></h5>
-  <h5><%= link_to "Delete Comment", post_comment_path(@post,comment), method: :delete %></h5>
+  <h5 class="delete"><%= link_to "Delete Comment", post_comment_path(@post,comment), method: :delete %></h5>
 <% end %>
 <h5><%= link_to "Edit Post", edit_post_path(@post) %></h5>
 <h5><%= link_to "Delete Post", post_path(@post), method: :delete %></h5>
 <h5><%= link_to "New Comment", new_post_comment_path(@post) %></h5>
+<h5><%= link_to "Add Tag", new_post_tag_path(@post) %></h5>
 <h4><%= link_to "All Posts", posts_path %></h4>

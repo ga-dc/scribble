@@ -8,6 +8,8 @@
 
 Post.destroy_all
 Comment.destroy_all
+Category.destroy_all
+Tag.destroy_all
 
 first_post = Post.create({title: "First Post", body: "blah blah blah", author: "Sloan"})
 second_post = Post.create({title: "Second Post", body: "blah blah blah", author: "Martha"})
@@ -25,3 +27,9 @@ second_post.comments.create({body: "blah blah blah", author: "Troll 3"})
 third_post.comments.create({body: "blah blah blah", author: "Troll 1"})
 third_post.comments.create({body: "blah blah blah", author: "Troll 2"})
 third_post.comments.create({body: "blah blah blah", author: "Troll 3"})
+
+Category.create(title: "sports")
+Category.create(title: "politics")
+Category.create(title: "style")
+Category.create(title: "literature")
+Category.create(title: "business")

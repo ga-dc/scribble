@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+.body {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  padding: 2%;
+}
+
+.delete {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+  padding: 0px 0px 2% 0px;
+}

@@ -1,0 +1,8 @@
+<h2><%= @category.title %></h2>
+<% if @category.posts.length > 0 %>
+  <h3>Posts:</h3>
+<% end %>
+<% for post in @category.posts %>
+  <p><%= link_to post.title, post_path(post) %></p>
+<% end %>
+<h4><%= link_to "Return to all posts", root_path %></h4>

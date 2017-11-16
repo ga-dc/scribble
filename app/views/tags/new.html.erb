@@ -1,0 +1,9 @@
+<h1>Add tags to <%= @post.title %></h1>
+
+<%= form_for [@post, @tag] do |f|  %>
+<%= f.label :category %>
+<%= f.text_field :category %>
+
+<%= f.submit "Create" %>
+
+<% end %>
