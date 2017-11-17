@@ -2,7 +2,7 @@
   <h3><%= @post.subject %></h3>
   <p><%= @post.text %></p>
   <div class='links'>
-    <p><%= button_to "Back", posts_path %></p>
+    <p><%= button_to "Back", posts_path, method: :get %></p>
     <p><%= button_to "Comment", new_post_comment_path(@post), method: :get %></p>
     <p><%= button_to "Edit", edit_post_path, method: :get %></p>
   </div>

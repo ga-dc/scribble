@@ -4,7 +4,7 @@
     <p><%= f.text_area :text, :size => "40x10" %></p>
     <p>
       <%= f.submit %>
-      <%= button_to "Back", posts_path %></p>
+      <%= button_to "Back", posts_path, method: :get %></p>
     </p>
   <% end %>
 </div>
