@@ -31,6 +31,7 @@ header {
 
 main {
   display: flex;
+  flex-direction: column;
 }
 
 .form,
@@ -39,7 +40,7 @@ main {
   display: flex;
   padding: 0 30px;
   background-color: lemonchiffon;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .post,
@@ -73,7 +74,7 @@ a {
 }
 
 .comment {
-  background-color: lightgrey;
   border-radius: 10px;
   padding: 10px;
+  border: 2px solid lemonchiffon;
 }
