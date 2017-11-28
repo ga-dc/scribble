@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  color: darkgrey;
+  font-size: 50px;
+  letter-spacing: 0.5em;
+  margin: 30px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.form,
+.post,
+.index {
+  display: flex;
+  padding: 0 30px;
+  background-color: lemonchiffon;
+  border-radius: 10px;
+}
+
+.post,
+.index {
+  flex-direction: column;
+}
+
+.index {
+  align-items: center;
+}
+
+.post h3,
+.post p {
+  background-color: white;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  padding: 5px;
+}
+
+.links {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.links p {
+  padding: 0;
+}
+
+.comment {
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid lemonchiffon;
+}

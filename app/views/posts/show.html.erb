@@ -1,0 +1,19 @@
+<div class='post'>
+  <h3><%= @post.subject %></h3>
+  <p><%= @post.text %></p>
+  <div class='links'>
+    <p><%= button_to "Back", posts_path, method: :get %></p>
+    <p><%= button_to "Comment", new_post_comment_path(@post), method: :get %></p>
+    <p><%= button_to "Edit", edit_post_path, method: :get %></p>
+  </div>
+</div>
+
+<% @post.comments.each do | comment | %>
+  <div class='comment'>
+    <p><%= comment.text %> </p>
+    <div class='links'>
+      <p><%= button_to "Edit", edit_post_comment_path(@post, comment), method: :get %></p>
+      <p><%= button_to "Delete", post_comment_path(@post, comment), method: :delete %></p>
+    </div>
+  </div>
+<% end %>
