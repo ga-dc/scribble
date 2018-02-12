@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   #show
   def show
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[comment_params])
+    @comment = @post.comments.find(params[:id])
     redirect_to edit_post_comment_path(@post, @comment)
   end
 
