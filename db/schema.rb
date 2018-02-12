@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20180211210709) do
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.bigint "posts_id"
-    t.index ["posts_id"], name: "index_comments_on_posts_id"
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -28,5 +28,5 @@ ActiveRecord::Schema.define(version: 20180211210709) do
     t.string "content"
   end
 
-  add_foreign_key "comments", "posts", column: "posts_id"
+  add_foreign_key "comments", "posts"
 end
