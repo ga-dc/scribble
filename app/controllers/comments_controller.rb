@@ -13,27 +13,27 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create!(comment_params)
-
     redirect_to post_path(@post)
   end
 
   #show
   def show
-    @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[comment_params])
+    redirect_to edit_post_comment_path(@post, @comment)
   end
 
   # edit
   def edit
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 
   # update
   def update
     @post = Post.find(params[:artist_id])
-    @comment = Comment.find(params[:id])
+    @comment = @post.comments.find(params[:id])
     @comment.update(comment_params)
-
     redirect_to post_path(@post)
   end
 
@@ -42,12 +42,11 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-
     redirect_to post_path(@post)
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:title, :content)
+    params.require(:comment).permit(:title, :comment, :post_id)
   end
 end

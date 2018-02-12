@@ -1,3 +1,4 @@
-<h2><%= @comment.title %> <%= link_to "(edit)", edit_post_comment_path(@comment.post, @comment) %></h2>
-<h3>By: <%= @comment.post.title %></h3>
+<h2><%= @comment.comment %></h2>
+<h3>By: <%= @comment.title %></h3>
+<%= link_to "(edit)", edit_post_comment_path(@post, @comment) %>
 
