@@ -1,6 +1,10 @@
 class SongsController < ApplicationController
-  
-#   post_comments_path, GET /posts/:post_id/comments,	comments#index
+
+#   new_post_comment_path, GET /posts/:post_id/comments/new, comments#new
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
+  end
 
 #   post_comments_path, POST /posts/:post_id/comments, comments#create
   def create
@@ -10,10 +14,9 @@ class SongsController < ApplicationController
     redirect_to artist_path(@artist)
   end
 
-#   new_post_comment_path, GET /posts/:post_id/comments/new, comments#new
-  def new
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.new
+#   post_comment_path,	GET	/posts/:post_id/comments/:id, comments#show
+  def show
+    @comment = Comment.find(params[:id])
   end
 
 #   edit_post_comment_path, GET /posts/:post_id/comments/:id/edit, comments#edit
@@ -21,13 +24,6 @@ class SongsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
   end
-
-#   post_comment_path,	GET	/posts/:post_id/comments/:id, comments#show
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-#   post_comment_path,	PATCH /posts/:post_id/comments/:id, comments#update
 
 #   post_comment_path,	PUT /posts/:post_id/comments/:id, comments#update
   def update
