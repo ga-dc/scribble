@@ -25,8 +25,8 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 ## Models + Migrations
 
 - Create ERD for Post and Comment
-- Create models for Post and Comment
-- Create migrations for Post and Comment
+- Create models for Post and Comment ✅
+- Create migrations for Post and Comment ✅
 
 ## Index
 
