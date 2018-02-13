@@ -1,6 +1,8 @@
-#posts_path, for post#index
+class PostsController < ApplicationController
+    
+  #posts_path, for post#index
   def index
-    @postss = Post.all
+    @posts = Post.all
   end
 
   # new_post_path, for posts#new
@@ -8,13 +10,13 @@
     @post = Post.new
   end
 
- # posts_path, for posts#create
+  # posts_path, for posts#create
   def create
     @post = Post.create!(post_params)
     redirect_to post_path(@post)
   end
 
-# post_path, for posts#show
+  # post_path, for posts#show
   def show
     @post = Post.find(params[:id])
   end
