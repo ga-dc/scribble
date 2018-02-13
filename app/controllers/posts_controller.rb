@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   # posts_path, for posts#create
   def create
     @post = Post.create!(post_params)
-    redirect_to post_path(@post)
+    redirect_to posts_path
   end
 
   # post_path, for posts#show
