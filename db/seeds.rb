@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require_relative './comment_data.rb'
+require_relative './post_data.rb'
+
+Comment.destroy_all
+Post.destroy_all
+
+comment_data = get_comment_data()
+post_data = get_post_data()
+
+comment_data.each_pair do |post_pContent, comments|
+  info = post_data[post_pContent]
+  current_post = Post.create!({
+    pContent:         info[:pContent]
+  })
+
+  comments.each do |comment|
+    Comment.create!({
+      cContent:        comment[:cContent],
+      post: current_post
+    })
+  end
+end
