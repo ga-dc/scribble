@@ -1,4 +1,10 @@
-class SongsController < ApplicationController
+class CommentsController < ApplicationController
+
+  # index
+  def index
+      @post = Post.find(params[:post_id])
+      @comment = @post.comments
+  end
 
 #   new_post_comment_path, GET /posts/:post_id/comments/new, comments#new
   def new
