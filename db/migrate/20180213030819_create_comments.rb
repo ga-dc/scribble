@@ -1,3 +1,4 @@
+# Ref: https://git.generalassemb.ly/ga-wdi-lessons/rails-activerecord
 class CreateComments < ActiveRecord::Migration[5.1]
   def change
     create_table :comments do |t|

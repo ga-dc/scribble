@@ -50,6 +50,10 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 
 - Allow the user to delete existing posts and comments.
 
+## References as cited by me...
+- Prof. Kevon
+- https://git.generalassemb.ly/ga-wdi-lessons/rails-activerecord
+- https://git.generalassemb.ly/ga-wdi-lessons/rails-views#we-do-artists-create-action
 ## Bonus
 
 Create two additional models: Category and Tag.
