@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create!(comment_params)
 
-    redirect_to artist_path(@artist)
+    redirect_to post_path(@post)
   end
 
 #   post_comment_path,	GET	/posts/:post_id/comments/:id, comments#show
