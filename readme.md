@@ -1,3 +1,9 @@
+Referenced this lesson to aid with setup of models and migrations:  
+https://git.generalassemb.ly/ga-wdi-lessons/rails-activerecord  
+
+Referenced this lesson to aid with setting up views and controllers:  
+https://git.generalassemb.ly/ga-wdi-lessons/rails-views
+
 # Scribble
 
 ![](https://dl.dropboxusercontent.com/s/8frf8rblw6pnpds/hipsterlogogenerator_1438007087793.png?dl=0)
