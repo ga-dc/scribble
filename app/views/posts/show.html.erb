@@ -1,8 +1,8 @@
 <h2><%= @post.topic %> <a href="/posts/<%= @post.id %>/edit">(edit)</a></h2>
-
+<p><%= @post.content%></p>
 <h3>Comments</h3>
 <ul>
-  <% @house.comments.each do |comment| %>
+  <% @post.comments.each do |comment| %>
     <li>
       <a href="/comments/<%= comment.id %>">
         <%= comment.topic %> (<%= comment.post.topic %>)
