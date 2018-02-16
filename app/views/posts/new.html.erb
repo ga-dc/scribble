@@ -1,0 +1,16 @@
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->
+<h2>New Post</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :topic %>
+  <%= f.text_field :topic %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit "Create" %>
+<% end %>
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->
