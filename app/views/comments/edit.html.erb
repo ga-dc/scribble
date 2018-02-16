@@ -1,0 +1,16 @@
+<h2>Edit Comment #<%= @comment.id %></h2>
+<h4>from the post: <a href="/posts/<%= @comment.post.id %>"><%= @comment.post.title %></a></h4>
+
+<%= form_for @comment, url: "/comments/#{@comment.id}", method: :put do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit "Edit" %>
+<% end %>
+
+<%= form_for @comment, url: "/comments/#{@comment.id}", method: :delete do |f| %>
+  <% f.submit "Delete", class: "btn-delete" %>
+<% end %>
