@@ -1,0 +1,11 @@
+<h2>Leave a Comment</h2>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :author, "Name:" %>
+  <%= f.text_field :author %>
+
+  <%= f.label :content, "Comment:" %>
+  <%= f.text_field :content %>
+
+  <%= f.submit "Leave Comment" %>
+<% end %>
