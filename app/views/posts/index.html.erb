@@ -1,0 +1,8 @@
+<!--Prof Kevon explained to me how to display the comments on the same of the post.-->
+
+<h1>Posts <a href="/posts/new">(+)</a></h1>
+<% @posts.each do |post| %>
+  <div class="post">
+    <p><%= link_to post.title, post %></p>
+  </div>
+<% end %>

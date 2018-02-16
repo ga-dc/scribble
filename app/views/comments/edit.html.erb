@@ -1,0 +1,14 @@
+<!-- Ref: https://git.generalassemb.ly/ga-wdi-exercises/tunr-rails-5-->
+<h2>Edit <%= @comment.author %></h2>
+
+<%= form_for @comment, url: "/comments/#{@comment.id}", method: :put do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :text %>
+
+  <%= f.submit "Edit" %>
+<% end %>
+
+<%= form_for @comment, url: "/comments/#{@comment.id}", method: :delete do |f| %>
+  <% f.submit "Delete", class: "btn-delete" %>
+<% end %>
+

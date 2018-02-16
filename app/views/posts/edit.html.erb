@@ -1,0 +1,16 @@
+<!-- Ref: https://git.generalassemb.ly/ga-wdi-exercises/tunr-rails-5-->
+<!--Prof Kevon explained to me how to display the comments on the same of the post.-->
+
+<h2>Edit <%= @post.title %></h2>
+
+<%= form_for @post, url: "/posts/#{@post.id}", method: :put do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :text %>
+
+  <%= f.submit "Edit" %>
+<% end %>
+
+<%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
+  <% f.submit "Delete", class: "btn-delete" %>
+<% end %>
+
