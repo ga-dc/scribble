@@ -1,7 +1,7 @@
-<h1>You can post something here <a href="/post/new">(+)</a></h1>
+<h1>You can post something here <a href="/posts/new">(+)</a></h1>
 
 <ul>
-    <% @post.each do |post| %>
+    <% @posts.each do |post| %>
         <li>
             <h2><a href="/posts/><%= post.id %>">
             <%= post.title %></a></h2>
