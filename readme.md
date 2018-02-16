@@ -53,7 +53,7 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 ## References as cited by me...
 - Prof. Kevon
 -Prof Kevon explained to me how to display the comments on the same of the post using a variable.
-- https://git.generalassemb.ly/ga-wdi-exercises/tunr-rails-5
+- Views & Controllers Lesson https://git.generalassemb.ly/ga-wdi-lessons/rails-views
 - https://git.generalassemb.ly/ga-wdi-lessons/rails-activerecord
 - https://git.generalassemb.ly/ga-wdi-lessons/rails-views#we-do-artists-create-action
 ## Bonus
