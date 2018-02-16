@@ -1,0 +1,15 @@
+<h2><%= @posts.title %> <a href="/posts/<%= @posts.id %>/edit">(edit)</a></h2>
+<h4><%= @posts.author %></h4>
+<p><%= @posts.body %></p>
+<img class='post-photo' src"<= @posts.img_url %>">
+
+<h3>Post</h3>
+<ul>
+  <% @posts.comments.each do |comment| %>
+    <li>
+      <a href="/comments/<%= comment.id %>">
+        <%= comment.body %>
+      </a>
+    </li>
+  <% end %>
+</ul>
