@@ -1,3 +1,4 @@
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE ALONG WITH PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK
 class CommentsController < ApplicationController
     # https://git.generalassemb.ly/ga-wdi-exercises/game_of_thrones
     # comments == charcters
@@ -42,3 +43,4 @@ class CommentsController < ApplicationController
             params.require(:comment).permit(:author, :content, :post_id)
           end
         end
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE ALONG WITH PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->

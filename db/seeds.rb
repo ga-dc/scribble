@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE. SEE REFERENCES.md FILE FOR LINK -->
 
 Post.destroy_all
 Comment.destroy_all
@@ -16,6 +17,7 @@ second_post = Post.create(topic: 'Music', author: 'Anna', content: 'Kazaa bop it
 
 Comment.create(author:'Denzel', content:'Denzel washington rocko’s modern life braveheart bleached hair chia pet. Aerosmith macaulay culkin I will be your father figure slap bracelet pogs whitney houston. Move it football head minesweeper velcro sneakers pokémon bubble tape sega genesis. Ford explorer extreme sports pizza bagels zack morris lisa frank, furby aviators jurassic park ford taurus kurt cobain. Chronic skate tees hottie oregon trail.', post: first_post)
 Comment.create(author:'Mariah', content:'Royal stewart tartan ross and rachel mariah carey cutoff jeans, encarta nylon windbreaker beanie babies keds. Bubble tape atlanta summer olympics glow in the dark stickers girl power, umbro shorts toyota supra cheetos jim carrey. Cut-off jean shorts internet smashing pumpkins playa sega genesis, oversized sweaters scrolling text hip hop adidas hootie and the blowfish.', post: second_post)
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE. SEE REFERENCES.md FILE FOR LINK -->
 
 
 # posts = Post.create([

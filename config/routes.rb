@@ -1,3 +1,5 @@
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE. SEE REFERENCES.md FILE FOR LINK
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get    '/posts'                 => 'posts#index'
@@ -15,3 +17,4 @@ Rails.application.routes.draw do
   put    '/comments/:id'       => 'comments#update'
   delete '/comments/:id'       => 'comments#destroy'
 end
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE ALONG WITH PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK

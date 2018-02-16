@@ -1,3 +1,5 @@
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->
+
 <h2>Edit <%= @post.topic %></h2>
 
 <%= form_for @post, url: "/posts/#{@post.id}", method: :put do |f| %>
@@ -16,3 +18,4 @@
 <%= form_for @post, url: "/posts/#{@post.id}", method: :delete do |f| %>
   <% f.submit "Delete", class: "btn-delete" %>
 <% end %>
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->

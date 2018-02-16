@@ -1,3 +1,5 @@
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->
+
 <h2>Edit Comment</h2>
 
 <%= form_for @comment, url: "/comments/#{@comment.id}", method: :put do |f| %>
@@ -13,3 +15,4 @@
 <%= form_for @comment, url: "/comments/#{@comment.id}", method: :delete do |f| %>
   <% f.submit "Delete", class: "btn-delete" %>
 <% end %>
+<!--USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE AND PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->

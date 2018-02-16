@@ -1,5 +1,4 @@
-
-
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE ALONG WITH PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK -->
 class PostsController < ApplicationController
     def index
         @posts = Post.all
@@ -39,3 +38,4 @@ class PostsController < ApplicationController
         params.require(:post).permit(:topic, :author, :content)
       end
     end
+# USED TUNR-RAILS-5 LESSON AS A REFERENCE FOR THIS FILE ALONG WITH PREVIOUS OFFICE HOURS. SEE REFERENCES.md FILE FOR LINK
