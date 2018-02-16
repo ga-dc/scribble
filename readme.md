@@ -40,19 +40,20 @@ The `.` creates a new Rails app inside the *CURRENT* folder. Otherwise, it creat
 
 ## Create
 
-- Allow the user to create new posts and comments
+- Allow the user to create new posts and comments ✅
 
 ## Update
 
-- Allow the user to edit existing posts and comments
+- Allow the user to edit existing posts and comments✅
 
 ## Delete 
 
-- Allow the user to delete existing posts and comments.
+- Allow the user to delete existing posts and comments.✅
 
 ## References as cited by me...
 - Prof. Kevon
--Prof Kevon explained to me how to display the comments on the same of the post.
+-Prof Kevon explained to me how to display the comments on the same of the post using a variable.
+- https://git.generalassemb.ly/ga-wdi-exercises/tunr-rails-5
 - https://git.generalassemb.ly/ga-wdi-lessons/rails-activerecord
 - https://git.generalassemb.ly/ga-wdi-lessons/rails-views#we-do-artists-create-action
 ## Bonus
