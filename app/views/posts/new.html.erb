@@ -1,0 +1,21 @@
+<h2>New Post</h2>
+<%= form_for @post do |f| %>
+  <div class="">
+    <%= f.label :author, "Author:" %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div class="">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="">
+    <%= f.label :content, "Content:" %>
+    <%= f.text_field :content %>
+  </div>
+  
+  <%= f.submit %>
+<% end %>
+
+<a href="/posts">Back to posts</a>
